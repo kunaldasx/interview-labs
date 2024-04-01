@@ -1,5 +1,7 @@
 """Authentication API endpoints."""
-from fastapi import APIRouter, Depends
+import logging
+
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlmodel import select
 
@@ -8,6 +10,8 @@ from app.core.security import get_password_hash, create_access_token, create_ref
 from app.models.user import User, UserRole
 from app.schemas.user import UserCreate, UserLogin, UserUpdate, UserResponse, TokenResponse, TokenRefresh
 from app.services.auth_service import AuthService
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter()
 
@@ -35,30 +39,34 @@ async def refresh_token(data: TokenRefresh, db: AsyncSession = Depends(get_db)):
 @router.post("/demo", response_model=TokenResponse)
 async def demo_login(db: AsyncSession = Depends(get_db)):
     """One-click demo login. Creates demo user if needed and returns tokens."""
-    result = await db.execute(select(User).where(User.email == "demo@hireez.com"))
-    user = result.scalar_one_or_none()
+    try:
+        result = await db.execute(select(User).where(User.email == "demo@hireez.com"))
+        user = result.scalar_one_or_none()
 
-    if not user:
-        user = User(
-            email="demo@hireez.com",
-            hashed_password=get_password_hash("DemoPass123"),
-            full_name="Demo User",
-            role=UserRole.HR_MANAGER,
-            is_active=True,
-        )
-        db.add(user)
-        await db.flush()
-        await db.refresh(user)
+        if not user:
+            user = User(
+                email="demo@hireez.com",
+                hashed_password=get_password_hash("DemoPass123"),
+                full_name="Demo User",
+                role=UserRole.HR_MANAGER,
+                is_active=True,
+            )
+            db.add(user)
+            await db.flush()
+            await db.refresh(user)
 
-    access_token = create_access_token({"sub": str(user.id)})
-    refresh_token = create_refresh_token({"sub": str(user.id)})
+        access_token = create_access_token({"sub": str(user.id)})
+        new_refresh_token = create_refresh_token({"sub": str(user.id)})
 
-    return {
-        "access_token": access_token,
-        "refresh_token": refresh_token,
-        "token_type": "bearer",
-        "user": user,
-    }
+        return {
+            "access_token": access_token,
+            "refresh_token": new_refresh_token,
+            "token_type": "bearer",
+            "user": user,
+        }
+    except Exception as e:
+        logger.exception("Demo login failed")
+        raise HTTPException(status_code=500, detail=f"Demo login failed: {str(e)}")
 
 
 @router.get("/me", response_model=UserResponse)

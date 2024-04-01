@@ -22,8 +22,8 @@ export default function LoginPage() {
       localStorage.setItem('refresh_token', data.refresh_token);
       toast.success('Welcome to the demo!');
       navigate('/dashboard');
-    } catch {
-      toast.error('Demo login failed. Please try again.');
+    } catch (err: any) {
+      toast.error(err.response?.data?.detail || 'Demo login failed. Please try again.');
     } finally {
       setDemoLoading(false);
     }
