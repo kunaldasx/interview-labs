@@ -1,4 +1,5 @@
 import asyncio
+import sys
 from logging.config import fileConfig
 
 from alembic import context
@@ -7,6 +8,10 @@ from sqlalchemy.ext.asyncio import create_async_engine
 from sqlmodel import SQLModel
 
 from app.core.config import settings
+
+# Windows requires SelectorEventLoopPolicy for psycopg async
+if sys.platform == "win32":
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 config = context.config
 if config.config_file_name is not None:
@@ -37,9 +42,17 @@ def do_run_migrations(connection):
 
 
 async def run_async_migrations() -> None:
+    # Build connect_args for Supabase (Supavisor) compatibility
+    connect_args: dict = {}
+    if "supabase" in settings.DATABASE_URL:
+        connect_args = {
+            "prepare_threshold": None,  # Disable prepared statements
+        }
+
     connectable = create_async_engine(
         settings.DATABASE_URL,
         poolclass=pool.NullPool,
+        connect_args=connect_args,
     )
     async with connectable.connect() as connection:
         await connection.run_sync(do_run_migrations)
