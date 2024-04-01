@@ -1,0 +1,184 @@
+{
+  "name": "Supply Chain Management",
+  "slug": "supply_chain",
+  "sector": "Manufacturing",
+  "sector_slug": "manufacturing",
+  "description": "Interview questions focused on procurement, logistics coordination, inventory control, supplier management, demand planning, supply chain optimization, vendor evaluation, and distribution networks in manufacturing environments.",
+  "questions": [
+    {
+      "question_text": "Explain the difference between Material Requirements Planning (MRP) and Manufacturing Resource Planning (MRP II), and how they support supply chain operations.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "MRP (Material Requirements Planning) is a system that calculates the materials and components needed for production based on the bill of materials, current inventory levels, and the master production schedule. It determines what to order, how much to order, and when to order. MRP II (Manufacturing Resource Planning) extends MRP by integrating additional functions such as capacity planning, shop floor control, financial planning, and demand management. MRP II provides a more comprehensive view of manufacturing operations by linking production planning with business and financial planning. Together, they help supply chain professionals ensure materials arrive on time, production capacity is available, and costs are controlled.",
+      "keywords": ["MRP", "MRP II", "bill of materials", "master production schedule", "capacity planning", "inventory", "demand management"]
+    },
+    {
+      "question_text": "What is the bullwhip effect in supply chain management, and what strategies can be used to mitigate it?",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "The bullwhip effect refers to the phenomenon where small fluctuations in consumer demand become amplified as orders move upstream through the supply chain, causing progressively larger swings in inventory and ordering at each tier. This results in excess inventory, stockouts, inefficient production scheduling, and increased costs. Mitigation strategies include: sharing point-of-sale data across the supply chain for better demand visibility, implementing Vendor Managed Inventory (VMI), using Collaborative Planning Forecasting and Replenishment (CPFR), reducing order lead times, eliminating order batching through more frequent smaller orders, stabilizing pricing to reduce forward buying, and implementing demand-driven replenishment rather than forecast-driven ordering.",
+      "keywords": ["bullwhip effect", "demand amplification", "VMI", "CPFR", "demand visibility", "lead time", "order batching", "forward buying"]
+    },
+    {
+      "question_text": "Describe the key components of a Total Cost of Ownership (TCO) analysis when evaluating suppliers.",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "Total Cost of Ownership goes beyond the purchase price to capture all costs associated with acquiring and using a product or service over its lifecycle. Key components include: acquisition costs (unit price, tooling, minimum order quantities), logistics costs (freight, customs duties, insurance, warehousing), quality costs (inspection, rework, scrap, warranty claims, returns), operational costs (lead time variability, safety stock requirements, expediting), administrative costs (purchase order processing, supplier audits, communication), risk costs (supply disruption, currency fluctuation, geopolitical risk), and end-of-life costs (disposal, recycling). TCO analysis enables more informed supplier selection by revealing hidden costs that may make a seemingly cheaper supplier more expensive overall.",
+      "keywords": ["TCO", "total cost of ownership", "acquisition cost", "logistics cost", "quality cost", "hidden costs", "supplier evaluation", "lifecycle cost"]
+    },
+    {
+      "question_text": "What is the Economic Order Quantity (EOQ) model, and what are its key assumptions and limitations?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "The Economic Order Quantity model calculates the optimal order quantity that minimizes the total inventory costs, which consist of ordering costs (purchase orders, receiving, inspection) and holding costs (storage, insurance, obsolescence, capital cost). The EOQ formula is the square root of (2 times annual demand times ordering cost per order divided by annual holding cost per unit). Key assumptions include constant and known demand, fixed ordering and holding costs, instantaneous replenishment, and no quantity discounts. Limitations include that real-world demand fluctuates, lead times vary, quantity discounts often exist, and items may have shelf-life constraints. Despite these limitations, EOQ provides a useful starting point for inventory ordering decisions.",
+      "keywords": ["EOQ", "economic order quantity", "ordering cost", "holding cost", "inventory optimization", "reorder point", "demand"]
+    },
+    {
+      "question_text": "Explain the difference between push and pull supply chain strategies and when each is appropriate.",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "A push strategy produces goods based on forecasted demand before customer orders are received. Production and inventory decisions are driven by long-term demand predictions. This works well for products with stable, predictable demand, long production lead times, or when economies of scale are significant. A pull strategy produces goods in response to actual customer demand, triggering production and replenishment only when orders are placed. This minimizes inventory and waste but requires shorter lead times and flexible production. Many companies use a hybrid push-pull strategy where the decoupling point separates push activities (upstream, forecast-driven) from pull activities (downstream, demand-driven). The optimal strategy depends on demand variability, lead times, product customization, and cost structure.",
+      "keywords": ["push strategy", "pull strategy", "forecast-driven", "demand-driven", "decoupling point", "make-to-stock", "make-to-order", "hybrid"]
+    },
+    {
+      "question_text": "What are the key performance indicators (KPIs) you would use to measure supply chain effectiveness?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Key supply chain KPIs include: Perfect Order Rate (percentage of orders delivered complete, on time, damage-free, and with correct documentation), Order Fill Rate (percentage of orders fulfilled from available stock), Inventory Turnover (cost of goods sold divided by average inventory, indicating how efficiently inventory is used), Days of Supply (average number of days current inventory will last), Cash-to-Cash Cycle Time (days between paying for raw materials and receiving payment from customers), Supply Chain Cost as Percentage of Revenue, On-Time Delivery Rate, Supplier Quality Rating (defect rates from suppliers), Freight Cost per Unit, and Forecast Accuracy (measuring demand planning effectiveness). These KPIs should be tracked regularly and benchmarked against industry standards.",
+      "keywords": ["KPI", "perfect order rate", "fill rate", "inventory turnover", "days of supply", "cash-to-cash", "on-time delivery", "forecast accuracy"]
+    },
+    {
+      "question_text": "How does a Safety Stock calculation work, and what factors influence the required safety stock level?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Safety stock is the extra inventory held to buffer against uncertainty in demand and supply lead times. The basic calculation uses the formula: Safety Stock equals the Z-score (service level factor) multiplied by the standard deviation of demand during lead time. Factors influencing the required level include: demand variability (higher variability requires more safety stock), lead time variability (longer and more variable lead times increase the need), desired service level (higher service level targets require more buffer), forecast accuracy (less accurate forecasts need more safety stock), supplier reliability (unreliable suppliers require more buffer), and product criticality (mission-critical items may justify higher levels). Balancing safety stock involves trading off between the cost of carrying excess inventory and the cost of stockouts.",
+      "keywords": ["safety stock", "service level", "demand variability", "lead time", "Z-score", "stockout", "buffer inventory", "forecast accuracy"]
+    },
+    {
+      "question_text": "What is ABC analysis in inventory management, and how does it guide inventory control strategies?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "ABC analysis is an inventory categorization technique based on the Pareto principle (80/20 rule). Items are classified into three categories: A items represent roughly 10-20% of items but 70-80% of total inventory value, requiring tight control, frequent review, accurate forecasting, and low safety stock with frequent replenishment. B items represent about 30% of items and 15-25% of value, requiring moderate control and periodic review. C items represent 50-60% of items but only 5-10% of value, managed with simple controls, higher safety stock, and less frequent review. This classification helps companies allocate management attention and resources proportionally to the financial impact of each item category, optimizing both service levels and inventory investment.",
+      "keywords": ["ABC analysis", "Pareto principle", "inventory classification", "A items", "B items", "C items", "inventory value", "inventory control"]
+    },
+    {
+      "question_text": "Describe a procurement strategy you would implement to manage risk in a single-source supply situation.",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "Managing single-source risk requires a multi-layered strategy. First, conduct a thorough risk assessment of the supplier including financial health, geopolitical exposure, natural disaster vulnerability, and capacity constraints. Develop a dual-sourcing or multi-sourcing qualification plan to identify and qualify alternative suppliers, even if not immediately used. Negotiate long-term contracts with the existing supplier that include capacity guarantees, business continuity clauses, and penalties for non-performance. Build strategic safety stock for critical components. Establish regular supplier audits and scorecards to monitor performance trends. Create a documented contingency plan with trigger points for activating backup suppliers. Consider backward integration for the most critical components. Invest in collaborative relationships with the supplier, including joint improvement projects and shared forecasts, to strengthen the partnership while simultaneously reducing dependency.",
+      "keywords": ["single-source", "dual-sourcing", "risk assessment", "contingency plan", "supplier qualification", "strategic stock", "business continuity", "supplier audit"]
+    },
+    {
+      "question_text": "What is demand planning, and how does it integrate with supply chain operations?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "Demand planning is the process of forecasting future customer demand to drive supply chain decisions. It integrates historical sales data, market trends, promotional plans, economic indicators, and customer input to generate demand forecasts. These forecasts feed into the Sales and Operations Planning (S&OP) process, where they are reconciled with supply capabilities, capacity, and financial targets. Demand plans drive master production schedules, material procurement, workforce planning, and logistics capacity. Effective demand planning reduces excess inventory, minimizes stockouts, improves customer service levels, and enables better resource allocation. Common forecasting methods include time-series analysis, causal models, and collaborative forecasting with customers and sales teams.",
+      "keywords": ["demand planning", "forecasting", "S&OP", "sales and operations planning", "historical data", "time-series", "master production schedule", "customer service"]
+    },
+    {
+      "question_text": "Tell me about a time when you had to manage a significant supply chain disruption. What steps did you take, and what was the outcome?",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "A strong answer should describe a specific disruption scenario (supplier failure, natural disaster, transportation breakdown, quality issue) and outline a structured response: immediate assessment of the disruption's impact on production and customer commitments, communication with affected stakeholders (customers, production, management), activation of contingency plans such as alternative suppliers or expedited shipping, prioritization of critical orders, and short-term workarounds to maintain operations. The candidate should describe the decision-making process, cross-functional coordination, and how they balanced cost with urgency. The outcome should include both the resolution and lessons learned that improved future resilience, such as updated contingency plans, supplier diversification, or increased safety stock for critical items.",
+      "keywords": ["disruption", "contingency", "communication", "alternative suppliers", "prioritization", "cross-functional", "resilience", "lessons learned"]
+    },
+    {
+      "question_text": "Describe a situation where you had to negotiate with a difficult supplier. How did you handle it?",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "A strong answer should detail a specific negotiation scenario, the challenges involved (price increases, quality issues, delivery failures, contractual disputes), and the approach taken. The candidate should demonstrate preparation (gathering data, understanding BATNA, market research), communication skills (active listening, understanding supplier perspectives), negotiation tactics (win-win approach, leveraging volume, presenting alternatives), and relationship management. The answer should show how they balanced firm advocacy for their company's interests with maintaining a productive long-term supplier relationship. Results should include specific outcomes such as cost savings, improved terms, quality improvements, or strengthened partnership.",
+      "keywords": ["negotiation", "supplier relationship", "BATNA", "win-win", "preparation", "data-driven", "contract terms", "relationship management"]
+    },
+    {
+      "question_text": "Give an example of a time when you identified and implemented a cost-saving initiative in the supply chain.",
+      "question_type": "behavioral",
+      "difficulty": "easy",
+      "expected_answer": "The candidate should describe a specific initiative, how they identified the opportunity (data analysis, benchmarking, process review), the analysis performed to validate savings, stakeholder buy-in and implementation steps, and measurable results. Examples might include consolidating suppliers for volume discounts, optimizing freight routes, reducing packaging costs, implementing consignment inventory, renegotiating contracts, improving demand forecasting to reduce excess inventory, or implementing cross-docking to reduce warehousing costs. The answer should demonstrate analytical thinking, initiative, ability to drive change, and the capacity to quantify financial impact.",
+      "keywords": ["cost saving", "initiative", "analysis", "implementation", "measurable results", "optimization", "stakeholder buy-in", "financial impact"]
+    },
+    {
+      "question_text": "Tell me about a time when you had to collaborate with multiple departments to achieve a supply chain objective.",
+      "question_type": "behavioral",
+      "difficulty": "easy",
+      "expected_answer": "A strong answer describes a specific cross-functional initiative such as implementing a new ERP system, launching a new product, or redesigning inventory management processes. The candidate should explain the departments involved (procurement, production, sales, finance, logistics), the challenges of aligning different priorities and perspectives, how they facilitated communication and built consensus, and the tools or processes used to coordinate efforts. The outcome should demonstrate that cross-functional collaboration led to better results than any single department could achieve alone. Key qualities shown should include leadership, communication, conflict resolution, and the ability to see the bigger picture.",
+      "keywords": ["cross-functional", "collaboration", "communication", "alignment", "consensus", "coordination", "leadership", "stakeholder management"]
+    },
+    {
+      "question_text": "Describe a time when you had to make a difficult decision with incomplete information in a supply chain context.",
+      "question_type": "behavioral",
+      "difficulty": "hard",
+      "expected_answer": "The candidate should describe a time-pressured scenario where complete data was unavailable, such as choosing a new supplier quickly after a current supplier failed, making inventory commitments based on uncertain demand forecasts, or deciding whether to expedite shipments at premium cost. They should explain how they assessed available information, identified the key risks and trade-offs, consulted with relevant stakeholders, and made a reasoned decision. The answer should demonstrate comfort with ambiguity, risk assessment skills, sound judgment, and accountability for outcomes. They should also discuss what they would do differently with more information and how the experience shaped their approach to future decisions.",
+      "keywords": ["incomplete information", "decision-making", "risk assessment", "ambiguity", "trade-offs", "judgment", "accountability", "time pressure"]
+    },
+    {
+      "question_text": "Your primary supplier for a critical component has just informed you of a 4-week delay. Production is scheduled to start in 2 weeks. How would you handle this situation?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "The response should include immediate actions: assess the exact impact on the production schedule and customer commitments, escalate to management, and communicate transparently with affected stakeholders. Next, explore mitigation options: contact the supplier to understand the root cause and negotiate for partial or expedited shipments, check if any inventory or safety stock exists, contact pre-qualified alternative suppliers for emergency orders (even at premium pricing), explore whether product substitution or design modification is feasible, and evaluate whether production can be partially started with available materials. The candidate should discuss the decision framework for balancing cost versus schedule, how they would communicate with customers about potential delays, and long-term corrective actions such as improving supplier diversification or increasing safety stock for critical components.",
+      "keywords": ["supplier delay", "mitigation", "alternative supplier", "production schedule", "escalation", "customer communication", "safety stock", "corrective action"]
+    },
+    {
+      "question_text": "You discover that a key supplier has been consistently delivering materials that are within specification but at the lower end of the tolerance range. What would you do?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "First, gather data to quantify the trend, including incoming inspection results, internal quality metrics, and any downstream effects on product quality or production efficiency. Conduct a root cause analysis on why the supplier is trending toward the lower tolerance limit, which could indicate process drift, raw material changes, or cost-cutting measures. Schedule a supplier quality review meeting to present the data and discuss concerns. Negotiate tighter internal specifications or request the supplier implement process controls to center their output. Establish an enhanced monitoring program with more frequent inspections and SPC data sharing. If the trend has caused downstream quality issues, document the cost of poor quality for potential recovery. Update the supplier scorecard to reflect this performance concern and consider whether supplier development resources should be allocated or alternative sourcing explored.",
+      "keywords": ["tolerance", "supplier quality", "trend analysis", "root cause", "specification", "incoming inspection", "SPC", "supplier development"]
+    },
+    {
+      "question_text": "Your company is expanding into a new geographic market and you need to establish a distribution network. How would you approach this?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "Begin with a thorough market analysis including demand forecasts, customer locations, service level requirements, and competitive landscape. Evaluate distribution network options: direct shipping from existing facilities, establishing a regional distribution center, partnering with third-party logistics providers (3PLs), or a hybrid model. Conduct a network optimization study considering factors such as transportation costs, facility costs, lead time requirements, customs and regulatory requirements, labor availability, and tax implications. Evaluate make-versus-buy decisions for warehousing and transportation. Develop a phased implementation plan starting with a 3PL partnership for speed to market, with the option to transition to owned facilities as volume justifies the investment. Establish KPIs for the new network including delivery time, cost per order, and fill rate. Consider technology requirements such as warehouse management systems and transportation management systems integration.",
+      "keywords": ["distribution network", "3PL", "network optimization", "market analysis", "facility location", "transportation cost", "lead time", "phased implementation"]
+    },
+    {
+      "question_text": "A new regulation requires full traceability of raw materials from origin to final product. Your current systems do not support this. How would you address this requirement?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "Start by thoroughly understanding the regulatory requirements including scope, timelines, and penalties for non-compliance. Conduct a gap analysis of current traceability capabilities versus requirements. Develop a compliance roadmap with phased implementation. Address the technology component by evaluating ERP enhancements, dedicated traceability software, barcode or RFID systems, and potentially blockchain solutions. Work with suppliers to establish data-sharing requirements and ensure they can provide the necessary origin and chain-of-custody documentation. Update receiving, production, and shipping procedures to capture lot tracking and traceability data at each stage. Train staff on new procedures. Implement a pilot program with critical materials first, then expand. Establish audit procedures to verify traceability accuracy. Engage with industry associations and regulatory bodies to ensure interpretation of requirements is correct.",
+      "keywords": ["traceability", "regulatory compliance", "gap analysis", "lot tracking", "chain of custody", "RFID", "supplier data", "audit"]
+    },
+    {
+      "question_text": "Demand for your product has suddenly increased by 40% and your current suppliers cannot scale up quickly enough. What do you do?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "Immediately assess which components are the bottleneck and quantify the gap between current supply capacity and the new demand level. Contact existing suppliers to negotiate increased allocation, overtime production, or expedited schedules. Activate pre-qualified secondary suppliers or begin emergency qualification of new suppliers for the most critical materials. Evaluate whether product mix can be adjusted to prioritize higher-margin or higher-demand variants. Work with production planning to optimize scheduling and reduce changeover times. Assess whether any substitutable materials are available in sufficient quantity. Implement allocation strategies for customer orders based on priority, contractual obligations, and strategic importance. Communicate transparently with sales and customers about realistic delivery timelines. For the medium term, secure capacity commitments through long-term agreements, advance purchase orders, or strategic inventory builds to buffer against future demand surges.",
+      "keywords": ["demand surge", "capacity constraint", "supplier scale-up", "secondary suppliers", "allocation", "prioritization", "expediting", "long-term agreements"]
+    },
+    {
+      "question_text": "What is the role of a Supplier Scorecard, and what metrics should it include?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "A Supplier Scorecard is a structured evaluation tool used to objectively assess and compare supplier performance across multiple dimensions. It provides a standardized framework for monitoring performance, identifying areas for improvement, and making informed sourcing decisions. Key metrics typically include: Quality (defect rate, rejection rate, corrective action response time, quality certifications), Delivery (on-time delivery rate, lead time accuracy, flexibility to changes), Cost (price competitiveness, cost reduction contributions, invoice accuracy, total cost of ownership), Service (responsiveness, communication quality, technical support, issue resolution time), and Innovation (new product development support, process improvement suggestions, technology capabilities). Scorecards should be reviewed regularly with suppliers in quarterly business reviews and used to drive continuous improvement through collaborative goal-setting.",
+      "keywords": ["supplier scorecard", "performance evaluation", "quality metrics", "delivery metrics", "cost metrics", "quarterly business review", "continuous improvement", "sourcing decisions"]
+    },
+    {
+      "question_text": "Explain the concept of Vendor Managed Inventory (VMI) and its benefits and risks.",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "Vendor Managed Inventory is a supply chain arrangement where the supplier takes responsibility for managing the customer's inventory levels. The customer shares demand data, inventory levels, and consumption patterns with the supplier, who then makes replenishment decisions including timing and quantities. Benefits include reduced stockouts through better alignment of supply with demand, lower inventory carrying costs, reduced administrative burden on the buyer, improved forecast accuracy from direct demand visibility, and stronger supplier relationships. Risks include dependency on supplier performance and systems, loss of direct control over inventory, data security concerns from sharing sensitive information, potential for supplier prioritizing other customers, and challenges if the relationship ends. Successful VMI requires clear agreements on service levels, inventory ownership, min/max levels, and robust information-sharing technology.",
+      "keywords": ["VMI", "vendor managed inventory", "replenishment", "demand visibility", "inventory carrying cost", "stockout reduction", "data sharing", "service level agreement"]
+    },
+    {
+      "question_text": "What is a Bill of Materials (BOM), and why is its accuracy critical to supply chain management?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "A Bill of Materials is a comprehensive list of all raw materials, components, sub-assemblies, and their quantities required to manufacture a finished product. It serves as the foundational document for production planning, procurement, and inventory management. BOM accuracy is critical because MRP systems depend on it to calculate material requirements and generate purchase orders. An inaccurate BOM leads to ordering wrong quantities (either shortages causing production delays or excess inventory), incorrect cost estimates, production floor confusion, quality issues from wrong components, and unreliable delivery commitments to customers. Best practices for maintaining BOM accuracy include engineering change management processes, regular audits, integration between design and manufacturing systems, and establishing a target BOM accuracy rate of 98% or higher.",
+      "keywords": ["bill of materials", "BOM", "MRP", "component list", "accuracy", "engineering change", "production planning", "material requirements"]
+    },
+    {
+      "question_text": "Describe the concept of Supply Chain Resilience and the key strategies for building it.",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "Supply chain resilience is the ability of a supply chain to anticipate, prepare for, respond to, and recover from disruptions while maintaining continuous operations and acceptable service levels. Key strategies include: supply base diversification (multi-sourcing, geographic spread), visibility and transparency (end-to-end supply chain mapping, real-time tracking, risk monitoring), flexibility (agile manufacturing, flexible contracts, cross-trained workforce), redundancy (strategic safety stock, backup facilities, alternative transportation modes), collaboration (strong supplier relationships, information sharing, joint risk management), and risk management (regular risk assessments, scenario planning, business continuity plans, insurance). Building resilience requires balancing the cost of preparedness against the potential cost of disruption, and it should be viewed as a strategic investment rather than purely a cost center.",
+      "keywords": ["resilience", "disruption", "diversification", "visibility", "flexibility", "redundancy", "risk management", "business continuity"]
+    },
+    {
+      "question_text": "What are Incoterms, and why are they important in international supply chain transactions?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "Incoterms (International Commercial Terms) are a set of standardized trade terms published by the International Chamber of Commerce that define the responsibilities of buyers and sellers in international transactions. They specify who is responsible for shipping costs, insurance, customs duties, and risk of loss at each point in the transportation chain. Common terms include EXW (Ex Works, minimum seller obligation), FOB (Free On Board, risk transfers when goods are loaded on the vessel), CIF (Cost Insurance and Freight, seller covers shipping and insurance to destination port), and DDP (Delivered Duty Paid, maximum seller obligation). Incoterms are important because they eliminate ambiguity in international trade, reduce disputes, enable accurate landed cost calculations, determine which party arranges and pays for logistics, and define where risk transfers from seller to buyer.",
+      "keywords": ["Incoterms", "EXW", "FOB", "CIF", "DDP", "international trade", "risk transfer", "customs duties", "landed cost"]
+    }
+  ]
+}

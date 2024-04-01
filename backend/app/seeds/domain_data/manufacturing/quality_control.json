@@ -1,0 +1,184 @@
+{
+  "name": "Quality Control",
+  "slug": "quality_control",
+  "sector": "Manufacturing",
+  "sector_slug": "manufacturing",
+  "description": "Interview questions focused on quality control methodologies, inspection techniques, statistical process control, and compliance standards used in manufacturing environments.",
+  "questions": [
+    {
+      "question_text": "What is Statistical Process Control (SPC) and how is it used to monitor manufacturing quality?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Statistical Process Control is a method of quality control that uses statistical techniques to monitor and control a manufacturing process. It involves collecting data from production, plotting it on control charts (such as X-bar and R charts), and analyzing variation to determine if a process is in statistical control. SPC helps distinguish between common cause variation (inherent to the process) and special cause variation (due to assignable factors), allowing operators to take corrective action before defects are produced.",
+      "keywords": ["SPC", "control charts", "variation", "common cause", "special cause", "X-bar", "R chart", "statistical control"]
+    },
+    {
+      "question_text": "Explain the difference between Acceptable Quality Level (AQL) and Lot Tolerance Percent Defective (LTPD) in acceptance sampling.",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "AQL is the maximum percentage of defects that can be considered acceptable as a process average for sampling purposes. It represents the quality level at which lots will be accepted most of the time (typically 95% probability). LTPD is the quality level at which a lot is considered unacceptable, and lots at this defect level will be rejected most of the time (typically 90% probability). Together, AQL and LTPD define the operating characteristic curve of a sampling plan and help balance producer's risk (rejecting good lots) and consumer's risk (accepting bad lots).",
+      "keywords": ["AQL", "LTPD", "acceptance sampling", "producer risk", "consumer risk", "defect rate", "operating characteristic"]
+    },
+    {
+      "question_text": "What are the seven basic quality tools, and when would you apply each one?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "The seven basic quality tools are: 1) Cause-and-effect diagram (Ishikawa/fishbone) for identifying root causes, 2) Check sheet for systematic data collection, 3) Control chart for monitoring process stability over time, 4) Histogram for understanding data distribution and frequency, 5) Pareto chart for prioritizing problems by frequency or impact using the 80/20 rule, 6) Scatter diagram for analyzing relationships between two variables, and 7) Flowchart/stratification for mapping processes or segmenting data. Each tool serves a specific purpose in diagnosing, analyzing, and resolving quality issues.",
+      "keywords": ["Ishikawa", "fishbone", "check sheet", "control chart", "histogram", "Pareto", "scatter diagram", "flowchart", "stratification"]
+    },
+    {
+      "question_text": "What is the purpose of a Gage Repeatability and Reproducibility (Gage R&R) study?",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "A Gage R&R study evaluates the measurement system to determine how much of the observed process variation is due to the measurement system itself. Repeatability measures the variation when the same operator measures the same part multiple times with the same instrument. Reproducibility measures the variation when different operators measure the same part with the same instrument. The study quantifies measurement system variation as a percentage of total variation or tolerance. Generally, a Gage R&R below 10% is acceptable, 10-30% may be acceptable depending on the application, and above 30% indicates the measurement system needs improvement.",
+      "keywords": ["Gage R&R", "repeatability", "reproducibility", "measurement system", "variation", "tolerance", "operator variation"]
+    },
+    {
+      "question_text": "Describe the DMAIC methodology and how it applies to quality improvement projects.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "DMAIC stands for Define, Measure, Analyze, Improve, and Control. In the Define phase, the problem, scope, and goals are established. In Measure, current process performance data is collected and baseline metrics are established. In Analyze, root causes of defects and variation are identified using statistical and analytical tools. In Improve, solutions are developed, tested, and implemented to address root causes. In Control, sustaining mechanisms like control plans and monitoring systems are put in place to maintain improvements. DMAIC is the core Six Sigma methodology for improving existing processes.",
+      "keywords": ["DMAIC", "Define", "Measure", "Analyze", "Improve", "Control", "Six Sigma", "root cause", "process improvement"]
+    },
+    {
+      "question_text": "What is a quality inspection, and what are the different types of inspections used in manufacturing?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "A quality inspection is the process of examining products, components, or processes to ensure they meet specified requirements and standards. The main types include: incoming inspection (checking raw materials and components from suppliers), in-process inspection (monitoring quality during production at various stages), final inspection (examining finished products before shipment), and patrol inspection (periodic random checks during production). Inspections can be 100% inspection (every unit) or sampling-based. Methods include visual inspection, dimensional measurement, functional testing, and non-destructive testing.",
+      "keywords": ["incoming inspection", "in-process", "final inspection", "patrol inspection", "sampling", "visual inspection", "dimensional", "non-destructive testing"]
+    },
+    {
+      "question_text": "Tell me about a time when you identified a recurring quality defect. How did you investigate and resolve it?",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "A strong answer should describe a specific situation where the candidate noticed a pattern of defects, detail the systematic investigation approach used (such as root cause analysis, Pareto analysis, or 5-Why technique), explain the corrective actions implemented, and quantify the results achieved. The candidate should demonstrate analytical thinking, persistence in finding the true root cause rather than just treating symptoms, collaboration with relevant teams, and follow-through to verify the solution's effectiveness.",
+      "keywords": ["root cause analysis", "defect investigation", "corrective action", "systematic approach", "data analysis", "collaboration", "results"]
+    },
+    {
+      "question_text": "How do you handle a situation where production pressure conflicts with quality standards?",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "A strong response should demonstrate a commitment to quality while acknowledging business realities. The candidate should describe communicating the risks of shipping substandard product (customer complaints, returns, safety issues, brand damage), escalating to management with data-driven evidence, proposing alternatives such as overtime, additional resources, or phased delivery, and never compromising on safety-critical specifications. The answer should show the ability to balance competing priorities while maintaining integrity and professional standards.",
+      "keywords": ["quality standards", "production pressure", "risk communication", "escalation", "data-driven", "compromise", "integrity", "safety"]
+    },
+    {
+      "question_text": "You discover that a batch of 500 units has already been shipped to a customer but your post-shipment audit reveals a dimensional non-conformance. What steps do you take?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "The response should include: 1) Immediately assess the severity and safety implications of the non-conformance, 2) Notify management and relevant stakeholders, 3) Contact the customer proactively to inform them of the issue, 4) Determine if the non-conformance affects form, fit, or function and whether a concession/waiver is appropriate, 5) Initiate containment actions at the customer site if needed, 6) Issue a formal corrective action report, 7) Conduct root cause analysis to determine how the defect escaped detection, 8) Implement corrective actions in the inspection process, and 9) Document everything for traceability and regulatory compliance.",
+      "keywords": ["containment", "customer notification", "non-conformance", "corrective action", "root cause", "risk assessment", "traceability", "concession"]
+    },
+    {
+      "question_text": "A new supplier's components are consistently at the edge of specification limits but technically within tolerance. How would you address this?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "The candidate should discuss: analyzing the Cpk/Ppk capability indices to understand the supplier's process capability, communicating concerns to the supplier with data, requesting a process capability study from the supplier, establishing tighter incoming inspection criteria, working with the supplier on process improvement, considering whether the specification limits need revision, evaluating the risk of process drift causing out-of-spec conditions, and potentially qualifying alternative suppliers. The answer should show understanding that technically in-spec does not mean the process is healthy.",
+      "keywords": ["Cpk", "Ppk", "process capability", "specification limits", "supplier management", "incoming inspection", "process drift", "qualification"]
+    },
+    {
+      "question_text": "What is the difference between accuracy and precision in quality measurements?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "Accuracy refers to how close a measured value is to the true or target value, while precision refers to how consistently repeated measurements produce the same result. A measurement system can be precise but not accurate (consistently off-target), accurate but not precise (centered on target but with high variation), both accurate and precise (ideal), or neither. In quality control, both are important: accuracy ensures measurements reflect true values, while precision ensures measurement consistency and reliability.",
+      "keywords": ["accuracy", "precision", "measurement", "true value", "consistency", "variation", "repeatability", "calibration"]
+    },
+    {
+      "question_text": "What is a Control Plan and what information does it typically contain?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "A Control Plan is a documented description of the systems and processes required to control product and process quality. It typically contains: process steps and operations, product/process characteristics to be controlled, specification limits and tolerances, measurement methods and gauges used, sample sizes and frequencies, control methods (SPC, inspection, error-proofing), reaction plans for out-of-control conditions, and responsible personnel. Control Plans are living documents that evolve through prototype, pre-launch, and production phases, and are a key deliverable in APQP (Advanced Product Quality Planning).",
+      "keywords": ["control plan", "APQP", "characteristics", "specification", "sample size", "reaction plan", "measurement method", "process control"]
+    },
+    {
+      "question_text": "Explain the concept of Cost of Quality (COQ) and its four categories.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Cost of Quality represents the total cost associated with ensuring products meet quality standards plus the costs resulting from failure to meet those standards. The four categories are: 1) Prevention costs - expenses to prevent defects (training, process planning, quality engineering, preventive maintenance), 2) Appraisal costs - expenses for evaluating quality (inspection, testing, calibration, audits), 3) Internal failure costs - costs from defects found before delivery (scrap, rework, re-inspection, downtime), and 4) External failure costs - costs from defects found after delivery (warranty claims, returns, complaints, recalls, liability). Increasing prevention spending typically reduces total COQ by lowering failure costs.",
+      "keywords": ["cost of quality", "prevention costs", "appraisal costs", "internal failure", "external failure", "scrap", "rework", "warranty"]
+    },
+    {
+      "question_text": "Describe a situation where you had to train production operators on a new quality procedure. How did you ensure understanding and compliance?",
+      "question_type": "behavioral",
+      "difficulty": "easy",
+      "expected_answer": "A good response should describe the candidate's approach to training, including: understanding the operators' current knowledge level, using clear and practical language avoiding jargon, incorporating hands-on demonstrations, providing visual aids and reference materials, checking for understanding through questions and practical exercises, following up with on-the-floor observation, and tracking compliance metrics after implementation. The answer should show patience, communication skills, and a systematic approach to knowledge transfer.",
+      "keywords": ["training", "communication", "hands-on", "visual aids", "follow-up", "compliance", "knowledge transfer", "operators"]
+    },
+    {
+      "question_text": "What is FMEA and how is it used in quality control for manufacturing?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "FMEA (Failure Mode and Effects Analysis) is a systematic, proactive method for identifying potential failures in a product or process. There are two main types: Design FMEA (DFMEA) which analyzes potential design failures, and Process FMEA (PFMEA) which analyzes potential manufacturing process failures. Each potential failure mode is assessed for Severity (impact), Occurrence (likelihood), and Detection (ability to detect before reaching the customer), and a Risk Priority Number (RPN) is calculated by multiplying these three factors. High-RPN items are prioritized for corrective action. FMEA is a living document updated throughout the product lifecycle.",
+      "keywords": ["FMEA", "failure mode", "severity", "occurrence", "detection", "RPN", "DFMEA", "PFMEA", "risk priority"]
+    },
+    {
+      "question_text": "How would you establish a quality management system for a new manufacturing facility?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "The response should cover: conducting a gap analysis against relevant standards (ISO 9001, IATF 16949, AS9100 depending on industry), defining the quality policy and objectives, mapping all key processes and their interactions, establishing document control and record-keeping systems, defining roles and responsibilities, implementing supplier quality management procedures, setting up calibration and measurement systems, creating inspection and test plans, developing corrective and preventive action processes, planning internal audits, providing training programs, and establishing management review processes. The candidate should emphasize a phased implementation approach with clear milestones.",
+      "keywords": ["ISO 9001", "quality management system", "gap analysis", "document control", "process mapping", "calibration", "audit", "management review", "IATF 16949"]
+    },
+    {
+      "question_text": "What is the difference between a corrective action and a preventive action?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "A corrective action is taken to eliminate the cause of a detected nonconformity or undesirable situation that has already occurred. It addresses existing problems and prevents recurrence of the specific issue. A preventive action is taken to eliminate the cause of a potential nonconformity or undesirable situation that has not yet occurred. It is a proactive measure based on trend analysis, risk assessment, or lessons learned to prevent problems from happening in the first place. Both are essential components of a quality management system, but preventive actions represent a more mature quality culture focused on anticipation rather than reaction.",
+      "keywords": ["corrective action", "preventive action", "nonconformity", "recurrence", "proactive", "reactive", "CAPA", "root cause"]
+    },
+    {
+      "question_text": "How do you calculate and interpret Process Capability indices Cp and Cpk?",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "Cp measures potential process capability and is calculated as (USL - LSL) / (6 * sigma), where USL and LSL are the upper and lower specification limits and sigma is the process standard deviation. Cp only considers spread, not centering. Cpk measures actual process capability accounting for centering and is the minimum of (USL - mean) / (3 * sigma) and (mean - LSL) / (3 * sigma). A Cp of 1.0 means the process spread exactly matches the specification width. A Cpk of 1.33 or higher is generally considered capable. If Cp is much higher than Cpk, the process is off-center. Both indices assume a stable, normally distributed process.",
+      "keywords": ["Cp", "Cpk", "process capability", "specification limits", "standard deviation", "sigma", "centering", "process spread"]
+    },
+    {
+      "question_text": "Describe a time when you had to reject a large production batch. How did you manage the situation?",
+      "question_type": "behavioral",
+      "difficulty": "hard",
+      "expected_answer": "A strong answer should include: the specific quality issue found, the data and evidence used to support the rejection decision, how the candidate communicated the decision to production and management, the containment actions taken, the root cause investigation conducted, how customer impact was assessed and managed, the corrective actions implemented, and lessons learned applied going forward. The response should demonstrate courage to make difficult decisions, objectivity based on data, effective stakeholder communication, and systematic problem-solving.",
+      "keywords": ["batch rejection", "data-driven decision", "stakeholder communication", "containment", "root cause", "corrective action", "customer impact", "courage"]
+    },
+    {
+      "question_text": "During a production run, an operator reports that the control chart shows seven consecutive points above the center line but within control limits. What action do you take?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "Seven consecutive points on one side of the center line is a run rule violation indicating a process shift, even though individual points are within control limits. The appropriate actions include: stopping to investigate the process, looking for assignable causes such as tool wear, material changes, environmental factors, or operator changes. The candidate should check if raw material lots changed, if machine settings drifted, or if there was a maintenance event. After identifying the cause, corrective action should be taken to re-center the process. This situation demonstrates understanding that control charts detect trends and shifts, not just out-of-limit conditions.",
+      "keywords": ["run rule", "process shift", "control chart", "center line", "assignable cause", "investigation", "trend", "Western Electric rules"]
+    },
+    {
+      "question_text": "What is the purpose of calibration in quality control and how often should measuring instruments be calibrated?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "Calibration is the process of comparing a measuring instrument's readings against a known reference standard to verify accuracy and make necessary adjustments. Its purposes include ensuring measurement accuracy, maintaining traceability to national or international standards, meeting regulatory and quality system requirements, and building confidence in measurement data used for quality decisions. Calibration frequency depends on factors such as manufacturer recommendations, frequency of use, environmental conditions, criticality of the measurement, historical calibration data, and industry standards. Common intervals range from monthly to annually. A calibration management system should track due dates, results, and out-of-tolerance conditions.",
+      "keywords": ["calibration", "traceability", "reference standard", "accuracy", "measurement", "frequency", "out-of-tolerance", "calibration management"]
+    },
+    {
+      "question_text": "What is the role of First Article Inspection (FAI) in manufacturing quality control?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "First Article Inspection is a comprehensive verification process performed on the first production unit of a new product or after a significant process change. It involves measuring and documenting all dimensions, features, and specifications listed on the engineering drawing and comparing them to requirements. FAI verifies that the production process is capable of producing parts that meet all design specifications. It serves as documented evidence that the manufacturing process can produce conforming parts before full production begins. FAI reports typically include dimensional results, material certifications, special process approvals, and functional test results. Standards like AS9102 define FAI requirements for aerospace manufacturing.",
+      "keywords": ["first article inspection", "FAI", "verification", "production readiness", "dimensional", "AS9102", "engineering drawing", "process validation"]
+    },
+    {
+      "question_text": "How would you handle a situation where your quality data indicates a systemic problem, but the production team insists there is no issue?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "The response should include: presenting the data clearly using visual tools like trend charts and Pareto diagrams, inviting the production team to review the data together, conducting a joint investigation on the production floor to correlate data with observations, considering whether the measurement system itself could be contributing to the discrepancy (conduct Gage R&R if needed), facilitating a cross-functional problem-solving session, escalating through proper channels if alignment cannot be reached, and maintaining professional relationships while advocating for data-driven decisions. The answer should show diplomacy, persistence, and commitment to facts over opinions.",
+      "keywords": ["data-driven", "cross-functional", "communication", "visual tools", "joint investigation", "measurement validation", "escalation", "collaboration"]
+    },
+    {
+      "question_text": "Explain the concept of Total Quality Management (TQM) and its core principles.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Total Quality Management is a comprehensive management approach focused on continuous improvement of all organizational processes to deliver superior customer value. Core principles include: customer focus (meeting and exceeding customer expectations), total employee involvement (empowering all levels to contribute to quality), process-centered approach (managing and improving processes), integrated system (aligning all functions toward quality objectives), strategic and systematic approach (quality planning aligned with business strategy), continual improvement (ongoing incremental and breakthrough improvements), fact-based decision making (using data and analysis), and effective communications (open channels across the organization). TQM differs from traditional quality control by making quality everyone's responsibility, not just the quality department's.",
+      "keywords": ["TQM", "continuous improvement", "customer focus", "employee involvement", "process-centered", "fact-based", "integrated system", "strategic"]
+    },
+    {
+      "question_text": "Describe your experience with quality audits. How do you prepare for and conduct an internal quality audit?",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "A strong response should describe: reviewing the audit scope, criteria, and previous audit findings, preparing an audit checklist based on applicable standards and procedures, scheduling with the auditee and communicating objectives, conducting opening meetings to explain the audit process, gathering evidence through document review, observation, and interviews, documenting findings with objective evidence, classifying findings as major or minor nonconformities or observations, conducting closing meetings to present findings, writing clear and actionable audit reports, and following up on corrective actions. The candidate should emphasize objectivity, thoroughness, professional communication, and the goal of improvement rather than blame.",
+      "keywords": ["internal audit", "audit checklist", "objective evidence", "nonconformity", "corrective action", "audit report", "preparation", "follow-up"]
+    }
+  ]
+}

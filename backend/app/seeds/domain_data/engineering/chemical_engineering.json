@@ -1,0 +1,184 @@
+{
+  "name": "Chemical Engineering",
+  "slug": "chemical_engineering",
+  "sector": "Engineering",
+  "sector_slug": "engineering",
+  "description": "Chemical process design, reaction engineering, separation processes, thermodynamics, plant safety, process simulation, material balance, and heat transfer for chemical engineering professionals.",
+  "questions": [
+    {
+      "question_text": "Explain the concept of material balance and how it is applied in the design of a continuous stirred-tank reactor (CSTR).",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Material balance applies the conservation of mass principle, stating that input minus output plus generation minus consumption equals accumulation. In a CSTR at steady state, accumulation is zero, so the feed rate of reactants equals the outflow plus the rate of reaction consumption within the reactor volume.",
+      "keywords": ["material balance", "CSTR", "conservation of mass"]
+    },
+    {
+      "question_text": "What is the difference between an ideal plug flow reactor (PFR) and a CSTR in terms of residence time distribution?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "In an ideal PFR, all fluid elements spend exactly the same amount of time in the reactor, resulting in a uniform residence time. In a CSTR, the fluid is perfectly mixed, leading to an exponential residence time distribution where some elements leave almost immediately and others remain much longer than the mean residence time.",
+      "keywords": ["plug flow reactor", "residence time distribution", "CSTR"]
+    },
+    {
+      "question_text": "Describe the McCabe-Thiele method and its application in binary distillation column design.",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "The McCabe-Thiele method is a graphical technique used to determine the number of theoretical trays needed in a binary distillation column. It uses the equilibrium curve, operating lines for rectifying and stripping sections, and a q-line representing feed condition to step off stages between the operating lines and equilibrium curve.",
+      "keywords": ["McCabe-Thiele", "distillation", "theoretical trays"]
+    },
+    {
+      "question_text": "What is the significance of the Damkohler number in reaction engineering?",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "The Damkohler number is a dimensionless ratio of the reaction rate to the transport rate (convective or diffusive). A high Damkohler number indicates the reaction is fast relative to transport, meaning the process is transport-limited, while a low value indicates the process is reaction-limited.",
+      "keywords": ["Damkohler number", "reaction rate", "transport limitation"]
+    },
+    {
+      "question_text": "Explain the principles behind a shell-and-tube heat exchanger and how you would determine the overall heat transfer coefficient.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "A shell-and-tube heat exchanger passes one fluid through tubes while the other flows over the tubes inside a shell. The overall heat transfer coefficient U accounts for convective resistances on both the tube and shell sides, conductive resistance through the tube wall, and fouling factors, combined as reciprocals in series.",
+      "keywords": ["heat exchanger", "overall heat transfer coefficient", "shell-and-tube"]
+    },
+    {
+      "question_text": "What are the key considerations when scaling up a chemical process from laboratory to industrial production?",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "Key considerations include maintaining geometric, kinematic, and dynamic similarity; addressing heat and mass transfer limitations that change with scale; ensuring adequate mixing; re-evaluating safety hazards at larger volumes; accounting for changes in surface-area-to-volume ratios; and validating that reaction selectivity and yield remain acceptable.",
+      "keywords": ["scale-up", "process design", "similarity"]
+    },
+    {
+      "question_text": "How does Raoult's Law apply to vapor-liquid equilibrium, and what are its limitations?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "Raoult's Law states that the partial pressure of a component in the vapor phase equals its mole fraction in the liquid phase multiplied by its pure-component vapor pressure. It applies accurately to ideal solutions but breaks down for non-ideal mixtures where molecular interactions differ significantly between components.",
+      "keywords": ["Raoult's Law", "vapor-liquid equilibrium", "ideal solution"]
+    },
+    {
+      "question_text": "Describe the purpose and operation of a Process Hazard Analysis (PHA) in a chemical plant.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "A PHA systematically identifies, evaluates, and controls hazards in a chemical process. Common techniques include HAZOP, What-If, and fault tree analysis. The goal is to uncover potential failure scenarios, assess their severity and likelihood, and recommend engineering or administrative controls to reduce risk to acceptable levels.",
+      "keywords": ["process hazard analysis", "HAZOP", "plant safety"]
+    },
+    {
+      "question_text": "What is the role of process simulation software like Aspen Plus in chemical engineering, and what types of problems does it solve?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "Process simulation software models steady-state and dynamic behavior of chemical processes, allowing engineers to perform material and energy balances, size equipment, optimize operating conditions, and evaluate different process configurations before committing to physical construction, significantly reducing design time and cost.",
+      "keywords": ["process simulation", "Aspen Plus", "modeling"]
+    },
+    {
+      "question_text": "Explain the concept of energy balance in an exothermic reactor and why cooling is critical.",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "An energy balance accounts for heat generated by the exothermic reaction, heat removed by cooling systems, and heat carried in and out by process streams. Without adequate cooling, the temperature can rise uncontrollably in a thermal runaway, potentially causing dangerous pressure buildup, equipment failure, or explosions.",
+      "keywords": ["energy balance", "exothermic reactor", "thermal runaway"]
+    },
+    {
+      "question_text": "Tell me about a time when you had to work with a multidisciplinary team to solve a complex process engineering problem. How did you ensure effective collaboration?",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "A strong answer describes a specific project involving engineers from different disciplines, explains how the candidate facilitated communication through regular meetings and shared documentation, resolved conflicting design requirements, and contributed their chemical engineering expertise to reach a technically sound and agreed-upon solution.",
+      "keywords": ["multidisciplinary collaboration", "teamwork", "process engineering"]
+    },
+    {
+      "question_text": "Describe a situation where you identified a safety hazard in a chemical plant or laboratory. What actions did you take?",
+      "question_type": "behavioral",
+      "difficulty": "easy",
+      "expected_answer": "The candidate should describe a specific hazard they identified, the immediate steps taken to mitigate risk such as isolating the area or shutting down equipment, how they reported the issue through proper channels, and any follow-up actions like recommending design changes or procedural updates to prevent recurrence.",
+      "keywords": ["safety hazard", "risk mitigation", "reporting"]
+    },
+    {
+      "question_text": "Can you describe a project where you had to meet a tight deadline while maintaining quality standards? How did you manage competing priorities?",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "The candidate should explain how they prioritized critical tasks, communicated timeline constraints to stakeholders, delegated effectively, and potentially used project management tools or risk-based approaches to focus efforts on the most impactful areas without compromising safety or regulatory compliance.",
+      "keywords": ["deadline management", "prioritization", "quality standards"]
+    },
+    {
+      "question_text": "Tell me about a time you had to adapt to a significant change in project scope or requirements mid-way through a chemical engineering project.",
+      "question_type": "behavioral",
+      "difficulty": "easy",
+      "expected_answer": "A strong response details the nature of the scope change, how the candidate reassessed the project plan, communicated impacts to the team and management, adjusted resource allocation or design parameters, and ultimately delivered a successful outcome despite the disruption.",
+      "keywords": ["adaptability", "scope change", "project management"]
+    },
+    {
+      "question_text": "Describe a situation where you had to communicate complex technical findings to non-technical stakeholders. How did you ensure understanding?",
+      "question_type": "behavioral",
+      "difficulty": "easy",
+      "expected_answer": "The candidate should explain how they translated technical data into clear visuals, analogies, or plain language summaries, tailored the level of detail to the audience, invited questions, and confirmed understanding to ensure informed decision-making by management or clients.",
+      "keywords": ["technical communication", "stakeholder management", "simplification"]
+    },
+    {
+      "question_text": "You are designing a new separation process and discover that the solvent you planned to use has recently been flagged for environmental toxicity. How would you proceed?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "The engineer should immediately evaluate alternative solvents using criteria such as selectivity, boiling point, cost, and environmental profile. They should consult environmental regulations, perform a feasibility study with the replacement solvent, update the process simulation, and communicate the change and its impact on cost and schedule to stakeholders.",
+      "keywords": ["solvent selection", "environmental compliance", "process redesign"]
+    },
+    {
+      "question_text": "During commissioning of a new reactor system, you observe that actual conversion rates are significantly lower than the design predictions. What steps would you take to diagnose the issue?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "The engineer should verify instrument calibrations, check feed compositions against design assumptions, evaluate mixing efficiency, inspect for bypassing or channeling, compare actual temperature and pressure profiles to design conditions, review catalyst activity if applicable, and reconcile the simulation model with plant data to identify the root cause.",
+      "keywords": ["commissioning", "troubleshooting", "conversion rate"]
+    },
+    {
+      "question_text": "A client requests a 30% increase in production capacity for an existing chemical plant. How would you approach evaluating whether the current equipment can handle this debottlenecking?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "The engineer should perform a capacity analysis of each unit operation to identify bottlenecks, evaluate hydraulic limits of piping and columns, check heat exchanger and utility capacities, reassess safety relief device sizing, update the process simulation at the higher throughput, and present options ranging from minor modifications to major equipment additions with cost-benefit analysis.",
+      "keywords": ["debottlenecking", "capacity increase", "equipment evaluation"]
+    },
+    {
+      "question_text": "You notice a gradual decline in heat exchanger performance over several months. What would your investigation and remediation plan look like?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "The engineer should suspect fouling as the primary cause, review operating data trends for temperature approach changes, schedule an inspection to assess fouling type and severity, implement a cleaning program (chemical or mechanical), evaluate whether antifouling measures such as treatment chemicals or design modifications are warranted, and adjust the maintenance schedule accordingly.",
+      "keywords": ["fouling", "heat exchanger performance", "maintenance planning"]
+    },
+    {
+      "question_text": "If an unplanned power outage occurs at your chemical processing facility, what immediate actions and longer-term recovery steps would you prioritize?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "Immediate actions include activating emergency shutdown procedures, ensuring all safety relief systems function on backup power, accounting for personnel safety, and preventing uncontrolled releases. Recovery steps involve assessing equipment status before restart, following documented startup procedures, verifying instrument calibrations, and conducting a root cause analysis to improve resilience against future outages.",
+      "keywords": ["emergency shutdown", "power outage", "recovery procedures"]
+    },
+    {
+      "question_text": "What are the key principles of green chemistry, and how do they influence modern chemical process design?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "Green chemistry principles include waste prevention, atom economy, use of less hazardous chemical syntheses, designing safer chemicals, using renewable feedstocks, and maximizing energy efficiency. These principles drive process design toward reduced environmental impact, lower toxicity, and improved sustainability throughout the product lifecycle.",
+      "keywords": ["green chemistry", "sustainability", "waste prevention"]
+    },
+    {
+      "question_text": "Explain the difference between batch, semi-batch, and continuous processing, and when each is most appropriate in chemical manufacturing.",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "Batch processing handles discrete quantities and suits small-volume or specialty products. Semi-batch allows one reactant to be added over time, providing better control for exothermic or sequential reactions. Continuous processing operates at steady state for high-volume production with consistent quality, lower per-unit costs, and easier automation.",
+      "keywords": ["batch processing", "continuous processing", "manufacturing mode"]
+    },
+    {
+      "question_text": "What is the role of a Process Safety Management (PSM) program, and what are its core elements as defined by OSHA?",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "PSM is a regulatory framework requiring facilities handling highly hazardous chemicals to implement systematic safety management. Core elements include process hazard analysis, operating procedures, training, mechanical integrity, management of change, pre-startup safety review, emergency planning, incident investigation, and compliance audits, all aimed at preventing catastrophic releases.",
+      "keywords": ["process safety management", "OSHA", "hazardous chemicals"]
+    },
+    {
+      "question_text": "Describe the function and importance of a Piping and Instrumentation Diagram (P&ID) in chemical plant design and operations.",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "A P&ID is a detailed diagram showing all process piping, equipment, instrumentation, and control schemes. It serves as the primary reference for construction, operation, maintenance, and safety reviews, ensuring that all team members have a common understanding of the process configuration and control philosophy.",
+      "keywords": ["P&ID", "process documentation", "plant design"]
+    },
+    {
+      "question_text": "What are the primary methods of corrosion prevention in chemical processing equipment, and how do you select the appropriate method?",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "Primary methods include material selection (corrosion-resistant alloys, plastics, or linings), cathodic protection, coatings, corrosion inhibitors, and environmental control (pH adjustment, deaeration). Selection depends on the corrosive environment, operating conditions, equipment criticality, expected service life, and cost-effectiveness analysis.",
+      "keywords": ["corrosion prevention", "material selection", "chemical processing"]
+    }
+  ]
+}

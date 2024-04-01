@@ -1,0 +1,325 @@
+Here is Claude's plan:                                                                                                                   ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌ AI Interview Agent for Non-IT Industries — Implementation Plan                                                                           
+  
+ Context
+
+ Build a MicroSaaS AI Interview Agent covering 32 Non-IT domains (Healthcare, Finance, Manufacturing, Logistics, Engineering) with 9      
+ modules — from candidate registration through AI-conducted voice+chat interviews to evaluation, analytics, and automated notifications.  
+ The architecture follows the https://github.com/manojkanur/AI_FullStack_Development_Kit reference structure.
+
+ Tech Stack
+ ┌──────────────────┬───────────────────────────────────────────────────────────────────┐
+ │      Layer       │                            Technology                             │
+ ├──────────────────┼───────────────────────────────────────────────────────────────────┤
+ │ Backend          │ FastAPI (Python), SQLModel/SQLAlchemy, Alembic                    │
+ ├──────────────────┼───────────────────────────────────────────────────────────────────┤
+ │ Frontend         │ React 18, TypeScript, Vite, TailwindCSS                           │
+ ├──────────────────┼───────────────────────────────────────────────────────────────────┤
+ │ AI               │ OpenAI GPT-4 (chat/evaluation), Whisper (STT), TTS                │
+ ├──────────────────┼───────────────────────────────────────────────────────────────────┤
+ │ Database         │ PostgreSQL 16 (asyncpg)                                           │
+ ├──────────────────┼───────────────────────────────────────────────────────────────────┤
+ │ Cache/Sessions   │ Redis 7                                                           │
+ ├──────────────────┼───────────────────────────────────────────────────────────────────┤
+ │ Background Tasks │ Celery + Redis broker                                             │
+ ├──────────────────┼───────────────────────────────────────────────────────────────────┤
+ │ Deployment       │ Docker Compose, Nginx                                             │
+ ├──────────────────┼───────────────────────────────────────────────────────────────────┤
+ │ Auth             │ JWT + Role-based (SuperAdmin, HR Manager, Interviewer, Candidate) │
+ └──────────────────┴───────────────────────────────────────────────────────────────────┘
+ ---
+ Folder Structure
+
+ D:\AI_interview_agent\
+ ├── .claude/commands/                    # Claude Code CLI commands
+ ├── PRPs/templates/                      # Product Requirement Plans
+ ├── agents/                              # Dev agent guidelines
+ ├── skills/backend/ & frontend/          # Reusable patterns
+ ├── reference_docs/                      # Existing: Modules.txt, NON_IT_DOMAINS.txt
+ ├── CLAUDE.md, PLANNING.md, TASK.md
+ │
+ ├── backend/
+ │   ├── Dockerfile, Dockerfile.dev, requirements.txt
+ │   ├── alembic/ (migrations)
+ │   └── app/
+ │       ├── main.py
+ │       ├── core/        (config, security, database, dependencies, exceptions)
+ │       ├── models/      (user, candidate, job, domain, interview, evaluation, resume_screening, notification)
+ │       ├── schemas/     (Pydantic schemas per module)
+ │       ├── api/v1/      (auth, candidates, jobs, domains, questions, interviews, evaluations, reports, dashboard, notifications,        
+ websocket)
+ │       ├── services/    (business logic per module + interview_conductor_service)
+ │       ├── ai/
+ │       │   ├── openai_client.py
+ │       │   ├── prompts/  (resume_screening, question_generation, interview_conduct, evaluation)
+ │       │   ├── voice/    (whisper_stt, tts_handler)
+ │       │   └── chains/   (screening_chain, question_chain, interview_chain, evaluation_chain)
+ │       ├── tasks/       (celery_app, email_tasks, sms_tasks, report_tasks, screening_tasks)
+ │       ├── seeds/       (seed_runner + 32 domain JSON files under domain_data/)
+ │       └── utils/       (file_handler, pdf_generator, excel_generator, validators)
+ │
+ ├── frontend/
+ │   └── src/
+ │       ├── api/          (Axios client + per-module API calls)
+ │       ├── types/        (TypeScript interfaces per module)
+ │       ├── context/      (AuthContext, InterviewContext, ThemeContext)
+ │       ├── hooks/        (useAuth, useCandidates, useJobs, useInterviews, useWebSocket, useAudioRecorder, useSpeechSynthesis, etc.)     
+ │       ├── components/
+ │       │   ├── ui/       (Button, Input, Modal, Table, Card, Badge, Spinner, Toast, FileUpload, Pagination, etc.)
+ │       │   ├── layout/   (AppLayout, Sidebar, Header, ProtectedRoute)
+ │       │   ├── forms/    (CandidateForm, JobDescriptionForm, InterviewScheduleForm)
+ │       │   ├── charts/   (ScoreRadarChart, HiringTrendChart, DepartmentBarChart, CandidateComparisonChart)
+ │       │   └── interview/ (ChatPanel, VoicePanel, InterviewTimer, QuestionDisplay, InterviewControls, TranscriptPanel)
+ │       ├── pages/        (auth/, candidates/, jobs/, interviews/, evaluations/, reports/, dashboard/, settings/)
+ │       └── lib/          (utils, constants, formatters)
+ │
+ ├── nginx/                               (nginx.conf, nginx.dev.conf)
+ ├── docker-compose.yml & docker-compose.dev.yml
+ └── .env.example
+
+ ---
+ Database Schema (15 tables)
+ Table: users
+ Key Fields: id, email, hashed_password, full_name, role(enum), department_id
+ Relationships: -> departments
+ ────────────────────────────────────────
+ Table: departments
+ Key Fields: id, name, description
+ Relationships: <- users, job_descriptions
+ ────────────────────────────────────────
+ Table: domains
+ Key Fields: id, name, slug, sector, sector_slug
+ Relationships: UNIQUE(slug, sector_slug)
+ ────────────────────────────────────────
+ Table: question_bank
+ Key Fields: id, domain_id, question_text, question_type(enum), difficulty(enum), keywords(JSONB)
+ Relationships: -> domains
+ ────────────────────────────────────────
+ Table: job_descriptions
+ Key Fields: id, title, department_id, domain_id, required_skills(JSONB), experience_min/max, status(enum)
+ Relationships: -> departments, domains
+ ────────────────────────────────────────
+ Table: candidates
+ Key Fields: id, user_id, full_name, email, resume_path, resume_text, skills(JSONB), job_id, status(enum)
+ Relationships: -> users, job_descriptions
+ ────────────────────────────────────────
+ Table: resume_screenings
+ Key Fields: id, candidate_id, job_id, keyword_match_score, skill_relevance_score, overall_score, recommendation(enum)
+ Relationships: -> candidates, job_descriptions
+ ────────────────────────────────────────
+ Table: interviews
+ Key Fields: id, candidate_id, job_id, interview_type(enum: ai_chat/ai_voice/ai_both), status(enum), duration_limit_min, language
+ Relationships: -> candidates, job_descriptions
+ ────────────────────────────────────────
+ Table: interview_questions
+ Key Fields: id, interview_id, question_text, question_type(enum), question_order, parent_question_id(self-ref)
+ Relationships: -> interviews
+ ────────────────────────────────────────
+ Table: interview_answers
+ Key Fields: id, interview_id, question_id, answer_text, answer_audio_path, answer_mode(enum), sentiment(JSONB)
+ Relationships: -> interviews, interview_questions
+ ────────────────────────────────────────
+ Table: interview_transcripts
+ Key Fields: id, interview_id, speaker(enum), message_type(enum), content, sequence_order
+ Relationships: -> interviews
+ ────────────────────────────────────────
+ Table: evaluations
+ Key Fields: id, interview_id(unique), candidate_id, communication/technical/confidence/domain/problem_solving/overall_score,
+   ai_recommendation(enum), hr_decision(enum)
+ Relationships: -> interviews, candidates
+ ────────────────────────────────────────
+ Table: notifications
+ Key Fields: id, recipient_id, notification_type(enum), channel(enum), subject, body, status(enum)
+ Relationships: -> users, notification_templates
+ ────────────────────────────────────────
+ Table: notification_templates
+ Key Fields: id, name, notification_type(enum), channel(enum), body_template, variables(JSONB)
+ Relationships:
+ ────────────────────────────────────────
+ Table: audit_log
+ Key Fields: id, user_id, action, entity_type, entity_id, changes(JSONB)
+ Relationships: -> users
+ ---
+ AI Integration Architecture
+
+ 4 AI Pipelines (all via app/ai/openai_client.py singleton):
+
+ 1. Resume Screening — Extract resume text (PyPDF2/python-docx) -> GPT-4 JSON mode (temp 0.3) -> keyword_match_score,
+ skill_relevance_score, recommendation
+ 2. Question Generation — Domain + role + experience -> GPT-4 JSON mode (temp 0.7) -> questions with expected_answers and keywords,       
+ deduplicated against seed bank
+ 3. Interview Conductor — Real-time conversation via GPT-4 (temp 0.6, streaming) with session state in Redis. Manages question flow,      
+ follow-ups, time limits, greetings, closing
+ 4. Evaluation — Full transcript + Q&A -> GPT-4 JSON mode (temp 0.2) -> 6 dimension scores (1-10), strengths, weaknesses, recommendation  
+
+ Voice + Chat Architecture (simultaneous):
+
+ Browser ─── WS1: /ws/interview/{id}        (Chat: JSON messages)
+        └── WS2: /ws/interview/{id}/voice   (Voice: binary audio chunks)
+                     │
+               InterviewConductorService (shared Redis session)
+                     │
+               GPT-4 (conversation) + Whisper (STT) + TTS (response audio)
+
+ Domain Seed Strategy:
+
+ - 32 JSON files (one per sector) under seeds/domain_data/{category}/
+ - Each file: 25-36 questions (technical + behavioral + situational + domain-specific)
+ - ~800-1150 pre-seeded questions total
+ - GPT-4 supplements dynamically from JD context at interview time
+
+ ---
+ Implementation Phases (13 phases)
+
+ Phase 0: Project Scaffolding
+
+ - Root files (.gitignore, CLAUDE.md, docker-compose, .env.example)
+ - Claude Code infra (.claude/commands, agents/, skills/, PRPs/)
+ - Backend scaffold (main.py, core/config, core/database)
+ - Frontend scaffold (Vite + React + Tailwind + Axios client)
+ - Verify: docker-compose -f docker-compose.dev.yml up --build — all 4 services healthy
+
+ Phase 1: Authentication & Core Models
+
+ - models/user.py, models/department.py + migration
+ - core/security.py (JWT), core/dependencies.py (get_db, get_current_user, require_role)
+ - services/auth_service.py, api/v1/auth.py (register, login, me)
+ - Frontend: AuthContext, LoginPage, RegisterPage, AppLayout, Sidebar, ProtectedRoute
+
+ Phase 2: Domains & Seed Infrastructure
+
+ - models/domain.py (Domain + QuestionBank) + migration
+ - All 32 seed JSON files + seeds/seed_runner.py
+ - api/v1/domains.py, api/v1/departments.py
+ - Frontend: DomainManagementPage
+
+ Phase 3: Job Description Management
+
+ - models/job.py + migration
+ - Full CRUD: services/job_service.py, api/v1/jobs.py
+ - Frontend: JobListPage, JobDetailPage, JobCreatePage, JobDescriptionForm
+
+ Phase 4: Candidate Registration + Resume Upload
+
+ - models/candidate.py + migration
+ - utils/file_handler.py (PDF/Word text extraction)
+ - services/candidate_service.py, api/v1/candidates.py
+ - Frontend: CandidateRegistrationPage, CandidateListPage, CandidateDetailPage, FileUpload
+
+ Phase 5: AI Core + Resume Screening
+
+ - ai/openai_client.py (singleton wrapper)
+ - ai/prompts/resume_screening.py, ai/chains/screening_chain.py
+ - models/resume_screening.py + migration
+ - Celery task: tasks/screening_tasks.py
+
+ Phase 6: AI Question Generator
+
+ - ai/prompts/question_generation.py, ai/chains/question_chain.py
+ - services/question_generator_service.py, api/v1/questions.py
+
+ Phase 7: AI Interview Conductor (CORE — largest phase)
+
+ - models/interview.py (Interview, InterviewQuestion, InterviewAnswer, InterviewTranscript) + migration
+ - ai/voice/whisper_stt.py, ai/voice/tts_handler.py
+ - ai/prompts/interview_conduct.py, ai/chains/interview_chain.py
+ - services/interview_conductor_service.py (Redis session state, question flow, GPT-4 conversation)
+ - api/v1/websocket.py (chat WS + voice WS), api/v1/interviews.py (REST)
+ - Frontend: InterviewRoomPage, ChatPanel, VoicePanel, InterviewTimer, QuestionDisplay, TranscriptPanel, useWebSocket, useAudioRecorder,  
+ useSpeechSynthesis
+
+ Phase 8: Candidate Evaluation & Scoring
+
+ - models/evaluation.py + migration
+ - ai/prompts/evaluation.py, ai/chains/evaluation_chain.py
+ - services/evaluation_service.py, api/v1/evaluations.py
+ - Frontend: EvaluationDetailPage, ScoreRadarChart
+
+ Phase 9: HR Dashboard
+
+ - services/dashboard_service.py, api/v1/dashboard.py
+ - Frontend: DashboardPage with KPIs, upcoming interviews, pending reviews
+
+ Phase 10: Reports & Analytics
+
+ - utils/pdf_generator.py, utils/excel_generator.py
+ - services/report_service.py, api/v1/reports.py, tasks/report_tasks.py
+ - Frontend: ReportsPage, ExportPage, HiringTrendChart, DepartmentBarChart, CandidateComparisonChart
+
+ Phase 11: Notifications & Communication
+
+ - models/notification.py (Notification + NotificationTemplate) + migration
+ - tasks/email_tasks.py, tasks/sms_tasks.py, seed templates
+ - services/notification_service.py, api/v1/notifications.py
+ - Integrate into: interview_service (invite), evaluation_service (result), candidate_service (status)
+
+ Phase 12: Audit Log + UI Polish
+
+ - models/audit_log.py, audit middleware
+ - Remaining UI components (Modal, Toast, Spinner, Avatar, Select)
+ - Nginx configs, ThemeContext, ProfilePage
+
+ Phase 13: Production Readiness
+
+ - Rate limiting on AI endpoints, file upload limits
+ - CORS lockdown, connection pooling, logging, error tracking
+
+ ---
+ Docker Compose Services (Dev)
+ ┌───────────────┬──────────────────────────┬───────────┬──────────────────────────────────────────────┐
+ │    Service    │          Image           │   Port    │                   Purpose                    │
+ ├───────────────┼──────────────────────────┼───────────┼──────────────────────────────────────────────┤
+ │ db            │ postgres:16-alpine       │ 5433:5432 │ PostgreSQL database                          │
+ ├───────────────┼──────────────────────────┼───────────┼──────────────────────────────────────────────┤
+ │ redis         │ redis:7-alpine           │ 6380:6379 │ Sessions + Celery broker                     │
+ ├───────────────┼──────────────────────────┼───────────┼──────────────────────────────────────────────┤
+ │ backend       │ FastAPI (Dockerfile.dev) │ 8000:8000 │ API + WebSocket (hot reload)                 │
+ ├───────────────┼──────────────────────────┼───────────┼──────────────────────────────────────────────┤
+ │ celery_worker │ Same as backend          │ —         │ Background tasks (email, screening, reports) │
+ ├───────────────┼──────────────────────────┼───────────┼──────────────────────────────────────────────┤
+ │ frontend      │ React (Dockerfile.dev)   │ 3000:3000 │ Vite dev server (hot reload)                 │
+ └───────────────┴──────────────────────────┴───────────┴──────────────────────────────────────────────┘
+ ---
+ Key Python Packages
+
+ fastapi, uvicorn, sqlmodel, asyncpg, alembic, python-jose, passlib, bcrypt, openai, tiktoken, celery, redis, PyPDF2, python-docx,        
+ sendgrid, twilio, reportlab, openpyxl, jinja2, pydantic-settings, httpx, websockets, pytest, pytest-asyncio, ruff
+
+ Key React Packages
+
+ react, react-router-dom, @tanstack/react-query, axios, tailwindcss, @headlessui/react, @heroicons/react, react-hook-form, zod, recharts, 
+  react-dropzone, @tanstack/react-table, recordrtc, zustand, react-hot-toast, file-saver, clsx, tailwind-merge
+
+ ---
+ Verification Plan
+
+ 1. Phase 0: docker-compose up — all services healthy, /health returns 200
+ 2. Phase 1: Register user -> Login -> JWT in response -> GET /me with token
+ 3. Phase 2: Run seed_runner -> 32 domains with ~800+ questions in DB
+ 4. Phase 3: Create JD -> List JDs -> Filter by domain
+ 5. Phase 4: Register candidate with resume upload -> Verify file stored + text extracted
+ 6. Phase 5: Trigger resume screening -> Verify AI scores returned
+ 7. Phase 6: Generate questions for a domain/role -> Verify questions created
+ 8. Phase 7 (critical): Start interview -> Connect chat WS -> Send message -> Get AI response. Then: Connect voice WS -> Send audio ->    
+ Get transcription + AI audio response
+ 9. Phase 8: End interview -> Trigger evaluation -> Verify 6-dimension scores
+ 10. Phase 9: Login as HR -> Dashboard shows KPIs, upcoming interviews
+ 11. Phase 10: Generate PDF/Excel report -> Download and verify
+ 12. Phase 11: Schedule interview -> Verify email notification sent
+ 13. Full E2E: Register candidate -> Upload resume -> Screen -> Shortlist -> Schedule interview -> Conduct AI voice+chat interview ->     
+ Evaluate -> View in dashboard -> Export report -> Send offer notification
+
+ ---
+ Critical Files (highest complexity)
+ ┌─────────────────────────────────────────────────────┬───────────────────────────────────────────────────────────────┐
+ │                        File                         │                              Why                              │
+ ├─────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────┤
+ │ backend/app/services/interview_conductor_service.py │ Heart of the app — real-time AI conversation state management │
+ ├─────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────┤
+ │ backend/app/api/v1/websocket.py                     │ Dual WebSocket (chat+voice), Whisper STT, TTS streaming       │
+ ├─────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────┤
+ │ backend/app/ai/openai_client.py                     │ Every AI feature depends on this                              │
+ ├─────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────┤
+ │ backend/app/core/dependencies.py                    │ Auth + role-based access for all endpoints                    │
+ ├─────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────┤
+ │ frontend/src/pages/interviews/InterviewRoomPage.tsx │ Most complex UI — dual WS, audio recording, playback, timer   │
+ └─────────────────────────────────────────────────────┴───────────────────────────────────────────────────────────────┘

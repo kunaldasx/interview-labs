@@ -1,0 +1,84 @@
+1. Candidate Registration Module
+Features:
+Name, Email, Phone
+Resume Upload (PDF/Word)
+Experience & Skills
+Job Role Applied
+LinkedIn / Portfolio link (optional)
+
+2. Resume Screening Module
+
+Purpose: Automatically filter candidates.
+Features:
+Keyword matching with Job Description
+Experience validation
+Skill relevance score
+Auto Shortlisting / Rejecting
+
+3. Job Description (JD) Management Module
+Purpose: Manage open positions.
+Features:
+Add / Edit / Delete Job Roles
+Required Skills
+Experience Range
+Salary Range
+Department Mapping
+
+4. AI Question Generator Module
+Purpose: Generate interview questions automatically.
+Features:
+Role-based questions
+Experience-based difficulty level
+Behavioral questions
+Situational questions
+Domain-specific questions
+
+5. AI Interview Conduct Module
+
+Purpose: Actual Interview by AI Agent.
+Features:
+Voice or Chat Interview
+Auto Greeting
+Question flow management
+Time limit control
+Follow-up questions
+Multi-language support
+
+6. Candidate Evaluation & Scoring Module
+
+Purpose: Measure performance.
+Features:
+Communication score
+Technical score
+Confidence score
+Keyword / Sentiment analysis
+Overall rating (1–10)
+
+7. Report & Analytics Module
+
+Purpose: Help CEO / HR make decisions.
+Features:
+Candidate comparison charts
+Top performers list
+Department wise hiring report
+Monthly hiring analytics
+PDF / Excel export
+
+8. HR Dashboard Module
+
+Purpose: Control center.
+Features:
+View all candidates
+Schedule interviews
+Approve / Reject
+Notes section
+Role based access (HR / CEO / Manager)
+
+9. Notification & Communication Module
+
+Purpose: Auto communication.
+Features:
+Interview invite email
+Reminder SMS / WhatsApp
+Result notification
+Offer letter automation

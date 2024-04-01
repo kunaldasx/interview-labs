@@ -1,0 +1,184 @@
+{
+  "name": "Banking",
+  "slug": "banking",
+  "sector": "Finance",
+  "sector_slug": "finance",
+  "description": "Interview questions covering retail banking, commercial banking, treasury operations, credit analysis, risk management, regulatory compliance, and customer relationship management in the banking industry.",
+  "questions": [
+    {
+      "question_text": "What is the difference between a savings account and a current account, and how do banks earn revenue from each?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "A savings account is designed for depositing and accumulating funds with interest paid to the depositor, while a current account is designed for frequent transactions with no or minimal interest. Banks earn revenue from savings accounts by lending deposited funds at higher interest rates (net interest margin). For current accounts, banks earn through transaction fees, minimum balance charges, and by utilizing the float. Current accounts typically have higher transaction limits but lower or zero interest rates.",
+      "keywords": ["savings account", "current account", "net interest margin", "transaction fees", "float", "deposits"]
+    },
+    {
+      "question_text": "Explain the concept of Non-Performing Assets (NPAs) and their classification categories.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Non-Performing Assets are loans or advances where the borrower has stopped making interest or principal payments for 90 days or more. NPAs are classified into three categories: Sub-standard Assets (NPA for up to 12 months), Doubtful Assets (NPA for more than 12 months), and Loss Assets (identified as uncollectable by the bank or auditors but not yet written off). NPAs directly impact a bank's profitability, capital adequacy, and lending capacity. Banks must make provisions against NPAs which reduces their profit.",
+      "keywords": ["NPA", "non-performing assets", "sub-standard", "doubtful assets", "loss assets", "provisioning", "90 days"]
+    },
+    {
+      "question_text": "What is the Basel III framework and why is it important for banks?",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "Basel III is a global regulatory framework developed by the Basel Committee on Banking Supervision to strengthen bank capital requirements, introduce new regulatory requirements for liquidity and leverage, and improve risk management. Key components include higher minimum capital ratios (Common Equity Tier 1 at 4.5%, Tier 1 at 6%, total capital at 8%), a capital conservation buffer of 2.5%, a countercyclical buffer of 0-2.5%, Liquidity Coverage Ratio (LCR) requiring banks to hold enough liquid assets to cover 30-day net outflows, Net Stable Funding Ratio (NSFR), and a leverage ratio. It was introduced after the 2008 financial crisis to prevent systemic banking failures.",
+      "keywords": ["Basel III", "capital adequacy", "Tier 1", "LCR", "NSFR", "leverage ratio", "capital conservation buffer", "risk management"]
+    },
+    {
+      "question_text": "Describe a situation where you had to handle a dissatisfied customer whose loan application was rejected. How did you manage it?",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "A strong answer should demonstrate empathy, clear communication, and problem-solving. The candidate should describe listening to the customer's concerns patiently, explaining the reasons for rejection transparently (credit score, income inadequacy, documentation gaps) without divulging proprietary criteria, suggesting actionable steps to improve eligibility such as improving credit score or providing additional collateral, and potentially offering alternative products. The response should show adherence to regulatory guidelines while maintaining customer relationships.",
+      "keywords": ["customer service", "loan rejection", "empathy", "communication", "alternative solutions", "credit assessment"]
+    },
+    {
+      "question_text": "What is the KYC (Know Your Customer) process and why is it critical in banking?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "KYC is the process of verifying the identity, suitability, and risks involved with maintaining a business relationship with a customer. It involves customer identification (collecting identity and address proof), customer due diligence (verifying submitted documents and assessing risk profile), and ongoing monitoring (tracking transactions for suspicious activity). KYC is critical for preventing money laundering, terrorist financing, identity theft, and financial fraud. Banks are legally required to perform KYC under anti-money laundering regulations, and failure to comply can result in heavy penalties, license revocation, and reputational damage.",
+      "keywords": ["KYC", "know your customer", "anti-money laundering", "AML", "customer due diligence", "identity verification", "compliance"]
+    },
+    {
+      "question_text": "How would you handle a situation where you discover a colleague has been approving loans without following proper due diligence procedures?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "The candidate should demonstrate ethical judgment and adherence to protocol. A strong response includes: first documenting specific instances with evidence, reporting the matter to the immediate supervisor or compliance department through proper channels, not confronting the colleague directly to avoid evidence tampering, maintaining confidentiality throughout, understanding the potential consequences including increased NPAs, regulatory penalties, and reputational risk. The response should show awareness of whistleblower protections and the importance of institutional integrity over personal relationships.",
+      "keywords": ["ethics", "compliance", "due diligence", "whistleblower", "reporting", "loan approval", "risk management"]
+    },
+    {
+      "question_text": "Explain the concept of credit risk and the key factors considered in credit appraisal for a business loan.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Credit risk is the risk of loss arising from a borrower's failure to repay a loan or meet contractual obligations. Key factors in business loan credit appraisal include the 5 Cs of Credit: Character (borrower's credit history, reputation, and willingness to repay), Capacity (cash flow analysis, debt-to-income ratio, repayment ability), Capital (borrower's own investment in the business), Collateral (assets pledged as security), and Conditions (loan purpose, industry conditions, economic environment). Additionally, banks analyze financial statements, business plans, industry trends, management quality, and market position.",
+      "keywords": ["credit risk", "5 Cs of credit", "credit appraisal", "collateral", "capacity", "character", "capital", "conditions"]
+    },
+    {
+      "question_text": "What is a Letter of Credit and how does it facilitate international trade?",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "A Letter of Credit (LC) is a financial instrument issued by a bank guaranteeing payment to a seller on behalf of a buyer, provided the seller meets specified terms and conditions. In international trade, it reduces risk for both parties: the seller is assured of payment if they present compliant documents, and the buyer is assured goods will be shipped as per agreed terms. Key types include Revocable, Irrevocable, Confirmed, Transferable, and Back-to-Back LCs. The process involves the buyer applying for an LC from their bank (issuing bank), which sends it to the seller's bank (advising bank). The seller ships goods, submits documents, and receives payment upon document compliance.",
+      "keywords": ["letter of credit", "LC", "international trade", "issuing bank", "advising bank", "trade finance", "documentary credit"]
+    },
+    {
+      "question_text": "Tell me about a time when you had to meet aggressive sales targets for banking products. What strategies did you use?",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "A strong answer should demonstrate strategic thinking, customer-centric approach, and results orientation. The candidate should describe specific strategies such as segmenting the customer base, cross-selling and upselling to existing customers, leveraging data analytics to identify prospects, building referral networks, organizing financial literacy events, collaborating with team members, and setting daily micro-targets. The response should balance sales achievement with ethical selling practices, avoiding mis-selling, and ensuring product suitability for customers.",
+      "keywords": ["sales targets", "cross-selling", "customer segmentation", "referral networks", "ethical selling", "strategy", "results"]
+    },
+    {
+      "question_text": "What is the difference between retail banking and wholesale banking?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "Retail banking serves individual customers and small businesses, offering products like savings accounts, personal loans, mortgages, credit cards, and fixed deposits. It involves high-volume, low-value transactions with a large customer base. Wholesale banking (also called corporate banking) serves large corporations, institutions, and government entities, offering products like corporate loans, treasury services, trade finance, cash management, and syndicated lending. It involves low-volume, high-value transactions. Retail banking generates revenue through interest margins and fees, while wholesale banking relies more on relationship-based pricing, advisory fees, and large-scale lending margins.",
+      "keywords": ["retail banking", "wholesale banking", "corporate banking", "individual customers", "corporations", "transaction volume"]
+    },
+    {
+      "question_text": "Explain the concept of Asset-Liability Management (ALM) and its importance in banking.",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "Asset-Liability Management is a practice of managing the bank's balance sheet to mitigate risks arising from mismatches between assets and liabilities. Key components include interest rate risk management (ensuring changes in rates don't adversely impact net interest income), liquidity risk management (ensuring the bank can meet its obligations as they come due), maturity gap analysis (matching the maturity profiles of assets and liabilities), and duration analysis. ALM committees (ALCO) meet regularly to review the bank's risk position, set internal limits, and make strategic decisions about pricing, product mix, and investment portfolios. Poor ALM can lead to liquidity crises, interest rate losses, or even bank failure.",
+      "keywords": ["ALM", "asset-liability management", "interest rate risk", "liquidity risk", "maturity gap", "ALCO", "duration analysis"]
+    },
+    {
+      "question_text": "If a high-net-worth client wants to transfer a large sum internationally and you suspect it could be related to money laundering, what steps would you take?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "The candidate should demonstrate knowledge of AML procedures. Steps include: not tipping off the customer about the suspicion, discreetly gathering additional information about the source and purpose of funds, filing a Suspicious Transaction Report (STR) with the Financial Intelligence Unit, escalating to the compliance officer immediately, documenting all observations and interactions, placing a hold on the transaction if authorized by compliance, reviewing the customer's historical transaction patterns for anomalies, and ensuring all KYC documents are up to date. The response should show understanding that customer relationship should not override regulatory obligations.",
+      "keywords": ["money laundering", "STR", "suspicious transaction", "compliance", "AML", "Financial Intelligence Unit", "due diligence", "tipping off"]
+    },
+    {
+      "question_text": "What are the different types of bank risks and how are they managed?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Major bank risks include: Credit Risk (risk of borrower default, managed through credit appraisal, collateral, diversification, and provisioning), Market Risk (risk from adverse market movements in interest rates, forex, and equities, managed through hedging, VaR limits, and position limits), Operational Risk (risk from inadequate processes, systems, or human error, managed through internal controls, audits, and business continuity plans), Liquidity Risk (inability to meet obligations, managed through ALM, maintaining liquid reserves, and diversifying funding sources), and Reputational Risk (managed through ethical practices, customer service, and crisis management). Banks use a three-lines-of-defense model: business units, risk management, and internal audit.",
+      "keywords": ["credit risk", "market risk", "operational risk", "liquidity risk", "reputational risk", "hedging", "VaR", "three lines of defense"]
+    },
+    {
+      "question_text": "What is Priority Sector Lending and why is it mandated for banks?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "Priority Sector Lending (PSL) is a regulatory mandate requiring banks to allocate a certain percentage of their lending to sectors considered important for economic development but which may not receive adequate credit otherwise. These sectors typically include agriculture, micro and small enterprises, education, housing, social infrastructure, renewable energy, and weaker sections of society. The target is usually 40% of adjusted net bank credit for domestic banks. PSL ensures inclusive growth, reduces income inequality, and channels credit to productive sectors. Banks that fail to meet targets must contribute to designated funds at lower returns. This policy helps achieve broader socioeconomic objectives through the banking system.",
+      "keywords": ["priority sector lending", "PSL", "agriculture", "inclusive growth", "adjusted net bank credit", "regulatory mandate", "weaker sections"]
+    },
+    {
+      "question_text": "Describe a time when you identified an opportunity to improve an existing banking process. What was the outcome?",
+      "question_type": "behavioral",
+      "difficulty": "easy",
+      "expected_answer": "A strong answer should demonstrate initiative, analytical thinking, and impact measurement. The candidate should describe a specific process they identified as inefficient (such as account opening, loan processing, or customer onboarding), explain how they analyzed the problem, describe the solution they proposed (workflow streamlining, form simplification, digital adoption), how they gained stakeholder buy-in, implemented the change, and measured results. Quantifiable outcomes like reduced processing time, improved customer satisfaction scores, or cost savings make the answer stronger.",
+      "keywords": ["process improvement", "initiative", "efficiency", "stakeholder buy-in", "outcome measurement", "innovation"]
+    },
+    {
+      "question_text": "Explain the CASA ratio and its significance for a bank's profitability.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "CASA ratio refers to the proportion of Current Account and Savings Account deposits to total deposits. It is calculated as (Current Account Deposits + Savings Account Deposits) / Total Deposits x 100. A higher CASA ratio is beneficial because these deposits have lower interest costs compared to fixed deposits and other term deposits, thereby reducing the overall cost of funds and improving net interest margins. Banks with higher CASA ratios are generally more profitable and have more stable, low-cost funding. Strategies to improve CASA include salary account tie-ups, digital banking features, merchant services, and superior customer service. A healthy CASA ratio is typically above 40%.",
+      "keywords": ["CASA ratio", "current account", "savings account", "cost of funds", "net interest margin", "profitability", "deposits"]
+    },
+    {
+      "question_text": "If you are managing a branch and notice a consistent decline in deposits over the past quarter, how would you address this?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "A comprehensive response should include: analyzing the root cause (competitive rates, service issues, customer attrition, local economic factors), reviewing customer feedback and exit interviews, benchmarking against competitor offerings, developing a retention strategy for existing depositors (rate revisions, relationship management), implementing an acquisition strategy (local marketing campaigns, corporate tie-ups, community engagement), motivating and training the team on deposit mobilization techniques, setting specific targets with accountability, leveraging digital channels for ease of banking, and establishing a regular review mechanism to track progress. The answer should demonstrate both analytical and leadership skills.",
+      "keywords": ["deposit mobilization", "branch management", "root cause analysis", "retention strategy", "competitor analysis", "leadership", "customer attrition"]
+    },
+    {
+      "question_text": "What is the concept of Statutory Liquidity Ratio (SLR) and Cash Reserve Ratio (CRR)?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "CRR is the percentage of net demand and time liabilities that banks must maintain as cash deposits with the central bank. It directly controls the money supply in the economy; a higher CRR reduces lendable funds. SLR is the percentage of net demand and time liabilities that banks must maintain in the form of liquid assets such as government securities, cash, and gold. SLR ensures bank solvency and channels funds to government securities. Both are monetary policy tools used by the central bank to control inflation, regulate credit growth, and ensure financial stability. Changes in CRR and SLR directly impact a bank's lending capacity and profitability.",
+      "keywords": ["CRR", "SLR", "cash reserve ratio", "statutory liquidity ratio", "monetary policy", "NDTL", "government securities"]
+    },
+    {
+      "question_text": "What is trade finance and what are the key instruments used in trade finance?",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "Trade finance refers to the financial instruments and products used by companies to facilitate international and domestic trade and commerce. Key instruments include Letters of Credit (guaranteeing payment upon document compliance), Bank Guarantees (assuring performance or payment), Bills of Exchange (negotiable instruments for trade payment), Documentary Collections (bank-mediated document and payment exchange), Invoice Financing and Factoring (advancing funds against receivables), Supply Chain Financing (optimizing cash flow in the supply chain), and Export Credit (pre-shipment and post-shipment finance). Trade finance mitigates risks in international trade such as non-payment, non-delivery, currency fluctuations, and political instability.",
+      "keywords": ["trade finance", "letter of credit", "bank guarantee", "bills of exchange", "factoring", "supply chain financing", "export credit"]
+    },
+    {
+      "question_text": "Tell me about a time when you had to adapt to a significant regulatory change in banking. How did you ensure compliance?",
+      "question_type": "behavioral",
+      "difficulty": "hard",
+      "expected_answer": "A strong answer should describe a specific regulatory change (such as new KYC norms, data protection laws, or capital adequacy requirements), how the candidate stayed informed about the change, steps taken to understand implications for their role and department, collaboration with compliance teams, training initiatives undertaken or organized, process modifications implemented, documentation updates, and how they ensured sustained compliance. The answer should demonstrate adaptability, attention to detail, and a proactive approach to regulatory requirements.",
+      "keywords": ["regulatory change", "compliance", "adaptability", "training", "process modification", "proactive", "documentation"]
+    },
+    {
+      "question_text": "Explain the concept of Interest Rate Spread and how it impacts bank profitability.",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "Interest rate spread is the difference between the average interest rate a bank earns on its assets (loans and investments) and the average interest rate it pays on its liabilities (deposits and borrowings). For example, if a bank lends at 10% and pays depositors 6%, the spread is 4%. This spread is the primary source of income for most commercial banks. Factors affecting the spread include competitive environment, central bank policy rates, credit risk premium, operational costs, inflation expectations, and the bank's funding mix. A wider spread means higher profitability, but banks must balance this with competitive pricing to attract both borrowers and depositors.",
+      "keywords": ["interest rate spread", "net interest margin", "lending rate", "deposit rate", "profitability", "cost of funds"]
+    },
+    {
+      "question_text": "What is the difference between a secured loan and an unsecured loan? What are the risk implications for the bank?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "A secured loan is backed by collateral (property, gold, securities, vehicles) that the bank can seize if the borrower defaults, while an unsecured loan has no collateral backing and relies solely on the borrower's creditworthiness and repayment ability. Secured loans carry lower risk for the bank, hence they typically have lower interest rates, higher loan amounts, and longer tenures. Unsecured loans carry higher risk, resulting in higher interest rates, lower loan amounts, stricter eligibility criteria, and shorter tenures. From a risk perspective, secured loans have lower loss-given-default (LGD) but can have higher operational costs for collateral management, while unsecured loans have higher LGD and require robust credit scoring models.",
+      "keywords": ["secured loan", "unsecured loan", "collateral", "credit risk", "loss given default", "interest rate", "creditworthiness"]
+    },
+    {
+      "question_text": "You receive information that a major corporate borrower of your branch is facing severe financial distress. What immediate actions would you take?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "Immediate actions should include: alerting senior management and the credit/risk department, reviewing the existing loan exposure and collateral position, assessing the borrower's current financial health through updated financial statements and market intelligence, classifying the account appropriately per regulatory guidelines, initiating dialogue with the borrower to understand the situation and explore restructuring possibilities, reviewing all security documents and ensuring perfection of charge on collateral, coordinating with the legal department for protective measures, evaluating exposure under consortium or multiple banking arrangements, estimating potential provisioning requirements, and developing a recovery strategy. The response should demonstrate urgency balanced with methodical risk management.",
+      "keywords": ["financial distress", "credit risk", "restructuring", "collateral review", "provisioning", "recovery strategy", "early warning"]
+    },
+    {
+      "question_text": "Explain the Repo Rate and Reverse Repo Rate and how they influence the banking system.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "The Repo Rate is the rate at which the central bank lends money to commercial banks against government securities. The Reverse Repo Rate is the rate at which the central bank borrows money from commercial banks. When the central bank increases the Repo Rate, borrowing becomes costlier for banks, leading to higher lending rates, reduced credit growth, and lower inflation. A decrease in Repo Rate makes borrowing cheaper, stimulating lending and economic activity. The Reverse Repo Rate influences how much banks park with the central bank; a higher Reverse Repo Rate encourages banks to deposit excess funds rather than lend. Together, these rates form the corridor for short-term interest rates and are primary tools of monetary policy.",
+      "keywords": ["repo rate", "reverse repo rate", "monetary policy", "central bank", "interest rates", "inflation", "credit growth", "liquidity"]
+    },
+    {
+      "question_text": "If a long-standing customer requests a loan waiver citing personal hardship, but they do not meet the criteria for any relief program, how would you handle this?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "The candidate should demonstrate empathy while maintaining institutional integrity. The approach should include: listening to the customer's situation with compassion, clearly explaining why a direct waiver is not possible under existing policies, exploring all available alternatives such as loan restructuring, moratorium, tenure extension, or reduced EMI options, checking if the customer qualifies for any government or bank-initiated relief schemes, consulting with the branch manager or regional office for any discretionary relief options, providing financial counseling or directing to relevant support services, documenting the interaction, and following up to ensure the customer receives appropriate support within the bank's framework.",
+      "keywords": ["customer empathy", "loan restructuring", "policy adherence", "alternatives", "financial hardship", "customer relationship", "discretion"]
+    }
+  ]
+}

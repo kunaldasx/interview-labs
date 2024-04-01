@@ -1,0 +1,184 @@
+{
+  "name": "Biomedical Engineering",
+  "slug": "biomedical_engineering",
+  "sector": "Engineering",
+  "sector_slug": "engineering",
+  "description": "Medical devices, biomaterials, biomechanics, regulatory affairs including FDA processes, clinical engineering, rehabilitation engineering, imaging systems, and biocompatibility for biomedical engineering professionals.",
+  "questions": [
+    {
+      "question_text": "Explain the FDA medical device classification system (Class I, II, III) and how device classification determines the regulatory pathway.",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "Class I devices pose the lowest risk and are subject to general controls (e.g., tongue depressors). Class II devices require special controls and typically a 510(k) premarket notification demonstrating substantial equivalence to a predicate device (e.g., powered wheelchairs). Class III devices are highest risk and require Premarket Approval (PMA) with clinical evidence of safety and effectiveness (e.g., heart valves, implantable defibrillators).",
+      "keywords": ["FDA classification", "510(k)", "premarket approval"]
+    },
+    {
+      "question_text": "Describe the biocompatibility testing requirements outlined in ISO 10993 and how you would develop a biological evaluation plan for a new implantable device.",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "ISO 10993 provides a framework for evaluating biological responses to medical devices based on the nature and duration of body contact. A biological evaluation plan considers device materials, contact type (surface, external, implant), contact duration (limited, prolonged, permanent), and selects appropriate tests such as cytotoxicity, sensitization, irritation, systemic toxicity, genotoxicity, hemocompatibility, and implantation studies proportional to the risk profile.",
+      "keywords": ["ISO 10993", "biocompatibility", "biological evaluation"]
+    },
+    {
+      "question_text": "What is the purpose of a Design History File (DHF) in medical device development, and what key documents does it contain?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "A DHF contains the complete design history of a medical device, demonstrating compliance with the design control process required by FDA 21 CFR 820. Key documents include user needs, design inputs and outputs, design reviews, verification and validation records, risk analysis, design transfer documents, and any design changes, providing traceability from user needs through to the finished device.",
+      "keywords": ["design history file", "design controls", "21 CFR 820"]
+    },
+    {
+      "question_text": "Explain the principles behind MRI (Magnetic Resonance Imaging) and the key engineering considerations for MRI system design.",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "MRI uses a strong static magnetic field to align hydrogen protons, radiofrequency pulses to perturb them, and gradient coils to spatially encode signals. The relaxation signals (T1 and T2) are reconstructed into images. Key engineering considerations include magnet homogeneity, gradient strength and linearity, RF coil design for signal-to-noise ratio, shielding to prevent interference, patient safety with respect to specific absorption rate, and cryogenic cooling systems for superconducting magnets.",
+      "keywords": ["MRI principles", "magnetic resonance", "imaging systems"]
+    },
+    {
+      "question_text": "Describe the concept of biomechanical stress analysis in orthopedic implant design and the role of finite element analysis.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Biomechanical stress analysis evaluates how physiological loads are distributed through an implant and surrounding tissue. FEA models the implant-bone system with realistic geometry, material properties, and loading conditions to predict stress concentrations, strain distribution, and potential failure modes. This helps optimize implant geometry, material selection, and fixation methods to minimize stress shielding and maximize implant longevity.",
+      "keywords": ["biomechanical analysis", "orthopedic implant", "finite element analysis"]
+    },
+    {
+      "question_text": "What are the key properties required of biomaterials used in load-bearing orthopedic implants, and how do material choices differ for permanent versus resorbable applications?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Load-bearing implant biomaterials require high mechanical strength, fatigue resistance, corrosion resistance, biocompatibility, and appropriate elastic modulus to minimize stress shielding. Permanent implants use titanium alloys, cobalt-chromium, or stainless steel. Resorbable implants use polymers like PLLA or magnesium alloys that degrade at controlled rates while new tissue forms, eliminating the need for removal surgery.",
+      "keywords": ["biomaterials", "orthopedic implants", "resorbable materials"]
+    },
+    {
+      "question_text": "Explain the design verification and validation process for medical devices and how they differ from each other.",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "Verification confirms that design outputs meet design input specifications through testing, inspection, and analysis, answering 'Did we build the device right?' Validation confirms that the finished device meets user needs and intended use through simulated or actual use conditions, answering 'Did we build the right device?' Both are required under FDA design controls and must be documented with predetermined acceptance criteria.",
+      "keywords": ["design verification", "design validation", "design controls"]
+    },
+    {
+      "question_text": "What is the purpose of risk management in medical device development, and how does ISO 14971 guide this process?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Risk management systematically identifies, evaluates, controls, and monitors risks associated with medical devices throughout their lifecycle. ISO 14971 defines the process including hazard identification, risk estimation (severity and probability), risk evaluation against acceptability criteria, risk control through design changes or protective measures, verification of control effectiveness, and assessment of residual risk acceptability.",
+      "keywords": ["ISO 14971", "risk management", "hazard analysis"]
+    },
+    {
+      "question_text": "Describe the principles of electrical safety testing for medical devices, including the significance of leakage current measurements.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Electrical safety testing per IEC 60601-1 evaluates protection against electric shock, including earth leakage current, enclosure leakage current, and patient leakage current under normal and single-fault conditions. Leakage current limits are stringent because patients may have impaired defenses (wet skin, direct cardiac connections), and even small currents can cause ventricular fibrillation in cardiac-applied devices.",
+      "keywords": ["electrical safety", "IEC 60601", "leakage current"]
+    },
+    {
+      "question_text": "What is the role of human factors engineering (usability engineering) in medical device design, and what standards govern this process?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "Human factors engineering ensures that medical devices can be used safely and effectively by intended users in intended use environments. It involves use-related risk analysis, formative usability studies during development, and summative (validation) usability testing. IEC 62366-1 and FDA guidance on human factors provide the framework, requiring manufacturers to demonstrate that foreseeable use errors do not cause unacceptable harm.",
+      "keywords": ["human factors", "usability engineering", "IEC 62366"]
+    },
+    {
+      "question_text": "Tell me about a time when you identified a potential safety issue during the development of a medical device. How did you handle it?",
+      "question_type": "behavioral",
+      "difficulty": "hard",
+      "expected_answer": "The candidate should describe the specific safety concern, how they identified it (through testing, review, or analysis), the immediate actions taken to document and escalate the issue, the risk mitigation measures implemented, how they ensured the issue was properly captured in the risk management file, and the outcome, demonstrating commitment to patient safety above project pressures.",
+      "keywords": ["safety concern", "risk mitigation", "patient safety"]
+    },
+    {
+      "question_text": "Describe an experience where you had to navigate a complex regulatory submission process. What challenges did you face?",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "A strong answer describes the regulatory pathway (510(k), PMA, or CE marking), specific challenges such as predicate device selection, clinical data requirements, or reviewer questions, the strategies used to address these challenges, collaboration with regulatory affairs specialists, and the outcome, demonstrating understanding of the regulatory landscape and persistence in navigating it.",
+      "keywords": ["regulatory submission", "FDA process", "regulatory strategy"]
+    },
+    {
+      "question_text": "Can you describe a project where you had to collaborate closely with clinicians to translate clinical needs into engineering specifications?",
+      "question_type": "behavioral",
+      "difficulty": "easy",
+      "expected_answer": "The candidate should explain how they engaged clinicians through interviews, observations, or design workshops, translated qualitative clinical needs into quantifiable engineering specifications, managed differing expectations between clinical desirability and technical feasibility, iterated on prototypes with clinical feedback, and achieved a device design that met both clinical and engineering requirements.",
+      "keywords": ["clinical collaboration", "user needs", "requirements translation"]
+    },
+    {
+      "question_text": "Tell me about a time when a design change late in the development process required you to reassess your verification and validation strategy.",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "The candidate should describe the nature of the design change, the impact assessment performed to determine which verification and validation activities were affected, how they planned and executed additional or revised testing, the documentation updates required, and how they managed the schedule impact while maintaining the integrity of the design control process.",
+      "keywords": ["design change", "verification strategy", "design controls"]
+    },
+    {
+      "question_text": "Describe a situation where you had to balance innovation with regulatory compliance in medical device development.",
+      "question_type": "behavioral",
+      "difficulty": "easy",
+      "expected_answer": "The candidate should explain the innovative feature or technology, the regulatory challenges it presented (novel materials, new indications, lack of predicate), how they engaged regulators early (pre-submission meetings), developed a regulatory strategy that supported innovation while meeting safety requirements, and navigated the balance between pushing technological boundaries and ensuring patient safety.",
+      "keywords": ["innovation", "regulatory compliance", "pre-submission"]
+    },
+    {
+      "question_text": "During clinical testing of a new device, adverse events are reported that were not anticipated in your risk analysis. How would you respond?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "The engineer should immediately report the adverse events per the clinical protocol and regulatory requirements (MDR reporting), convene the risk management team to analyze the events, update the risk analysis with the new hazard, evaluate whether the device design needs modification, determine if the clinical study should be paused or modified, communicate transparently with the IRB and regulatory authorities, and implement corrective actions before resuming.",
+      "keywords": ["adverse events", "clinical testing", "risk analysis update"]
+    },
+    {
+      "question_text": "A competitor has received FDA clearance for a similar device to the one you are developing. How would you leverage this information in your regulatory strategy?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "The engineer should analyze the competitor's cleared device as a potential predicate for a 510(k) pathway, review the publicly available summary documents for testing approaches and performance criteria, assess substantial equivalence in terms of intended use, technology, and materials, identify any differences that require additional testing or different regulatory arguments, and potentially use the competitor's clearance to streamline their own submission strategy.",
+      "keywords": ["predicate device", "510(k) strategy", "competitive analysis"]
+    },
+    {
+      "question_text": "Your company wants to market an existing medical device in the European Union. What regulatory considerations must you address for CE marking under the EU MDR?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "The engineer must classify the device under EU MDR rules, engage a Notified Body for conformity assessment (for Class IIa and above), establish a quality management system per ISO 13485, prepare technical documentation including clinical evaluation report with sufficient clinical evidence, implement post-market surveillance and vigilance systems, appoint an EU Authorized Representative, register in EUDAMED, and ensure UDI compliance.",
+      "keywords": ["EU MDR", "CE marking", "Notified Body"]
+    },
+    {
+      "question_text": "A hospital reports that a medical device your company manufactures is not performing as expected in their clinical environment. How would you investigate this complaint?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "The engineer should log the complaint in the complaint handling system, gather detailed information about the failure mode, use conditions, and environmental factors, retrieve the device if possible for failure analysis, review the device history record for manufacturing anomalies, determine if the issue is a systematic design problem or isolated incident, assess reportability to the FDA as an MDR, and implement CAPA if a systemic root cause is identified.",
+      "keywords": ["complaint investigation", "failure analysis", "CAPA"]
+    },
+    {
+      "question_text": "You are designing a wearable monitoring device for elderly patients. What special design considerations would you prioritize?",
+      "question_type": "situational",
+      "difficulty": "easy",
+      "expected_answer": "The engineer should prioritize ease of use with minimal user interface complexity, large and readable displays, simple attachment mechanisms accommodating limited dexterity, lightweight and comfortable form factor for extended wear, skin-friendly materials to prevent irritation, reliable wireless connectivity for data transmission, adequate battery life, fall detection or alert features, and clear alarms that accommodate potential hearing impairment.",
+      "keywords": ["wearable device", "elderly users", "usability design"]
+    },
+    {
+      "question_text": "What is the role of quality management systems (QMS) in medical device manufacturing, and how does ISO 13485 differ from ISO 9001?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "A QMS provides the organizational framework for consistently meeting customer and regulatory requirements. ISO 13485 is specifically tailored for medical device manufacturers, emphasizing regulatory compliance, risk management, traceability, and sterile manufacturing controls. Unlike ISO 9001, which focuses on continuous improvement and customer satisfaction, ISO 13485 prioritizes maintaining the effectiveness of the QMS and meeting regulatory requirements consistently.",
+      "keywords": ["ISO 13485", "quality management system", "medical device manufacturing"]
+    },
+    {
+      "question_text": "Explain the concept of sterilization validation for medical devices and the common sterilization methods used.",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "Sterilization validation demonstrates that the sterilization process consistently achieves the required sterility assurance level (typically SAL 10^-6). Common methods include ethylene oxide (EO) for heat-sensitive materials, steam autoclaving for heat-resistant devices, gamma or electron beam irradiation for sealed packages, and hydrogen peroxide plasma for moisture-sensitive devices. Each method requires specific validation protocols addressing lethality, material compatibility, and residual limits.",
+      "keywords": ["sterilization validation", "sterility assurance", "EO sterilization"]
+    },
+    {
+      "question_text": "What are the key considerations in the design of rehabilitation engineering devices such as prosthetics and orthotics?",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "Key considerations include biomechanical alignment with the patient's anatomy, appropriate material selection balancing strength and weight, comfortable socket or interface design, range of motion requirements, energy storage and return characteristics, durability under cyclic loading, ease of donning and doffing, cosmetic appearance, and customization capabilities to accommodate individual patient anatomy and functional requirements through both static and dynamic fitting processes.",
+      "keywords": ["rehabilitation engineering", "prosthetics", "biomechanical alignment"]
+    },
+    {
+      "question_text": "Describe the post-market surveillance requirements for medical devices and why they are critical for ongoing safety.",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "Post-market surveillance involves systematic collection and analysis of device performance data after market release, including complaint handling, adverse event reporting (MDR/vigilance), trend analysis, literature monitoring, and periodic safety update reports. It is critical because pre-market testing cannot capture all real-world use conditions, long-term effects, or rare adverse events, making ongoing surveillance essential for identifying emerging safety signals and triggering corrective actions.",
+      "keywords": ["post-market surveillance", "adverse event reporting", "ongoing safety"]
+    },
+    {
+      "question_text": "What is the significance of biocompatibility in tissue engineering scaffolds, and how are scaffold materials evaluated?",
+      "question_type": "domain_specific",
+      "difficulty": "hard",
+      "expected_answer": "Biocompatibility in tissue engineering scaffolds requires the material to support cell adhesion, proliferation, and differentiation while degrading at a rate matching new tissue formation. Evaluation includes in vitro cell viability and proliferation assays, assessment of degradation products for toxicity, mechanical property testing under physiological conditions, in vivo implantation studies examining tissue integration and inflammatory response, and characterization of porosity, surface chemistry, and architecture.",
+      "keywords": ["tissue engineering", "scaffold biocompatibility", "cell proliferation"]
+    }
+  ]
+}

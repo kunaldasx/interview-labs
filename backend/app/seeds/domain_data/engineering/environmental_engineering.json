@@ -1,0 +1,184 @@
+{
+  "name": "Environmental Engineering",
+  "slug": "environmental_engineering",
+  "sector": "Engineering",
+  "sector_slug": "engineering",
+  "description": "Water and wastewater treatment, air quality management, solid waste management, environmental impact assessment, site remediation, sustainability practices, and environmental regulations for environmental engineering professionals.",
+  "questions": [
+    {
+      "question_text": "Explain the primary, secondary, and tertiary stages of wastewater treatment and the purpose of each.",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "Primary treatment removes settleable solids through screening and sedimentation. Secondary treatment uses biological processes such as activated sludge or trickling filters to degrade dissolved organic matter. Tertiary treatment provides advanced polishing through filtration, nutrient removal, or disinfection to meet stringent discharge or reuse standards.",
+      "keywords": ["wastewater treatment", "activated sludge", "treatment stages"]
+    },
+    {
+      "question_text": "What is Biochemical Oxygen Demand (BOD) and why is it a critical parameter in water quality assessment?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "BOD measures the amount of dissolved oxygen consumed by microorganisms to decompose organic matter in water over a specified period, typically five days. It is critical because high BOD indicates high organic pollution, which can deplete oxygen in receiving waters and harm aquatic ecosystems.",
+      "keywords": ["BOD", "water quality", "dissolved oxygen"]
+    },
+    {
+      "question_text": "Describe the principles behind activated carbon adsorption for removing contaminants from water and the factors affecting its effectiveness.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Activated carbon adsorption works by attracting and holding organic molecules and certain inorganic contaminants onto the carbon surface through van der Waals forces and chemical interactions. Effectiveness depends on carbon surface area, pore size distribution, contaminant concentration, pH, temperature, and contact time.",
+      "keywords": ["activated carbon", "adsorption", "water treatment"]
+    },
+    {
+      "question_text": "How does a wet scrubber system work to control air pollutant emissions, and what are its advantages and limitations?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "A wet scrubber contacts polluted gas with a liquid (usually water or a chemical solution) to absorb or react with gaseous pollutants and capture particulate matter. Advantages include the ability to handle high temperatures and sticky particles; limitations include wastewater generation, potential corrosion, and higher operating costs compared to dry systems.",
+      "keywords": ["wet scrubber", "air pollution control", "emissions"]
+    },
+    {
+      "question_text": "Explain the process of pump-and-treat remediation for contaminated groundwater and discuss its effectiveness.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Pump-and-treat extracts contaminated groundwater via wells, treats it above ground using methods like air stripping, carbon adsorption, or chemical oxidation, and discharges or reinjects the treated water. While effective for plume containment, it can be slow and costly for complete source zone cleanup due to contaminant back-diffusion and sorption.",
+      "keywords": ["pump-and-treat", "groundwater remediation", "contaminant plume"]
+    },
+    {
+      "question_text": "What is the purpose of an Environmental Impact Assessment (EIA), and what are its key components?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "An EIA systematically evaluates the potential environmental consequences of a proposed project before it proceeds. Key components include project description, baseline environmental conditions, impact prediction and evaluation, mitigation measures, public consultation, and monitoring plans to ensure compliance with environmental standards.",
+      "keywords": ["environmental impact assessment", "mitigation", "baseline study"]
+    },
+    {
+      "question_text": "Describe the design considerations for a sanitary landfill, including liner systems and leachate management.",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "A sanitary landfill requires a composite liner system (clay and geomembrane) to prevent leachate migration, a leachate collection and treatment system, a gas collection system for methane, proper grading and daily cover to minimize infiltration, and groundwater monitoring wells. Site selection must consider geology, hydrology, and proximity to sensitive receptors.",
+      "keywords": ["sanitary landfill", "liner system", "leachate management"]
+    },
+    {
+      "question_text": "How do you design a stormwater management system to comply with post-construction runoff requirements?",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "Design involves calculating pre- and post-development runoff using hydrologic models, sizing detention or retention basins to match pre-development peak flows, incorporating best management practices such as bioswales, permeable pavements, and green roofs, and ensuring water quality treatment meets permit requirements for sediment, nutrients, and pollutants.",
+      "keywords": ["stormwater management", "runoff", "best management practices"]
+    },
+    {
+      "question_text": "Explain the concept of bioaugmentation in soil remediation and when it is preferred over natural attenuation.",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "Bioaugmentation introduces specifically selected microorganisms to contaminated soil to enhance biodegradation of target pollutants. It is preferred when indigenous microbial populations are insufficient, the contaminant is recalcitrant, or cleanup timelines are too aggressive for natural attenuation, which relies solely on existing biological, chemical, and physical processes.",
+      "keywords": ["bioaugmentation", "soil remediation", "biodegradation"]
+    },
+    {
+      "question_text": "What are the key parameters monitored in ambient air quality, and how do they relate to the National Ambient Air Quality Standards (NAAQS)?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Key parameters include particulate matter (PM2.5 and PM10), ozone, carbon monoxide, sulfur dioxide, nitrogen dioxide, and lead. NAAQS set primary standards to protect public health and secondary standards to protect welfare, with both short-term and long-term concentration limits that trigger attainment or non-attainment designations for regions.",
+      "keywords": ["NAAQS", "air quality monitoring", "criteria pollutants"]
+    },
+    {
+      "question_text": "Tell me about a time when you had to balance environmental protection goals with project budget constraints. How did you handle it?",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "The candidate should describe a specific project where environmental requirements competed with budget limitations, explain how they evaluated cost-effective alternatives, presented options with clear trade-offs to decision-makers, and ultimately achieved an acceptable balance between environmental performance and financial feasibility.",
+      "keywords": ["budget constraints", "environmental protection", "trade-off analysis"]
+    },
+    {
+      "question_text": "Describe a situation where you encountered unexpected contamination during a site investigation. What was your response?",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "A strong answer details the unexpected finding, immediate actions to protect workers and the environment, how the candidate expanded the investigation scope, communicated the discovery to regulators and stakeholders, and adjusted the remediation strategy based on the new information.",
+      "keywords": ["unexpected contamination", "site investigation", "adaptive response"]
+    },
+    {
+      "question_text": "Can you describe an experience where you had to advocate for environmentally responsible practices to a skeptical client or management team?",
+      "question_type": "behavioral",
+      "difficulty": "easy",
+      "expected_answer": "The candidate should explain the situation, how they built a data-driven case demonstrating long-term benefits such as regulatory compliance, cost savings, or reputational value, how they addressed specific objections, and whether they ultimately gained buy-in for the recommended approach.",
+      "keywords": ["advocacy", "environmental responsibility", "stakeholder persuasion"]
+    },
+    {
+      "question_text": "Tell me about a time when you led or participated in a public engagement process for an environmental project. What challenges did you face?",
+      "question_type": "behavioral",
+      "difficulty": "easy",
+      "expected_answer": "The candidate should describe the public engagement context, the concerns raised by community members, how they communicated technical information accessibly, managed emotional or contentious responses, and incorporated legitimate feedback into project planning while maintaining regulatory compliance.",
+      "keywords": ["public engagement", "community relations", "environmental communication"]
+    },
+    {
+      "question_text": "Describe a project where regulatory requirements changed during execution. How did you adapt your environmental engineering approach?",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "The candidate should detail the nature of the regulatory change, how they assessed its impact on the project scope and timeline, the steps taken to bring the project into compliance, communication with regulators and clients, and lessons learned about building regulatory flexibility into project plans.",
+      "keywords": ["regulatory change", "adaptability", "compliance"]
+    },
+    {
+      "question_text": "A manufacturing client discharges wastewater that intermittently exceeds permit limits for heavy metals. They ask you to recommend a cost-effective solution. How would you approach this?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "The engineer should characterize the wastewater variability through sampling and analysis, identify the sources of heavy metals within the process, evaluate treatment options such as chemical precipitation, ion exchange, or membrane filtration, consider source reduction opportunities, and recommend a solution that provides reliable compliance with a reasonable payback period.",
+      "keywords": ["heavy metals", "wastewater discharge", "permit compliance"]
+    },
+    {
+      "question_text": "During an environmental site assessment, you discover that contamination has migrated beyond the property boundary. What are your professional and regulatory obligations?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "The engineer must notify the client immediately, report the off-site migration to the appropriate regulatory agency as required by law, assess potential risks to neighboring properties and receptors, expand the investigation to delineate the full extent of contamination, and develop a remediation plan that addresses both on-site and off-site impacts.",
+      "keywords": ["off-site contamination", "regulatory reporting", "site assessment"]
+    },
+    {
+      "question_text": "Your team is tasked with designing a water treatment plant for a small rural community with limited budget and technical capacity. How would you approach this?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "The engineer should assess the raw water quality and community needs, design a simple, robust treatment system using appropriate technology that local operators can maintain, minimize chemical and energy requirements, provide comprehensive operator training, establish a monitoring program, and plan for future capacity needs within the budget constraints.",
+      "keywords": ["rural water treatment", "appropriate technology", "capacity building"]
+    },
+    {
+      "question_text": "A proposed development project receives strong opposition from environmental groups concerned about habitat destruction. As the environmental engineer, how would you contribute to resolving this conflict?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "The engineer should conduct a thorough ecological assessment, identify sensitive habitats and species, propose avoidance and minimization measures in the project design, develop a credible mitigation and habitat restoration plan, facilitate transparent communication between the developer and environmental groups, and ensure compliance with endangered species and wetland regulations.",
+      "keywords": ["habitat protection", "stakeholder conflict", "ecological assessment"]
+    },
+    {
+      "question_text": "You are evaluating two remediation technologies for a petroleum-contaminated site: in-situ chemical oxidation versus bioremediation. What factors would guide your recommendation?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "Key factors include contaminant type and concentration, soil and hydrogeological conditions, cleanup timeframe requirements, cost comparison, potential impacts on subsurface geochemistry and microbial communities, regulatory acceptance, site accessibility, and long-term monitoring requirements. Chemical oxidation is faster but more expensive, while bioremediation is slower but more sustainable.",
+      "keywords": ["remediation technology", "chemical oxidation", "bioremediation"]
+    },
+    {
+      "question_text": "What are the key differences between RCRA and CERCLA in the context of hazardous waste management in the United States?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "RCRA (Resource Conservation and Recovery Act) regulates the generation, transportation, treatment, storage, and disposal of active hazardous waste from cradle to grave. CERCLA (Superfund) addresses cleanup of abandoned or uncontrolled hazardous waste sites and establishes liability for responsible parties to fund remediation.",
+      "keywords": ["RCRA", "CERCLA", "hazardous waste regulation"]
+    },
+    {
+      "question_text": "Explain the concept of a carbon footprint and how a Life Cycle Assessment (LCA) is used to evaluate the environmental impact of a product or process.",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "A carbon footprint quantifies the total greenhouse gas emissions associated with an activity, product, or organization. LCA is a systematic methodology that evaluates environmental impacts across all stages from raw material extraction through manufacturing, use, and disposal, providing a comprehensive view that prevents shifting environmental burdens from one life stage to another.",
+      "keywords": ["carbon footprint", "life cycle assessment", "environmental impact"]
+    },
+    {
+      "question_text": "What is the significance of the Clean Water Act Section 404 permit, and when is it required?",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "Section 404 of the Clean Water Act requires a permit from the U.S. Army Corps of Engineers for the discharge of dredged or fill material into waters of the United States, including wetlands. It is significant because it protects aquatic ecosystems by requiring applicants to demonstrate avoidance, minimization, and compensation for unavoidable impacts.",
+      "keywords": ["Clean Water Act", "Section 404", "wetland permitting"]
+    },
+    {
+      "question_text": "Describe the principles of phytoremediation and the types of contaminants it can effectively address.",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "Phytoremediation uses plants to remove, stabilize, or degrade contaminants in soil and water. Mechanisms include phytoextraction (uptake of metals into plant tissue), phytodegradation (breakdown of organics), phytostabilization (immobilization in the root zone), and rhizofiltration (root absorption from water). It is effective for heavy metals, petroleum hydrocarbons, and certain pesticides at moderate concentrations.",
+      "keywords": ["phytoremediation", "contaminant removal", "plant-based remediation"]
+    },
+    {
+      "question_text": "What is the role of Environmental Management Systems (EMS) such as ISO 14001 in industrial operations?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "An EMS provides a structured framework for organizations to manage their environmental responsibilities systematically. ISO 14001 requires establishing an environmental policy, identifying significant aspects and impacts, setting objectives and targets, implementing operational controls, monitoring performance, and pursuing continual improvement through a plan-do-check-act cycle.",
+      "keywords": ["ISO 14001", "environmental management system", "continual improvement"]
+    }
+  ]
+}

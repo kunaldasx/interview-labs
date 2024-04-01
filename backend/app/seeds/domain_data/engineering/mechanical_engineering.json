@@ -1,0 +1,184 @@
+{
+  "name": "Mechanical Engineering",
+  "slug": "mechanical_engineering",
+  "sector": "Engineering",
+  "sector_slug": "engineering",
+  "description": "Interview questions for mechanical engineering professionals covering thermodynamics, machine design, manufacturing processes, fluid mechanics, and materials science.",
+  "questions": [
+    {
+      "question_text": "Explain the difference between stress and strain, and describe the stress-strain curve for a ductile material.",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "Stress is the internal force per unit area (measured in Pa or psi), while strain is the deformation per unit length (dimensionless). The stress-strain curve for a ductile material shows: linear elastic region (obeying Hooke's law), proportional limit, elastic limit, yield point (upper and lower for mild steel), strain hardening region, ultimate tensile strength, necking, and fracture point. Young's modulus is the slope of the linear elastic region.",
+      "keywords": ["stress", "strain", "Young's modulus", "yield point", "ultimate tensile strength", "ductile"]
+    },
+    {
+      "question_text": "What are the four laws of thermodynamics and their practical significance in engineering?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Zeroth Law: If two systems are in thermal equilibrium with a third, they are in equilibrium with each other (basis for temperature measurement). First Law: Energy cannot be created or destroyed, only converted (basis for energy balance in engines, turbines). Second Law: Heat flows spontaneously from hot to cold; entropy of an isolated system always increases (limits engine efficiency, defines Carnot cycle). Third Law: Entropy approaches zero as temperature approaches absolute zero (relevant for cryogenics and low-temperature processes).",
+      "keywords": ["thermodynamics", "entropy", "energy conservation", "Carnot cycle", "heat transfer", "equilibrium"]
+    },
+    {
+      "question_text": "Describe the differences between casting, forging, and machining as manufacturing processes.",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "Casting involves pouring molten metal into a mold to create a shape; it is suitable for complex geometries but may have porosity issues. Forging involves shaping metal through compressive forces at high temperature, producing stronger parts with better grain structure, ideal for high-strength components. Machining removes material from a workpiece using cutting tools for high precision and surface finish. Choice depends on part geometry, material, required strength, surface finish, production volume, and cost constraints.",
+      "keywords": ["casting", "forging", "machining", "grain structure", "manufacturing", "production volume"]
+    },
+    {
+      "question_text": "How do you design a shaft to transmit a given torque and power? What factors must you consider?",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "Determine the torque from power and RPM (T = P/(2*pi*N/60)). Consider combined loading: torsion, bending, and axial loads. Apply ASME shaft design equations or equivalent stress theories (von Mises or Tresca). Account for stress concentration factors at keyways, shoulders, and holes. Consider fatigue loading using Soderberg, Goodman, or Gerber criteria. Select appropriate material based on strength, stiffness, and weight requirements. Check for critical speed to avoid resonance. Verify deflection and slope at bearing locations.",
+      "keywords": ["shaft design", "torque", "fatigue", "stress concentration", "critical speed", "ASME", "von Mises"]
+    },
+    {
+      "question_text": "Explain the working principle of a heat exchanger and the types commonly used in industry.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "A heat exchanger transfers thermal energy between two fluids without mixing them. Common types include: shell-and-tube (most widely used in process industries, good for high pressures), plate heat exchangers (compact, efficient, easy to clean), double-pipe (simple, used for small-capacity applications), finned-tube (used in HVAC and refrigeration), and regenerative heat exchangers. Design involves LMTD or NTU-effectiveness methods, consideration of fouling factors, pressure drops, and material selection for corrosion resistance.",
+      "keywords": ["heat exchanger", "shell-and-tube", "LMTD", "NTU", "fouling factor", "plate heat exchanger"]
+    },
+    {
+      "question_text": "What is the difference between GD&T (Geometric Dimensioning and Tolerancing) and traditional dimensioning?",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "Traditional dimensioning specifies size with plus/minus tolerances, which creates a square tolerance zone. GD&T uses symbols and feature control frames to specify form, profile, orientation, location, and runout tolerances relative to datums. GD&T provides a cylindrical tolerance zone for position (58% more tolerance area than square zones), clearly defines functional relationships, reduces ambiguity, and enables better communication of design intent. Key symbols include flatness, cylindricity, perpendicularity, position, and total runout.",
+      "keywords": ["GD&T", "tolerancing", "datum", "feature control frame", "position tolerance", "form tolerance"]
+    },
+    {
+      "question_text": "Tell me about a time when you identified a design flaw before it reached production. What was your approach?",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "The candidate should describe a specific instance where they caught a design error through analysis, simulation, prototype testing, or design review. They should explain how they identified the flaw, the potential consequences if it had gone undetected, how they communicated it to the team, and the corrective actions taken. A strong answer shows attention to detail, technical analysis skills, proactive behavior, and effective communication.",
+      "keywords": ["design review", "quality assurance", "proactive", "analysis", "corrective action", "attention to detail"]
+    },
+    {
+      "question_text": "Describe a situation where you had to optimize a manufacturing process to reduce costs or improve efficiency.",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "The candidate should describe a specific manufacturing improvement initiative, the data analysis performed to identify bottlenecks or waste, the solutions implemented (such as lean manufacturing, tool optimization, cycle time reduction, or material substitution), and the measurable results achieved. Strong answers demonstrate analytical thinking, understanding of manufacturing economics, and the ability to implement change.",
+      "keywords": ["process optimization", "lean manufacturing", "cost reduction", "cycle time", "efficiency", "continuous improvement"]
+    },
+    {
+      "question_text": "What types of bearings are there, and how do you select the right bearing for an application?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "Main types include: ball bearings (radial and thrust loads, high speed), roller bearings (higher radial loads), tapered roller bearings (combined radial and axial loads), needle bearings (compact, high load capacity), and plain/journal bearings (low speed, high load). Selection criteria include: load type and magnitude (radial vs. axial), speed, operating temperature, required life (L10 life calculation), misalignment tolerance, space constraints, lubrication availability, and environmental conditions.",
+      "keywords": ["ball bearing", "roller bearing", "L10 life", "radial load", "axial load", "bearing selection"]
+    },
+    {
+      "question_text": "A critical component in a production line is experiencing premature failure. How would you investigate and resolve this?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "Collect failure data: frequency, conditions, operating parameters. Perform root cause analysis using tools like fishbone diagram, 5 Whys, or FMEA. Examine failed components through visual inspection, metallurgical analysis, fractography, and hardness testing to determine failure mode (fatigue, wear, corrosion, overload). Review design calculations, material specifications, and manufacturing processes. Check operating conditions against design limits. Implement corrective actions such as material upgrade, design modification, process improvement, or maintenance schedule changes. Validate the fix through testing and monitor for recurrence.",
+      "keywords": ["root cause analysis", "failure analysis", "FMEA", "fatigue", "fractography", "corrective action"]
+    },
+    {
+      "question_text": "Your company is considering switching from steel to aluminum for a structural component. What analysis would you perform?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "Compare material properties: density (aluminum is ~1/3 of steel), yield strength, ultimate strength, fatigue endurance, elastic modulus (aluminum is ~1/3 of steel), corrosion resistance, and thermal expansion. Perform structural analysis at equivalent loading to ensure adequate strength and stiffness with aluminum (likely need thicker sections). Evaluate cost per part including material cost, manufacturing process changes, and tooling. Consider joining methods (welding aluminum requires different techniques). Assess lifecycle costs including maintenance, corrosion protection, and recyclability. Perform weight savings analysis and its benefits.",
+      "keywords": ["material selection", "steel vs aluminum", "structural analysis", "weight reduction", "cost-benefit", "fatigue"]
+    },
+    {
+      "question_text": "Explain the concept of fatigue failure in metals and how to design against it.",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "Fatigue failure occurs under cyclic loading at stresses below the ultimate tensile strength, progressing through crack initiation, propagation, and final fracture. The S-N curve shows the relationship between stress amplitude and number of cycles to failure. Ferrous metals have an endurance limit below which fatigue does not occur. Design considerations include: reducing stress concentrations (smooth transitions, large radii), surface finish improvement (polishing, shot peening), proper material selection, accounting for size effect and reliability factors using Marin equation modifiers, and using Goodman or Soderberg diagrams for combined mean and alternating stresses.",
+      "keywords": ["fatigue", "S-N curve", "endurance limit", "stress concentration", "Goodman diagram", "Marin equation"]
+    },
+    {
+      "question_text": "What is DFMA (Design for Manufacturing and Assembly) and why is it important?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "DFMA is a methodology that integrates manufacturing and assembly considerations into the product design phase. Design for Manufacturing (DFM) simplifies the manufacturing process by standardizing materials, minimizing features, and selecting optimal processes. Design for Assembly (DFA) reduces the number of parts, simplifies assembly operations, and ensures parts can be easily oriented and joined. Benefits include reduced production cost, shorter time to market, improved quality, and fewer assembly errors. It involves cross-functional collaboration between design, manufacturing, and quality teams.",
+      "keywords": ["DFMA", "design for manufacturing", "design for assembly", "part reduction", "cost reduction", "cross-functional"]
+    },
+    {
+      "question_text": "How does a centrifugal pump work, and what is the significance of the pump characteristic curve?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "A centrifugal pump converts rotational kinetic energy from an impeller to hydrodynamic energy of the fluid. Fluid enters the impeller eye, is accelerated by rotating vanes, and discharged into a volute casing where velocity is converted to pressure. The pump characteristic curve plots head, efficiency, power, and NPSH required against flow rate. The operating point is where the pump curve intersects the system curve. Understanding these curves is essential for pump selection, avoiding cavitation (ensuring NPSH available > NPSH required), and optimizing efficiency.",
+      "keywords": ["centrifugal pump", "impeller", "characteristic curve", "NPSH", "cavitation", "operating point"]
+    },
+    {
+      "question_text": "Describe a time when you had to work under pressure to meet a tight deadline for a product launch.",
+      "question_type": "behavioral",
+      "difficulty": "easy",
+      "expected_answer": "The candidate should describe a specific high-pressure situation, explain how they prioritized tasks, managed their time effectively, coordinated with team members, maintained quality standards despite time constraints, and delivered results. A strong answer demonstrates composure under pressure, organizational skills, and the ability to make quick but sound engineering decisions.",
+      "keywords": ["deadline pressure", "time management", "prioritization", "composure", "teamwork", "delivery"]
+    },
+    {
+      "question_text": "What are the different types of welding processes, and how do you select the appropriate one?",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "Common processes include: SMAW/Stick (versatile, field work, all positions), GMAW/MIG (high deposition rate, easy to automate), GTAW/TIG (highest quality, precise, thin materials), FCAW (outdoor use, high deposition), SAW (thick sections, automated, high productivity), and resistance welding (high-volume sheet metal). Selection depends on material type and thickness, joint configuration, position, required quality level, production volume, welder skill availability, cost constraints, and working environment (shop vs. field).",
+      "keywords": ["SMAW", "GMAW", "GTAW", "welding selection", "joint design", "deposition rate"]
+    },
+    {
+      "question_text": "Explain the significance of Reynolds number in fluid mechanics.",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "Reynolds number (Re) is a dimensionless ratio of inertial forces to viscous forces (Re = rho*v*D/mu). It determines whether flow is laminar (Re < 2300 for pipe flow) or turbulent (Re > 4000). Transitional flow occurs between these values. It is critical for predicting flow behavior, calculating friction factors, determining heat transfer coefficients, and scaling between model and prototype. In pipe flow, laminar flow has a parabolic velocity profile while turbulent flow has a flatter profile with higher friction losses.",
+      "keywords": ["Reynolds number", "laminar", "turbulent", "viscous forces", "inertial forces", "pipe flow"]
+    },
+    {
+      "question_text": "A product you designed is receiving warranty claims for a specific failure mode. How do you respond?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "Immediately gather all warranty claim data and categorize failures by type, frequency, and operating conditions. Obtain and analyze returned parts to determine the actual failure mechanism. Conduct a design review to identify the root cause, whether it is a design deficiency, manufacturing variation, or misuse. Determine if a safety recall is necessary. Develop short-term containment actions (field inspection, use limitations) and long-term corrective actions (design change, material upgrade). Implement design changes through an ECN process. Communicate transparently with management, quality, and customers. Update FMEA and apply lessons learned to future designs.",
+      "keywords": ["warranty analysis", "root cause", "recall assessment", "ECN", "FMEA", "containment action"]
+    },
+    {
+      "question_text": "What is Finite Element Analysis (FEA) and what are its limitations?",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "FEA is a numerical method that divides a complex structure into smaller elements (mesh) and solves governing equations at nodes to approximate stress, strain, deformation, heat transfer, or fluid flow. Limitations include: results are only as good as input assumptions (garbage in, garbage out), mesh sensitivity (requires convergence study), simplifications in boundary conditions may not reflect reality, non-linear behavior requires complex models, requires experienced users to interpret results correctly, computational cost for large models, and it cannot account for manufacturing defects or material variability without probabilistic approaches.",
+      "keywords": ["FEA", "finite element", "mesh convergence", "boundary conditions", "simulation", "numerical method"]
+    },
+    {
+      "question_text": "Tell me about a time when you had to learn a new technology or tool quickly for a project.",
+      "question_type": "behavioral",
+      "difficulty": "easy",
+      "expected_answer": "The candidate should describe a specific situation where they needed to quickly acquire new skills (such as a new CAD tool, simulation software, manufacturing process, or technology). They should explain their learning approach (training, self-study, mentoring), how they applied the new knowledge to the project, any challenges faced, and the successful outcome. This demonstrates adaptability, initiative, and continuous learning mindset.",
+      "keywords": ["adaptability", "learning agility", "self-development", "new technology", "initiative", "continuous learning"]
+    },
+    {
+      "question_text": "What is the difference between open-loop and closed-loop control systems? Give practical examples.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "An open-loop system operates without feedback; the output has no effect on the control action (e.g., a toaster with a timer, a washing machine cycle). A closed-loop system uses feedback to compare actual output with desired output and adjusts accordingly (e.g., thermostat controlling room temperature, cruise control in a vehicle, CNC machine positioning). Closed-loop systems are more accurate, self-correcting, and can handle disturbances, but are more complex and potentially unstable. PID controllers are the most common closed-loop controllers in industrial applications.",
+      "keywords": ["open-loop", "closed-loop", "feedback", "PID controller", "control system", "stability"]
+    },
+    {
+      "question_text": "You notice that a colleague is not following safety procedures while operating machinery. How would you handle this?",
+      "question_type": "situational",
+      "difficulty": "easy",
+      "expected_answer": "Immediately and politely approach the colleague and point out the specific safety violation. If there is imminent danger, stop the operation first. Explain the potential consequences of not following the procedure. If the colleague is unaware of the correct procedure, provide guidance or training. If the behavior persists, report it to the supervisor or safety officer. Document the observation. Follow up to ensure the issue is resolved. Emphasize that safety is a shared responsibility and not about blame.",
+      "keywords": ["safety culture", "peer accountability", "communication", "hazard prevention", "reporting", "training"]
+    },
+    {
+      "question_text": "Explain the concept of thermal expansion and its significance in mechanical design.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Thermal expansion is the tendency of materials to change dimensions with temperature changes, characterized by the coefficient of thermal expansion (CTE). In mechanical design, it affects: clearances and fits (interference fits may loosen or tighten), piping systems (expansion loops and joints needed), precision instruments (temperature compensation required), bimetallic elements (used in thermostats), engine components (piston-cylinder clearances), and composite structures (CTE mismatch causes internal stresses). Design solutions include expansion joints, sliding supports, material matching, and temperature compensation mechanisms.",
+      "keywords": ["thermal expansion", "CTE", "expansion joint", "clearance", "interference fit", "temperature compensation"]
+    },
+    {
+      "question_text": "What is Six Sigma methodology and how is it applied in mechanical engineering?",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "Six Sigma is a data-driven methodology aimed at reducing defects to 3.4 per million opportunities. It uses DMAIC (Define, Measure, Analyze, Improve, Control) for existing processes and DFSS (Design for Six Sigma) for new products. In mechanical engineering, it is applied to reduce dimensional variation in machined parts, improve assembly process capability, optimize process parameters using DOE (Design of Experiments), control weld quality, and reduce scrap rates. Key tools include process capability analysis (Cp, Cpk), statistical process control charts, FMEA, and regression analysis.",
+      "keywords": ["Six Sigma", "DMAIC", "process capability", "Cpk", "SPC", "DOE", "defect reduction"]
+    },
+    {
+      "question_text": "During a design review, you disagree with the approach proposed by a senior engineer. How would you handle this?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "Prepare data and technical justification for your alternative approach before raising concerns. During the review, respectfully present your analysis with supporting calculations, simulations, or test data. Focus on technical merits rather than personal opinions. Listen to the senior engineer's reasoning and be open to their perspective based on experience. Suggest a comparative study if resources allow. If the decision goes against your recommendation, document your concerns formally and support the team's decision while monitoring outcomes. Escalate only if there is a safety concern.",
+      "keywords": ["professional disagreement", "technical justification", "data-driven", "respect", "design review", "escalation"]
+    }
+  ]
+}

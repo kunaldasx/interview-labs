@@ -1,0 +1,184 @@
+{
+  "name": "Transportation",
+  "slug": "transportation",
+  "sector": "Logistics",
+  "sector_slug": "logistics",
+  "description": "Interview questions covering transportation planning, fleet management, route optimization, carrier management, regulatory compliance, and multimodal transportation operations within the logistics industry.",
+  "questions": [
+    {
+      "question_text": "What are the main modes of transportation in logistics and what are the key advantages and disadvantages of each?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "The main modes are: (1) Road/Trucking - most flexible, door-to-door delivery, suitable for short to medium distances, but affected by traffic and weather; (2) Rail - cost-effective for heavy, bulk goods over long distances, but limited to rail networks and slower; (3) Air - fastest mode for long distances, ideal for high-value and time-sensitive goods, but most expensive; (4) Sea/Ocean - cheapest per unit for large volumes over international distances, but slowest; (5) Pipeline - used for liquids, gases, and slurries, very cost-effective but limited to specific products. Intermodal transportation combines multiple modes to optimize cost, speed, and reliability.",
+      "keywords": ["road", "rail", "air", "sea", "pipeline", "intermodal", "cost-effective", "flexibility"]
+    },
+    {
+      "question_text": "Explain the difference between Full Truckload (FTL) and Less Than Truckload (LTL) shipping. When would you choose one over the other?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "FTL means a single shipper uses an entire truck for their shipment, typically for loads over 10,000 pounds or filling the trailer. LTL means multiple shippers share space on the same truck, suitable for smaller shipments typically between 150 and 10,000 pounds. FTL is chosen when shipment volume justifies a full truck, when faster transit is needed since there are no intermediate stops, or when goods cannot be mixed with other freight. LTL is chosen for smaller shipments to reduce costs, when transit time is flexible, and when budget is a primary concern. FTL has lower per-unit costs for large shipments, while LTL is more economical for smaller loads.",
+      "keywords": ["FTL", "LTL", "truckload", "shipment size", "consolidation", "cost per unit", "transit time"]
+    },
+    {
+      "question_text": "What is a Transportation Management System (TMS) and what are its core functionalities?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "A TMS is a software platform designed to plan, execute, and optimize the movement of goods. Core functionalities include: route planning and optimization, carrier selection and rate management, load planning and consolidation, shipment tracking and visibility, freight audit and payment, documentation management including bills of lading and customs documents, analytics and reporting, and integration with WMS, ERP, and carrier systems. Benefits include reduced transportation costs by 5-15%, improved delivery performance, better carrier relationships, enhanced visibility, and data-driven decision making.",
+      "keywords": ["TMS", "route optimization", "carrier management", "freight audit", "shipment tracking", "load planning", "visibility"]
+    },
+    {
+      "question_text": "How do you evaluate and select carriers for your transportation network?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Carrier evaluation criteria include: on-time delivery performance, pricing competitiveness, geographic coverage, equipment availability and condition, safety record and CSA scores, insurance coverage, financial stability, technology capabilities such as tracking and EDI, claims ratio and resolution process, capacity reliability during peak periods, customer service responsiveness, and regulatory compliance. The selection process involves issuing RFPs, comparing bids, conducting reference checks, reviewing safety records, negotiating contracts, running pilot programs, and establishing ongoing performance scorecards with regular business reviews.",
+      "keywords": ["carrier selection", "on-time delivery", "safety record", "CSA score", "RFP", "scorecard", "performance evaluation"]
+    },
+    {
+      "question_text": "Tell me about a time when you had to manage a critical delivery that was at risk of missing its deadline. What did you do?",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "A strong answer should describe: early identification of the risk through tracking or communication, assessment of the impact and urgency, consideration of alternative options such as expedited shipping, alternate carriers, or rerouting, communication with stakeholders including the customer, quick decision-making on the best course of action, execution of the contingency plan, cost-benefit analysis of the expedited solution, and follow-up to prevent recurrence. The candidate should demonstrate proactive monitoring, decisive action, and effective communication under pressure.",
+      "keywords": ["expedited shipping", "contingency plan", "risk management", "proactive monitoring", "stakeholder communication", "deadline management"]
+    },
+    {
+      "question_text": "What are Hours of Service (HOS) regulations for commercial truck drivers and why are they important?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "Hours of Service regulations set maximum driving and on-duty times for commercial motor vehicle drivers to prevent fatigue-related accidents. Key rules include: 11-hour driving limit after 10 consecutive hours off duty, 14-hour on-duty window, 30-minute break requirement after 8 cumulative hours of driving, 60/70-hour limit over 7/8 consecutive days, and the 34-hour restart provision. Drivers must use Electronic Logging Devices (ELDs) to record their hours. These regulations are enforced by the FMCSA and are critical for road safety, driver health, and regulatory compliance. Violations can result in fines, driver disqualification, and carrier penalties.",
+      "keywords": ["Hours of Service", "HOS", "ELD", "FMCSA", "driving limits", "rest requirements", "fatigue prevention"]
+    },
+    {
+      "question_text": "If a key carrier suddenly goes bankrupt and you have 50 loads scheduled with them for the next week, how would you handle the situation?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "The candidate should describe: (1) Immediately assess which loads are most time-critical and prioritize them; (2) Contact backup carriers from the approved carrier list; (3) Reach out to freight brokers for spot market capacity; (4) Consider splitting loads across multiple smaller carriers if needed; (5) Communicate proactively with affected customers about potential delays; (6) Negotiate emergency rates while being mindful of budget impact; (7) Track any goods currently in transit with the bankrupt carrier; (8) Review and update the business continuity plan; (9) Diversify the carrier base going forward to reduce dependency on any single carrier; (10) Document lessons learned and establish carrier financial health monitoring.",
+      "keywords": ["carrier bankruptcy", "contingency", "backup carriers", "spot market", "load prioritization", "customer communication", "risk mitigation"]
+    },
+    {
+      "question_text": "What is route optimization and what factors must be considered when planning delivery routes?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Route optimization is the process of determining the most efficient paths for delivery vehicles to minimize costs, time, and fuel consumption while meeting all delivery requirements. Factors include: delivery time windows, vehicle capacity and weight limits, driver hours of service, traffic patterns and road conditions, fuel costs, toll roads, customer priority levels, loading and unloading times at each stop, vehicle type restrictions in certain areas, weather conditions, backhaul opportunities, and regulatory requirements. Modern route optimization uses algorithms that consider these variables simultaneously and can dynamically adjust routes based on real-time conditions.",
+      "keywords": ["route optimization", "delivery windows", "fuel efficiency", "traffic patterns", "time windows", "vehicle capacity", "dynamic routing"]
+    },
+    {
+      "question_text": "Describe your approach to negotiating freight rates with carriers.",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "A strong answer should include: thorough preparation with data on shipping volumes, lanes, and market rates; understanding the carrier's perspective and cost structure; leveraging volume commitments for better rates; benchmarking against market rates using DAT, Greenscreens, or similar tools; negotiating beyond just price to include service levels, fuel surcharge caps, accessorial charges, and payment terms; building long-term partnerships rather than purely transactional relationships; using multi-round bidding processes; and willingness to commit to minimum volumes in exchange for rate guarantees. The candidate should demonstrate both analytical skills and relationship-building ability.",
+      "keywords": ["freight negotiation", "rate benchmarking", "volume commitment", "accessorial charges", "fuel surcharge", "partnership", "market rates"]
+    },
+    {
+      "question_text": "What is the difference between a common carrier, contract carrier, and private carrier?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "A common carrier provides transportation services to the general public at published rates and must accept all legal freight, examples include UPS and FedEx. A contract carrier operates under specific agreements with select shippers, offering customized services and negotiated rates, and is not obligated to serve the general public. A private carrier is a company that transports its own goods using its own fleet, like Walmart's private fleet. Key differences include regulatory obligations, pricing flexibility, service scope, and liability. Many companies use a combination of all three based on their shipping needs, cost considerations, and service requirements.",
+      "keywords": ["common carrier", "contract carrier", "private carrier", "published rates", "fleet", "regulatory obligations"]
+    },
+    {
+      "question_text": "How do you measure and improve fleet fuel efficiency?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Fleet fuel efficiency is measured through miles per gallon (MPG) by vehicle, fuel cost per mile, fuel cost as a percentage of total operating costs, and idle time metrics. Improvement strategies include: driver training programs on eco-driving techniques, speed governing and idle-reduction technologies, route optimization to minimize miles driven, regular vehicle maintenance especially tire pressure and engine tuning, aerodynamic improvements like side skirts and trailer tails, using telematics to monitor driving behavior, load optimization to maximize payload, adopting fuel-efficient vehicles or alternative fuels, strategic fuel purchasing programs, and reducing empty miles through better backhaul planning.",
+      "keywords": ["fuel efficiency", "MPG", "telematics", "idle reduction", "eco-driving", "route optimization", "aerodynamics", "empty miles"]
+    },
+    {
+      "question_text": "You receive a call from a driver who has been involved in a minor accident with no injuries. What steps do you take?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "The candidate should describe: (1) Ensure the driver is safe and confirm no injuries; (2) Instruct the driver to move to a safe location if possible; (3) Have the driver call local law enforcement for an accident report; (4) Instruct the driver to document the scene with photos and gather information from other parties; (5) Notify the insurance company; (6) Notify the safety department and management; (7) Arrange for vehicle inspection and towing if needed; (8) Assess whether the load can continue or needs transfer; (9) Drug and alcohol testing as required by DOT regulations; (10) Complete all required incident reports; (11) Coordinate customer communication regarding delivery impact.",
+      "keywords": ["accident response", "DOT regulations", "incident report", "insurance", "drug testing", "safety protocol", "documentation"]
+    },
+    {
+      "question_text": "What are Incoterms and why are they important in transportation and logistics?",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "Incoterms (International Commercial Terms) are standardized trade terms published by the International Chamber of Commerce that define the responsibilities, costs, and risks between buyers and sellers in international transactions. Key terms include EXW (Ex Works), FOB (Free on Board), CIF (Cost Insurance and Freight), DDP (Delivered Duty Paid), and others. They determine who arranges and pays for transportation, insurance, customs clearance, and at what point risk transfers from seller to buyer. They are essential for avoiding disputes, accurately costing shipments, determining insurance needs, and ensuring clear communication between trading partners across different countries.",
+      "keywords": ["Incoterms", "EXW", "FOB", "CIF", "DDP", "risk transfer", "international trade", "ICC"]
+    },
+    {
+      "question_text": "How do you manage and reduce transportation costs without compromising service quality?",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "Strategies include: consolidating shipments to achieve FTL rates, optimizing routes to reduce mileage and fuel costs, negotiating competitive rates through volume leverage and multi-year contracts, reducing accessorial charges through better dock scheduling, improving backhaul utilization to reduce empty miles, implementing mode shifting where appropriate such as rail for long haul, using pool distribution for geographically concentrated deliveries, freight bill auditing to catch billing errors, continuous carrier benchmarking, load optimization to maximize cube utilization, using technology for dynamic routing and real-time optimization, and building strategic carrier partnerships that align incentives.",
+      "keywords": ["cost reduction", "consolidation", "backhaul", "mode shifting", "load optimization", "freight audit", "accessorial reduction"]
+    },
+    {
+      "question_text": "Tell me about a time when you had to implement a new process or technology in transportation operations. How did you manage the change?",
+      "question_type": "behavioral",
+      "difficulty": "hard",
+      "expected_answer": "A strong answer should cover: identifying the need and building the business case, getting leadership buy-in, forming an implementation team, planning the rollout including timeline and milestones, training staff and drivers, managing resistance to change through communication and involvement, piloting the change before full rollout, monitoring adoption and addressing issues, measuring results against expected benefits, and iterating based on feedback. The candidate should demonstrate project management skills, empathy for those affected by change, and the ability to drive results while maintaining team engagement.",
+      "keywords": ["change management", "implementation", "training", "pilot program", "adoption", "business case", "stakeholder buy-in"]
+    },
+    {
+      "question_text": "What is intermodal transportation and when is it the most effective shipping strategy?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Intermodal transportation uses two or more modes of transport in a single journey, typically combining truck and rail using standardized containers that transfer between modes without handling the cargo itself. It is most effective for shipments traveling over 500 miles where rail's lower per-mile cost outweighs the additional drayage and handling costs, for non-time-critical shipments that can tolerate 1-2 extra days in transit, for environmentally conscious shippers seeking to reduce carbon emissions, and when highway capacity is constrained. Benefits include 10-40% cost savings over long-haul trucking, reduced carbon footprint, and reduced highway congestion. Challenges include longer transit times, limited flexibility, and potential for intermodal terminal delays.",
+      "keywords": ["intermodal", "truck-rail", "drayage", "container", "cost savings", "carbon emissions", "transit time"]
+    },
+    {
+      "question_text": "A customer insists on a delivery time that you know is unrealistic given current capacity and distance. How do you handle this?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "The candidate should describe: (1) Listen to the customer's requirements and understand the business need behind the deadline; (2) Be honest about the constraints rather than making promises that cannot be kept; (3) Present alternative solutions such as partial shipment, expedited service at additional cost, or a slightly adjusted timeline; (4) Provide data to support the realistic timeline; (5) Offer to escalate to find creative solutions; (6) If an expedited option exists, clearly communicate the cost implications; (7) Document the agreed-upon solution; (8) Proactively provide tracking and updates; (9) Follow up after delivery to ensure satisfaction. The answer should demonstrate customer focus balanced with honesty and problem-solving.",
+      "keywords": ["customer expectation", "realistic timeline", "alternative solutions", "transparency", "expedited options", "relationship management"]
+    },
+    {
+      "question_text": "What is the role of freight brokers in the transportation industry?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "Freight brokers act as intermediaries between shippers who need to move goods and carriers who have transportation capacity. They match loads with available trucks, negotiate rates, coordinate logistics, and facilitate communication between parties. Brokers provide value by offering access to a large network of carriers, providing market rate expertise, handling paperwork and compliance, offering surge capacity during peak periods, and allowing shippers to manage transportation without maintaining direct relationships with hundreds of carriers. Brokers must hold a FMCSA broker authority license and a surety bond. They earn revenue through the spread between what shippers pay and what carriers receive.",
+      "keywords": ["freight broker", "intermediary", "FMCSA authority", "surety bond", "carrier network", "load matching", "rate negotiation"]
+    },
+    {
+      "question_text": "How do you ensure compliance with Department of Transportation (DOT) regulations in a fleet operation?",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "Compliance measures include: maintaining current CDL certifications and medical certificates for all drivers, implementing Electronic Logging Devices for HOS compliance, conducting regular vehicle inspections (pre-trip, post-trip, and annual DOT inspections), maintaining detailed maintenance records, ensuring proper hazmat endorsements and training, conducting mandatory drug and alcohol testing programs (pre-employment, random, post-accident, reasonable suspicion), following FMCSA safety ratings and addressing deficiencies, maintaining proper insurance coverage, ensuring accurate record-keeping for audits, monitoring CSA scores and addressing violations, implementing a safety management program, and staying current with regulatory changes. Non-compliance can result in fines, out-of-service orders, and loss of operating authority.",
+      "keywords": ["DOT compliance", "CDL", "ELD", "vehicle inspection", "drug testing", "FMCSA", "CSA scores", "hazmat"]
+    },
+    {
+      "question_text": "Describe a situation where you successfully reduced empty miles or deadhead in your transportation operations.",
+      "question_type": "behavioral",
+      "difficulty": "hard",
+      "expected_answer": "A strong answer should include: analysis of existing empty mile percentage and its cost impact, strategies implemented such as backhaul programs with customers or load boards, partnerships with other shippers or carriers for return loads, route redesign to create circular routes, use of technology platforms for load matching, triangulation of loads to minimize empty segments, collaboration with sales team to align customer locations with route patterns, measurement of improvement in loaded mile percentage, and the financial impact of the reduction. The candidate should demonstrate analytical thinking, creativity, and the ability to collaborate across functions.",
+      "keywords": ["empty miles", "deadhead", "backhaul", "load matching", "triangulation", "loaded mile percentage", "route optimization"]
+    },
+    {
+      "question_text": "What factors influence transportation pricing and how do fuel surcharges work?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "Transportation pricing is influenced by: distance and lanes, shipment weight and dimensions, freight class and commodity type, market supply and demand, seasonal fluctuations, accessorial services required, equipment type, origin and destination markets, lead time, and volume commitment. Fuel surcharges are variable charges added to base freight rates to account for fluctuating fuel costs. They are typically calculated using a formula based on the DOE national average diesel price, with a base price threshold and a per-gallon increment. For example, for every cent increase above the base price, the surcharge might increase by a set percentage. This protects both carriers and shippers from volatile fuel price swings.",
+      "keywords": ["freight pricing", "fuel surcharge", "freight class", "accessorial", "DOE diesel price", "supply and demand", "lane pricing"]
+    },
+    {
+      "question_text": "Your fleet has been experiencing a higher-than-average rate of cargo theft on a specific route. What measures would you implement?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "The candidate should describe: (1) Analyze theft patterns including locations, times, and methods; (2) Install GPS tracking and geofencing with real-time alerts; (3) Implement seal verification protocols and tamper-evident seals; (4) Train drivers on security awareness and anti-theft procedures; (5) Establish secure parking locations and avoid high-risk rest stops; (6) Implement no-stop policies in high-risk areas; (7) Use covert tracking devices in addition to visible GPS; (8) Consider armed escort for high-value loads; (9) Coordinate with law enforcement and industry groups like CargoNet; (10) Review hiring and vetting processes; (11) Implement team driving for high-risk routes; (12) Consider adjusting departure times and routes.",
+      "keywords": ["cargo theft", "GPS tracking", "geofencing", "security", "seal verification", "driver training", "CargoNet", "risk mitigation"]
+    },
+    {
+      "question_text": "How does the concept of total cost of transportation differ from just looking at freight rates?",
+      "question_type": "domain_specific",
+      "difficulty": "hard",
+      "expected_answer": "Total cost of transportation goes beyond base freight rates to include: fuel surcharges, accessorial charges such as detention, liftgate, and residential delivery, claims and damage costs, inventory carrying costs while goods are in transit, expedited shipping costs due to service failures, administrative costs for managing transportation, technology and system costs, insurance premiums, opportunity costs of delayed deliveries, returns and reverse logistics costs, packaging costs required for different modes, and environmental compliance costs. A carrier with the lowest freight rate might have higher total costs due to poor reliability causing expedites, higher damage rates, or longer transit times increasing inventory costs. Understanding total cost enables better decision-making.",
+      "keywords": ["total cost", "accessorial charges", "detention", "claims cost", "carrying cost", "expedite costs", "total landed cost"]
+    },
+    {
+      "question_text": "How would you manage a fleet transition from diesel to electric or alternative fuel vehicles?",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "The transition plan should address: (1) Assessment of current fleet profile and route characteristics to identify suitable candidates for electrification; (2) Total cost of ownership analysis comparing diesel versus electric or alternative fuel; (3) Infrastructure requirements including charging stations, electrical capacity upgrades, and maintenance facility modifications; (4) Phased rollout starting with shorter, predictable routes; (5) Driver training on new vehicle operation; (6) Maintenance team training and new parts inventory; (7) Available government incentives and grants; (8) Partnership with vehicle manufacturers and charging network providers; (9) Environmental impact reporting and sustainability goals; (10) Contingency planning for range limitations and charging infrastructure gaps; (11) Budget planning for higher upfront costs versus lower operating costs.",
+      "keywords": ["fleet electrification", "alternative fuel", "total cost of ownership", "charging infrastructure", "phased rollout", "sustainability", "range management"]
+    },
+    {
+      "question_text": "What is the difference between a bill of lading and a freight bill, and why is each important?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "A Bill of Lading (BOL) is a legal document issued by the carrier that serves three functions: it is a receipt for the goods, a contract of carriage between the shipper and carrier, and a document of title for the goods. It contains shipment details including shipper and consignee information, description of goods, weight, freight class, and special handling instructions. A Freight Bill is the invoice from the carrier to the shipper or consignee for transportation services rendered, detailing charges including base rate, fuel surcharges, and accessorial fees. The BOL is created at the time of pickup and is essential for claims processing, while the freight bill is generated after delivery for payment purposes.",
+      "keywords": ["bill of lading", "BOL", "freight bill", "document of title", "contract of carriage", "receipt", "invoice"]
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "name": "Structural Engineering",
+  "slug": "structural_engineering",
+  "sector": "Engineering",
+  "sector_slug": "engineering",
+  "description": "Structural analysis, steel and concrete design, seismic engineering, foundation engineering, load calculations, building codes, structural inspection, and finite element analysis for structural engineering professionals.",
+  "questions": [
+    {
+      "question_text": "Explain the difference between ultimate limit state (ULS) and serviceability limit state (SLS) in structural design.",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "ULS addresses the maximum load-carrying capacity of a structure, ensuring it does not collapse or become unstable under factored loads. SLS addresses functional requirements under normal service loads, including deflection limits, vibration control, and crack width limitations to ensure occupant comfort and structural durability.",
+      "keywords": ["ultimate limit state", "serviceability limit state", "structural design"]
+    },
+    {
+      "question_text": "Describe the load path concept in structural engineering and why it is fundamental to safe design.",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "The load path describes the continuous route through which applied loads travel from their point of application through structural members to the foundation and into the ground. Every structural element must be connected in a way that transfers forces without interruption; a break in the load path can lead to progressive collapse or localized failure.",
+      "keywords": ["load path", "force transfer", "structural continuity"]
+    },
+    {
+      "question_text": "What are the key differences between reinforced concrete and prestressed concrete, and when would you choose one over the other?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Reinforced concrete relies on steel reinforcement to resist tension after cracking, suitable for moderate spans and loads. Prestressed concrete applies a compressive force to the concrete before loading, reducing or eliminating tensile stresses, enabling longer spans, shallower sections, and better crack control, making it ideal for bridges, parking structures, and long-span beams.",
+      "keywords": ["reinforced concrete", "prestressed concrete", "span design"]
+    },
+    {
+      "question_text": "Explain the concept of ductility in seismic design and how it influences the detailing of reinforced concrete structures.",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "Ductility is the ability of a structure to undergo large deformations beyond the elastic limit without sudden failure. In seismic design, ductile detailing includes closely spaced transverse reinforcement in plastic hinge zones, proper anchorage of reinforcing bars, capacity design principles to ensure flexural yielding occurs before brittle shear failure, and strong-column weak-beam hierarchy.",
+      "keywords": ["ductility", "seismic detailing", "plastic hinge"]
+    },
+    {
+      "question_text": "How do you determine the effective length factor (K) for columns, and why does it matter for buckling analysis?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "The effective length factor K accounts for the column's end conditions (fixed, pinned, or free) and whether the frame is braced or unbraced. It modifies the actual column length to an equivalent length for Euler buckling calculations. Incorrect K values lead to under- or over-estimation of buckling capacity, directly affecting the safety and economy of column design.",
+      "keywords": ["effective length factor", "column buckling", "Euler buckling"]
+    },
+    {
+      "question_text": "Describe the finite element analysis (FEA) process for a structural engineering application and the key assumptions that affect result accuracy.",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "FEA discretizes a structure into small elements, applies material properties, boundary conditions, and loads, then solves equilibrium equations to determine displacements, stresses, and reactions. Key assumptions include element type selection, mesh density, material behavior (linear vs. nonlinear), connection modeling, and boundary condition idealization, all of which significantly influence accuracy.",
+      "keywords": ["finite element analysis", "mesh density", "boundary conditions"]
+    },
+    {
+      "question_text": "What factors influence the selection of a foundation type for a building, and how do you evaluate them?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Factors include soil bearing capacity, groundwater conditions, building loads and settlement tolerances, adjacent structures, site access, construction cost, and schedule. Evaluation involves geotechnical investigation, bearing capacity calculations, settlement analysis, and comparison of shallow foundations (spread footings, mats) versus deep foundations (piles, drilled shafts) based on site-specific conditions.",
+      "keywords": ["foundation selection", "bearing capacity", "geotechnical investigation"]
+    },
+    {
+      "question_text": "Explain the concept of moment redistribution in continuous concrete beams and the conditions under which it is permitted.",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "Moment redistribution allows designers to reduce peak negative moments at supports and increase positive moments at midspan, reflecting the actual inelastic behavior of continuous beams. It is permitted when sections have adequate ductility (limited neutral axis depth), is typically capped at 10-30% depending on the code, and leads to more practical reinforcement layouts.",
+      "keywords": ["moment redistribution", "continuous beams", "inelastic behavior"]
+    },
+    {
+      "question_text": "How are lateral loads from wind distributed through a multi-story building's structural system?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Wind loads are applied as pressure on the building envelope, transferred to floor diaphragms, which then distribute the lateral force to the vertical lateral force-resisting system (moment frames, braced frames, or shear walls) in proportion to their relative stiffness. These vertical elements carry the forces down to the foundation, which transfers them to the ground.",
+      "keywords": ["lateral load distribution", "wind loads", "diaphragm action"]
+    },
+    {
+      "question_text": "What is the purpose of a structural peer review, and at what project stages is it most valuable?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "A structural peer review provides an independent check of structural design assumptions, calculations, drawings, and specifications by a qualified engineer not involved in the original design. It is most valuable at the schematic design stage to verify the structural concept, during detailed design for calculation verification, and before construction for drawing and specification review.",
+      "keywords": ["peer review", "independent check", "quality assurance"]
+    },
+    {
+      "question_text": "Tell me about a time when you discovered a significant error in structural calculations during a design review. How did you handle it?",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "The candidate should describe the nature of the error, how they verified their finding, the steps taken to communicate the issue to the design team diplomatically, the corrective actions implemented, and any process improvements recommended to prevent similar errors, demonstrating thoroughness, integrity, and professionalism.",
+      "keywords": ["design error", "quality control", "professional integrity"]
+    },
+    {
+      "question_text": "Describe a situation where you had to make a critical engineering judgment call with incomplete information. What was the outcome?",
+      "question_type": "behavioral",
+      "difficulty": "hard",
+      "expected_answer": "A strong answer explains the context and time pressure, the information that was available versus what was missing, how the candidate applied engineering judgment and conservative assumptions, the decision made, how they documented their rationale, and any follow-up actions taken once additional information became available.",
+      "keywords": ["engineering judgment", "incomplete information", "decision-making"]
+    },
+    {
+      "question_text": "Can you describe an experience where you mentored a junior engineer on a structural design project? What approach did you take?",
+      "question_type": "behavioral",
+      "difficulty": "easy",
+      "expected_answer": "The candidate should describe how they assessed the junior engineer's skill level, assigned appropriately challenging tasks with guidance, provided constructive feedback on calculations and drawings, explained the rationale behind design decisions, and tracked their development over time, demonstrating leadership and commitment to professional development.",
+      "keywords": ["mentoring", "junior engineer", "professional development"]
+    },
+    {
+      "question_text": "Tell me about a project where the architectural vision conflicted with structural feasibility. How did you work toward a resolution?",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "The candidate should explain the architectural and structural conflict, how they communicated structural constraints clearly to the architect, proposed alternative solutions that preserved the design intent while meeting structural requirements, and collaborated iteratively to reach a mutually acceptable solution.",
+      "keywords": ["architect collaboration", "design conflict", "creative problem-solving"]
+    },
+    {
+      "question_text": "Describe a time when you had to manage multiple structural design projects simultaneously. How did you prioritize and maintain quality?",
+      "question_type": "behavioral",
+      "difficulty": "easy",
+      "expected_answer": "The candidate should describe their organizational approach, including task prioritization based on deadlines and criticality, delegation to team members, use of checklists or project management tools, regular progress reviews, and quality control measures such as self-checks and peer reviews to ensure no project suffered from divided attention.",
+      "keywords": ["workload management", "prioritization", "quality maintenance"]
+    },
+    {
+      "question_text": "During a routine structural inspection of an existing building, you discover corroded reinforcement in a load-bearing beam. What steps would you take?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "The engineer should immediately assess the severity and extent of corrosion, determine if the beam's capacity is compromised using remaining section analysis, implement temporary shoring or load restrictions if there is an immediate safety concern, develop a repair or strengthening plan (such as epoxy injection, carbon fiber wrap, or steel plating), and establish a long-term monitoring and maintenance program.",
+      "keywords": ["corrosion assessment", "structural repair", "load-bearing capacity"]
+    },
+    {
+      "question_text": "A contractor reports that the soil conditions at the foundation excavation do not match the geotechnical report. How would you respond?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "The engineer should visit the site to observe the conditions firsthand, request additional soil testing or borings to characterize the actual conditions, compare findings with design assumptions, consult the geotechnical engineer, and if necessary redesign the foundation or modify the construction approach, documenting all changes through proper change order and design revision procedures.",
+      "keywords": ["site conditions", "geotechnical discrepancy", "foundation redesign"]
+    },
+    {
+      "question_text": "You are asked to evaluate an existing building for a change of use that will significantly increase floor live loads. What is your assessment process?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "The engineer should review original design documents, conduct a field survey to verify as-built conditions, perform a structural analysis with the new loading requirements, identify members that are overstressed or do not meet current code provisions, develop strengthening options with cost estimates, and produce a report with recommendations for the owner.",
+      "keywords": ["change of use", "structural assessment", "load evaluation"]
+    },
+    {
+      "question_text": "During construction, you learn that the steel fabricator has substituted a different steel grade than specified. What actions would you take?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "The engineer should halt installation of the affected members, obtain mill certificates for the substituted material, verify its mechanical properties against design requirements, re-analyze affected connections and members with the actual material properties, and either approve the substitution with documentation if adequate or require replacement if the material does not meet design criteria.",
+      "keywords": ["material substitution", "steel grade", "quality control"]
+    },
+    {
+      "question_text": "A client wants to add a rooftop terrace to an existing building that was not designed for this additional load. How would you evaluate the feasibility?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "The engineer should review the original structural design and as-built drawings, assess the existing roof structure's capacity margins, evaluate the additional dead and live loads from the terrace including occupancy, finishes, planters, and potential snow drift effects, check the load path down to the foundations, and determine if strengthening is feasible and cost-effective or if the proposal must be modified.",
+      "keywords": ["rooftop addition", "load capacity", "structural feasibility"]
+    },
+    {
+      "question_text": "What are the key provisions of the International Building Code (IBC) related to structural design, and how do they interact with material-specific standards?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "The IBC establishes minimum structural requirements including load combinations, seismic design categories, wind speed maps, and occupancy classifications. It references material-specific standards such as ACI 318 for concrete, AISC 360 for steel, and NDS for wood, which provide detailed design procedures, ensuring a comprehensive and coordinated framework for structural safety.",
+      "keywords": ["IBC", "building codes", "material standards"]
+    },
+    {
+      "question_text": "Explain the response spectrum method for seismic analysis and how it differs from time-history analysis.",
+      "question_type": "domain_specific",
+      "difficulty": "hard",
+      "expected_answer": "The response spectrum method uses a design response spectrum representing maximum responses of single-degree-of-freedom systems across a range of periods. It combines modal responses using SRSS or CQC methods to estimate peak structural response. Time-history analysis applies actual or synthetic earthquake acceleration records to the structural model, capturing time-dependent behavior and nonlinear effects more accurately but at greater computational cost.",
+      "keywords": ["response spectrum", "time-history analysis", "seismic analysis"]
+    },
+    {
+      "question_text": "What is progressive collapse and what design strategies are used to prevent it in buildings?",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "Progressive collapse is a chain reaction of structural failures where local damage from an abnormal event spreads disproportionately through the structure. Prevention strategies include providing alternate load paths, designing key elements for enhanced robustness, ensuring structural redundancy and continuity, prescriptive tie force requirements, and performing notional member removal analyses as specified by codes such as GSA or DoD guidelines.",
+      "keywords": ["progressive collapse", "structural redundancy", "alternate load path"]
+    },
+    {
+      "question_text": "Describe the role of structural health monitoring (SHM) systems and the types of sensors commonly used.",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "SHM systems continuously or periodically measure structural responses to assess condition and detect damage early. Common sensors include strain gauges, accelerometers, displacement transducers, fiber optic sensors, and tilt meters. Data is analyzed to track changes in natural frequencies, mode shapes, and strain distributions that may indicate deterioration, damage, or overloading.",
+      "keywords": ["structural health monitoring", "sensors", "damage detection"]
+    },
+    {
+      "question_text": "What is the significance of the ductility factor (R factor or behavior factor) in seismic design codes?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "The R factor (or behavior factor in Eurocode) reduces the elastic seismic forces to account for a structure's ability to dissipate energy through inelastic deformation. Higher R values are assigned to more ductile structural systems, allowing lower design forces but requiring more stringent detailing requirements to ensure the assumed ductility is achieved during an earthquake.",
+      "keywords": ["R factor", "seismic force reduction", "ductile design"]
+    }
+  ]
+}

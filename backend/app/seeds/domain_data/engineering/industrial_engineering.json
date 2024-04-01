@@ -1,0 +1,184 @@
+{
+  "name": "Industrial Engineering",
+  "slug": "industrial_engineering",
+  "sector": "Engineering",
+  "sector_slug": "engineering",
+  "description": "Operations research, lean manufacturing, ergonomics, supply chain optimization, quality systems, work measurement, facility layout, and production planning for industrial engineering professionals.",
+  "questions": [
+    {
+      "question_text": "Explain the principles of lean manufacturing and identify the seven wastes (muda) that it seeks to eliminate.",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "Lean manufacturing focuses on maximizing customer value while minimizing waste. The seven wastes are overproduction, waiting, transportation, overprocessing, inventory, motion, and defects. Some frameworks add an eighth waste: underutilized talent. Eliminating these wastes improves flow, reduces lead time, and increases overall efficiency and quality.",
+      "keywords": ["lean manufacturing", "seven wastes", "muda"]
+    },
+    {
+      "question_text": "Describe the Theory of Constraints (TOC) and how the five focusing steps are applied to improve a production system.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "TOC states that system throughput is limited by its weakest link (constraint or bottleneck). The five focusing steps are: identify the constraint, exploit it (maximize its throughput), subordinate everything else to the constraint, elevate the constraint (invest to increase its capacity), and repeat the process as the constraint shifts. This systematic approach continuously improves overall system performance.",
+      "keywords": ["theory of constraints", "bottleneck", "throughput improvement"]
+    },
+    {
+      "question_text": "How do you conduct a time study, and what factors must be considered to establish a fair standard time for an operation?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "A time study involves observing and timing a qualified worker performing a task using a stopwatch or video, recording multiple cycles, rating the worker's performance against normal pace, and applying allowances for personal needs, fatigue, and unavoidable delays. The standard time equals the observed time multiplied by the performance rating factor plus allowances, establishing a fair and achievable production standard.",
+      "keywords": ["time study", "standard time", "performance rating"]
+    },
+    {
+      "question_text": "Explain the concept of Overall Equipment Effectiveness (OEE) and its three component factors.",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "OEE measures the percentage of planned production time that is truly productive. Its three factors are Availability (actual run time versus planned production time, accounting for downtime), Performance (actual cycle time versus ideal cycle time, capturing speed losses), and Quality (good units versus total units produced, capturing defects). World-class OEE is typically considered 85% or above.",
+      "keywords": ["OEE", "equipment effectiveness", "availability"]
+    },
+    {
+      "question_text": "Describe the Six Sigma DMAIC methodology and how it is applied to process improvement projects.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "DMAIC stands for Define (clarify the problem, goals, and scope), Measure (collect data on current process performance), Analyze (identify root causes of defects or variation), Improve (develop and implement solutions), and Control (sustain improvements through monitoring and standardization). It uses statistical tools at each phase to make data-driven decisions and reduce process variation to below 3.4 defects per million opportunities.",
+      "keywords": ["Six Sigma", "DMAIC", "process improvement"]
+    },
+    {
+      "question_text": "What is a facility layout analysis, and what are the key objectives when designing a manufacturing plant layout?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Facility layout analysis determines the optimal physical arrangement of departments, workstations, storage areas, and material handling paths. Key objectives include minimizing material handling distances and costs, ensuring smooth workflow and process flow, providing flexibility for future changes, maximizing space utilization, meeting safety and ergonomic requirements, and supporting the production plan's throughput targets.",
+      "keywords": ["facility layout", "material handling", "plant design"]
+    },
+    {
+      "question_text": "Explain how linear programming is used in operations research to optimize resource allocation decisions.",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "Linear programming formulates optimization problems with a linear objective function (maximize profit or minimize cost) subject to linear constraints representing resource limitations, demand requirements, and non-negativity conditions. The simplex method or interior point algorithms find the optimal solution, widely applied to production planning, blending problems, transportation, and workforce scheduling in industrial engineering.",
+      "keywords": ["linear programming", "optimization", "operations research"]
+    },
+    {
+      "question_text": "Describe the kanban system and its role in pull-based production control.",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "Kanban is a visual signaling system that authorizes production or material movement only when downstream processes consume inventory, creating a pull-based flow. Cards or signals limit work-in-process inventory between stations, prevent overproduction, expose process problems quickly, and synchronize production with actual demand rather than forecasts, supporting just-in-time manufacturing principles.",
+      "keywords": ["kanban", "pull system", "just-in-time"]
+    },
+    {
+      "question_text": "How do you apply queuing theory to analyze and improve waiting times in a service or manufacturing system?",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "Queuing theory models arrival rates, service rates, and queue discipline to predict waiting times, queue lengths, and system utilization. By applying models (M/M/1, M/M/c, etc.), the engineer can evaluate trade-offs between adding servers (cost) and reducing wait times, determine optimal staffing levels, and design buffer capacities to achieve target service levels while minimizing total system cost.",
+      "keywords": ["queuing theory", "waiting time", "service level"]
+    },
+    {
+      "question_text": "What is the purpose of a Value Stream Map (VSM), and how is it created for a manufacturing process?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "A VSM visually maps the flow of materials and information from raw materials to customer delivery, distinguishing value-added from non-value-added activities. Creation involves walking the actual process, recording cycle times, inventory levels, changeover times, and information flows at each step, then drawing current-state and future-state maps to identify improvement opportunities and prioritize lean transformation efforts.",
+      "keywords": ["value stream mapping", "current state", "lean transformation"]
+    },
+    {
+      "question_text": "Tell me about a time when you implemented a process improvement that faced resistance from production floor workers. How did you gain their buy-in?",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "The candidate should describe the improvement initiative, the specific concerns of workers (job security, comfort with existing methods, lack of understanding), how they involved workers in the improvement process, addressed their concerns through communication and training, demonstrated the benefits through pilot programs, and ultimately gained acceptance through inclusion and respect for their expertise.",
+      "keywords": ["change management", "worker engagement", "process improvement"]
+    },
+    {
+      "question_text": "Describe a situation where data analysis led you to an unexpected finding that changed your approach to a production problem.",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "A strong answer explains the initial problem and hypothesis, the data collection and analysis methods used, the surprising finding that contradicted assumptions, how the candidate validated the finding, the revised approach taken, and the outcome, demonstrating analytical rigor, intellectual curiosity, and willingness to follow evidence rather than assumptions.",
+      "keywords": ["data-driven decision", "root cause analysis", "analytical thinking"]
+    },
+    {
+      "question_text": "Can you describe a lean or Six Sigma project you led that delivered measurable results? What was your role and the outcome?",
+      "question_type": "behavioral",
+      "difficulty": "easy",
+      "expected_answer": "The candidate should describe the project scope, their specific role (team leader, Green Belt, Black Belt), the methodology followed, key tools used (fishbone diagram, control charts, DOE), measurable results achieved (cost savings, defect reduction, cycle time improvement), and how they sustained the gains through standardization and control plans.",
+      "keywords": ["lean Six Sigma", "measurable results", "project leadership"]
+    },
+    {
+      "question_text": "Tell me about a time when you had to balance production efficiency with worker safety or ergonomic considerations.",
+      "question_type": "behavioral",
+      "difficulty": "easy",
+      "expected_answer": "The candidate should describe the tension between efficiency targets and safety or ergonomic requirements, how they analyzed the situation using risk assessment and ergonomic evaluation tools, the solution they developed that addressed both concerns, and the lesson that sustainable productivity improvements must incorporate worker well-being.",
+      "keywords": ["safety balance", "ergonomics", "sustainable productivity"]
+    },
+    {
+      "question_text": "Describe an experience where you had to optimize a process with conflicting objectives from different departments.",
+      "question_type": "behavioral",
+      "difficulty": "hard",
+      "expected_answer": "The candidate should explain the conflicting objectives (e.g., sales wanting variety vs. production wanting standardization), how they quantified the trade-offs, used data to facilitate a rational discussion, developed a compromise solution that maximized overall organizational benefit, and aligned stakeholders around shared performance metrics.",
+      "keywords": ["conflicting objectives", "cross-departmental optimization", "trade-off analysis"]
+    },
+    {
+      "question_text": "A manufacturing line is experiencing a 15% increase in defect rate over the past month, but no single cause is apparent. How would you systematically investigate and resolve this?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "The engineer should use a structured approach: stratify defect data by type, time, shift, machine, and operator; create Pareto charts to prioritize investigation; conduct fishbone or 5-Why analysis for the dominant defect types; examine potential changes in materials, methods, machines, manpower, measurement, and environment; validate root causes with data; implement corrective actions; and verify effectiveness with control charts.",
+      "keywords": ["defect investigation", "root cause analysis", "statistical tools"]
+    },
+    {
+      "question_text": "Your company wants to reduce inventory holding costs by 20% without impacting customer delivery performance. How would you approach this challenge?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "The engineer should perform ABC analysis to classify inventory by value and volume, review safety stock calculations and reorder points using demand variability data, implement or refine demand forecasting methods, evaluate opportunities for vendor-managed inventory or consignment, reduce lead times through supplier partnerships, apply kanban for high-runners, and model scenarios to validate that service levels are maintained.",
+      "keywords": ["inventory optimization", "safety stock", "demand forecasting"]
+    },
+    {
+      "question_text": "Management asks you to evaluate whether to automate a currently manual assembly process. What analysis would you perform?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "The engineer should analyze current process performance (cycle time, quality, labor costs), define automation requirements and feasibility, obtain vendor quotes, calculate ROI including capital cost, operating savings, quality improvement, and capacity gains, assess workforce impact and retraining needs, evaluate technical risks and implementation timeline, and present a recommendation with sensitivity analysis for key assumptions.",
+      "keywords": ["automation evaluation", "ROI analysis", "feasibility study"]
+    },
+    {
+      "question_text": "A new product launch requires the production line to handle three new variants alongside existing products. How would you plan the production schedule?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "The engineer should determine demand forecasts for all variants, calculate required capacity and compare with available capacity, analyze changeover times between variants, optimize the production sequence to minimize total changeover time (using techniques like SMED), create a level production schedule that balances efficiency with delivery requirements, and establish a kanban or MRP-based replenishment system for each variant.",
+      "keywords": ["production scheduling", "variant management", "SMED"]
+    },
+    {
+      "question_text": "Workers on an assembly line are reporting increased fatigue and musculoskeletal complaints. How would you assess and address this ergonomic issue?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "The engineer should conduct ergonomic assessments using tools like RULA, REBA, or NIOSH lifting equation, observe work postures and task demands through video analysis, identify high-risk factors such as repetitive motions, awkward postures, or excessive force, redesign workstations or tasks to reduce risk (adjustable fixtures, job rotation, mechanical assists), and validate improvements through follow-up assessments and worker feedback.",
+      "keywords": ["ergonomic assessment", "musculoskeletal risk", "workstation design"]
+    },
+    {
+      "question_text": "What is Statistical Process Control (SPC), and how are control charts used to monitor and improve manufacturing processes?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "SPC uses statistical methods to monitor and control process variation in real time. Control charts plot sample statistics (mean, range, proportion) against upper and lower control limits derived from process data. Points within limits with random patterns indicate a stable process; out-of-control signals (points beyond limits, trends, patterns) trigger investigation and corrective action to maintain consistent quality.",
+      "keywords": ["SPC", "control charts", "process variation"]
+    },
+    {
+      "question_text": "Explain the concept of Design of Experiments (DOE) and how it helps optimize manufacturing processes.",
+      "question_type": "domain_specific",
+      "difficulty": "hard",
+      "expected_answer": "DOE is a systematic method for planning experiments to efficiently determine the effect of multiple factors on a response variable. By using factorial or fractional factorial designs, engineers can identify significant factors, interactions, and optimal settings with fewer experiments than one-factor-at-a-time approaches, enabling faster and more reliable process optimization with quantified confidence levels.",
+      "keywords": ["design of experiments", "factorial design", "process optimization"]
+    },
+    {
+      "question_text": "Describe the key principles of Total Quality Management (TQM) and how they apply in a manufacturing environment.",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "TQM is a management philosophy focused on continuous improvement, customer satisfaction, and employee involvement in quality. Key principles include customer focus, leadership commitment, process approach, employee empowerment, data-driven decision making, supplier partnerships, and systematic continuous improvement. In manufacturing, TQM integrates quality into every function rather than relying solely on inspection.",
+      "keywords": ["TQM", "continuous improvement", "customer focus"]
+    },
+    {
+      "question_text": "What is the role of simulation modeling in industrial engineering, and what types of systems benefit most from simulation analysis?",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "Simulation modeling creates computer-based replicas of real systems to experiment with design changes, policies, or operating procedures without disrupting actual operations. Systems that benefit most include those with stochastic elements, complex interactions, and dynamic behavior that are difficult to model analytically, such as manufacturing lines, warehouses, logistics networks, and healthcare delivery systems.",
+      "keywords": ["simulation modeling", "discrete event simulation", "system analysis"]
+    },
+    {
+      "question_text": "Explain the concept of Total Productive Maintenance (TPM) and its eight pillars.",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "TPM aims for zero breakdowns, zero defects, and zero accidents through proactive and preventive maintenance involving all employees. The eight pillars are autonomous maintenance, planned maintenance, quality maintenance, focused improvement (kaizen), early equipment management, training and education, safety health and environment, and TPM in administration. Together they create a culture of equipment ownership and continuous reliability improvement.",
+      "keywords": ["TPM", "preventive maintenance", "equipment reliability"]
+    }
+  ]
+}

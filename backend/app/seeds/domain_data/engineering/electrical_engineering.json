@@ -1,0 +1,177 @@
+{
+  "name": "Electrical Engineering",
+  "slug": "electrical_engineering",
+  "sector": "Engineering",
+  "sector_slug": "engineering",
+  "description": "Interview questions for electrical engineering professionals covering power systems, circuit design, electrical machines, control systems, and instrumentation.",
+  "questions": [
+    {
+      "question_text": "Explain the difference between a star (Y) and delta connection in a three-phase system.",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "In a star connection, one end of each winding is connected to a common neutral point, providing two voltages (line and phase, where V_line = sqrt(3) * V_phase). Line current equals phase current. In a delta connection, windings are connected end-to-end forming a closed loop with no neutral point. Line voltage equals phase voltage, but I_line = sqrt(3) * I_phase. Star is used for long-distance transmission (lower voltage per winding) and delta for shorter distribution. Motors often start in star and switch to delta to reduce starting current.",
+      "keywords": ["star connection", "delta connection", "three-phase", "line voltage", "phase voltage", "neutral"]
+    },
+    {
+      "question_text": "What is power factor, why is it important, and how can it be improved?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Power factor is the ratio of real power (kW) to apparent power (kVA), representing how effectively electrical power is being used. It ranges from 0 to 1 and equals the cosine of the phase angle between voltage and current. Low power factor means higher current for the same real power, causing increased losses, larger conductor requirements, and utility penalties. Improvement methods include: installing capacitor banks (most common), using synchronous condensers, synchronous motors at leading power factor, active power factor correction circuits, and avoiding lightly loaded induction motors.",
+      "keywords": ["power factor", "real power", "apparent power", "capacitor bank", "reactive power", "phase angle"]
+    },
+    {
+      "question_text": "Describe the working principle of a transformer and the factors affecting its efficiency.",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "A transformer works on the principle of electromagnetic induction (Faraday's law). An alternating current in the primary winding creates a changing magnetic flux in the core, which induces an EMF in the secondary winding. The voltage ratio equals the turns ratio (V1/V2 = N1/N2). Efficiency is affected by: core losses (hysteresis and eddy current losses, constant regardless of load) and copper losses (I^2*R losses, vary with load squared). Maximum efficiency occurs when core losses equal copper losses. Typical efficiency ranges from 95-99% for power transformers.",
+      "keywords": ["transformer", "electromagnetic induction", "turns ratio", "core losses", "copper losses", "efficiency"]
+    },
+    {
+      "question_text": "Explain the concept of short circuit analysis and why it is essential in power system design.",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "Short circuit analysis calculates the maximum fault current that can flow during a fault condition (line-to-ground, line-to-line, double line-to-ground, three-phase). It is essential for: sizing circuit breakers and fuses (interrupting capacity must exceed maximum fault current), designing protective relay coordination schemes, determining equipment ratings (transformers, busbars, switchgear), evaluating system stability, and ensuring personnel safety. Analysis uses per-unit system calculations, Thevenin equivalent circuits, and symmetrical component methods for unbalanced faults. IEC 60909 or ANSI/IEEE standards provide calculation methodologies.",
+      "keywords": ["short circuit", "fault current", "circuit breaker rating", "per-unit system", "symmetrical components", "protective relay"]
+    },
+    {
+      "question_text": "What are the different types of electrical protection schemes used in power distribution?",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "Protection schemes include: overcurrent protection (fuses, MCBs, relay-operated circuit breakers) for overload and short circuits; earth fault protection (ELCB/RCCB) for ground faults; differential protection for transformers and generators (compares current entering and leaving); distance protection for transmission lines (impedance-based); Buchholz relay for transformer internal faults; lightning arresters and surge protection for transient overvoltages. Schemes must provide selectivity (only the nearest protective device operates), speed, reliability, and backup protection.",
+      "keywords": ["overcurrent", "earth fault", "differential protection", "distance protection", "Buchholz relay", "selectivity"]
+    },
+    {
+      "question_text": "Explain the different types of DC motors and their speed-torque characteristics.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "DC motor types include: Series motor (field winding in series with armature) provides high starting torque with speed decreasing sharply with load, used in traction and cranes, must never run without load. Shunt motor (field winding in parallel) provides nearly constant speed with moderate starting torque, used for lathes and fans. Compound motor (both series and shunt windings) combines characteristics, used for presses and rolling mills. Permanent magnet DC motors provide constant field, used in small applications. Speed control methods include armature voltage control and field flux control.",
+      "keywords": ["DC motor", "series motor", "shunt motor", "speed-torque", "armature voltage", "field flux"]
+    },
+    {
+      "question_text": "Tell me about a time when you had to troubleshoot a complex electrical fault in a system. What was your approach?",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "The candidate should describe a specific troubleshooting scenario, their systematic approach (symptom analysis, hypothesis formation, testing), the tools and instruments used (multimeter, oscilloscope, thermal imaging, insulation tester), how they isolated the fault, the root cause identified, and corrective actions implemented. A strong answer demonstrates logical thinking, safety awareness during troubleshooting, and thorough documentation of findings.",
+      "keywords": ["troubleshooting", "systematic approach", "fault isolation", "diagnostic tools", "root cause", "safety"]
+    },
+    {
+      "question_text": "Describe a situation where you had to implement an energy efficiency improvement project.",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "The candidate should describe a specific energy audit or improvement project, including baseline energy measurements, analysis of energy consumption patterns, identification of opportunities (lighting upgrades, motor replacements, power factor correction, VFD installation), cost-benefit analysis performed, implementation challenges, and measurable energy savings achieved. Strong answers demonstrate understanding of energy management principles and ability to quantify return on investment.",
+      "keywords": ["energy efficiency", "energy audit", "VFD", "LED retrofit", "ROI", "power consumption"]
+    },
+    {
+      "question_text": "What is the purpose of grounding (earthing) in electrical systems and what are the different types?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "Grounding provides a low-impedance path for fault currents to flow safely to earth, protecting equipment and personnel. Types include: system grounding (solidly grounded, resistance grounded, ungrounded) which defines how the neutral is connected to earth; equipment grounding (connecting non-current-carrying metallic parts to earth); and lightning protection grounding. Solid grounding provides lowest ground fault voltage but highest fault current. Resistance grounding limits fault current but allows fault detection. Ungrounded systems allow continued operation during single line-to-ground faults but make fault location difficult.",
+      "keywords": ["grounding", "earthing", "system grounding", "equipment grounding", "fault current", "resistance grounding"]
+    },
+    {
+      "question_text": "A motor in a critical process keeps tripping on overload. How would you diagnose and resolve this?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "Check the overload relay settings against the motor nameplate FLA. Measure actual current draw with a clamp meter on all three phases to check for imbalance. Check supply voltage for undervoltage or voltage imbalance (which increases current). Inspect the motor for mechanical issues: bearing condition, coupling alignment, driven load binding. Check ventilation and ambient temperature. Measure insulation resistance with a megger to check for winding deterioration. Verify the motor is correctly sized for the application. If the motor is old, consider derating due to insulation aging. Replace overload relay if it has degraded.",
+      "keywords": ["motor overload", "current measurement", "voltage imbalance", "insulation resistance", "mechanical binding", "overload relay"]
+    },
+    {
+      "question_text": "During a commissioning process, you discover the relay coordination study was done incorrectly. What do you do?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "Stop commissioning activities that depend on the protection system. Document the specific coordination issues found (overlap, inadequate margins, incorrect settings). Notify the project manager and protection engineer immediately. Perform or commission a revised coordination study using actual equipment data and short circuit values. Verify all relay settings before re-energizing. Implement temporary operating procedures and manual backup protection if the system must operate before the study is completed. Update all protection setting sheets and as-built drawings. Conduct a review meeting to prevent recurrence.",
+      "keywords": ["relay coordination", "commissioning", "protection settings", "safety", "documentation", "temporary measures"]
+    },
+    {
+      "question_text": "What is the difference between an induction motor and a synchronous motor?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "An induction motor has a rotor that rotates at less than synchronous speed (slip is required to produce torque). The rotor current is induced by the rotating magnetic field. It is simple, rugged, and self-starting. A synchronous motor runs exactly at synchronous speed (N = 120f/P) regardless of load. It requires DC excitation on the rotor and is not self-starting (needs damper windings or VFD). Synchronous motors can provide power factor correction by adjusting excitation. Induction motors are more common for general use while synchronous motors are used for large loads requiring constant speed or power factor improvement.",
+      "keywords": ["induction motor", "synchronous motor", "slip", "synchronous speed", "excitation", "power factor correction"]
+    },
+    {
+      "question_text": "Tell me about a time when you had to manage a team during an emergency power outage or electrical failure.",
+      "question_type": "behavioral",
+      "difficulty": "hard",
+      "expected_answer": "The candidate should describe a real emergency scenario, how they assessed the situation quickly, ensured personnel safety first, organized the response team, systematically identified and isolated the fault, coordinated with operations and management, managed the restoration process in proper sequence, and conducted a post-incident analysis. A strong answer shows leadership under pressure, safety consciousness, clear communication, and ability to make quick decisions.",
+      "keywords": ["emergency response", "leadership", "safety", "fault isolation", "power restoration", "incident management"]
+    },
+    {
+      "question_text": "Explain how a Variable Frequency Drive (VFD) works and its advantages in motor control.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "A VFD converts fixed-frequency AC power to variable-frequency, variable-voltage AC output to control motor speed. It consists of a rectifier (AC to DC), DC bus with capacitors (smoothing), and inverter (DC to variable AC using PWM). Speed is controlled by varying frequency (N = 120f/P). Advantages include: energy savings (power proportional to speed cubed for centrifugal loads), soft starting (reduces inrush current and mechanical stress), precise speed and torque control, reduced maintenance on mechanical components, and process optimization. Common applications include pumps, fans, conveyors, and compressors.",
+      "keywords": ["VFD", "variable frequency drive", "PWM", "motor speed control", "energy savings", "soft starting"]
+    },
+    {
+      "question_text": "You are designing the electrical system for a new manufacturing facility. What are the key steps and considerations?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "Determine total connected load and maximum demand with diversity factors. Select supply voltage level and coordinate with the utility for incoming supply. Perform load flow analysis to size transformers, cables, and switchgear. Conduct short circuit analysis for equipment rating and protection coordination. Design the single-line diagram including main distribution, sub-distribution, and motor control centers. Plan grounding system design. Size emergency generators and UPS for critical loads. Design lighting systems to meet lux requirements. Ensure compliance with national electrical codes (NEC/IEC). Consider future expansion capacity (typically 20-30% spare). Plan cable routing, tray sizing, and containment systems.",
+      "keywords": ["load analysis", "single-line diagram", "cable sizing", "protection coordination", "NEC", "maximum demand"]
+    },
+    {
+      "question_text": "What is the significance of insulation resistance testing and how is it performed?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "Insulation resistance testing (megger testing) measures the resistance of electrical insulation to detect deterioration before failure occurs. It is performed using a megohmmeter that applies a high DC voltage (typically 500V or 1000V) and measures the resulting current leakage. Test types include spot reading (single measurement), time-resistance test (readings at intervals to check polarization index), and step voltage test (increasing voltage to detect weak spots). Minimum acceptable values depend on equipment type and voltage rating. Regular testing provides trending data to predict insulation failure and schedule preventive maintenance.",
+      "keywords": ["insulation resistance", "megger", "polarization index", "preventive maintenance", "insulation deterioration", "dielectric"]
+    },
+    {
+      "question_text": "How would you handle a situation where your electrical design must meet conflicting requirements from different stakeholders?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "Document all requirements from each stakeholder clearly. Identify the specific conflicts and analyze the technical implications of each option. Prioritize requirements based on safety, code compliance, functionality, and cost. Develop alternative solutions that may satisfy multiple parties. Present a comparative analysis with pros, cons, and trade-offs to all stakeholders in a joint meeting. Facilitate discussion to reach consensus. If consensus cannot be reached, escalate to the project decision authority with your technical recommendation. Document the final decision and the rationale behind it.",
+      "keywords": ["stakeholder management", "conflict resolution", "requirements analysis", "trade-offs", "consensus building", "documentation"]
+    },
+    {
+      "question_text": "Explain the concept of harmonics in power systems, their effects, and mitigation methods.",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "Harmonics are sinusoidal voltages or currents at integer multiples of the fundamental frequency, generated by non-linear loads (VFDs, rectifiers, LED drivers, UPS, arc furnaces). Effects include: increased heating in transformers and motors, nuisance tripping of circuit breakers, capacitor bank failure due to resonance, interference with communication systems, and metering errors. Mitigation methods include: passive harmonic filters (tuned LC circuits), active harmonic filters, multi-pulse rectifiers (12-pulse, 18-pulse), isolation transformers with phase shifting, K-rated transformers, and designing to comply with IEEE 519 harmonic limits.",
+      "keywords": ["harmonics", "THD", "non-linear loads", "harmonic filters", "IEEE 519", "resonance"]
+    },
+    {
+      "question_text": "What are the key considerations in designing a lightning protection system for a building?",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "Design follows standards like IEC 62305 or NFPA 780. First, perform a risk assessment to determine the protection level needed. Design the external system: air termination (lightning rods or mesh on roof using rolling sphere method), down conductors (multiple paths to ground, minimum spacing), and earth termination (ground rods or ring earth with resistance < 10 ohms). Design the internal system: surge protection devices (SPDs) at various levels, equipotential bonding of all metallic systems. Consider separation distance to prevent side-flashing. Install SPDs at service entrance and sub-panels. Document and maintain the system with periodic testing.",
+      "keywords": ["lightning protection", "IEC 62305", "rolling sphere", "surge protection", "grounding", "equipotential bonding"]
+    },
+    {
+      "question_text": "Describe a time when you had to explain a complex electrical concept to a non-technical audience.",
+      "question_type": "behavioral",
+      "difficulty": "easy",
+      "expected_answer": "The candidate should describe a specific instance of communicating technical information to non-engineers (management, clients, operators). They should explain how they simplified the concept using analogies or visual aids, focused on practical implications rather than theory, checked for understanding, and adapted their communication style to the audience. A strong answer demonstrates communication skills, empathy, and the ability to bridge the gap between technical and non-technical perspectives.",
+      "keywords": ["communication", "simplification", "non-technical audience", "analogies", "visual aids", "stakeholder engagement"]
+    },
+    {
+      "question_text": "What is the difference between AC and DC power transmission, and what are the advantages of HVDC?",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "AC transmission is simpler to generate and transform voltages but suffers from reactive power losses, skin effect, capacitive charging current in cables, and stability limits over long distances. HVDC (High Voltage DC) transmission advantages include: lower losses over long distances (no reactive power, no skin effect), ability to connect asynchronous AC systems, precise power flow control, smaller right-of-way (two conductors vs. three), submarine cable feasibility (no charging current), and no stability limits. Disadvantages include expensive converter stations and difficulty in multi-terminal configurations. HVDC is economical beyond ~600km overhead or ~50km underground/submarine.",
+      "keywords": ["HVDC", "AC transmission", "reactive power", "converter station", "long distance", "submarine cable"]
+    },
+    {
+      "question_text": "What is SCADA and how is it used in electrical power systems?",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "SCADA (Supervisory Control and Data Acquisition) is a system for remote monitoring and control of electrical infrastructure. It collects real-time data from RTUs (Remote Terminal Units) and IEDs (Intelligent Electronic Devices) at substations via communication networks. Functions include: monitoring voltages, currents, power flows, and equipment status; remote switching and control operations; alarm management and event logging; load management and demand response; fault detection and isolation; and data archiving for analysis. Modern SCADA uses protocols like IEC 61850 and DNP3, with cybersecurity being a critical consideration.",
+      "keywords": ["SCADA", "remote monitoring", "RTU", "IEC 61850", "substation automation", "cybersecurity"]
+    },
+    {
+      "question_text": "A client wants to install a solar PV system for their factory. How would you approach the design?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "Analyze the facility's load profile and energy consumption patterns. Assess the available roof or ground area and orientation/tilt for maximum solar irradiance. Determine system size based on energy requirements, available space, and budget. Select appropriate PV modules and inverters (string or micro-inverters). Design the DC and AC wiring, protection, and grounding systems. Evaluate grid interconnection requirements and net metering policies. Perform shading analysis using tools like PVsyst or Helioscope. Size the system for optimal payback period. Consider battery storage if peak shaving is beneficial. Ensure compliance with local codes and obtain necessary permits and utility approvals.",
+      "keywords": ["solar PV", "inverter", "grid interconnection", "net metering", "system sizing", "shading analysis"]
+    },
+    {
+      "question_text": "Tell me about a time when you had to ensure compliance with electrical safety standards on a project.",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "The candidate should describe a specific project where electrical safety compliance was critical, the standards involved (NEC, IEC, OSHA, NFPA 70E), the challenges faced in meeting requirements, actions taken to ensure compliance (design reviews, inspections, testing), how they handled any non-compliance issues discovered, and the outcome. A strong answer demonstrates thorough knowledge of safety standards, attention to detail, and commitment to safety culture.",
+      "keywords": ["safety compliance", "NEC", "NFPA 70E", "inspection", "arc flash", "safety culture"]
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "name": "Industrial Safety",
+  "slug": "industrial_safety",
+  "sector": "Manufacturing",
+  "sector_slug": "manufacturing",
+  "description": "Interview questions focused on workplace safety, hazard identification, OSHA regulations, safety audits, emergency response, personal protective equipment, incident investigation, and safety training programs in manufacturing environments.",
+  "questions": [
+    {
+      "question_text": "Explain the Hierarchy of Controls and how it is applied to mitigate workplace hazards in a manufacturing facility.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "The Hierarchy of Controls is a framework used to prioritize hazard control methods from most effective to least effective. The five levels are: 1) Elimination, physically removing the hazard entirely (e.g., redesigning a process to avoid a dangerous chemical). 2) Substitution, replacing the hazard with something less dangerous (e.g., using a less toxic solvent). 3) Engineering Controls, isolating people from the hazard through physical modifications (e.g., machine guarding, ventilation systems, noise enclosures). 4) Administrative Controls, changing the way people work through procedures, training, job rotation, signage, and scheduling to limit exposure. 5) Personal Protective Equipment (PPE), providing protective gear such as gloves, respirators, and safety glasses as the last line of defense. The most effective approach combines multiple levels, and PPE should never be the sole control measure when higher-level controls are feasible.",
+      "keywords": ["hierarchy of controls", "elimination", "substitution", "engineering controls", "administrative controls", "PPE", "hazard mitigation", "risk reduction"]
+    },
+    {
+      "question_text": "What is a Job Hazard Analysis (JHA) and how do you conduct one?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "A Job Hazard Analysis, also called a Job Safety Analysis (JSA), is a systematic process for identifying potential hazards associated with each step of a specific job or task and determining the best way to control or eliminate those hazards. The process involves: 1) Selecting the job to be analyzed, prioritizing high-risk, injury-prone, or new tasks. 2) Breaking the job into sequential steps by observing a trained worker performing the task. 3) Identifying potential hazards at each step, considering what could go wrong, what are the consequences, and what contributing factors exist. 4) Determining preventive measures for each hazard, applying the Hierarchy of Controls. 5) Documenting the analysis and communicating findings to all workers performing the task. JHAs should be reviewed and updated whenever the job changes, after incidents, or on a regular schedule. They are powerful tools for engaging workers in safety and identifying hazards before incidents occur.",
+      "keywords": ["JHA", "job hazard analysis", "JSA", "task steps", "hazard identification", "preventive measures", "risk assessment", "worker engagement"]
+    },
+    {
+      "question_text": "Describe the OSHA Lockout/Tagout (LOTO) standard and its key requirements for manufacturing facilities.",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "The OSHA Lockout/Tagout standard (29 CFR 1910.147) establishes requirements for controlling hazardous energy during servicing and maintenance of machines and equipment. Key requirements include: developing written energy control procedures for each machine, using individually keyed locks and standardized tags, following a defined sequence (prepare, shut down, isolate, apply LOTO devices, release stored energy, verify isolation), ensuring each worker applies their own lock, establishing specific procedures for group lockout situations, prohibiting removal of another worker's lock except under strictly defined emergency procedures, conducting periodic inspections of energy control procedures at least annually, and providing training for authorized employees (who perform LOTO), affected employees (who operate equipment), and other employees (who work near controlled areas). The standard covers all forms of hazardous energy including electrical, mechanical, hydraulic, pneumatic, chemical, thermal, and gravitational.",
+      "keywords": ["LOTO", "lockout tagout", "hazardous energy", "29 CFR 1910.147", "energy control", "isolation", "authorized employee", "periodic inspection"]
+    },
+    {
+      "question_text": "What are the key elements of an effective Permit-to-Work system for high-risk activities?",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "A Permit-to-Work system is a formal documented procedure that authorizes certain people to carry out high-risk work under controlled conditions. Key elements include: clear identification of the work to be performed and associated hazards, pre-work risk assessment and hazard mitigation requirements, defined roles and responsibilities (requester, issuer, authorizer, permit holder), specified precautions and control measures (isolation, atmospheric testing, PPE, fire watch), time limitations and validity periods for each permit, cross-referencing with other active permits to identify conflicting activities, communication requirements to all affected personnel, defined monitoring and supervision requirements during work, formal procedures for permit suspension and reactivation, controlled handover between shifts, and formal close-out procedures including verification that the work area is safe. Common permit types include hot work, confined space entry, working at height, excavation, and electrical work. The system must include regular audits and a process for continuous improvement.",
+      "keywords": ["permit to work", "hot work", "confined space", "high-risk activities", "authorization", "precautions", "cross-referencing", "close-out"]
+    },
+    {
+      "question_text": "Explain the difference between a risk assessment and a hazard assessment in workplace safety.",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "A hazard assessment focuses on identifying potential sources of harm in the workplace, such as chemical exposures, unguarded machinery, electrical hazards, fall risks, or ergonomic stressors. It answers the question: what can cause harm? A risk assessment goes further by evaluating both the likelihood of a hazard causing harm and the severity of the potential consequences, typically expressed as Risk equals Likelihood multiplied by Severity. This allows prioritization of hazards based on their overall risk level (high, medium, low), enabling more effective allocation of resources to address the most significant risks first. In practice, a hazard assessment is often the first step within a broader risk assessment process. Risk assessments also consider existing controls and determine whether additional measures are needed to reduce risk to an acceptable level.",
+      "keywords": ["hazard assessment", "risk assessment", "likelihood", "severity", "risk matrix", "prioritization", "controls", "acceptable risk"]
+    },
+    {
+      "question_text": "What is a Safety Data Sheet (SDS) and what are its 16 sections?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "A Safety Data Sheet is a document required under OSHA's Hazard Communication Standard (HazCom 2012, aligned with GHS) that provides comprehensive information about hazardous chemicals. The 16 standardized sections are: 1) Identification, 2) Hazard(s) identification, 3) Composition/information on ingredients, 4) First-aid measures, 5) Fire-fighting measures, 6) Accidental release measures, 7) Handling and storage, 8) Exposure controls/personal protection, 9) Physical and chemical properties, 10) Stability and reactivity, 11) Toxicological information, 12) Ecological information, 13) Disposal considerations, 14) Transport information, 15) Regulatory information, and 16) Other information. Employers must ensure SDSs are readily accessible to workers during their shifts, typically maintained in a central location or electronically. Workers must be trained on how to read and use SDSs as part of the hazard communication program.",
+      "keywords": ["SDS", "Safety Data Sheet", "GHS", "HazCom", "hazardous chemicals", "16 sections", "exposure controls", "hazard communication"]
+    },
+    {
+      "question_text": "How would you conduct a root cause analysis following a serious workplace incident?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Root cause analysis following a serious incident should follow a structured methodology. Begin by securing the scene and providing first aid. Preserve evidence including equipment positions, environmental conditions, photos, and physical samples. Gather facts through interviews with witnesses and involved parties, review of relevant documents (procedures, training records, maintenance logs), and examination of physical evidence. Apply systematic analytical methods such as the 5 Whys technique to drill down from the immediate cause to deeper systemic causes, a Fishbone (Ishikawa) diagram to categorize contributing factors (people, procedures, equipment, environment, management), or a Fault Tree Analysis for complex events. Identify both direct causes (unsafe acts, unsafe conditions) and root causes (systemic failures in management systems, training, design, or culture). Develop corrective actions that address root causes, not just symptoms, with assigned owners and deadlines. Document findings in a formal incident investigation report and share lessons learned across the organization. Verify corrective action effectiveness through follow-up audits.",
+      "keywords": ["root cause analysis", "incident investigation", "5 Whys", "Fishbone diagram", "corrective actions", "evidence preservation", "lessons learned", "systemic causes"]
+    },
+    {
+      "question_text": "What are the key components of OSHA's Process Safety Management (PSM) standard?",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "OSHA's Process Safety Management standard (29 CFR 1910.119) applies to facilities handling highly hazardous chemicals above threshold quantities. Its 14 elements are: 1) Employee participation in PSM activities, 2) Process Safety Information (documentation of chemicals, technology, and equipment), 3) Process Hazard Analysis using methods like HAZOP, What-If, or Fault Tree, 4) Operating procedures that are written, current, and accessible, 5) Training for initial and ongoing competency, 6) Contractors management for safety requirements, 7) Pre-startup safety review before introducing new or modified processes, 8) Mechanical integrity programs for critical equipment, 9) Hot work permits, 10) Management of Change (MOC) for process modifications, 11) Incident investigation within 48 hours, 12) Emergency planning and response, 13) Compliance audits at least every 3 years, and 14) Trade secrets provisions ensuring safety information access. PSM is a comprehensive management system approach aimed at preventing catastrophic releases of toxic, flammable, or explosive chemicals.",
+      "keywords": ["PSM", "process safety management", "29 CFR 1910.119", "HAZOP", "management of change", "mechanical integrity", "process hazard analysis", "compliance audit"]
+    },
+    {
+      "question_text": "What is the purpose of a Machine Guarding program, and what types of guarding methods are used in manufacturing?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "Machine guarding protects workers from hazards created by moving parts, including point of operation hazards, in-running nip points, rotating parts, flying chips, and sparks. Types of guarding include: fixed guards (permanent barriers attached to the machine), interlocked guards (connected to the machine's control system so the machine cannot operate when the guard is open), adjustable guards (can be set to accommodate different sizes of stock), self-adjusting guards (openings adjust automatically based on the material being fed), presence-sensing devices (light curtains, pressure mats, laser scanners that stop the machine when a body part enters the danger zone), two-hand controls (require both hands on controls to operate, keeping hands away from the hazard), pullback devices (attached to the operator's hands to pull them away), and restraint devices (prevent the operator from reaching into the danger zone). OSHA standards 29 CFR 1910.211-219 specify guarding requirements for various machine types.",
+      "keywords": ["machine guarding", "fixed guard", "interlocked guard", "light curtain", "presence sensing", "point of operation", "nip point", "two-hand control"]
+    },
+    {
+      "question_text": "Explain the concept of a Leading Indicator versus a Lagging Indicator in safety performance measurement.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Lagging indicators measure past safety outcomes and are reactive in nature. Examples include Total Recordable Incident Rate (TRIR), Lost Time Injury Frequency Rate (LTIFR), severity rate, workers' compensation costs, and fatalities. While important for benchmarking and regulatory compliance, they only tell you about failures that have already occurred. Leading indicators measure proactive safety activities and conditions that predict future safety performance. Examples include number of safety observations completed, near-miss reporting rates, safety training completion percentages, hazard identification and correction rates, safety audit scores, management safety walk-through frequency, and percentage of corrective actions completed on time. An effective safety management system tracks both types but emphasizes leading indicators because they provide opportunities to prevent incidents before they occur. The ratio of leading to lagging indicators should heavily favor leading indicators.",
+      "keywords": ["leading indicators", "lagging indicators", "TRIR", "LTIFR", "near-miss reporting", "safety observations", "proactive", "reactive", "performance measurement"]
+    },
+    {
+      "question_text": "Tell me about a time when you had to enforce a safety rule that was unpopular with workers. How did you handle the resistance?",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "A strong answer should describe a specific situation where a necessary safety rule met resistance, such as requiring additional PPE, implementing a new lockout/tagout procedure, or restricting a common shortcut. The candidate should explain why the rule was important, how they listened to workers' concerns to understand the root of resistance (discomfort, inconvenience, not understanding the risk), what steps they took to gain buy-in (explaining the rationale with real incident examples, involving workers in finding comfortable alternatives, demonstrating management commitment), and how they maintained the standard while preserving positive relationships. The answer should demonstrate firmness on non-negotiable safety requirements while showing empathy and communication skills. Results should include improved compliance and ideally, workers eventually understanding and supporting the change.",
+      "keywords": ["enforcement", "resistance", "buy-in", "communication", "firmness", "empathy", "compliance", "safety culture"]
+    },
+    {
+      "question_text": "Describe a situation where you identified a previously unrecognized hazard in a workplace. What did you do?",
+      "question_type": "behavioral",
+      "difficulty": "easy",
+      "expected_answer": "The candidate should describe how they identified the hazard (observation during a walk-through, reviewing incident data, worker feedback, process change analysis), what the hazard was, and the immediate and long-term actions taken. The answer should demonstrate vigilance, hazard recognition skills, knowledge of proper reporting channels, and follow-through. The response should include how they assessed the risk level, what interim protective measures were put in place while permanent controls were developed, how they communicated the hazard to affected workers, and what permanent corrective actions were implemented. A strong answer also includes sharing lessons learned with other areas of the facility that might have similar unrecognized hazards.",
+      "keywords": ["hazard identification", "observation", "reporting", "interim controls", "corrective action", "communication", "risk assessment", "vigilance"]
+    },
+    {
+      "question_text": "Give an example of how you improved safety culture at a previous workplace.",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "A strong response describes specific actions taken to shift safety culture beyond mere compliance. Examples include establishing a near-miss reporting program that encourages reporting without fear of blame, implementing behavior-based safety observations, creating safety committees with genuine worker representation and authority, introducing safety recognition programs, conducting toolbox talks or safety moments at the start of meetings, improving incident investigation to focus on systemic causes rather than blame, increasing management visibility in safety through regular floor walks, or revamping safety training to be more engaging and relevant. The candidate should describe measurable outcomes such as increased reporting rates, improved safety metrics, higher engagement survey scores related to safety, or reduced incident rates. The answer should show understanding that safety culture change is a long-term effort requiring consistent leadership commitment.",
+      "keywords": ["safety culture", "near-miss reporting", "behavior-based safety", "recognition", "worker engagement", "leadership commitment", "blame-free", "measurable improvement"]
+    },
+    {
+      "question_text": "Tell me about a time when you had to balance production pressures with safety requirements. How did you handle it?",
+      "question_type": "behavioral",
+      "difficulty": "hard",
+      "expected_answer": "The candidate should describe a specific conflict between production deadlines and safety requirements, such as pressure to skip lockout/tagout to reduce downtime, running equipment past maintenance intervals, or staffing shortcuts during peak production. The answer should demonstrate clear prioritization of safety, the courage to push back against pressure while presenting the business case for safety (cost of incidents, regulatory penalties, reputation damage, worker morale). They should describe how they communicated with management, proposed alternative solutions to meet production targets safely (overtime, resequencing work, additional resources), and the outcome. The response should show that they understand that safety and productivity are not mutually exclusive and that cutting safety corners ultimately hurts productivity through incidents, downtime, and workforce issues.",
+      "keywords": ["production pressure", "safety priority", "pushback", "business case", "alternative solutions", "leadership", "communication", "risk management"]
+    },
+    {
+      "question_text": "Describe a time when you successfully reduced the incident rate at a manufacturing facility.",
+      "question_type": "behavioral",
+      "difficulty": "easy",
+      "expected_answer": "The candidate should describe the initial safety performance, their analysis of incident data and root causes, the strategy they developed and implemented, and the measurable results achieved. Key elements include using data to identify the most common or severe incident types, engaging workers in developing solutions, implementing both engineering and administrative controls, strengthening training programs, improving hazard reporting systems, and establishing accountability at all levels. The answer should demonstrate a systematic approach rather than a single quick fix, and results should be quantified (percentage reduction in TRIR, specific timeframe, sustained improvement). The candidate should also mention how they ensured improvements were sustained through ongoing monitoring and reinforcement.",
+      "keywords": ["incident reduction", "data analysis", "root cause", "systematic approach", "worker engagement", "measurable results", "sustained improvement", "accountability"]
+    },
+    {
+      "question_text": "You are conducting a facility walk-through and observe a worker bypassing a machine guard to clear a jam. The worker's supervisor is standing nearby and appears unconcerned. What do you do?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "The immediate priority is to stop the unsafe activity by intervening directly, as the worker is in imminent danger. Politely but firmly ask the worker to stop and step away from the machine, then ensure the machine is properly shut down and locked out before the jam is cleared. Address both the worker and the supervisor on-site, explaining the specific hazard and the correct procedure. Afterward, investigate why the bypass occurred: is the procedure inadequate, is the guard poorly designed causing frequent jams, does the worker lack training, or is there a culture of accepting shortcuts? Address the supervisor's failure to intervene, as supervisory accountability is critical. Document the observation and resulting corrective actions. Follow up with broader communication to all shifts about the importance of machine guarding and proper lockout procedures for clearing jams. If the guard design is contributing to frequent bypasses, initiate an engineering review to improve accessibility while maintaining protection.",
+      "keywords": ["machine guarding bypass", "immediate intervention", "lockout", "supervisor accountability", "root cause", "procedure review", "engineering review", "documentation"]
+    },
+    {
+      "question_text": "Your facility has experienced three near-miss incidents involving forklift-pedestrian interactions in the past month. How would you address this?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "Begin by analyzing all three near-miss reports to identify patterns: location, time of day, specific operators, traffic flow, and contributing conditions such as visibility, speed, or pedestrian behavior. Conduct a facility traffic flow assessment mapping forklift routes and pedestrian pathways to identify high-risk intersection points. Implement a multi-layered approach: engineering controls (physical barriers, designated pedestrian walkways with guardrails, convex mirrors at blind corners, floor markings, warning lights on forklifts, speed bumps), administrative controls (updated traffic management plan, defined right-of-way rules, reduced speed limits in pedestrian areas, restricted forklift operating zones during shift changes), and training (refresher training for all forklift operators, pedestrian safety awareness for all employees). Consider technology solutions such as proximity sensors or automated warning systems on forklifts. Establish enhanced monitoring through increased floor supervision and safety observations. Track the effectiveness of interventions through continued near-miss reporting and forklift safety observation data.",
+      "keywords": ["forklift safety", "pedestrian interaction", "traffic management", "physical barriers", "speed control", "near-miss analysis", "engineering controls", "proximity sensors"]
+    },
+    {
+      "question_text": "An employee reports a health concern related to chemical exposure but there is no visible issue and air monitoring results are within permissible limits. How do you respond?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "Take the report seriously and never dismiss employee health concerns based solely on monitoring data. Begin by thoroughly documenting the employee's symptoms, work location, tasks performed, duration of exposure, and any patterns (time of day, specific processes). Refer the employee for a medical evaluation by an occupational health professional. Review the air monitoring data critically: confirm the monitoring was representative of the employee's actual breathing zone and exposure duration, verify the instruments were properly calibrated, consider whether peak exposures might exceed limits even if time-weighted averages are within range, and check if multiple chemical exposures could have synergistic effects not reflected in individual limits. Investigate the work area for potential exposure pathways such as skin contact or ingestion routes not captured by air monitoring. Review the SDS for all chemicals in the area. Consider additional monitoring including biological monitoring if appropriate. Implement interim protective measures while the investigation continues. Communicate transparently with the employee about the investigation steps and findings.",
+      "keywords": ["chemical exposure", "health concern", "medical evaluation", "breathing zone", "monitoring limitations", "synergistic effects", "biological monitoring", "interim protection"]
+    },
+    {
+      "question_text": "You have been asked to develop a safety training program for a new manufacturing facility. Where do you start and what does the program include?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "Start with a comprehensive training needs analysis: identify all regulatory training requirements (OSHA-mandated training for hazard communication, LOTO, confined space, PPE, bloodborne pathogens, fire extinguisher, emergency action plans, and industry-specific standards), assess job-specific hazards from JHAs, and evaluate the workforce demographics (experience levels, languages, literacy). Design a tiered program: new employee orientation covering general safety rules, emergency procedures, and hazard communication; job-specific training covering the particular hazards and controls for each role; specialized training for high-risk activities like confined space entry, powered industrial trucks, and elevated work; and supervisor training covering hazard recognition, incident investigation, and safety leadership. Incorporate multiple delivery methods: classroom instruction, hands-on demonstrations, on-the-job training with qualified mentors, and e-learning for knowledge-based topics. Establish competency verification through written tests, practical demonstrations, and observation. Maintain a training matrix tracking requirements and completion for every employee. Schedule refresher training at defined intervals. Evaluate program effectiveness through knowledge retention assessments, safety observation data, and incident trend analysis.",
+      "keywords": ["training needs analysis", "regulatory requirements", "tiered program", "competency verification", "training matrix", "refresher training", "hands-on", "program effectiveness"]
+    },
+    {
+      "question_text": "A contractor working at your facility refuses to follow your site-specific safety requirements, claiming their own company's procedures are sufficient. How do you handle this?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "Address the situation immediately and firmly. Explain that all personnel on-site, including contractors, must comply with site-specific safety requirements per the facility's contractor management program and the contractual safety terms agreed upon between the companies. If the contractor's own procedures exceed site requirements in certain areas, that is acceptable, but site requirements represent the minimum standard. Review the specific points of disagreement to determine if there are legitimate concerns about the site requirements or if this is resistance to compliance. If the contractor refuses to comply after discussion, escalate to the contractor's supervision and your own management. Document the non-compliance. If the contractor continues to refuse, they should be removed from the site, as non-compliance with safety requirements is not negotiable. Follow up with the contractor's company management to address the issue at an organizational level. Review the pre-job safety orientation and contractor onboarding process to ensure expectations are clearly communicated before work begins.",
+      "keywords": ["contractor safety", "site requirements", "non-compliance", "escalation", "contractor management", "documentation", "removal from site", "pre-job orientation"]
+    },
+    {
+      "question_text": "What are the key elements of an effective Emergency Response Plan for a manufacturing facility?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "An effective Emergency Response Plan includes: identification of potential emergency scenarios (fire, chemical spill, explosion, natural disaster, medical emergency, active threat), clearly defined roles and responsibilities (incident commander, emergency response team, floor wardens, first aid responders), evacuation procedures with primary and alternate routes and assembly points, communication protocols (alarm systems, PA announcements, notification chains to management and emergency services), emergency contact lists (internal and external including fire department, EMS, hazmat, hospitals, regulatory agencies), specific response procedures for each scenario type, location and use of emergency equipment (fire extinguishers, spill kits, AEDs, first aid stations, emergency showers and eyewash stations), procedures for utilities shutdown, accounting procedures to verify all personnel are evacuated, provisions for people with disabilities, contractor and visitor management during emergencies, and post-emergency procedures including re-entry criteria. The plan must be regularly drilled, reviewed at least annually, and updated when facility changes occur.",
+      "keywords": ["emergency response plan", "evacuation", "incident commander", "communication", "assembly points", "drills", "emergency equipment", "post-emergency"]
+    },
+    {
+      "question_text": "Explain the concept of Behavior-Based Safety (BBS) and its role in reducing workplace incidents.",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "Behavior-Based Safety is a proactive approach to safety management that focuses on identifying and modifying at-risk behaviors before they lead to incidents. The core principle is that most workplace incidents result from unsafe behaviors rather than unsafe conditions alone. Key components include: developing a critical behavior inventory based on incident data and hazard analysis, training observers (typically peer observers) to conduct structured safety observations, collecting observation data on both safe and at-risk behaviors without punitive consequences, providing immediate positive feedback for safe behaviors and coaching for at-risk behaviors, analyzing observation data to identify trends and systemic factors driving at-risk behaviors, using the data to drive targeted interventions such as improved procedures, engineering changes, or training, and involving frontline workers in the entire process. BBS is most effective when implemented within a supportive safety culture that emphasizes learning over blame. It is not a standalone program but should complement engineering controls, training, and management systems.",
+      "keywords": ["BBS", "behavior-based safety", "observation", "at-risk behavior", "peer observation", "positive feedback", "coaching", "proactive safety"]
+    },
+    {
+      "question_text": "What are the OSHA recordkeeping requirements and how do you determine if an injury or illness is OSHA recordable?",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "Under OSHA's recordkeeping standard (29 CFR Part 1904), employers with more than 10 employees in most industries must maintain records of work-related injuries and illnesses on OSHA Form 300 (Log), 300A (Summary), and 301 (Incident Report). A case is OSHA recordable if it is work-related and results in any of the following: death, days away from work, restricted work or transfer to another job, medical treatment beyond first aid, loss of consciousness, or a significant injury or illness diagnosed by a physician or licensed healthcare professional. First aid includes wound cleaning, bandages, non-prescription medications, hot/cold therapy, and similar minor treatments. Key distinctions include understanding that first aid repeated for the same injury does not become recordable, pre-existing conditions aggravated by work are recordable, and the 300A Summary must be posted from February 1 through April 30 each year. Certain industries with high hazard classifications must also electronically submit injury data to OSHA annually.",
+      "keywords": ["OSHA recordkeeping", "29 CFR 1904", "recordable", "first aid", "days away", "restricted work", "Form 300", "Form 300A"]
+    },
+    {
+      "question_text": "What is a confined space, and what are the specific requirements for safe confined space entry?",
+      "question_type": "domain_specific",
+      "difficulty": "hard",
+      "expected_answer": "A confined space is an area that is large enough for an employee to enter, has limited means of entry or exit, and is not designed for continuous occupancy. A permit-required confined space additionally has a hazardous atmosphere, engulfment potential, converging walls, or other recognized serious hazards. Requirements for safe entry under OSHA 29 CFR 1910.146 include: developing written confined space entry procedures, issuing entry permits for each entry specifying conditions and precautions, testing the atmosphere before and continuously during entry for oxygen levels (19.5-23.5%), combustible gases (below 10% LEL), and toxic substances (below PEL), providing adequate ventilation, assigning trained entry team roles (authorized entrant, attendant, entry supervisor), ensuring an attendant is stationed outside at all times to monitor entrants and summon rescue if needed, establishing rescue procedures with trained rescue teams or services available, providing appropriate PPE and communication equipment, and training all involved personnel on confined space hazards and procedures. All entry permits must be maintained for review and the program audited periodically.",
+      "keywords": ["confined space", "permit-required", "atmospheric testing", "attendant", "entry supervisor", "ventilation", "rescue procedures", "29 CFR 1910.146"]
+    },
+    {
+      "question_text": "Describe the principles and methodology of a safety audit and how it differs from a safety inspection.",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "A safety audit is a systematic, documented evaluation of a facility's safety management system to determine if it is effective, compliant with regulations and internal standards, and being properly implemented. It examines systems, procedures, documentation, training records, and management commitment at a broad organizational level. Audits follow a structured methodology: planning (scope, criteria, audit team), document review, on-site assessment (interviews, observations, record review), findings classification (non-conformance, observation, opportunity for improvement), reporting, and corrective action follow-up. A safety inspection, by contrast, is a physical examination of the workplace to identify hazards, unsafe conditions, and unsafe behaviors at a specific point in time. Inspections focus on the current physical state of the workplace rather than the management system. Both are necessary: audits evaluate whether the safety management system is designed and functioning correctly, while inspections verify that the physical workplace meets safety standards on a day-to-day basis. Audits are typically conducted annually or periodically, while inspections occur more frequently.",
+      "keywords": ["safety audit", "safety inspection", "management system", "compliance", "non-conformance", "corrective action", "systematic evaluation", "documentation review"]
+    }
+  ]
+}

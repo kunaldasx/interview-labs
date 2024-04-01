@@ -1,0 +1,184 @@
+{
+  "name": "Warehouse Management",
+  "slug": "warehouse_management",
+  "sector": "Logistics",
+  "sector_slug": "logistics",
+  "description": "Interview questions covering warehouse operations, storage systems, picking and packing processes, warehouse layout optimization, safety compliance, and workforce management within distribution and fulfillment centers.",
+  "questions": [
+    {
+      "question_text": "What is the difference between FIFO and LIFO inventory rotation methods, and when would you use each in a warehouse setting?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "FIFO (First In, First Out) means the oldest stock is shipped first, which is ideal for perishable goods, food, pharmaceuticals, and items with expiration dates. LIFO (Last In, First Out) means the newest stock is shipped first, which can be used for non-perishable goods like building materials or coal where degradation is not a concern. FIFO is the most common method in warehousing as it minimizes obsolescence and spoilage.",
+      "keywords": ["FIFO", "LIFO", "inventory rotation", "perishable", "stock management", "expiration"]
+    },
+    {
+      "question_text": "Explain the concept of slotting optimization in a warehouse. How does it improve operational efficiency?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Slotting optimization is the process of strategically assigning products to specific storage locations within a warehouse to maximize picking efficiency, reduce travel time, and improve space utilization. High-velocity items are placed in easily accessible locations near shipping areas, while slow-moving items are stored in less accessible zones. It considers factors like product size, weight, pick frequency, and order patterns. Proper slotting can reduce pick times by 20-30%, lower labor costs, and decrease worker fatigue.",
+      "keywords": ["slotting", "optimization", "pick efficiency", "storage location", "travel time", "velocity"]
+    },
+    {
+      "question_text": "What are the key components of a Warehouse Management System (WMS) and how does it benefit daily operations?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "A WMS includes modules for receiving and putaway, inventory tracking, order management, picking and packing, shipping, labor management, and reporting and analytics. Benefits include real-time inventory visibility, reduced errors through barcode or RFID scanning, optimized picking routes, improved order accuracy, better space utilization, labor productivity tracking, and data-driven decision making. It integrates with ERP and TMS systems to provide end-to-end supply chain visibility.",
+      "keywords": ["WMS", "inventory tracking", "barcode", "RFID", "picking routes", "order accuracy", "real-time"]
+    },
+    {
+      "question_text": "Describe the different types of warehouse picking methods and when each is most appropriate.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "The main picking methods are: (1) Discrete/Single Order Picking where one order is picked at a time, suitable for low-volume operations; (2) Batch Picking where multiple orders are picked simultaneously, efficient for orders with common SKUs; (3) Zone Picking where the warehouse is divided into zones and pickers stay in assigned zones, ideal for large warehouses; (4) Wave Picking which combines batch and zone picking scheduled in waves, suited for high-volume operations; (5) Cluster Picking where multiple orders are picked into separate containers on one cart. The choice depends on order volume, SKU count, warehouse size, and order profiles.",
+      "keywords": ["discrete picking", "batch picking", "zone picking", "wave picking", "cluster picking", "SKU", "order profiles"]
+    },
+    {
+      "question_text": "Tell me about a time when you had to deal with a significant inventory discrepancy in a warehouse. How did you handle it?",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "A strong answer should describe: identifying the discrepancy through cycle counts or audits, investigating root causes such as receiving errors, mislabeled items, theft, or system glitches. The candidate should explain the corrective actions taken including physical recounts, system adjustments, process improvements, and preventive measures implemented. Good responses include communication with stakeholders, documentation of findings, and long-term solutions like improved training or updated procedures.",
+      "keywords": ["inventory discrepancy", "cycle count", "root cause", "corrective action", "audit", "investigation", "process improvement"]
+    },
+    {
+      "question_text": "What safety protocols should be in place for operating forklifts and other material handling equipment in a warehouse?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "Key safety protocols include: operator certification and regular refresher training, daily pre-operation equipment inspections, enforced speed limits within the warehouse, designated pedestrian walkways separated from forklift lanes, proper load capacity adherence, seatbelt use, horn use at intersections and blind corners, no passengers on forklifts, proper battery charging and fueling procedures in designated areas, incident reporting procedures, and compliance with OSHA regulations. Personal protective equipment (PPE) requirements should also be enforced.",
+      "keywords": ["forklift safety", "OSHA", "certification", "PPE", "pre-operation inspection", "load capacity", "pedestrian safety"]
+    },
+    {
+      "question_text": "If you arrive at the warehouse on a Monday morning and discover that a weekend shift misplaced an entire pallet of high-value electronics, what steps would you take?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "The candidate should outline: (1) Immediate inventory check of the WMS to trace the last known location and movement history of the pallet; (2) Review CCTV footage from the weekend; (3) Contact weekend shift supervisors and workers for information; (4) Conduct a physical search of likely mislocation areas; (5) Check if the pallet was accidentally shipped or loaded onto the wrong truck; (6) Notify management and security if theft is suspected; (7) Document all findings; (8) Implement corrective measures such as mandatory scan-at-putaway verification; (9) Communicate with affected customers if shipments are delayed.",
+      "keywords": ["pallet tracking", "CCTV", "WMS trace", "investigation", "escalation", "corrective measures", "high-value goods"]
+    },
+    {
+      "question_text": "What is cross-docking and what are its advantages and disadvantages in warehouse operations?",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "Cross-docking is a logistics practice where incoming goods are unloaded from inbound vehicles and directly loaded onto outbound vehicles with minimal or no storage time in between. Advantages include reduced storage costs, faster delivery times, lower handling costs, reduced inventory holding, and improved product freshness for perishables. Disadvantages include high coordination requirements, need for reliable suppliers and carriers, complex scheduling, vulnerability to delays, significant initial technology investment, and limited suitability for products requiring quality inspection or value-added services.",
+      "keywords": ["cross-docking", "storage reduction", "handling costs", "coordination", "throughput", "dock-to-dock"]
+    },
+    {
+      "question_text": "How do you calculate warehouse space utilization, and what is considered an optimal utilization rate?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "Warehouse space utilization is calculated by dividing the total used storage space by the total available storage space, multiplied by 100. This includes both floor space and cubic space utilization. An optimal utilization rate is generally between 80-85%. Below 80% suggests underutilized space and wasted costs. Above 85-90% can lead to congestion, reduced picking efficiency, safety hazards, and inability to handle demand spikes. Cubic utilization considers vertical space and is calculated by measuring the volume of stored goods versus total available volume.",
+      "keywords": ["space utilization", "cubic utilization", "floor space", "optimal rate", "capacity planning", "vertical space"]
+    },
+    {
+      "question_text": "Describe a situation where you had to manage a warehouse team through a peak season or high-demand period. What strategies did you use?",
+      "question_type": "behavioral",
+      "difficulty": "hard",
+      "expected_answer": "A strong answer should cover: pre-season planning including demand forecasting, temporary staffing arrangements, extended shift schedules, cross-training employees for flexibility, pre-positioning fast-moving inventory, setting up additional packing stations, daily performance huddles, real-time monitoring of KPIs, overtime management, maintaining morale through incentives and clear communication, ensuring safety standards are maintained despite increased pace, and conducting post-season reviews to capture lessons learned.",
+      "keywords": ["peak season", "demand forecasting", "temporary staff", "cross-training", "KPIs", "morale", "shift planning"]
+    },
+    {
+      "question_text": "What is the purpose of ABC analysis in warehouse management and how is it implemented?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "ABC analysis categorizes inventory into three groups based on their value and volume contribution: A items are high-value items that represent about 20% of SKUs but 80% of total value, requiring tight controls and prime warehouse locations. B items are moderate-value items representing about 30% of SKUs and 15% of value. C items are low-value items representing about 50% of SKUs but only 5% of value. Implementation involves ranking all SKUs by annual consumption value, assigning categories, and then tailoring storage locations, counting frequency, reorder policies, and security measures accordingly.",
+      "keywords": ["ABC analysis", "Pareto principle", "SKU classification", "inventory value", "cycle counting", "storage priority"]
+    },
+    {
+      "question_text": "How would you handle a situation where your warehouse receives a shipment that does not match the purchase order in terms of quantity and product specifications?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "The candidate should describe: (1) Halt the receiving process for the discrepant items and quarantine them; (2) Document all discrepancies with photos and detailed notes; (3) Compare the packing slip, bill of lading, and purchase order; (4) Notify the purchasing department and the supplier immediately; (5) Create a discrepancy report in the WMS; (6) Follow the company's receiving exception procedure; (7) Do not put away unverified stock; (8) Negotiate resolution with the supplier such as return, credit, or replacement; (9) Update inventory records accurately; (10) Track the supplier's discrepancy history for performance evaluation.",
+      "keywords": ["receiving discrepancy", "purchase order", "quarantine", "documentation", "supplier notification", "exception handling"]
+    },
+    {
+      "question_text": "Explain the differences between a distribution center and a traditional warehouse.",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "A traditional warehouse primarily focuses on storage of goods for extended periods with less emphasis on rapid throughput. A distribution center (DC) is designed for high-speed movement of goods with minimal storage time, acting as a hub for receiving, sorting, and redistributing products. DCs emphasize throughput speed, have more dock doors relative to size, use more automation, operate longer hours, and focus on order fulfillment. Warehouses prioritize storage capacity and cost-effective long-term holding. DCs serve as strategic nodes in the supply chain for value-added services like kitting, labeling, and returns processing.",
+      "keywords": ["distribution center", "warehouse", "throughput", "storage", "order fulfillment", "dock doors", "value-added services"]
+    },
+    {
+      "question_text": "What are the key performance indicators (KPIs) you would track to measure warehouse efficiency?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Key warehouse KPIs include: Order Accuracy Rate (target above 99.5%), On-Time Shipment Rate, Pick Rate (units/lines per hour), Receiving Efficiency (time from dock to putaway), Inventory Accuracy (should be above 97%), Dock-to-Stock Time, Order Cycle Time, Cost Per Order Shipped, Space Utilization Rate, Labor Productivity (units per labor hour), Returns Processing Rate, Perfect Order Rate, and Equipment Utilization Rate. These KPIs should be monitored daily, trended weekly, and reviewed monthly to identify improvement opportunities.",
+      "keywords": ["KPIs", "order accuracy", "pick rate", "inventory accuracy", "cycle time", "labor productivity", "on-time shipment"]
+    },
+    {
+      "question_text": "If two team members in your warehouse are consistently having conflicts that are affecting productivity and morale, how would you address the situation?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "The candidate should describe: (1) Meet with each person individually to understand their perspective; (2) Document specific incidents and their impact on operations; (3) Bring both parties together for a mediated discussion focused on work outcomes; (4) Set clear expectations for professional behavior; (5) Identify if the root cause is work-related such as overlapping responsibilities or personal; (6) Implement solutions like adjusted assignments or schedules if needed; (7) Follow up regularly to ensure improvement; (8) Involve HR if the conflict escalates or involves policy violations; (9) Use the situation as a learning opportunity for the broader team.",
+      "keywords": ["conflict resolution", "mediation", "productivity", "team management", "documentation", "HR escalation"]
+    },
+    {
+      "question_text": "What role does automation play in modern warehouse operations, and what are common technologies being adopted?",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "Modern warehouse automation includes: Automated Storage and Retrieval Systems (AS/RS) for high-density storage, Autonomous Mobile Robots (AMRs) and Automated Guided Vehicles (AGVs) for goods movement, conveyor and sortation systems for order processing, robotic arms for picking and palletizing, voice-directed and light-directed picking systems, automated packaging systems, drone-based inventory counting, and IoT sensors for environmental monitoring. Benefits include increased throughput, reduced labor dependency, improved accuracy, and 24/7 operation capability. Challenges include high capital investment, integration complexity, maintenance needs, and workforce transition management.",
+      "keywords": ["automation", "AS/RS", "AMR", "AGV", "robotics", "IoT", "conveyor systems", "voice picking"]
+    },
+    {
+      "question_text": "How do you ensure compliance with health and safety regulations in a warehouse environment?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "Compliance measures include: conducting regular safety audits and risk assessments, maintaining up-to-date training records for all employees, posting clear signage for hazards and emergency procedures, ensuring proper storage of hazardous materials with MSDS sheets accessible, maintaining fire suppression systems and clear emergency exits, enforcing PPE requirements, conducting regular emergency drills, keeping aisles and walkways clear, ergonomic assessments for repetitive tasks, reporting and investigating all incidents, maintaining equipment inspection logs, and staying current with OSHA regulations and local fire codes.",
+      "keywords": ["safety compliance", "OSHA", "risk assessment", "PPE", "MSDS", "safety audit", "emergency procedures", "training"]
+    },
+    {
+      "question_text": "Describe your experience with implementing or improving a receiving process in a warehouse.",
+      "question_type": "behavioral",
+      "difficulty": "hard",
+      "expected_answer": "A strong answer should include: assessment of the current receiving process and identification of bottlenecks, specific improvements such as appointment scheduling for inbound trucks, implementing barcode scanning at receiving docks, establishing quality inspection checkpoints, creating standard operating procedures, training staff on new processes, measuring improvement through KPIs like dock-to-stock time and receiving accuracy, and continuous improvement through feedback loops. The candidate should demonstrate analytical thinking, change management skills, and measurable results.",
+      "keywords": ["receiving process", "dock scheduling", "barcode scanning", "quality inspection", "SOP", "continuous improvement", "dock-to-stock"]
+    },
+    {
+      "question_text": "What is the purpose of cycle counting and how does it differ from a full physical inventory?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "Cycle counting is an ongoing inventory auditing method where a subset of inventory is counted on a rotating schedule throughout the year, rather than counting all inventory at once. It differs from a full physical inventory in that it does not require shutting down operations, is less disruptive, allows for more frequent accuracy checks, and enables quicker identification and correction of discrepancies. It is typically guided by ABC analysis where A items are counted most frequently. Full physical inventory counts everything at once, usually annually, and requires significant operational disruption. Cycle counting maintains higher ongoing accuracy and supports continuous improvement.",
+      "keywords": ["cycle counting", "physical inventory", "ABC analysis", "accuracy", "continuous counting", "operational disruption"]
+    },
+    {
+      "question_text": "How would you design the layout of a new 50,000 square foot warehouse to maximize efficiency?",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "The layout design should consider: (1) Flow analysis to determine product movement patterns, ideally a U-flow or through-flow design; (2) Dock placement with adequate staging areas for both receiving and shipping; (3) Storage zones organized by product velocity using ABC analysis; (4) Aisle widths appropriate for equipment types; (5) Vertical space utilization with appropriate racking systems; (6) Dedicated areas for receiving, quality control, returns, value-added services, and shipping; (7) Office and break areas positioned to minimize disruption; (8) Safety features including emergency exits, fire lanes, and sprinkler clearance; (9) Future expansion considerations; (10) Technology infrastructure for WMS, scanners, and WiFi coverage.",
+      "keywords": ["warehouse layout", "flow design", "dock placement", "racking systems", "aisle width", "storage zones", "U-flow", "staging area"]
+    },
+    {
+      "question_text": "Tell me about a time when you identified a cost-saving opportunity in warehouse operations and how you implemented it.",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "A strong answer should demonstrate: ability to analyze operational data and identify inefficiencies, a structured approach to building a business case with estimated savings, stakeholder buy-in and change management, implementation planning and execution, measurement of actual savings versus projections, and sustainability of the improvement. Examples might include renegotiating packaging supplier contracts, reducing energy costs through LED lighting, optimizing labor scheduling, implementing reusable packaging, or reducing damage rates through improved handling procedures.",
+      "keywords": ["cost saving", "operational analysis", "business case", "implementation", "ROI", "efficiency improvement"]
+    },
+    {
+      "question_text": "What factors should be considered when selecting the appropriate racking system for a warehouse?",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "Factors include: product characteristics such as size, weight, shape, and fragility; inventory turnover rates and velocity; available floor space and ceiling height; material handling equipment compatibility; selectivity requirements versus storage density trade-offs; seismic zone considerations; fire code requirements and sprinkler clearances; budget constraints; future growth projections; and order picking methods. Common racking types include selective racking for high selectivity, drive-in/drive-through for high density, push-back racking, pallet flow racking for FIFO, cantilever for long items, and mezzanine systems for maximizing vertical space.",
+      "keywords": ["racking system", "selective racking", "drive-in", "pallet flow", "storage density", "selectivity", "ceiling height", "load capacity"]
+    },
+    {
+      "question_text": "A major customer calls complaining that their last three orders have had incorrect items. How would you investigate and resolve this?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "The candidate should describe: (1) Apologize and assure the customer of immediate investigation; (2) Pull order details and trace each order through WMS for picking, packing, and shipping records; (3) Identify the specific points of failure such as wrong picks, packing errors, or labeling mistakes; (4) Check if the issue is isolated to this customer or systemic; (5) Review picker performance data and scanning compliance; (6) Inspect the storage locations for mislabeled or misplaced products; (7) Implement immediate corrective actions such as double-check verification for this customer; (8) Arrange replacements or credits for the customer; (9) Implement long-term fixes like additional scan verification points; (10) Follow up with the customer to rebuild trust.",
+      "keywords": ["order accuracy", "root cause analysis", "customer complaint", "WMS tracing", "corrective action", "verification", "quality control"]
+    },
+    {
+      "question_text": "What is the role of reverse logistics in warehouse management and how should it be organized?",
+      "question_type": "domain_specific",
+      "difficulty": "hard",
+      "expected_answer": "Reverse logistics involves the handling of returned goods, recalls, repairs, recycling, and disposal. In warehouse management, it should have a dedicated receiving area separate from regular inbound to avoid contamination of forward stock. The process includes: receiving and inspecting returns, categorizing items as resalable, refurbishable, recyclable, or disposable, updating inventory records, processing customer refunds or exchanges, restocking approved items, and managing disposal of unsalvageable goods. Effective reverse logistics requires clear policies, trained staff, separate KPIs, integration with customer service, and proper documentation for financial reconciliation.",
+      "keywords": ["reverse logistics", "returns processing", "inspection", "restocking", "disposal", "refurbishment", "customer returns"]
+    },
+    {
+      "question_text": "Describe a time when you had to quickly adapt warehouse operations due to an unexpected event such as a natural disaster, equipment failure, or supply chain disruption.",
+      "question_type": "behavioral",
+      "difficulty": "hard",
+      "expected_answer": "A strong answer should demonstrate: rapid assessment of the situation and its impact, communication to stakeholders and team members, development of a contingency plan, reallocation of resources, prioritization of critical operations and customers, creative problem solving under pressure, coordination with other departments or external partners, documentation of the event and response, and post-event review to improve business continuity planning. The candidate should show leadership, composure, and the ability to make sound decisions under pressure.",
+      "keywords": ["contingency planning", "business continuity", "crisis management", "adaptability", "resource reallocation", "communication", "prioritization"]
+    }
+  ]
+}

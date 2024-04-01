@@ -1,0 +1,32 @@
+Hospitals, Clinics
+Pharmaceuticals
+Medical Devices
+Biotechnology
+Diagnostics Labs
+Health Insurance
+Retail Banking
+Investment Banking
+Insurance Companies
+Stock Markets
+FinTech (partially IT but finance-driven)
+Automobile Manufacturing
+Electronics Production
+Textile Industry
+Heavy Machinery
+Chemical Plants
+FMCG Production
+Shipping
+Warehousing
+Railways
+Trucking
+Aviation Cargo
+Oil & Gas
+IoT (Internet of Things)
+Electrical Engineering
+Electronics & Communication (ECE)
+Mechanical Engineering
+Mechatronics
+Robotics
+Civil Engineering
+Aerospace / Aeronautical
+Automotive Engineering

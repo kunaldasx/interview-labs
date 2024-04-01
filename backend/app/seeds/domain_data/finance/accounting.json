@@ -1,0 +1,184 @@
+{
+  "name": "Accounting",
+  "slug": "accounting",
+  "sector": "Finance",
+  "sector_slug": "finance",
+  "description": "Interview questions covering financial accounting, management accounting, taxation, bookkeeping, financial reporting, cost accounting, accounting standards, and regulatory compliance for accounting professionals.",
+  "questions": [
+    {
+      "question_text": "What are the three primary financial statements and how are they interconnected?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "The three primary financial statements are the Income Statement (Profit and Loss), Balance Sheet (Statement of Financial Position), and Cash Flow Statement. They are interconnected: net income from the Income Statement flows into retained earnings on the Balance Sheet, and the Cash Flow Statement reconciles net income to actual cash movements, with the ending cash balance appearing as an asset on the Balance Sheet.",
+      "keywords": ["financial statements", "income statement", "balance sheet"]
+    },
+    {
+      "question_text": "Explain the difference between accrual accounting and cash accounting, and when each method is appropriate.",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "Accrual accounting recognizes revenues when earned and expenses when incurred, regardless of when cash changes hands, while cash accounting records transactions only when cash is received or paid. Accrual accounting is required under GAAP and IFRS for most businesses and provides a more accurate picture of financial health, whereas cash accounting is simpler and typically used by small businesses or sole proprietors.",
+      "keywords": ["accrual accounting", "cash accounting", "revenue recognition"]
+    },
+    {
+      "question_text": "What is the accounting equation and why is it fundamental to double-entry bookkeeping?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "The accounting equation is Assets = Liabilities + Equity. It is fundamental because every financial transaction must maintain this balance, ensuring that debits always equal credits in double-entry bookkeeping. This equation forms the structural basis of the Balance Sheet and guarantees the accuracy and integrity of financial records.",
+      "keywords": ["accounting equation", "double-entry bookkeeping", "balance"]
+    },
+    {
+      "question_text": "Describe the purpose and key components of a trial balance.",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "A trial balance is a bookkeeping worksheet that lists the balances of all general ledger accounts at a specific point in time, with debit balances in one column and credit balances in another. Its primary purpose is to verify that total debits equal total credits, serving as a preliminary check for mathematical accuracy before preparing financial statements. However, it does not detect all errors, such as errors of omission or errors of original entry.",
+      "keywords": ["trial balance", "general ledger", "debit and credit"]
+    },
+    {
+      "question_text": "What is the difference between GAAP and IFRS, and how does this affect multinational companies?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "GAAP (Generally Accepted Accounting Principles) is the accounting standard used primarily in the United States and is rules-based, while IFRS (International Financial Reporting Standards) is used in over 140 countries and is principles-based. Key differences include inventory valuation methods (GAAP allows LIFO, IFRS does not), revenue recognition criteria, and development cost treatment. Multinational companies must often prepare dual reports or reconcile differences, increasing compliance complexity and costs.",
+      "keywords": ["GAAP", "IFRS", "accounting standards"]
+    },
+    {
+      "question_text": "Explain the concept of depreciation and compare the straight-line and declining balance methods.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Depreciation is the systematic allocation of a tangible asset's cost over its useful life. The straight-line method spreads the cost evenly across each period, calculated as (Cost - Salvage Value) / Useful Life. The declining balance method applies a fixed percentage to the remaining book value each year, resulting in higher depreciation expense in early years. Straight-line is simpler and commonly used, while declining balance better reflects assets that lose value faster initially.",
+      "keywords": ["depreciation", "straight-line method", "declining balance"]
+    },
+    {
+      "question_text": "What is the difference between accounts receivable and accounts payable, and how do they impact working capital?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "Accounts receivable represents money owed to a company by its customers for goods or services delivered on credit, while accounts payable represents money the company owes to its suppliers. Both are critical components of working capital: higher accounts receivable ties up cash, while strategically managing accounts payable can preserve cash flow. The relationship between the two significantly influences a company's liquidity position and operating cycle.",
+      "keywords": ["accounts receivable", "accounts payable", "working capital"]
+    },
+    {
+      "question_text": "Explain the concept of deferred tax assets and deferred tax liabilities.",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "Deferred tax assets arise when a company has paid more tax than what is due per its financial statements, creating a future tax benefit, often resulting from timing differences such as accelerated depreciation for tax purposes or carrying forward tax losses. Deferred tax liabilities arise when a company owes more tax in the future than currently recognized in the financial statements. Both result from temporary differences between accounting income and taxable income, and they are recognized to match tax expense with the corresponding accounting period.",
+      "keywords": ["deferred tax", "temporary differences", "tax liability"]
+    },
+    {
+      "question_text": "What is the role of materiality in accounting and auditing?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Materiality is the threshold above which missing or incorrect information in financial statements could influence the economic decisions of users. In accounting, it guides decisions about what must be separately disclosed and how precisely items need to be reported. In auditing, it determines the nature, timing, and extent of audit procedures. Materiality is both quantitative and qualitative, and its assessment requires professional judgment based on the size and nature of the item relative to the financial statements as a whole.",
+      "keywords": ["materiality", "financial reporting", "professional judgment"]
+    },
+    {
+      "question_text": "Explain the revenue recognition principle under ASC 606 / IFRS 15.",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "ASC 606 and IFRS 15 establish a five-step model for revenue recognition: identify the contract with the customer, identify performance obligations in the contract, determine the transaction price, allocate the transaction price to performance obligations, and recognize revenue when or as each performance obligation is satisfied. Revenue is recognized when control of goods or services transfers to the customer, either at a point in time or over time, replacing the previous risk-and-rewards-based approach.",
+      "keywords": ["revenue recognition", "ASC 606", "performance obligations"]
+    },
+    {
+      "question_text": "Describe a time when you identified a significant error in financial records. How did you handle it?",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "A strong response should describe the specific error discovered (such as misclassification, duplicate entry, or omitted transaction), the process used to investigate and quantify the impact, how it was reported to management, the corrective journal entries or adjustments made, and any process improvements implemented to prevent recurrence. The answer should demonstrate attention to detail, integrity, and a systematic approach to error resolution.",
+      "keywords": ["error correction", "attention to detail", "integrity"]
+    },
+    {
+      "question_text": "Tell me about a time when you had to meet a tight deadline for financial reporting. How did you manage the pressure?",
+      "question_type": "behavioral",
+      "difficulty": "easy",
+      "expected_answer": "The candidate should describe a specific reporting deadline scenario, the steps taken to prioritize tasks, how they organized their workload, any delegation or collaboration involved, tools or checklists used to ensure accuracy under time constraints, and the successful outcome. The answer should demonstrate time management, composure under pressure, and commitment to accuracy despite urgency.",
+      "keywords": ["deadline management", "financial reporting", "time management"]
+    },
+    {
+      "question_text": "Describe a situation where you had to explain complex financial information to a non-financial stakeholder.",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "A strong answer should include identifying the audience and their level of financial literacy, simplifying technical terminology into plain language, using visual aids such as charts or graphs, focusing on the business implications rather than the accounting mechanics, confirming understanding through questions, and the positive outcome of the communication. This demonstrates communication skills and the ability to bridge the gap between finance and other departments.",
+      "keywords": ["communication skills", "stakeholder management", "simplification"]
+    },
+    {
+      "question_text": "Tell me about a time when you disagreed with a supervisor on an accounting treatment. How did you resolve it?",
+      "question_type": "behavioral",
+      "difficulty": "hard",
+      "expected_answer": "The candidate should describe the specific accounting issue in dispute, how they researched the applicable standards to support their position, the professional and respectful manner in which they presented their viewpoint, their openness to the supervisor's perspective, and how the disagreement was ultimately resolved. The answer should demonstrate professional courage, knowledge of accounting standards, and respect for authority while maintaining ethical standards.",
+      "keywords": ["professional disagreement", "accounting standards", "conflict resolution"]
+    },
+    {
+      "question_text": "Describe a time when you implemented a new accounting system or process improvement in your organization.",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "A strong response should detail the problem or inefficiency identified, the research and evaluation of alternatives, the implementation plan including data migration and staff training, challenges encountered during the transition, how resistance to change was managed, and measurable outcomes such as reduced processing time, fewer errors, or cost savings. The answer should demonstrate initiative, project management ability, and change management skills.",
+      "keywords": ["process improvement", "system implementation", "change management"]
+    },
+    {
+      "question_text": "You discover that your company's revenue has been overstated due to premature revenue recognition. What steps would you take?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "The candidate should outline: quantifying the overstatement by reviewing all affected transactions and periods, immediately informing the CFO or controller and the audit committee, preparing correcting journal entries, assessing whether a restatement of prior period financial statements is required, evaluating the impact on tax filings and regulatory reporting, determining whether the error was intentional or a process failure, strengthening internal controls around revenue recognition, and cooperating with external auditors on any required disclosures. The response should prioritize transparency and regulatory compliance.",
+      "keywords": ["revenue overstatement", "restatement", "internal controls"]
+    },
+    {
+      "question_text": "A client asks you to record a personal expense as a business expense to reduce their tax liability. How would you respond?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "The candidate should firmly decline the request while maintaining professionalism, explaining that misclassifying personal expenses as business expenses constitutes tax fraud and violates professional ethics codes. They should outline the potential consequences including penalties, fines, loss of professional license, and criminal prosecution. The response should also suggest legitimate tax planning alternatives to reduce the client's tax burden within legal boundaries, demonstrating both ethical commitment and client service orientation.",
+      "keywords": ["professional ethics", "tax compliance", "fraud prevention"]
+    },
+    {
+      "question_text": "Your company is transitioning from local GAAP to IFRS. How would you approach managing this transition?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "The approach should include conducting a comprehensive gap analysis between current practices and IFRS requirements, developing a detailed transition plan with timelines and milestones, identifying the financial statement areas most significantly affected, training the accounting team on IFRS principles, updating the chart of accounts and accounting policies, modifying accounting systems and reporting templates, preparing comparative financial statements, engaging external consultants for complex areas, communicating the impact to stakeholders, and ensuring proper documentation of all transition adjustments.",
+      "keywords": ["IFRS transition", "gap analysis", "accounting standards"]
+    },
+    {
+      "question_text": "How would you handle a situation where you discover that inventory has been significantly overvalued on the balance sheet?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "Steps should include performing a physical inventory count to verify quantities, reviewing valuation methods applied (lower of cost or net realizable value), identifying obsolete, damaged, or slow-moving inventory requiring write-downs, calculating the adjustment needed and its impact on cost of goods sold and profit, reporting findings to management with supporting documentation, making correcting entries, investigating the root cause of the overvaluation, and implementing stronger inventory controls and periodic review procedures to prevent recurrence.",
+      "keywords": ["inventory valuation", "write-down", "internal controls"]
+    },
+    {
+      "question_text": "During month-end close, you find that a major supplier invoice was recorded twice. The period is about to close. What do you do?",
+      "question_type": "situational",
+      "difficulty": "easy",
+      "expected_answer": "The candidate should immediately verify the duplication by cross-referencing the invoice number, amount, and purchase order against the accounts payable sub-ledger, then prepare a reversing journal entry to correct the duplicate before the period closes. They should notify the accounts payable team, update the vendor account balance, assess whether any duplicate payment has been made, and flag the issue in the month-end close checklist. The response should also suggest implementing duplicate detection controls in the AP system to prevent future occurrences.",
+      "keywords": ["duplicate invoice", "month-end close", "accounts payable"]
+    },
+    {
+      "question_text": "What is the difference between cost accounting and financial accounting, and how do they serve different purposes?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "Financial accounting focuses on preparing financial statements for external stakeholders such as investors, regulators, and creditors, following standardized frameworks like GAAP or IFRS. Cost accounting focuses on recording, analyzing, and allocating costs for internal management decision-making, including product costing, budgeting, and variance analysis. Financial accounting is mandatory and historical in nature, while cost accounting is voluntary, forward-looking, and can use flexible methods tailored to the organization's needs.",
+      "keywords": ["cost accounting", "financial accounting", "management decisions"]
+    },
+    {
+      "question_text": "Explain the concept of goodwill in accounting and how it is tested for impairment.",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "Goodwill is an intangible asset that arises when one company acquires another for a price exceeding the fair value of identifiable net assets. It represents factors such as brand reputation, customer relationships, and employee expertise. Under current accounting standards, goodwill is not amortized but is tested for impairment at least annually by comparing the carrying amount of a reporting unit to its fair value. If the carrying amount exceeds fair value, an impairment loss is recognized. This ensures goodwill is not overstated on the balance sheet.",
+      "keywords": ["goodwill", "impairment testing", "business acquisition"]
+    },
+    {
+      "question_text": "What are the key differences between marginal costing and absorption costing, and how do they affect reported profits?",
+      "question_type": "domain_specific",
+      "difficulty": "hard",
+      "expected_answer": "Marginal costing treats only variable costs as product costs and charges fixed manufacturing overhead as a period expense, while absorption costing includes both variable and fixed manufacturing overhead in product costs. When inventory levels increase, absorption costing reports higher profits because fixed overhead is deferred in inventory, whereas marginal costing reports lower profits. The reverse occurs when inventory decreases. Marginal costing is useful for short-term decision-making and break-even analysis, while absorption costing is required for external financial reporting.",
+      "keywords": ["marginal costing", "absorption costing", "fixed overhead"]
+    },
+    {
+      "question_text": "What is the role of an accounting information system (AIS) and what are its key components?",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "An accounting information system is the structure and processes a company uses to collect, store, manage, process, retrieve, and report financial data. Key components include people (users and administrators), procedures and instructions (methods for data collection and processing), data (transaction and master data), software (ERP systems, accounting software), information technology infrastructure (hardware, networks, security), and internal controls (safeguards to protect data integrity and prevent fraud). An effective AIS improves decision-making, regulatory compliance, and operational efficiency.",
+      "keywords": ["accounting information system", "internal controls", "financial data"]
+    },
+    {
+      "question_text": "Explain the concept of transfer pricing and its significance in multinational accounting.",
+      "question_type": "domain_specific",
+      "difficulty": "hard",
+      "expected_answer": "Transfer pricing refers to the prices charged for goods, services, or intellectual property transferred between related entities within a multinational corporation. It is significant because it affects how profits are allocated across jurisdictions, directly impacting tax liabilities in each country. Tax authorities require transfer prices to follow the arm's length principle, meaning they must reflect prices that would be charged between independent parties. Non-compliance can result in double taxation, penalties, and reputational damage. Common methods include the comparable uncontrolled price method, resale price method, and cost-plus method.",
+      "keywords": ["transfer pricing", "arm's length principle", "multinational taxation"]
+    }
+  ]
+}

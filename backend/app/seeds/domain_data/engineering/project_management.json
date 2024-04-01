@@ -1,0 +1,184 @@
+{
+  "name": "Project Management",
+  "slug": "project_management",
+  "sector": "Engineering",
+  "sector_slug": "engineering",
+  "description": "Project planning, scheduling with Gantt charts and CPM, cost management, risk management, stakeholder management, scope management, PMP methodologies, and resource allocation for engineering project management professionals.",
+  "questions": [
+    {
+      "question_text": "Explain the Critical Path Method (CPM) and how it is used to determine the minimum project duration.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "CPM identifies the longest sequence of dependent activities (the critical path) that determines the shortest possible project duration. By calculating early start, early finish, late start, and late finish times for each activity, it reveals which tasks have zero float and therefore cannot be delayed without extending the project completion date.",
+      "keywords": ["critical path method", "float", "project duration"]
+    },
+    {
+      "question_text": "What is Earned Value Management (EVM), and how do the metrics CPI and SPI help assess project performance?",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "EVM integrates scope, schedule, and cost data to measure project performance. CPI (Cost Performance Index) equals earned value divided by actual cost, indicating cost efficiency; a CPI below 1.0 means over budget. SPI (Schedule Performance Index) equals earned value divided by planned value, indicating schedule efficiency; an SPI below 1.0 means behind schedule.",
+      "keywords": ["earned value management", "CPI", "SPI"]
+    },
+    {
+      "question_text": "Describe the purpose and process of creating a Work Breakdown Structure (WBS) for a project.",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "A WBS hierarchically decomposes the total project scope into smaller, manageable work packages. The process involves identifying major deliverables, progressively breaking them into smaller components until each work package can be reliably estimated, assigned, and tracked. It forms the foundation for scheduling, cost estimating, risk analysis, and responsibility assignment.",
+      "keywords": ["work breakdown structure", "scope decomposition", "work packages"]
+    },
+    {
+      "question_text": "How do you perform a quantitative risk analysis using Monte Carlo simulation in project scheduling?",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "Monte Carlo simulation assigns probability distributions (triangular, PERT, or uniform) to activity durations, then runs thousands of iterations to model the range of possible project outcomes. The result is a probability distribution of completion dates and costs, allowing project managers to set realistic targets, quantify schedule risk, and identify which activities contribute most to overall uncertainty.",
+      "keywords": ["Monte Carlo simulation", "quantitative risk analysis", "probability distribution"]
+    },
+    {
+      "question_text": "Explain the difference between fast-tracking and crashing as schedule compression techniques.",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "Fast-tracking involves performing sequential activities in parallel to shorten the schedule, which increases risk due to potential rework. Crashing adds resources to critical path activities to reduce their duration, which increases cost. Both techniques shorten the schedule but with different trade-offs: fast-tracking increases risk while crashing increases budget.",
+      "keywords": ["fast-tracking", "crashing", "schedule compression"]
+    },
+    {
+      "question_text": "What is the purpose of a RACI matrix, and how does it improve project communication?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "A RACI matrix assigns roles for each task or deliverable: Responsible (does the work), Accountable (has authority and ownership), Consulted (provides input), and Informed (kept updated). It eliminates ambiguity about who does what, prevents duplication of effort, ensures all necessary stakeholders are engaged, and clarifies escalation paths.",
+      "keywords": ["RACI matrix", "role assignment", "project communication"]
+    },
+    {
+      "question_text": "How do you calculate the Estimate at Completion (EAC) using different forecasting methods in EVM?",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "Common EAC formulas include: BAC/CPI (assumes current cost efficiency continues), AC + bottom-up ETC (re-estimates remaining work), AC + (BAC - EV) (assumes future work is on budget), and BAC/(CPI x SPI) (considers both cost and schedule performance). Selection depends on whether past variances are expected to continue or were atypical.",
+      "keywords": ["estimate at completion", "EVM forecasting", "cost estimation"]
+    },
+    {
+      "question_text": "Describe the key components of a comprehensive project risk management plan.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "A risk management plan defines the methodology for identifying, analyzing, prioritizing, and responding to project risks. Key components include risk identification techniques, qualitative and quantitative analysis methods, risk response strategies (avoid, mitigate, transfer, accept), risk register maintenance, contingency and management reserves, monitoring triggers, and roles and responsibilities for risk management activities.",
+      "keywords": ["risk management plan", "risk register", "response strategies"]
+    },
+    {
+      "question_text": "What is the difference between a project charter and a project management plan, and what does each document typically contain?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "The project charter formally authorizes the project, defines high-level objectives, scope boundaries, key stakeholders, and initial budget and timeline. The project management plan is a detailed document developed later that describes how the project will be executed, monitored, and controlled across all knowledge areas including scope, schedule, cost, quality, resources, communications, risk, procurement, and stakeholder management.",
+      "keywords": ["project charter", "project management plan", "project authorization"]
+    },
+    {
+      "question_text": "Explain the concept of resource leveling and when it is applied in project scheduling.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Resource leveling adjusts the project schedule to resolve resource over-allocations by delaying non-critical activities within their float or extending the project duration. It is applied when resources are limited and cannot be increased, ensuring that no resource is assigned more work than available capacity while maintaining logical dependencies between activities.",
+      "keywords": ["resource leveling", "over-allocation", "scheduling constraint"]
+    },
+    {
+      "question_text": "Tell me about a project that did not go as planned. What went wrong, and what lessons did you learn?",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "The candidate should candidly describe a specific project challenge, analyze the root causes (poor planning, scope creep, resource issues, external factors), explain the corrective actions taken, and articulate specific lessons learned that they applied to subsequent projects, demonstrating self-awareness and growth mindset.",
+      "keywords": ["lessons learned", "project failure", "corrective action"]
+    },
+    {
+      "question_text": "Describe a situation where you had to manage a difficult stakeholder who was resistant to the project. How did you gain their support?",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "A strong answer explains how the candidate identified the stakeholder's concerns and motivations, engaged them early and frequently, addressed their objections with data and empathy, found common ground or demonstrated project value from their perspective, and ultimately built a productive working relationship.",
+      "keywords": ["stakeholder management", "conflict resolution", "influence"]
+    },
+    {
+      "question_text": "Can you describe an experience where you had to deliver bad news to a project sponsor regarding schedule or budget overruns? How did you handle it?",
+      "question_type": "behavioral",
+      "difficulty": "hard",
+      "expected_answer": "The candidate should describe how they prepared by gathering facts and analyzing root causes, presented the situation honestly and early rather than waiting, came with options and recommendations rather than just problems, proposed a recovery plan, and maintained trust through transparency and accountability.",
+      "keywords": ["executive communication", "transparency", "recovery planning"]
+    },
+    {
+      "question_text": "Tell me about a time when you successfully led a cross-functional project team. What was your leadership approach?",
+      "question_type": "behavioral",
+      "difficulty": "easy",
+      "expected_answer": "The candidate should describe the project context, the diverse team composition, how they established shared goals and norms, facilitated effective communication across functions, leveraged individual strengths, resolved inter-team conflicts, and achieved project objectives through collaborative leadership rather than positional authority.",
+      "keywords": ["cross-functional leadership", "team building", "collaboration"]
+    },
+    {
+      "question_text": "Describe a situation where you had to manage significant scope creep on a project. What strategies did you employ?",
+      "question_type": "behavioral",
+      "difficulty": "easy",
+      "expected_answer": "The candidate should explain how they identified the scope creep through change monitoring, enforced the change control process, assessed the impact of requested changes on schedule, cost, and quality, negotiated with stakeholders to prioritize essential changes, and documented lessons to improve scope management on future projects.",
+      "keywords": ["scope creep", "change control", "scope management"]
+    },
+    {
+      "question_text": "You are managing a project where two critical activities are delayed simultaneously, threatening the project deadline. Resources are limited. How would you respond?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "The project manager should assess which delay has the greater impact on the critical path, explore options such as crashing, fast-tracking, or scope reduction for each activity, evaluate resource reallocation possibilities, communicate the situation and options to the sponsor with impact analysis, request additional resources if justified, and update the risk register and schedule baseline through formal change control.",
+      "keywords": ["schedule recovery", "resource allocation", "critical path impact"]
+    },
+    {
+      "question_text": "A key team member unexpectedly resigns mid-project during a critical phase. How would you manage this situation to minimize project impact?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "The project manager should immediately assess the knowledge and skill gap, conduct knowledge transfer sessions before the team member's departure if possible, redistribute tasks among remaining team members, identify and onboard a replacement quickly, adjust the schedule to reflect productivity impacts during transition, and communicate changes to stakeholders while updating the resource management plan.",
+      "keywords": ["team member departure", "knowledge transfer", "resource contingency"]
+    },
+    {
+      "question_text": "Your project is 60% complete when the client requests a major design change that would affect scope, budget, and timeline. How do you handle this?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "The project manager should document the change request formally, perform a thorough impact analysis covering scope, schedule, cost, quality, and risk implications, present the findings with options (approve with new baseline, approve partial change, or reject) to the change control board, negotiate revised terms if approved, update all project baselines and communicate changes to the full team.",
+      "keywords": ["change request", "impact analysis", "change control board"]
+    },
+    {
+      "question_text": "You discover that a subcontractor's deliverables consistently fail quality standards, and the project deadline is approaching. What would you do?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "The project manager should immediately document specific quality failures, meet with the subcontractor to understand root causes and demand a corrective action plan with milestones, increase inspection frequency, assess whether to provide additional support or escalate to contract enforcement, prepare a contingency plan including potential subcontractor replacement, and communicate the risk to the project sponsor.",
+      "keywords": ["subcontractor quality", "corrective action", "contract management"]
+    },
+    {
+      "question_text": "Midway through a project, you realize the initial risk assessment missed a significant risk that is now materializing. How do you respond?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "The project manager should immediately assess the risk's probability and impact, activate management reserves if available, develop a response strategy (mitigate, avoid, transfer, or accept), communicate the risk and response plan to stakeholders, update the risk register and project plan, and conduct a retrospective on why the risk was missed to improve the risk identification process.",
+      "keywords": ["risk materialization", "management reserves", "risk response"]
+    },
+    {
+      "question_text": "What are the five process groups defined by the PMBOK Guide, and what is the primary focus of each?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "The five process groups are Initiating (defining and authorizing the project), Planning (establishing scope, objectives, and action plans), Executing (performing the work to meet requirements), Monitoring and Controlling (tracking performance and managing changes), and Closing (formally completing and archiving the project). They represent a logical sequence but overlap throughout the project lifecycle.",
+      "keywords": ["PMBOK", "process groups", "project lifecycle"]
+    },
+    {
+      "question_text": "Compare and contrast predictive (waterfall) and adaptive (agile) project management approaches for engineering projects.",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "Predictive approaches define the full scope upfront and follow a sequential lifecycle, suitable for well-understood projects with stable requirements. Adaptive approaches deliver incrementally through iterative cycles, welcoming changes based on feedback, suitable for projects with evolving requirements. Engineering projects often use hybrid approaches, applying predictive methods for physical construction and adaptive methods for design and problem-solving phases.",
+      "keywords": ["waterfall", "agile", "hybrid methodology"]
+    },
+    {
+      "question_text": "Explain the concept of project portfolio management and how it differs from managing individual projects.",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "Project portfolio management is the centralized management of an organization's collection of projects and programs to achieve strategic objectives. Unlike individual project management, it focuses on selecting the right projects, balancing the portfolio for risk and resource utilization, prioritizing investments across projects, and ensuring alignment with organizational strategy rather than managing day-to-day task execution.",
+      "keywords": ["portfolio management", "strategic alignment", "project selection"]
+    },
+    {
+      "question_text": "What is the purpose of a lessons learned register, and how should it be maintained throughout a project?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "A lessons learned register captures knowledge gained from project successes and failures throughout the project lifecycle, not just at closure. It should be updated regularly during retrospectives or after significant events, categorized for easy retrieval, shared with the project team and organization, and stored in an organizational knowledge base to benefit future projects.",
+      "keywords": ["lessons learned", "knowledge management", "continuous improvement"]
+    },
+    {
+      "question_text": "Describe the key elements of procurement management in engineering projects, including common contract types and their risk implications.",
+      "question_type": "domain_specific",
+      "difficulty": "hard",
+      "expected_answer": "Procurement management covers planning purchases, selecting sellers, administering contracts, and closing procurements. Common contract types include fixed-price (seller bears cost risk), cost-reimbursable (buyer bears cost risk), and time-and-materials (shared risk). Selection depends on scope clarity, risk tolerance, and market conditions. Engineering projects typically use fixed-price for well-defined scopes and cost-plus for uncertain or evolving scopes.",
+      "keywords": ["procurement management", "contract types", "risk allocation"]
+    }
+  ]
+}

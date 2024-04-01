@@ -1,0 +1,184 @@
+{
+  "name": "Insurance",
+  "slug": "insurance",
+  "sector": "Finance",
+  "sector_slug": "finance",
+  "description": "Interview questions covering life insurance, general insurance, health insurance, underwriting, claims management, actuarial concepts, regulatory compliance, and sales practices in the insurance industry.",
+  "questions": [
+    {
+      "question_text": "What is the principle of Utmost Good Faith (Uberrimae Fidei) in insurance and why is it important?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "The principle of Utmost Good Faith requires both the insurer and the insured to disclose all material facts honestly and transparently. The insured must disclose all relevant information that could influence the insurer's decision to accept the risk or determine the premium, such as pre-existing medical conditions in health insurance or previous claims history. The insurer must clearly explain policy terms, conditions, exclusions, and limitations. This principle is fundamental because insurance contracts are based on trust, and non-disclosure or misrepresentation can void the policy. It protects both parties and ensures fair pricing of risk.",
+      "keywords": ["utmost good faith", "uberrimae fidei", "material facts", "disclosure", "misrepresentation", "insurance contract"]
+    },
+    {
+      "question_text": "Explain the difference between term insurance and whole life insurance. When would you recommend each?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "Term insurance provides pure life coverage for a specified period (term) and pays the death benefit only if the insured dies during the term; it has no maturity benefit or cash value and is the most affordable form of life insurance. Whole life insurance provides coverage for the insured's entire lifetime, accumulates a cash value over time, and pays a death benefit whenever the insured dies; it is significantly more expensive. Term insurance is recommended for individuals seeking maximum coverage at minimum cost, especially young families with dependents and financial obligations like mortgages. Whole life is recommended for estate planning, wealth transfer, and individuals seeking a savings component along with insurance coverage.",
+      "keywords": ["term insurance", "whole life insurance", "death benefit", "cash value", "maturity", "coverage period", "premium"]
+    },
+    {
+      "question_text": "What is the underwriting process in insurance and what factors are considered?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Underwriting is the process of evaluating and assessing the risk associated with insuring a person or asset to determine whether to accept the risk and at what premium. In life insurance, factors include age, gender, health condition, medical history, family medical history, occupation, lifestyle habits (smoking, alcohol), hobbies (dangerous activities), income, and existing insurance coverage. In general insurance, factors include the type and value of the asset, location, usage, claims history, safety measures, and industry risk. The underwriter may request medical examinations, inspections, or additional documentation. The goal is to classify risks into standard, preferred, sub-standard, or declined categories and price the premium accordingly.",
+      "keywords": ["underwriting", "risk assessment", "premium", "risk classification", "medical examination", "standard risk", "sub-standard"]
+    },
+    {
+      "question_text": "Describe a time when you had to explain a complex insurance policy to a customer who had limited financial literacy. How did you ensure understanding?",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "A strong answer should demonstrate communication skills and customer empathy. The candidate should describe using simple, jargon-free language, visual aids or analogies to explain concepts, breaking down the policy into key components (coverage, premium, exclusions, claim process), using real-life scenarios to illustrate benefits and limitations, confirming understanding through open-ended questions, providing written summaries in simple language, and ensuring the customer was not pressured into a decision. The response should show patience, ethical selling practices, and genuine concern for the customer's needs.",
+      "keywords": ["communication", "financial literacy", "simplification", "customer education", "ethical selling", "jargon-free", "patience"]
+    },
+    {
+      "question_text": "What is reinsurance and why do insurance companies need it?",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "Reinsurance is insurance purchased by an insurance company from another insurance company (reinsurer) to transfer a portion of its risk exposure. Types include Facultative (covering specific individual risks), Treaty (covering a portfolio of risks automatically), Proportional (sharing premiums and losses in agreed proportions including Quota Share and Surplus), and Non-Proportional (the reinsurer pays only when losses exceed a certain threshold, including Excess of Loss and Stop Loss). Insurance companies need reinsurance to protect against catastrophic losses, stabilize financial results, increase underwriting capacity, improve capital efficiency, and comply with solvency requirements. Reinsurance effectively allows insurers to take on more risk than their capital alone would permit.",
+      "keywords": ["reinsurance", "facultative", "treaty", "proportional", "non-proportional", "catastrophic losses", "solvency", "risk transfer"]
+    },
+    {
+      "question_text": "A policyholder files a claim for property damage, but your investigation reveals the damage was partially pre-existing. How would you handle this situation?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "The candidate should demonstrate fairness, thoroughness, and adherence to policy terms. The approach should include: completing a comprehensive investigation with photographic evidence and expert assessments, reviewing the policy terms regarding pre-existing conditions and exclusions, obtaining a detailed surveyor report distinguishing between pre-existing and new damage, communicating findings transparently to the policyholder with supporting evidence, calculating the legitimate claim amount excluding pre-existing damage, explaining the rationale for partial settlement clearly, documenting the entire process for regulatory compliance, informing the policyholder about the grievance redressal process if they disagree, and flagging the case if intentional misrepresentation is suspected for further investigation.",
+      "keywords": ["claims investigation", "pre-existing damage", "surveyor report", "partial settlement", "fairness", "documentation", "grievance redressal"]
+    },
+    {
+      "question_text": "Explain the principle of Indemnity and its exceptions in insurance.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "The principle of Indemnity states that insurance is meant to restore the insured to the same financial position they were in before the loss, not to allow them to profit from it. The insured can claim only the actual amount of loss, up to the sum insured. This applies primarily to general insurance (property, motor, marine). Exceptions include: Life Insurance (since human life cannot be valued monetarily, it operates on the benefit principle), Personal Accident Insurance (pays fixed benefit regardless of actual loss), Valued Policies (pay agreed value regardless of actual loss), and Reinstatement Policies (pay the cost of replacement rather than depreciated value). Related sub-principles include Subrogation (insurer's right to recover from third parties) and Contribution (sharing losses among multiple insurers).",
+      "keywords": ["indemnity", "actual loss", "sum insured", "subrogation", "contribution", "reinstatement", "valued policy", "benefit principle"]
+    },
+    {
+      "question_text": "Tell me about a time when you had to handle an ethical dilemma in selling insurance products. What did you do?",
+      "question_type": "behavioral",
+      "difficulty": "hard",
+      "expected_answer": "A strong answer should demonstrate ethical integrity and customer-first thinking. The candidate should describe a specific scenario such as being pressured to sell unsuitable products for higher commissions, discovering a colleague engaging in mis-selling, or encountering a customer who would benefit more from a competitor's product. The response should show how they prioritized the customer's interest, adhered to regulatory guidelines (suitability assessment), communicated honestly about product limitations, and how this approach built long-term trust and business. The answer should reflect understanding of consequences of mis-selling including regulatory penalties, reputational damage, and customer harm.",
+      "keywords": ["ethical dilemma", "mis-selling", "customer interest", "suitability", "integrity", "regulatory compliance", "trust"]
+    },
+    {
+      "question_text": "What is the difference between a claim ratio and a combined ratio in insurance?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "The claim ratio (or loss ratio) is the percentage of premiums collected that is paid out in claims. It is calculated as (Claims Incurred / Premiums Earned) x 100. A claim ratio of 80% means the insurer pays 80 paise in claims for every rupee of premium earned. The combined ratio adds operating expenses to the claim ratio: Combined Ratio = Loss Ratio + Expense Ratio, where Expense Ratio = (Operating Expenses / Premiums Earned) x 100. A combined ratio below 100% indicates underwriting profitability, while above 100% indicates underwriting losses. However, insurers can still be profitable overall through investment income. These ratios are key performance indicators for evaluating an insurer's operational efficiency and pricing adequacy.",
+      "keywords": ["claim ratio", "loss ratio", "combined ratio", "expense ratio", "underwriting profit", "premiums earned", "operational efficiency"]
+    },
+    {
+      "question_text": "What is the concept of Sum Assured and Sum Insured, and how do they differ?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "Sum Assured is the guaranteed amount the insurance company will pay in case of a claim under a life insurance policy; it is fixed at the time of policy inception and remains constant throughout the policy term (bonuses may be added on top). Sum Insured is the maximum amount an insurer will pay under a general insurance policy (health, property, motor); it represents the value of the insured asset or the maximum coverage limit. The key difference is that Sum Assured is a fixed benefit (paid in full regardless of actual loss in life insurance), while Sum Insured is the maximum limit of indemnity (actual loss is paid subject to this maximum in general insurance). Under-insurance occurs when the Sum Insured is less than the actual asset value.",
+      "keywords": ["sum assured", "sum insured", "life insurance", "general insurance", "maximum coverage", "indemnity", "under-insurance"]
+    },
+    {
+      "question_text": "If you notice that a particular insurance product is consistently generating customer complaints, what steps would you take to address this?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "The candidate should demonstrate analytical thinking and customer advocacy. Steps include: analyzing the complaint data to identify common themes (misleading sales practices, complex terms, claim rejections, service gaps), conducting root cause analysis through customer interviews and process review, preparing a detailed report with findings and recommendations, escalating to product development and compliance teams, suggesting product modifications such as simplified terms or clearer exclusion communication, recommending training programs for sales teams to ensure proper disclosure, implementing immediate corrective measures for affected customers, establishing a feedback loop to monitor improvement, and benchmarking against industry best practices. The response should show a systematic approach to continuous improvement.",
+      "keywords": ["complaint analysis", "root cause", "product improvement", "customer advocacy", "corrective measures", "training", "continuous improvement"]
+    },
+    {
+      "question_text": "Explain the concept of Moral Hazard and Adverse Selection in insurance.",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "Moral Hazard occurs when the insured changes their behavior after obtaining insurance, becoming less careful or taking more risks because they know they are protected. For example, a person with comprehensive car insurance may drive less carefully, or a business owner may neglect fire safety after getting fire insurance. Adverse Selection occurs when individuals with higher risk are more likely to purchase insurance than those with lower risk, leading to a disproportionately high-risk pool. For example, people with known health issues are more likely to buy health insurance. Insurers manage Moral Hazard through deductibles, co-payments, no-claim bonuses, policy exclusions, and claim investigations. Adverse Selection is managed through medical underwriting, waiting periods, pre-existing disease exclusions, and differential pricing based on risk profiles.",
+      "keywords": ["moral hazard", "adverse selection", "risk behavior", "deductible", "co-payment", "underwriting", "risk pool", "no-claim bonus"]
+    },
+    {
+      "question_text": "What is the role of an actuary in an insurance company?",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "An actuary uses mathematical, statistical, and financial models to assess risk and uncertainty in insurance. Key responsibilities include: product pricing (calculating premiums based on risk factors, mortality tables, and expense assumptions), reserve valuation (estimating the amount needed to pay future claims), product design (developing insurance products that are profitable and competitive), financial forecasting (projecting future financial performance), regulatory compliance (ensuring the company meets solvency and reporting requirements), reinsurance analysis (determining optimal reinsurance arrangements), risk management (identifying and quantifying risks facing the company), and investment strategy (advising on asset-liability matching). Actuaries are central to an insurer's financial health and regulatory compliance.",
+      "keywords": ["actuary", "pricing", "reserve valuation", "risk modeling", "mortality tables", "solvency", "financial forecasting", "product design"]
+    },
+    {
+      "question_text": "Describe a situation where you successfully retained a customer who was about to surrender their insurance policy.",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "A strong answer should demonstrate relationship management and problem-solving skills. The candidate should describe understanding the customer's reason for surrendering (financial constraints, dissatisfaction, found better alternatives), empathizing with their situation, presenting retention options such as premium reduction through paid-up conversion, policy loan instead of surrender, switching to a more affordable plan, explaining surrender value penalties and lost benefits, highlighting accumulated bonuses or loyalty benefits, and providing a comparative analysis showing long-term value. The response should show genuine concern for the customer's financial well-being rather than just meeting retention targets.",
+      "keywords": ["retention", "surrender", "paid-up", "policy loan", "customer relationship", "empathy", "value proposition"]
+    },
+    {
+      "question_text": "What is the Insurance Regulatory framework in most countries, and why is regulation necessary?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "Insurance regulation involves governmental oversight of insurance companies through a dedicated regulatory authority (such as IRDAI in India, FCA in the UK, or state departments in the US). Key regulatory areas include: licensing of insurers and intermediaries, solvency margin requirements (ensuring companies can pay claims), product approval and pricing oversight, investment regulations (controlling where insurers invest policyholder funds), policyholder protection (grievance redressal, ombudsman), market conduct standards (preventing mis-selling and unfair practices), and financial reporting requirements. Regulation is necessary to protect policyholders from insurer insolvency, ensure fair pricing, prevent fraud, maintain market stability, promote healthy competition, and build public trust in the insurance system.",
+      "keywords": ["insurance regulation", "solvency margin", "policyholder protection", "licensing", "market conduct", "regulatory authority", "consumer protection"]
+    },
+    {
+      "question_text": "Explain the difference between first-party and third-party insurance coverage with examples.",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "First-party insurance covers losses or damages to the policyholder's own person or property. Examples include comprehensive motor insurance (covering own vehicle damage), health insurance (covering own medical expenses), and property insurance (covering own building/contents). Third-party insurance covers the policyholder's legal liability for losses or damages caused to another person or their property. Examples include third-party motor insurance (covering damage to another vehicle or person in an accident caused by the insured), professional liability insurance, and public liability insurance. In many jurisdictions, third-party motor insurance is mandatory by law, while first-party coverage is optional. Third-party claims are typically settled based on legal liability and court awards.",
+      "keywords": ["first-party insurance", "third-party insurance", "own damage", "liability", "comprehensive", "mandatory", "legal liability"]
+    },
+    {
+      "question_text": "How would you deal with a situation where a genuine claimant has submitted incomplete documentation and is becoming frustrated with the process?",
+      "question_type": "situational",
+      "difficulty": "easy",
+      "expected_answer": "The candidate should demonstrate customer service skills and process knowledge. The approach includes: acknowledging the customer's frustration empathetically, clearly explaining which specific documents are missing and why they are required, providing a simple checklist of all required documents to avoid multiple rounds of follow-up, offering assistance in obtaining difficult documents (hospital records, FIR copies), setting a realistic timeline for claim settlement once documents are complete, providing a single point of contact for the claim, following up proactively rather than waiting for the customer, and escalating internally if documentation requirements seem excessive for the claim type. The response should balance procedural compliance with customer convenience.",
+      "keywords": ["claim documentation", "customer frustration", "empathy", "checklist", "follow-up", "process simplification", "single point of contact"]
+    },
+    {
+      "question_text": "What is the concept of subrogation in insurance and provide a practical example?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Subrogation is the right of the insurer, after paying a claim, to step into the shoes of the insured and recover the claim amount from the third party who caused the loss. It prevents the insured from receiving double compensation (from both the insurer and the at-fault party) and helps insurers recover costs, keeping premiums affordable. Practical example: If Car A (insured with Company X) is damaged by Car B running a red light, Company X pays the repair claim to Car A's owner. Company X then has the right of subrogation to recover the claim amount from Car B's owner or their insurer. The insured must cooperate with the insurer's recovery efforts and must not do anything to prejudice the insurer's subrogation rights, such as settling privately with the at-fault party.",
+      "keywords": ["subrogation", "recovery", "third party", "double compensation", "insurer rights", "at-fault party", "claim recovery"]
+    },
+    {
+      "question_text": "Tell me about a time when you had to work under pressure to process a high volume of claims during a natural disaster or catastrophic event.",
+      "question_type": "behavioral",
+      "difficulty": "hard",
+      "expected_answer": "A strong answer should demonstrate crisis management, prioritization, and teamwork. The candidate should describe the specific event and its scale, how they prioritized claims (severity-based triage), coordination with field teams and surveyors, expedited processing procedures implemented, communication with affected policyholders, working extended hours while maintaining accuracy, collaborating with reinsurers for large losses, managing emotional stress (both personal and in dealing with distressed claimants), lessons learned about disaster preparedness, and any process improvements suggested afterward. The response should show composure under pressure and commitment to timely claim settlement.",
+      "keywords": ["catastrophe claims", "crisis management", "prioritization", "triage", "teamwork", "expedited processing", "disaster response"]
+    },
+    {
+      "question_text": "What is the difference between an insurance broker and an insurance agent?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "An insurance agent represents the insurance company and sells products of that specific company (or a few companies in the case of corporate agents). They are appointed and trained by the insurer and earn commissions on policies sold. An insurance broker represents the customer and works independently to find the best insurance solution across multiple insurers. Brokers conduct needs analysis, compare products from different companies, negotiate terms and premiums, and assist with claims. Brokers have fiduciary responsibility to the client, while agents have obligations to the insurer. Brokers are typically used for complex commercial risks, while agents are more common in retail insurance distribution. Both must be licensed by the regulatory authority.",
+      "keywords": ["insurance broker", "insurance agent", "intermediary", "commission", "fiduciary", "customer representation", "distribution channel"]
+    },
+    {
+      "question_text": "Explain the concept of Insurance Penetration and Insurance Density and their significance for the industry.",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "Insurance Penetration is measured as the ratio of total insurance premiums to the country's GDP, expressed as a percentage. It indicates the level of development of the insurance sector relative to the economy. Insurance Density is measured as the ratio of total insurance premiums to the total population, expressed as per capita premium. It indicates the average insurance spending per person. Both metrics together provide a comprehensive picture of insurance market development. Low penetration and density indicate significant growth potential but also suggest gaps in insurance awareness and accessibility. Strategies to improve these metrics include increasing financial literacy, developing micro-insurance products, leveraging technology for distribution, simplifying products, and promoting regulatory support for innovative distribution models.",
+      "keywords": ["insurance penetration", "insurance density", "GDP", "per capita premium", "market development", "growth potential", "financial inclusion"]
+    },
+    {
+      "question_text": "A customer who purchased a health insurance policy six months ago is now diagnosed with a condition that has a two-year waiting period. They are demanding immediate coverage. How do you handle this?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "The candidate should demonstrate policy knowledge and empathetic communication. The approach includes: reviewing the specific policy terms and the waiting period clause, explaining the waiting period concept clearly and why it exists (to prevent adverse selection), showing the customer the policy document where this was mentioned at the time of purchase, expressing genuine empathy for their medical situation, exploring if any part of the treatment could be covered under other policy provisions, advising about government health schemes or hospital payment plans that might help, discussing the timeline for when the condition will become coverable, documenting the interaction, and ensuring the customer knows about the grievance redressal mechanism. The response should be compassionate while being transparent about contractual limitations.",
+      "keywords": ["waiting period", "health insurance", "policy terms", "empathy", "transparency", "grievance redressal", "adverse selection prevention"]
+    },
+    {
+      "question_text": "What are the key components of an insurance policy document?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "Key components of an insurance policy document include: Declarations Page (insured's details, policy number, coverage period, sum insured/assured, premium), Insuring Agreement (the core promise of what the insurer agrees to cover), Definitions (specific meanings of terms used in the policy), Exclusions (events, conditions, or circumstances not covered), Conditions (obligations of both insurer and insured, such as premium payment, claim notification timelines, cooperation duties), Endorsements/Riders (modifications or additions to the standard policy), Schedule (summary of coverage details and premiums), and Free Look Period (duration within which the policyholder can return the policy). Understanding each component is essential for proper policy servicing and claim management.",
+      "keywords": ["policy document", "declarations", "insuring agreement", "exclusions", "conditions", "endorsements", "riders", "free look period"]
+    },
+    {
+      "question_text": "Explain the concept of loss reserving and its importance in insurance company financial management.",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "Loss reserving is the process of estimating the amount of money an insurance company needs to set aside to pay future claims, including claims that have been reported but not yet settled (known as RBNS or case reserves) and claims that have been incurred but not yet reported (IBNR). Methods include Chain Ladder, Bornhuetter-Ferguson, Expected Loss Ratio, and individual case estimation. Accurate loss reserving is critical because: it determines the insurer's true profitability (understating reserves overstates profit), it affects solvency margins and regulatory compliance, it impacts pricing decisions for future products, it influences reinsurance arrangements, and it affects the insurer's credit rating. Over-reserving ties up capital unnecessarily, while under-reserving can lead to insolvency. Actuaries play a key role in estimating reserves using statistical and actuarial methods.",
+      "keywords": ["loss reserving", "IBNR", "RBNS", "case reserves", "chain ladder", "Bornhuetter-Ferguson", "solvency", "actuarial estimation"]
+    },
+    {
+      "question_text": "If your insurance company launches a new product that you believe has inadequate coverage for the price being charged, how would you approach selling it?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "The candidate should demonstrate ethical judgment and constructive action. A strong response includes: first thoroughly understanding the product to confirm their assessment is accurate, providing specific feedback to the product development team with market comparisons and customer perspective, suggesting improvements while acknowledging business constraints, if the product remains unchanged, selling it only to customers for whom it is genuinely suitable (some customer segments may find it adequate), ensuring full and transparent disclosure of coverage limitations during the sales process, never misrepresenting the product's benefits, documenting their concerns formally, and understanding that different customers have different needs and budgets. The response should balance loyalty to the company with ethical obligations to customers.",
+      "keywords": ["ethical selling", "product feedback", "transparency", "suitability", "disclosure", "constructive criticism", "customer interest"]
+    }
+  ]
+}

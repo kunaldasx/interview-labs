@@ -1,0 +1,184 @@
+{
+  "name": "Freight Forwarding",
+  "slug": "freight_forwarding",
+  "sector": "Logistics",
+  "sector_slug": "logistics",
+  "description": "Interview questions covering international freight forwarding, customs brokerage, Incoterms, shipping documentation, multimodal transport, freight rate negotiation, cargo insurance, and trade compliance for logistics professionals.",
+  "questions": [
+    {
+      "question_text": "Explain the role of a freight forwarder in international trade. How does a freight forwarder differ from a carrier?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "A freight forwarder is an intermediary that arranges the transportation of goods on behalf of shippers. Unlike a carrier, which physically transports goods using its own assets such as ships, trucks, or aircraft, a freight forwarder does not typically own transportation equipment. The forwarder coordinates the entire logistics chain including booking cargo space, arranging pickup and delivery, preparing documentation, managing customs clearance, and providing consolidation services. Freight forwarders leverage relationships with multiple carriers to negotiate competitive rates and offer flexible routing options. They act as the shipper's agent, handling complexities of international shipping regulations, documentation requirements, and multimodal coordination.",
+      "keywords": ["intermediary", "carrier", "booking", "documentation", "customs clearance", "consolidation", "logistics chain"]
+    },
+    {
+      "question_text": "What is a Bill of Lading and what are the different types used in freight forwarding?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "A Bill of Lading (B/L) is a legal document issued by a carrier or its agent to a shipper that serves three functions: a receipt for goods shipped, a contract of carriage, and a document of title. Key types include: (1) Ocean Bill of Lading for sea freight, which can be negotiable or non-negotiable; (2) Airway Bill (AWB) for air cargo, always non-negotiable; (3) Through Bill of Lading covering multimodal transport from origin to destination; (4) House Bill of Lading (HBL) issued by the freight forwarder to the shipper; (5) Master Bill of Lading (MBL) issued by the carrier to the freight forwarder; (6) Combined Transport Bill of Lading for door-to-door shipments using multiple modes. Each type carries different legal implications for ownership transfer and liability.",
+      "keywords": ["Bill of Lading", "receipt", "contract of carriage", "document of title", "HBL", "MBL", "airway bill", "negotiable"]
+    },
+    {
+      "question_text": "Describe the key Incoterms 2020 rules and explain the difference between FOB, CIF, and DDP in terms of risk and cost allocation.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Incoterms 2020 are internationally recognized trade terms published by the International Chamber of Commerce that define responsibilities between buyers and sellers. FOB (Free On Board) means the seller delivers goods on board the vessel at the port of shipment; risk transfers when goods are on board, and the buyer pays for ocean freight and insurance. CIF (Cost, Insurance, and Freight) means the seller pays for freight and minimum insurance to the destination port, but risk transfers to the buyer once goods are on board at the origin port. DDP (Delivered Duty Paid) places maximum obligation on the seller, who bears all costs and risks including import duties, taxes, and customs clearance at destination. The 2020 rules include 11 terms split into two groups: those for any transport mode (EXW, FCA, CPT, CIP, DAP, DPU, DDP) and those specifically for sea and inland waterway (FAS, FOB, CFR, CIF).",
+      "keywords": ["Incoterms 2020", "FOB", "CIF", "DDP", "risk transfer", "cost allocation", "ICC", "seller obligation", "buyer obligation"]
+    },
+    {
+      "question_text": "What documents are typically required for an international shipment and what is the purpose of each?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Essential international shipping documents include: (1) Commercial Invoice detailing goods, value, buyer and seller information for customs valuation; (2) Packing List describing contents, weight, and dimensions of each package; (3) Bill of Lading or Airway Bill as the transport contract and receipt; (4) Certificate of Origin proving where goods were manufactured, often required for preferential duty rates; (5) Insurance Certificate covering cargo against loss or damage; (6) Customs Declaration or Entry Form for import/export clearance; (7) Letter of Credit if used as payment method; (8) Phytosanitary or Health Certificates for agricultural or food products; (9) Dangerous Goods Declaration for hazardous materials; (10) Export License if goods are controlled. Accuracy in documentation is critical as errors cause delays, penalties, and cargo holds at customs.",
+      "keywords": ["commercial invoice", "packing list", "certificate of origin", "customs declaration", "insurance certificate", "letter of credit", "export license"]
+    },
+    {
+      "question_text": "How do you negotiate freight rates with ocean carriers? What factors influence pricing?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Freight rate negotiation involves understanding market conditions, shipment volumes, and leveraging competitive bids. Key factors influencing pricing include: trade lane supply and demand, fuel costs reflected through Bunker Adjustment Factor (BAF), currency fluctuations via Currency Adjustment Factor (CAF), peak season surcharges, container type and size, cargo weight and volume, frequency and consistency of shipments, contract duration, port congestion surcharges, and equipment repositioning costs. Effective negotiation strategies include consolidating volumes to gain leverage, committing to minimum quantity contracts (MQCs), building long-term carrier relationships, benchmarking against market indices like the Shanghai Containerized Freight Index, timing negotiations during market troughs, and using multiple carrier quotes to create competitive tension.",
+      "keywords": ["freight rates", "BAF", "CAF", "surcharges", "MQC", "market indices", "volume leverage", "contract duration", "trade lane"]
+    },
+    {
+      "question_text": "Explain the customs clearance process for imported goods. What are the common reasons for delays?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "The customs clearance process typically involves: filing an import declaration with the customs authority, classifying goods using the Harmonized System (HS) code, determining the customs value based on the transaction value method, calculating duties and taxes, submitting required documents including commercial invoice, packing list, bill of lading, and certificate of origin, paying applicable duties and taxes, and obtaining release of goods. Common reasons for delays include: incorrect HS code classification, discrepancies between declared and actual goods, missing or incomplete documentation, goods subject to inspection or examination, restricted or prohibited items requiring special permits, valuation disputes, anti-dumping or countervailing duty investigations, and failure to meet sanitary or phytosanitary requirements. Working with experienced customs brokers and ensuring documentation accuracy minimizes delays.",
+      "keywords": ["customs clearance", "HS code", "customs value", "duties", "import declaration", "inspection", "documentation", "customs broker"]
+    },
+    {
+      "question_text": "What is multimodal transport and how do you decide on the optimal combination of transport modes for a shipment?",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "Multimodal transport involves using two or more different modes of transportation under a single contract to move goods from origin to destination. Decision factors include: transit time requirements, total landed cost including all modes and transfers, nature of cargo such as perishability, fragility, or hazardous classification, origin and destination accessibility, reliability requirements, environmental considerations, and regulatory constraints. For example, a shipment from inland China to a European distribution center might use truck from factory to port, ocean vessel for the main leg, and rail or truck from the European port to the warehouse. Optimization involves analyzing trade-offs between speed and cost, minimizing handling and transshipment points, considering intermodal connections and schedules, and using through bills of lading to simplify liability. Advanced freight forwarders use route optimization software and maintain carrier relationships across all modes.",
+      "keywords": ["multimodal", "intermodal", "transit time", "landed cost", "transshipment", "route optimization", "through bill of lading", "mode selection"]
+    },
+    {
+      "question_text": "Describe the different types of cargo insurance and how you determine appropriate coverage for a shipment.",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "Cargo insurance types include: (1) Institute Cargo Clauses A providing all-risk coverage, the broadest protection; (2) Institute Cargo Clauses B covering named perils including fire, explosion, vessel sinking, and overturning; (3) Institute Cargo Clauses C offering the most limited coverage for major casualties only. Additional coverages include war risk, strikes risk, and refrigeration breakdown. Determining appropriate coverage involves assessing cargo value using CIF plus 10-20 percent as industry standard, evaluating risk factors such as route, mode of transport, packaging quality, and cargo type, considering the shipper's risk tolerance and contractual obligations under the applicable Incoterm, reviewing carrier liability limitations under conventions like the Hague-Visby Rules or Montreal Convention, and analyzing claims history for similar shipments. General average situations in ocean shipping make insurance particularly important as all parties share losses proportionally.",
+      "keywords": ["Institute Cargo Clauses", "all-risk", "named perils", "CIF plus 10", "general average", "war risk", "carrier liability", "Hague-Visby"]
+    },
+    {
+      "question_text": "How do you handle a situation where a shipment arrives at the destination port and the consignee refuses to accept delivery?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "When a consignee refuses delivery, the response should include: immediately contacting the consignee to understand the reason for refusal, whether it is a quality issue, documentation discrepancy, or commercial dispute; reviewing the contract terms and Incoterms to determine where liability and risk sit; notifying the shipper or exporter about the refusal and obtaining instructions; arranging for temporary storage at the port or a bonded warehouse to prevent demurrage and detention charges from escalating; exploring options such as finding an alternative buyer in the destination country, arranging return shipment, or negotiating with the consignee to resolve the dispute; managing customs implications since abandoned cargo can be seized or auctioned by customs authorities; coordinating with insurance if cargo damage is the reason for refusal; and documenting everything meticulously for potential legal proceedings. Time is critical as port storage and container detention charges accumulate rapidly.",
+      "keywords": ["consignee refusal", "demurrage", "detention", "bonded warehouse", "contract terms", "return shipment", "customs seizure", "documentation"]
+    },
+    {
+      "question_text": "Tell me about a time when you had to resolve a significant discrepancy in shipping documentation. What was the issue and how did you handle it?",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "A strong answer should describe a specific scenario involving documentation errors such as mismatched quantities between the commercial invoice and packing list, incorrect HS codes, or discrepancies between the letter of credit requirements and actual documents. The candidate should explain how they identified the discrepancy, whether through routine document review or when flagged by customs or the bank. They should detail the corrective actions taken, such as issuing amended documents, coordinating with the shipper for corrections, requesting a letter of indemnity from the bank, or arranging for customs re-examination. The response should demonstrate attention to detail, knowledge of documentary requirements, ability to work under pressure when shipments are held, and proactive communication with all stakeholders including shippers, consignees, banks, and customs authorities.",
+      "keywords": ["documentation discrepancy", "corrective action", "letter of indemnity", "customs hold", "attention to detail", "stakeholder communication"]
+    },
+    {
+      "question_text": "Describe a situation where you successfully reduced freight costs for a client without compromising service quality.",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "A strong response should outline a methodical approach to cost reduction. Examples include: consolidating multiple smaller shipments into full container loads (FCL) to reduce per-unit costs, renegotiating carrier contracts based on increased volume commitments, optimizing routing to use more cost-effective trade lanes or transshipment hubs, shifting from air to ocean freight for non-urgent shipments, implementing buyer's consolidation programs, improving container utilization through better load planning, leveraging free trade agreements to reduce duty costs, or timing shipments to avoid peak season surcharges. The candidate should quantify the savings achieved, explain how they ensured service levels were maintained or improved, and describe the analysis process that identified the cost-saving opportunity.",
+      "keywords": ["cost reduction", "consolidation", "FCL", "route optimization", "carrier negotiation", "load planning", "service quality", "quantified savings"]
+    },
+    {
+      "question_text": "How have you handled a situation where regulatory changes affected your freight operations? What steps did you take to ensure compliance?",
+      "question_type": "behavioral",
+      "difficulty": "easy",
+      "expected_answer": "The candidate should describe a specific regulatory change such as new customs requirements, trade sanctions, environmental regulations like IMO 2020 sulfur cap, or changes to import/export controls. A strong answer covers: how they became aware of the regulatory change through industry associations, government notices, or compliance monitoring; the impact assessment they performed on existing operations and clients; the action plan developed including updating standard operating procedures, training staff, modifying documentation processes, and communicating with clients and partners; the timeline for implementation and any challenges encountered; verification that all operations were brought into compliance; and ongoing monitoring to ensure continued adherence. This demonstrates regulatory awareness, proactive planning, and systematic change management.",
+      "keywords": ["regulatory compliance", "change management", "impact assessment", "standard operating procedures", "training", "IMO 2020", "trade sanctions"]
+    },
+    {
+      "question_text": "What are the Harmonized System codes and why are they critical in freight forwarding?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "The Harmonized System (HS) is an international nomenclature developed by the World Customs Organization (WCO) for classifying traded products. It uses a standardized numerical code of at least six digits, with individual countries adding additional digits for further classification. HS codes are critical because they determine the applicable customs duty rates, identify whether goods are subject to trade restrictions, quotas, or special requirements, enable accurate trade statistics compilation, facilitate free trade agreement preferential tariff qualification, and are used for export control and sanctions screening. Incorrect classification can result in overpayment or underpayment of duties, penalties and fines, shipment delays, and potential legal consequences. Freight forwarders must have expertise in HS classification or work closely with customs brokers who specialize in tariff classification.",
+      "keywords": ["Harmonized System", "HS code", "WCO", "tariff classification", "customs duty", "trade restrictions", "penalties"]
+    },
+    {
+      "question_text": "Explain the concept of demurrage and detention in container shipping. How can these charges be minimized?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "Demurrage is the charge imposed when a loaded container remains at the port or terminal beyond the allotted free time after vessel discharge. Detention is the charge for keeping the carrier's container outside the port or terminal beyond the allowed free time, such as at a warehouse or consignee's facility. These charges can accumulate rapidly, sometimes reaching hundreds of dollars per container per day. Minimization strategies include: ensuring all customs documentation is prepared and submitted before vessel arrival, pre-clearing goods through customs where possible, coordinating efficient trucking and drayage operations, negotiating extended free time in carrier contracts especially for high-volume shippers, implementing real-time shipment tracking to anticipate arrival and plan resources, maintaining buffer capacity at receiving warehouses, and establishing clear communication channels between all parties in the supply chain to prevent delays.",
+      "keywords": ["demurrage", "detention", "free time", "container charges", "pre-clearance", "drayage", "shipment tracking"]
+    },
+    {
+      "question_text": "What is a Letter of Credit and how does it affect the freight forwarding process?",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "A Letter of Credit (LC) is a financial instrument issued by a bank guaranteeing payment to the seller upon presentation of compliant documents. In freight forwarding, LCs significantly affect operations because documents must be prepared with absolute precision to match LC terms, including exact descriptions of goods, shipping marks, ports, and dates. The freight forwarder must ensure: the bill of lading is issued exactly as specified in the LC, shipping is completed within the specified timeframe, transshipment restrictions are observed, insurance coverage meets LC requirements if CIF terms apply, and all ancillary documents like certificates of origin and inspection certificates are obtained. Even minor discrepancies such as a misspelled company name can result in document rejection by the bank, delayed payment, and additional amendment costs. Freight forwarders play a crucial role in document preparation and compliance checking before bank presentation.",
+      "keywords": ["Letter of Credit", "documentary compliance", "bank guarantee", "discrepancies", "bill of lading", "document presentation", "amendment"]
+    },
+    {
+      "question_text": "How do free trade agreements impact freight forwarding operations and what role does the freight forwarder play in leveraging them?",
+      "question_type": "domain_specific",
+      "difficulty": "hard",
+      "expected_answer": "Free Trade Agreements (FTAs) reduce or eliminate customs duties on qualifying goods traded between member countries. Freight forwarders impact FTA utilization by: advising clients on applicable FTAs for their trade lanes, ensuring goods meet rules of origin requirements through proper documentation and certificates of origin, managing the different origin determination methods such as wholly obtained, substantial transformation, or regional value content, staying current on FTA updates and new agreements, coordinating with customs brokers to apply preferential tariff rates correctly, maintaining records for post-entry verification audits, and helping clients structure their supply chains to maximize FTA benefits. Failure to properly apply FTA provisions means clients may pay unnecessary duties, while incorrect claims of FTA eligibility can result in penalties, back-duties, and loss of FTA privileges. Major FTAs include USMCA, RCEP, EU trade agreements, and CPTPP.",
+      "keywords": ["free trade agreements", "rules of origin", "preferential tariff", "USMCA", "RCEP", "certificates of origin", "duty reduction", "compliance"]
+    },
+    {
+      "question_text": "What is the difference between a Non-Vessel Operating Common Carrier (NVOCC) and a traditional freight forwarder?",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "An NVOCC is a type of ocean carrier that does not own or operate vessels but issues its own bills of lading and assumes carrier liability for the shipment. Unlike a traditional freight forwarder who acts as the shipper's agent, an NVOCC acts as a carrier to the shipper and as a shipper to the actual ocean carrier. Key differences include: NVOCCs issue House Bills of Lading and accept liability as a carrier, while forwarders typically act as agents; NVOCCs must be licensed and bonded with the Federal Maritime Commission (FMC) in the United States; NVOCCs buy space in bulk from vessel-operating carriers and resell it at their own rates; NVOCCs can consolidate cargo from multiple shippers into containers and offer their own tariffs. Many modern freight forwarders also hold NVOCC licenses, blurring the distinction. The NVOCC model allows greater pricing flexibility and the ability to offer door-to-door services under a single bill of lading.",
+      "keywords": ["NVOCC", "freight forwarder", "carrier liability", "House Bill of Lading", "FMC", "agent", "consolidation", "tariff"]
+    },
+    {
+      "question_text": "A client needs to ship temperature-sensitive pharmaceutical products from Mumbai to New York. Walk me through how you would plan and execute this shipment.",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "Planning this shipment requires: first, understanding the specific temperature requirements such as 2-8 degrees Celsius for cold chain products and the product's sensitivity to deviations; selecting appropriate equipment like reefer containers with active temperature control and backup power, or passive packaging solutions with thermal blankets and gel packs for smaller shipments; choosing a carrier and route that minimizes transit time and transshipment risks in temperature-sensitive handling; ensuring GDP (Good Distribution Practice) compliance throughout the chain; arranging pre-cooling of the container before loading; coordinating with a licensed customs broker familiar with pharmaceutical imports including FDA requirements and prior notice filings; obtaining required documentation such as Drug Registration Certificate, GMP certificate, and temperature monitoring records; placing calibrated data loggers inside the shipment for continuous temperature monitoring; arranging expedited customs clearance at both origin and destination to minimize dwell time; coordinating temperature-controlled last-mile delivery to the final destination; and establishing a contingency plan for temperature excursions including notification protocols and disposition decisions.",
+      "keywords": ["cold chain", "reefer container", "temperature monitoring", "GDP compliance", "pharmaceutical", "FDA", "data logger", "contingency plan"]
+    },
+    {
+      "question_text": "You discover that a container shipped two weeks ago contains goods that may violate export control regulations. What actions do you take?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "Immediate actions should include: stopping any further shipments of the same or similar goods pending investigation; conducting an internal investigation to determine the nature and extent of the potential violation, including reviewing the export classification, end-user details, and destination country against restricted party lists and embargoed destinations; consulting with the company's legal counsel and compliance department; considering voluntary self-disclosure to the relevant government agency such as the Bureau of Industry and Security (BIS) or Office of Foreign Assets Control (OFAC), as voluntary disclosure typically results in significantly reduced penalties; attempting to prevent delivery if the goods have not yet been released at destination through carrier hold or customs intervention; preserving all related documentation and communications for the investigation; implementing corrective measures such as enhanced screening procedures, additional compliance training, and updated standard operating procedures; and conducting a root cause analysis to prevent recurrence. Export control violations can result in severe criminal and civil penalties including imprisonment and millions in fines.",
+      "keywords": ["export control", "voluntary self-disclosure", "BIS", "OFAC", "restricted party screening", "compliance investigation", "corrective measures", "penalties"]
+    },
+    {
+      "question_text": "A major port strike is announced at your primary gateway port, effective in 48 hours. How do you manage the impact on your clients' shipments?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "Managing a port strike requires rapid contingency planning: immediately assessing all shipments in transit to or from the affected port and categorizing them by urgency and value; communicating proactively with all affected clients about the situation and potential delays; identifying alternative ports and arranging diversions for vessels that have not yet arrived; coordinating with carriers on vessel rerouting options and associated costs; arranging alternative inland transportation from substitute ports to original destinations; expediting any shipments that can still be processed before the strike begins; negotiating with carriers to waive or reduce diversion surcharges; monitoring the situation for updates on strike duration and resolution; securing warehouse space at alternative ports for overflow cargo; reviewing force majeure clauses in contracts to understand liability; and maintaining a communication log and status updates for all stakeholders. Post-strike, managing the surge of backed-up cargo requires equally careful coordination.",
+      "keywords": ["port strike", "contingency planning", "vessel diversion", "alternative ports", "force majeure", "stakeholder communication", "inland transportation"]
+    },
+    {
+      "question_text": "Your client's shipment has been flagged for a random customs inspection at the destination, causing a week-long delay. The client is threatening to change freight providers. How do you handle this?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "Handling this situation requires: acknowledging the client's frustration and demonstrating empathy while explaining that random customs inspections are a government enforcement action beyond any forwarder's control; providing transparency by sharing all available information about the inspection process, expected timeline, and status updates; actively working with the customs broker at destination to facilitate and expedite the inspection by ensuring all documentation is readily available and complete; escalating with customs authorities if possible through established relationships or authorized channels; exploring whether the client can be enrolled in trusted trader programs like AEO (Authorized Economic Operator) or C-TPAT to reduce future inspection frequency; offering to partially absorb storage costs as a goodwill gesture; providing a written summary of the situation with timeline for the client's records; and proposing a proactive compliance review of the client's supply chain to minimize future risks. This demonstrates accountability, industry knowledge, and commitment to the relationship.",
+      "keywords": ["customs inspection", "client retention", "AEO", "C-TPAT", "trusted trader", "transparency", "goodwill", "compliance review"]
+    },
+    {
+      "question_text": "Tell me about a time when you had to coordinate a complex multimodal shipment across multiple countries. What challenges did you face?",
+      "question_type": "behavioral",
+      "difficulty": "easy",
+      "expected_answer": "A strong response should describe a specific multimodal shipment involving at least two transport modes and crossing international borders. The candidate should detail: the shipment scope including origin, destination, cargo type, and constraints; the routing decision and why specific modes were chosen for each leg; challenges encountered such as transit country customs requirements, schedule coordination between different modes, documentation for each leg, varying regulatory requirements across jurisdictions, and weather or infrastructure disruptions; how they managed handoff points between modes to minimize delays and cargo exposure; coordination with multiple agents, carriers, and customs brokers across different time zones; real-time tracking and communication management; cost control across multiple service providers; and the outcome including lessons learned. This demonstrates operational expertise, problem-solving ability, and international logistics knowledge.",
+      "keywords": ["multimodal coordination", "cross-border", "schedule coordination", "transit customs", "agent network", "handoff management", "problem-solving"]
+    },
+    {
+      "question_text": "Describe your experience with trade compliance. How do you stay updated on changing regulations?",
+      "question_type": "behavioral",
+      "difficulty": "easy",
+      "expected_answer": "A good answer should cover: specific trade compliance responsibilities the candidate has handled, such as export classification, restricted party screening, sanctions compliance, or customs audit preparation; the tools and resources used to stay current, including government agency websites like CBP, BIS, and OFAC, industry associations like FIATA or NCBFAA, trade publications, compliance software platforms, and professional networks; regular training and certification pursued such as Licensed Customs Broker (LCB), Certified Customs Specialist (CCS), or Certified Export Specialist (CES); how they disseminate regulatory changes to their team and clients; examples of implementing compliance program improvements; and their approach to balancing compliance requirements with operational efficiency. The candidate should demonstrate a proactive rather than reactive approach to trade compliance.",
+      "keywords": ["trade compliance", "export classification", "sanctions", "restricted party screening", "FIATA", "customs broker license", "regulatory updates", "compliance program"]
+    },
+    {
+      "question_text": "What is the difference between FCL and LCL shipments in ocean freight, and how does each impact the freight forwarding process?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "FCL (Full Container Load) means the shipper has enough cargo to fill an entire container, which is loaded and sealed at the shipper's premises and delivered unopened to the consignee. LCL (Less than Container Load) means the shipper's cargo does not fill a full container, so the freight forwarder consolidates multiple shippers' goods into one container at a Container Freight Station (CFS). Key differences in the forwarding process: FCL involves direct booking with the carrier, simpler documentation, lower risk of damage from handling, faster transit since there is no consolidation or deconsolidation, and pricing per container. LCL involves consolidation planning, CFS operations at both origin and destination, more complex documentation tracking multiple shipments per container, higher per-unit freight cost but lower total cost for small shipments, longer transit due to CFS handling time, and greater risk of damage from multiple handling points. The forwarder's role is more complex with LCL due to consolidation management.",
+      "keywords": ["FCL", "LCL", "Container Freight Station", "CFS", "consolidation", "deconsolidation", "container booking", "per-unit cost"]
+    },
+    {
+      "question_text": "How do you assess and manage risk when handling high-value or sensitive cargo?",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "Risk management for high-value or sensitive cargo involves: conducting a thorough risk assessment covering theft, damage, delay, and regulatory risks along the entire route; selecting secure routing with minimal transshipment points and vetted handling facilities; arranging adequate insurance coverage with declared value and specific risk endorsements; using tamper-evident seals and GPS tracking devices on containers; coordinating with security-vetted carriers and warehouse operators; implementing chain-of-custody documentation at every handoff point; establishing restricted access protocols for cargo information on a need-to-know basis; arranging armed escorts or secure transport for extremely high-value goods; conducting background checks on involved personnel; developing detailed contingency plans for various risk scenarios; ensuring compliance with any regulatory requirements specific to the cargo type such as dual-use goods, precious metals, or controlled substances; and maintaining comprehensive documentation for insurance claims if needed.",
+      "keywords": ["risk assessment", "high-value cargo", "GPS tracking", "chain of custody", "tamper-evident seals", "insurance coverage", "security vetting", "contingency planning"]
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "name": "Construction Management",
+  "slug": "construction_management",
+  "sector": "Engineering",
+  "sector_slug": "engineering",
+  "description": "Site management, construction safety, quality control, contract management, scheduling, cost estimation, building codes, and subcontractor management for construction management professionals.",
+  "questions": [
+    {
+      "question_text": "Explain the process of preparing a detailed construction cost estimate and the key components it includes.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "A detailed cost estimate involves quantity takeoff from drawings and specifications, pricing labor, materials, and equipment for each work item, adding subcontractor quotes, calculating overhead and profit margins, and including contingencies. Key components are direct costs (labor, materials, equipment), indirect costs (supervision, temporary facilities, insurance), and markup for profit and contingency.",
+      "keywords": ["cost estimation", "quantity takeoff", "direct and indirect costs"]
+    },
+    {
+      "question_text": "What is the difference between a Gantt chart and a network diagram (CPM/PERT) in construction scheduling, and when would you use each?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "A Gantt chart is a bar chart showing task durations along a timeline, excellent for visual communication of the schedule to stakeholders. A network diagram shows logical dependencies between activities and enables critical path and float calculations. Gantt charts are used for presentation and tracking, while network diagrams are used for schedule analysis, optimization, and identifying the critical path.",
+      "keywords": ["Gantt chart", "network diagram", "scheduling"]
+    },
+    {
+      "question_text": "Describe the purpose and key elements of a construction quality management plan.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "A quality management plan defines the standards, procedures, and responsibilities for ensuring construction work meets design specifications and codes. Key elements include quality objectives, inspection and testing protocols, material submittal review process, non-conformance reporting and resolution, documentation requirements, and roles of quality personnel including quality control by the contractor and quality assurance by the owner's representative.",
+      "keywords": ["quality management plan", "inspection", "non-conformance"]
+    },
+    {
+      "question_text": "How do you evaluate and prequalify subcontractors for a major construction project?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Prequalification involves evaluating subcontractors on financial stability, bonding capacity, safety record (EMR and OSHA logs), relevant project experience, available workforce and equipment, references from past clients, litigation history, and current workload capacity. A scoring matrix helps objectively compare candidates and select those most likely to deliver quality work on time and within budget.",
+      "keywords": ["subcontractor prequalification", "safety record", "bonding capacity"]
+    },
+    {
+      "question_text": "Explain the concept of Building Information Modeling (BIM) and its benefits in construction management.",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "BIM is a digital representation of a building's physical and functional characteristics, creating a shared knowledge resource throughout its lifecycle. Benefits in construction include clash detection before construction, improved coordination among trades, more accurate quantity takeoffs, enhanced visualization for stakeholders, better sequencing through 4D scheduling, and reduced rework and change orders.",
+      "keywords": ["BIM", "clash detection", "digital construction"]
+    },
+    {
+      "question_text": "What are the key differences between Design-Bid-Build, Design-Build, and Construction Manager at Risk project delivery methods?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Design-Bid-Build separates design and construction into sequential phases with separate contracts, offering the owner clear scope but longer schedules. Design-Build assigns a single entity for both design and construction, enabling fast-tracking and single-point responsibility. CM at Risk provides early contractor involvement during design with a guaranteed maximum price, balancing owner control with construction expertise during design development.",
+      "keywords": ["project delivery methods", "design-build", "CM at risk"]
+    },
+    {
+      "question_text": "How do you develop and manage a construction site logistics plan?",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "A site logistics plan addresses material staging and storage areas, equipment placement and crane locations, temporary access roads and traffic management, worker parking and pedestrian routes, temporary utilities and facilities, waste management areas, and security measures. It must be updated as the project progresses through different phases, coordinated with the schedule, and communicated to all subcontractors.",
+      "keywords": ["site logistics", "construction planning", "material staging"]
+    },
+    {
+      "question_text": "Explain the process of managing change orders in a construction project and their impact on project performance.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Change order management involves documenting the proposed change, evaluating its impact on cost, schedule, and quality, negotiating pricing with the affected parties, obtaining owner approval, and incorporating the change into the project documents and schedule. Poorly managed change orders lead to disputes, cost overruns, and delays, making a rigorous change management process essential for project success.",
+      "keywords": ["change orders", "cost impact", "contract administration"]
+    },
+    {
+      "question_text": "What is the purpose of a project closeout process in construction, and what are its key activities?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "Project closeout formally concludes construction and transitions the facility to the owner. Key activities include completing a punch list of remaining deficiencies, obtaining final inspections and certificates of occupancy, delivering as-built drawings and O&M manuals, releasing retainage after satisfactory completion, obtaining lien waivers, archiving project records, and conducting a lessons learned review.",
+      "keywords": ["project closeout", "punch list", "certificate of occupancy"]
+    },
+    {
+      "question_text": "Describe how you would perform a constructability review during the design phase of a project.",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "A constructability review involves experienced construction professionals evaluating design documents for buildability issues before construction begins. The review examines material availability and lead times, equipment access requirements, construction sequencing considerations, tolerance compatibility between trades, specification clarity, and potential value engineering opportunities, providing feedback to designers to reduce costly field changes.",
+      "keywords": ["constructability review", "design review", "value engineering"]
+    },
+    {
+      "question_text": "Tell me about a time when you faced a serious safety incident or near-miss on a construction site. How did you respond, and what changes did you implement?",
+      "question_type": "behavioral",
+      "difficulty": "hard",
+      "expected_answer": "The candidate should describe the incident, the immediate response including securing the area and attending to affected workers, the investigation process to determine root cause, the corrective actions implemented (procedural changes, additional training, equipment modifications), how they communicated the lessons to the team, and any systemic improvements made to prevent recurrence.",
+      "keywords": ["safety incident", "root cause analysis", "corrective actions"]
+    },
+    {
+      "question_text": "Describe a situation where you had to resolve a significant dispute between a general contractor and a subcontractor. What approach did you take?",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "A strong answer explains the nature of the dispute, how the candidate gathered facts from both parties, reviewed contract documents for clarity, facilitated a resolution meeting focused on mutual interests rather than positions, proposed a fair compromise supported by documentation, and implemented measures to prevent similar disputes in the future.",
+      "keywords": ["dispute resolution", "contract dispute", "negotiation"]
+    },
+    {
+      "question_text": "Can you describe a project where you successfully brought a behind-schedule construction project back on track? What strategies did you use?",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "The candidate should explain the cause of the delay, the analysis performed to identify recovery options, specific strategies employed such as increased manpower, extended work hours, resequencing activities, or prefabrication, how they communicated the recovery plan to stakeholders, and the monitoring approach used to ensure the plan's effectiveness.",
+      "keywords": ["schedule recovery", "construction delay", "acceleration"]
+    },
+    {
+      "question_text": "Tell me about a time when you identified a significant cost-saving opportunity during construction without compromising quality.",
+      "question_type": "behavioral",
+      "difficulty": "easy",
+      "expected_answer": "The candidate should describe how they identified the opportunity through value engineering, alternative material or method evaluation, or waste reduction, quantified the savings, validated that quality and performance requirements were maintained, obtained necessary approvals, and implemented the change, demonstrating both technical knowledge and business acumen.",
+      "keywords": ["cost savings", "value engineering", "construction efficiency"]
+    },
+    {
+      "question_text": "Describe a situation where weather conditions severely impacted your construction project. How did you manage the situation?",
+      "question_type": "behavioral",
+      "difficulty": "easy",
+      "expected_answer": "The candidate should explain the weather event, how they assessed the impact on activities and the schedule, protective measures taken for work in progress and materials, the communication protocol with the owner and subcontractors, schedule recovery strategies employed, and any contract provisions invoked for excusable delay, demonstrating proactive risk management.",
+      "keywords": ["weather impact", "schedule recovery", "risk management"]
+    },
+    {
+      "question_text": "You are managing a construction project and discover that installed work does not meet specification requirements. The subcontractor disagrees with your assessment. How would you handle this?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "The construction manager should document the deficiency with photos and reference the specific specification requirements, request third-party testing or independent expert evaluation if needed, facilitate a meeting with the subcontractor to review findings objectively, enforce contractual obligations for rework or correction while maintaining a professional relationship, and update inspection procedures to catch similar issues earlier.",
+      "keywords": ["quality dispute", "specification compliance", "deficiency resolution"]
+    },
+    {
+      "question_text": "During excavation, your crew encounters unexpected underground utilities not shown on the drawings. What steps would you take?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "The construction manager should immediately stop excavation in the affected area, identify the utility type and owner, notify the utility company and project owner, document the condition with photos and surveyed locations, assess design impacts, initiate a change order process for any redesign or relocation costs, and resume work only after the situation is safely resolved and a revised plan is approved.",
+      "keywords": ["underground utilities", "unforeseen conditions", "change order"]
+    },
+    {
+      "question_text": "A critical material delivery is delayed by three weeks, and it is on the project's critical path. How would you mitigate the impact?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "The construction manager should explore alternative suppliers who can deliver sooner, evaluate substitution with an equivalent approved material, resequence work to pull forward non-dependent activities, consider prefabrication or partial deliveries, negotiate with the supplier for expedited shipping, update the schedule to reflect actual conditions, and communicate the revised timeline and options to the owner.",
+      "keywords": ["material delay", "schedule mitigation", "supply chain"]
+    },
+    {
+      "question_text": "You receive notification that OSHA will conduct an inspection of your construction site tomorrow. How do you prepare?",
+      "question_type": "situational",
+      "difficulty": "easy",
+      "expected_answer": "The construction manager should conduct a thorough self-inspection of the site focusing on common violation areas (fall protection, scaffolding, trenching, electrical, PPE), correct any identified hazards immediately, ensure all safety documentation (training records, OSHA logs, safety plans) is current and accessible, brief the site team on the inspection protocol, designate a competent person to accompany the inspector, and ensure all workers are wearing proper PPE.",
+      "keywords": ["OSHA inspection", "safety compliance", "site preparation"]
+    },
+    {
+      "question_text": "Two subcontractors need to work in the same area at the same time, and there is a conflict over access and sequencing. How would you resolve this?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "The construction manager should hold a coordination meeting with both subcontractors, review the schedule to determine logical priority, explore options such as split shifts, phased access, or adjusted work zones, ensure safety protocols for concurrent operations are addressed, document the agreed-upon plan, and monitor compliance to prevent delays and safety hazards.",
+      "keywords": ["trade coordination", "access conflict", "scheduling"]
+    },
+    {
+      "question_text": "What are the key elements of an OSHA-compliant construction safety program, and who is responsible for implementation?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "Key elements include a written safety and health program, hazard identification and communication, site-specific safety plans, regular safety meetings and toolbox talks, worker training and competent person designation, PPE requirements, incident reporting and investigation, and emergency response procedures. The general contractor bears primary responsibility but each employer on site must protect their own workers.",
+      "keywords": ["OSHA compliance", "safety program", "construction safety"]
+    },
+    {
+      "question_text": "Explain the concept of retainage in construction contracts and its purpose for both owners and contractors.",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "Retainage is a percentage (typically 5-10%) of each progress payment withheld by the owner until project completion. It provides financial incentive for the contractor to complete all work including punch list items, protects the owner against defective work or incomplete scope, and serves as security for the contractor to ensure subcontractors complete their obligations before releasing final payment.",
+      "keywords": ["retainage", "progress payment", "construction contract"]
+    },
+    {
+      "question_text": "Describe the Last Planner System and how it differs from traditional construction scheduling approaches.",
+      "question_type": "domain_specific",
+      "difficulty": "hard",
+      "expected_answer": "The Last Planner System is a lean construction planning method that involves the people performing the work (foremen, subcontractors) in weekly work planning, improving reliability of commitments. Unlike traditional top-down scheduling, it uses pull planning from milestones, weekly work plans with constraint identification, daily huddles, and Percent Plan Complete (PPC) tracking to improve workflow reliability and reduce waste.",
+      "keywords": ["Last Planner System", "lean construction", "pull planning"]
+    },
+    {
+      "question_text": "What is the role of commissioning in the construction process, and how does it differ from testing and inspection?",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "Commissioning is a systematic process of verifying that all building systems perform interactively according to the design intent and the owner's operational needs. Unlike testing and inspection, which verify individual component compliance, commissioning evaluates integrated system performance, includes functional performance testing under various operating conditions, and ensures proper training and documentation for facility operations staff.",
+      "keywords": ["commissioning", "system performance", "building systems"]
+    },
+    {
+      "question_text": "Explain the types of construction bonds (bid bond, performance bond, payment bond) and their significance in protecting project stakeholders.",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "A bid bond guarantees the bidder will enter into the contract if awarded, protecting the owner from non-serious bids. A performance bond ensures the contractor will complete the work per contract terms, with the surety completing or financing completion if the contractor defaults. A payment bond guarantees the contractor will pay subcontractors and suppliers, protecting the owner from mechanic's liens.",
+      "keywords": ["construction bonds", "surety", "payment protection"]
+    }
+  ]
+}

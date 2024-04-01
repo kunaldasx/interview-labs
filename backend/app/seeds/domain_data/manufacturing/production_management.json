@@ -1,0 +1,184 @@
+{
+  "name": "Production Management",
+  "slug": "production_management",
+  "sector": "Manufacturing",
+  "sector_slug": "manufacturing",
+  "description": "Interview questions covering production planning, scheduling, capacity management, shop floor operations, and manufacturing execution for production management professionals.",
+  "questions": [
+    {
+      "question_text": "What is the difference between production planning and production scheduling, and how do they work together?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "Production planning is the broader, longer-term activity that determines what products to manufacture, in what quantities, and over what time horizons, based on demand forecasts and sales orders. It addresses capacity requirements, material needs, and resource allocation at a strategic level. Production scheduling is the more detailed, shorter-term activity that determines the specific sequence and timing of jobs on machines and work centers, assigning start and end dates for each operation. Planning answers 'what and how much' while scheduling answers 'when and in what order.' They work together because planning sets the framework and constraints within which scheduling optimizes the daily execution.",
+      "keywords": ["production planning", "scheduling", "capacity", "demand forecast", "resource allocation", "sequencing", "timing", "work centers"]
+    },
+    {
+      "question_text": "Explain the concept of Overall Equipment Effectiveness (OEE) and its three components.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "OEE is a metric that measures how effectively manufacturing equipment is utilized. It is calculated as the product of three components: Availability (actual run time divided by planned production time, accounting for downtime losses like breakdowns and changeovers), Performance (actual throughput rate divided by maximum theoretical rate, accounting for speed losses like slow cycles and minor stops), and Quality (good units produced divided by total units produced, accounting for defect losses including scrap and rework). OEE = Availability x Performance x Quality. World-class OEE is generally considered to be 85% or higher. OEE helps identify the biggest sources of productivity loss (the 'six big losses') and prioritize improvement efforts.",
+      "keywords": ["OEE", "availability", "performance", "quality", "six big losses", "downtime", "throughput", "world-class"]
+    },
+    {
+      "question_text": "What is a Bill of Materials (BOM) and why is it critical for production management?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "A Bill of Materials is a comprehensive list of raw materials, components, sub-assemblies, and their quantities required to manufacture a finished product. It is structured hierarchically showing parent-child relationships between assemblies and components. The BOM is critical for production management because it drives material requirements planning (MRP), enables accurate costing, supports inventory management, guides purchasing decisions, ensures correct materials are available for production, and serves as a reference for engineering changes. BOMs can be single-level or multi-level (indented), and types include engineering BOM, manufacturing BOM, and sales BOM.",
+      "keywords": ["BOM", "bill of materials", "components", "hierarchy", "MRP", "costing", "inventory", "engineering changes"]
+    },
+    {
+      "question_text": "How does Material Requirements Planning (MRP) work and what are its key inputs?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "MRP is a computer-based inventory management and production planning system that calculates material requirements and schedules based on three key inputs: the Master Production Schedule (MPS) which specifies what finished goods to produce and when, the Bill of Materials (BOM) which defines what materials and components are needed for each product, and Inventory Status Records which show current on-hand quantities, open purchase orders, and open work orders. MRP performs a 'netting' calculation to determine gross requirements, subtract available inventory and scheduled receipts, and generate net requirements. It then applies lead times to determine when orders must be placed (time-phasing), creating planned order releases for purchasing and production.",
+      "keywords": ["MRP", "master production schedule", "BOM", "inventory", "netting", "lead time", "time-phasing", "planned orders"]
+    },
+    {
+      "question_text": "Describe a time when you had to manage an unexpected machine breakdown during a critical production run. What did you do?",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "A strong answer should describe: the immediate actions taken to assess the situation and contain the impact, communication with stakeholders (maintenance, management, customer service), the decision-making process for rescheduling or rerouting production to alternative equipment, coordination with maintenance for repair timeline estimation, prioritization of orders based on customer commitments and urgency, any overtime or additional shift arrangements made, how delivery commitments were managed with customers, and lessons learned to prevent recurrence such as improved preventive maintenance schedules.",
+      "keywords": ["machine breakdown", "contingency", "rescheduling", "communication", "prioritization", "maintenance coordination", "customer commitment", "preventive maintenance"]
+    },
+    {
+      "question_text": "What is the Theory of Constraints (TOC) and how does it apply to production management?",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "The Theory of Constraints, developed by Eliyahu Goldratt, states that every system has at least one constraint (bottleneck) that limits its throughput. The five focusing steps of TOC are: 1) Identify the constraint (the resource limiting overall system output), 2) Exploit the constraint (maximize its utilization, ensure it never starves or is blocked), 3) Subordinate everything else to the constraint (align all other resources to support the bottleneck), 4) Elevate the constraint (invest to increase its capacity), and 5) Repeat (once the constraint is broken, find the new constraint). In production management, this means scheduling around the bottleneck, using drum-buffer-rope scheduling, and focusing improvement efforts on the true constraint rather than non-bottleneck resources.",
+      "keywords": ["Theory of Constraints", "bottleneck", "throughput", "five focusing steps", "drum-buffer-rope", "exploit", "subordinate", "elevate", "Goldratt"]
+    },
+    {
+      "question_text": "What are the key differences between make-to-stock (MTS), make-to-order (MTO), and assemble-to-order (ATO) production strategies?",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "Make-to-stock (MTS) produces finished goods based on demand forecasts and stores them as inventory for immediate customer delivery. It suits high-volume, standardized products with predictable demand. Make-to-order (MTO) begins production only after receiving a customer order, offering customization but with longer lead times. It suits customized or low-volume products. Assemble-to-order (ATO) is a hybrid approach where standard sub-assemblies and components are made to stock, but final assembly is triggered by customer orders, offering some customization with shorter lead times. Each strategy involves different trade-offs between inventory investment, lead time, customization flexibility, and demand risk.",
+      "keywords": ["make-to-stock", "make-to-order", "assemble-to-order", "forecast", "lead time", "customization", "inventory", "demand risk"]
+    },
+    {
+      "question_text": "How would you handle a situation where you need to increase production output by 30% within two weeks to meet a sudden large order?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "The response should cover: assessing current capacity utilization and identifying available capacity, evaluating options such as overtime, additional shifts, weekend production, temporarily redeploying workers from other lines, reducing changeover times, deferring lower-priority orders, outsourcing non-critical components, and running bottleneck equipment continuously. The candidate should also address material availability (expediting with suppliers), workforce readiness (training for additional shift workers), quality considerations (maintaining standards during ramp-up), cost implications (overtime premiums, expediting costs), and communication with the customer about realistic delivery timelines.",
+      "keywords": ["capacity increase", "overtime", "additional shifts", "outsourcing", "bottleneck", "material availability", "quality maintenance", "cost analysis"]
+    },
+    {
+      "question_text": "What is a production routing and what information does it contain?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "A production routing (also called a process routing or work order routing) is a document that defines the sequence of operations and work centers required to manufacture a product. It typically contains: operation numbers and sequence, work center or machine assignments for each operation, setup time and run time per unit, tooling requirements, quality inspection points, labor skill requirements, and any special instructions. Routings are essential for scheduling, capacity planning, costing, and shop floor execution. They work in conjunction with the BOM to define both what materials are needed and how the product is manufactured.",
+      "keywords": ["routing", "operations", "work center", "setup time", "run time", "sequence", "tooling", "capacity planning"]
+    },
+    {
+      "question_text": "Explain the concept of takt time and how it is used in production management.",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Takt time is the rate at which products need to be completed to meet customer demand. It is calculated by dividing the available production time by the customer demand rate for that period. For example, if available time is 480 minutes per shift and demand is 240 units per shift, takt time is 2 minutes per unit. Takt time is used to balance production lines by distributing work elements so each station's cycle time is at or below takt time. It provides a rhythm for production, helps identify over- or under-capacity situations, guides staffing decisions, and reveals bottlenecks where cycle time exceeds takt time. It is a fundamental concept in lean manufacturing for synchronizing production with demand.",
+      "keywords": ["takt time", "customer demand", "cycle time", "line balancing", "available time", "production rhythm", "bottleneck", "lean"]
+    },
+    {
+      "question_text": "Tell me about a time when you successfully reduced production costs without compromising quality.",
+      "question_type": "behavioral",
+      "difficulty": "medium",
+      "expected_answer": "A strong response should describe a specific initiative, such as reducing changeover times, improving material yield, optimizing batch sizes, reducing energy consumption, or renegotiating supplier contracts. The candidate should explain how they identified the cost reduction opportunity (data analysis, benchmarking, Kaizen event), the approach taken to implement the change, how they ensured quality was maintained or improved, the involvement of the production team, measurable results achieved (percentage cost reduction, dollar savings), and how the improvement was sustained over time.",
+      "keywords": ["cost reduction", "data analysis", "process improvement", "material yield", "changeover", "measurable results", "sustained improvement", "team involvement"]
+    },
+    {
+      "question_text": "What is the purpose of a Master Production Schedule (MPS) and how is it developed?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "The Master Production Schedule is a detailed plan that specifies the quantities and timing of specific finished goods to be produced over a defined planning horizon. It translates the aggregate production plan into specific product schedules. The MPS is developed by considering: customer orders and forecasts, current inventory levels, desired safety stock levels, production capacity constraints, and company policies on lot sizing and lead times. It serves as the primary input to MRP and drives detailed material and capacity planning. The MPS must be realistic, achievable, and regularly reviewed and adjusted through a process called master schedule management.",
+      "keywords": ["master production schedule", "planning horizon", "finished goods", "aggregate plan", "capacity constraints", "safety stock", "MRP input", "lot sizing"]
+    },
+    {
+      "question_text": "Your production line is consistently missing its daily output targets by 15%. How would you diagnose and resolve this issue?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "The diagnostic approach should include: collecting OEE data to identify whether the loss is from availability, performance, or quality, analyzing downtime logs and categorizing stoppage reasons, conducting time studies to compare actual cycle times with standards, reviewing changeover durations, interviewing operators about recurring issues, checking material quality and supply consistency, evaluating maintenance records for equipment reliability, and reviewing staffing levels and skills. Resolution steps should be prioritized based on the largest sources of loss, using tools like Pareto analysis, and should include both quick wins and longer-term structural improvements with clear accountability and tracking.",
+      "keywords": ["OEE analysis", "downtime logs", "time study", "cycle time", "Pareto analysis", "root cause", "changeover", "accountability"]
+    },
+    {
+      "question_text": "What are the advantages and disadvantages of batch production versus continuous flow production?",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "Batch production involves manufacturing products in defined quantities (batches) with changeovers between different products. Advantages include flexibility to produce different products, lower equipment investment, and ability to handle varying demand. Disadvantages include changeover time and costs, higher work-in-process inventory, longer lead times, and more complex scheduling. Continuous flow production involves products moving through the process without interruption. Advantages include lower per-unit costs, consistent quality, reduced work-in-process, shorter lead times, and simpler scheduling. Disadvantages include high initial investment, inflexibility for product changes, high impact of breakdowns, and requirement for stable, high-volume demand.",
+      "keywords": ["batch production", "continuous flow", "changeover", "flexibility", "work-in-process", "lead time", "investment", "volume"]
+    },
+    {
+      "question_text": "How do you prioritize competing production orders when capacity is constrained?",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "Prioritization should consider: customer delivery commitments and contractual penalties, order profitability and strategic customer importance, customer order versus forecast-driven demand, production sequence efficiency (minimizing changeovers), material availability and readiness, downstream resource availability, shelf life or perishability concerns, and work-in-process status (near-complete orders may warrant priority). The candidate should describe using formal scheduling rules (earliest due date, critical ratio, shortest processing time) or a combination approach, involving sales and operations planning discussions, communicating trade-offs transparently to stakeholders, and documenting prioritization decisions for accountability.",
+      "keywords": ["prioritization", "capacity constraint", "scheduling rules", "due date", "critical ratio", "stakeholder communication", "trade-offs", "S&OP"]
+    },
+    {
+      "question_text": "Explain the concept of Single Minute Exchange of Dies (SMED) and its benefits for production.",
+      "question_type": "technical",
+      "difficulty": "hard",
+      "expected_answer": "SMED is a methodology developed by Shigeo Shingo to reduce equipment changeover time to under 10 minutes (single-digit minutes). The process involves: 1) Observing and documenting the current changeover process, 2) Separating internal activities (must be done while machine is stopped) from external activities (can be done while machine is running), 3) Converting as many internal activities to external as possible, 4) Streamlining remaining internal activities through parallel operations, quick-release mechanisms, and standardization, and 5) Streamlining external activities. Benefits include reduced batch sizes enabling more frequent changeovers, lower inventory, improved flexibility to respond to demand changes, increased effective capacity, and better flow.",
+      "keywords": ["SMED", "changeover", "internal activities", "external activities", "Shigeo Shingo", "batch size", "flexibility", "quick changeover"]
+    },
+    {
+      "question_text": "Describe a time when you had to implement a significant change on the production floor. How did you manage resistance from workers?",
+      "question_type": "behavioral",
+      "difficulty": "hard",
+      "expected_answer": "A strong answer should include: clearly communicating the reasons for the change and its benefits, involving workers in the planning and implementation process, addressing concerns and fears openly, providing adequate training and support, identifying and working with change champions among the workforce, implementing the change in phases rather than all at once where possible, celebrating early wins and recognizing contributions, maintaining patience and persistence, and measuring and sharing results to build confidence. The response should demonstrate leadership, empathy, and practical change management skills.",
+      "keywords": ["change management", "resistance", "communication", "involvement", "training", "champions", "phased implementation", "leadership"]
+    },
+    {
+      "question_text": "What is capacity planning and what are the different levels at which it is performed?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Capacity planning is the process of determining the production capacity needed to meet changing demands for products. It is performed at three levels: 1) Resource Requirements Planning (RRP) at the strategic/long-term level, validating the production plan against rough capacity of key resources over months to years, 2) Rough-Cut Capacity Planning (RCCP) at the tactical/medium-term level, validating the MPS against capacity of critical work centers over weeks to months, and 3) Capacity Requirements Planning (CRP) at the operational/short-term level, calculating detailed capacity requirements for each work center based on planned and released orders from MRP. Each level provides increasingly detailed capacity analysis to support decisions about equipment purchases, workforce sizing, overtime, and subcontracting.",
+      "keywords": ["capacity planning", "resource requirements planning", "rough-cut", "CRP", "work centers", "strategic", "tactical", "operational"]
+    },
+    {
+      "question_text": "How do you ensure effective communication between the production floor and management?",
+      "question_type": "behavioral",
+      "difficulty": "easy",
+      "expected_answer": "Effective communication methods include: daily production meetings or stand-ups to review performance, issues, and priorities, visual management boards displaying KPIs, schedules, and quality data, shift handover procedures and logs to ensure continuity, regular Gemba walks by management to observe and engage on the floor, clear escalation procedures for problems, open-door policies encouraging bottom-up communication, standardized reporting formats and dashboards, and feedback mechanisms to close the loop on reported issues. The candidate should emphasize two-way communication, timeliness, transparency, and using both formal and informal channels.",
+      "keywords": ["daily meetings", "visual management", "shift handover", "Gemba walks", "escalation", "KPIs", "two-way communication", "transparency"]
+    },
+    {
+      "question_text": "You have been asked to set up a new production line for a product that will be launched in three months. Walk me through your approach.",
+      "question_type": "situational",
+      "difficulty": "hard",
+      "expected_answer": "The approach should include: reviewing product specifications and volume requirements, defining the process flow and operations sequence, determining equipment and tooling needs (purchase, modify, or repurpose existing), designing the line layout for optimal flow and ergonomics, calculating takt time and balancing workstations, establishing quality control points and inspection criteria, developing standard operating procedures, planning material flow and staging areas, determining staffing requirements and training programs, creating a project timeline with milestones, conducting trial runs and process validation, performing FMEA for the new process, developing the control plan, setting up performance metrics and tracking systems, and planning for a phased ramp-up to full production volume.",
+      "keywords": ["line setup", "process flow", "equipment", "layout", "takt time", "line balancing", "validation", "ramp-up", "standard procedures"]
+    },
+    {
+      "question_text": "What is the role of preventive maintenance in production management and how does it differ from predictive maintenance?",
+      "question_type": "domain_specific",
+      "difficulty": "medium",
+      "expected_answer": "Preventive maintenance (PM) involves performing scheduled maintenance activities at predetermined intervals (time-based or usage-based) to prevent equipment failures. It includes tasks like lubrication, filter changes, belt replacements, and inspections regardless of equipment condition. Predictive maintenance (PdM) uses condition monitoring techniques (vibration analysis, thermography, oil analysis, ultrasonic testing) to detect early signs of equipment deterioration and schedule maintenance only when needed. PM is simpler and cheaper to implement but may result in unnecessary maintenance or miss failures between intervals. PdM optimizes maintenance timing and reduces unnecessary interventions but requires more sophisticated monitoring equipment and expertise. Both are part of a comprehensive Total Productive Maintenance (TPM) strategy.",
+      "keywords": ["preventive maintenance", "predictive maintenance", "condition monitoring", "TPM", "vibration analysis", "thermography", "scheduled maintenance", "equipment reliability"]
+    },
+    {
+      "question_text": "Explain what a production work order is and what information it communicates to the shop floor.",
+      "question_type": "domain_specific",
+      "difficulty": "easy",
+      "expected_answer": "A production work order (also called a manufacturing order or shop order) is a document that authorizes the production of a specific quantity of a product. It communicates: the item to be produced and quantity, the BOM showing required materials and components, the routing with operation sequence and work centers, scheduled start and completion dates, material issue instructions, quality requirements and inspection points, special instructions or engineering notes, and priority level. Work orders flow through statuses from planned to released to in-process to completed, and they track actual labor, material consumption, and output against planned values. They are the primary execution document linking planning to shop floor activity.",
+      "keywords": ["work order", "manufacturing order", "BOM", "routing", "shop floor", "authorization", "scheduling", "tracking"]
+    },
+    {
+      "question_text": "How do you measure and improve labor productivity on the production floor?",
+      "question_type": "technical",
+      "difficulty": "medium",
+      "expected_answer": "Labor productivity is typically measured as output per labor hour, units produced per shift, or actual hours versus standard hours (labor efficiency). To improve it: conduct time and motion studies to establish accurate standards, identify and eliminate non-value-adding activities, improve workstation layout and ergonomics, provide proper tools and equipment, implement cross-training for workforce flexibility, use incentive programs tied to measurable targets, reduce waiting time through better scheduling and material availability, address absenteeism and turnover root causes, invest in operator training and skill development, and apply work standardization. Measurement should be transparent, fair, and focused on systemic improvements rather than individual blame.",
+      "keywords": ["labor productivity", "efficiency", "time study", "standards", "cross-training", "ergonomics", "work standardization", "non-value-adding"]
+    },
+    {
+      "question_text": "Two of your critical machines have both broken down simultaneously and you can only get one repaired quickly. How do you decide which to prioritize?",
+      "question_type": "situational",
+      "difficulty": "medium",
+      "expected_answer": "The decision should consider: which machine is the bottleneck (constraining overall throughput), which orders are most urgent based on customer delivery dates and contractual obligations, whether either machine can be substituted with alternative equipment, the estimated repair time for each machine, the financial impact of delayed production on each line, safety implications of running without either machine, whether work-in-process can be rerouted, and the cascading effect on downstream operations. The candidate should describe gathering information quickly, consulting with maintenance and production teams, making a data-informed decision, and communicating the plan to all affected parties.",
+      "keywords": ["prioritization", "bottleneck", "delivery dates", "repair time", "financial impact", "alternative equipment", "decision-making", "communication"]
+    },
+    {
+      "question_text": "What is Enterprise Resource Planning (ERP) and how does it support production management?",
+      "question_type": "technical",
+      "difficulty": "easy",
+      "expected_answer": "ERP is an integrated software system that manages all aspects of a business including manufacturing, finance, supply chain, human resources, and customer relationships in a single database. For production management, ERP supports: master production scheduling and MRP, work order creation and tracking, inventory management and material transactions, capacity planning and shop floor control, quality management and non-conformance tracking, cost tracking and variance analysis, real-time production reporting and dashboards, and integration with procurement and sales for end-to-end visibility. Popular manufacturing ERP systems include SAP, Oracle, Microsoft Dynamics, and Epicor. ERP provides the data foundation for informed production decisions and eliminates information silos.",
+      "keywords": ["ERP", "integrated system", "MRP", "work orders", "inventory", "real-time", "SAP", "visibility"]
+    }
+  ]
+}
