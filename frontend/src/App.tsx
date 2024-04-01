@@ -59,7 +59,6 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
-          <Route path="/candidates/register" element={<CandidateRegistrationPage />} />
           <Route path="/pricing" element={<PricingPage />} />
 
           {/* Protected routes with AppLayout */}
@@ -86,6 +85,14 @@ function App() {
             <Route path="/jobs/:id" element={<JobDetailPage />} />
 
             {/* Candidates */}
+            <Route
+              path="/candidates/register"
+              element={
+                <ProtectedRoute roles={['super_admin', 'hr_manager']}>
+                  <CandidateRegistrationPage />
+                </ProtectedRoute>
+              }
+            />
             <Route path="/candidates" element={<CandidateListPage />} />
             <Route path="/candidates/:id" element={<CandidateDetailPage />} />
 
