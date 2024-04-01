@@ -7,7 +7,9 @@ from pathlib import Path
 from sqlmodel import select
 
 from app.core.database import async_session
+from app.core.security import get_password_hash
 from app.models.domain import Domain, QuestionBank
+from app.models.user import User, UserRole
 
 
 SEED_DIR = Path(__file__).parent / "domain_data"
@@ -97,8 +99,29 @@ async def seed_domains():
         print(f"\nSeeding complete: {total_domains} domains, {total_questions} questions added.")
 
 
+async def seed_demo_user():
+    """Create the demo user if it doesn't exist."""
+    async with async_session() as session:
+        result = await session.execute(select(User).where(User.email == "demo@hireez.com"))
+        if result.scalar_one_or_none():
+            print("  [EXISTS] Demo user (demo@hireez.com)")
+            return
+
+        user = User(
+            email="demo@hireez.com",
+            hashed_password=get_password_hash("DemoPass123"),
+            full_name="Demo User",
+            role=UserRole.HR_MANAGER,
+            is_active=True,
+        )
+        session.add(user)
+        await session.commit()
+        print("  [ADDED] Demo user (demo@hireez.com) — role: hr_manager")
+
+
 def run():
     asyncio.run(seed_domains())
+    asyncio.run(seed_demo_user())
 
 
 if __name__ == "__main__":

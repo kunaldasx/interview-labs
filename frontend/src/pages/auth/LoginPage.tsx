@@ -10,8 +10,24 @@ export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [demoLoading, setDemoLoading] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
+
+  const handleDemoLogin = async () => {
+    setDemoLoading(true);
+    try {
+      const data = await authAPI.demoLogin();
+      login(data.access_token, data.user);
+      localStorage.setItem('refresh_token', data.refresh_token);
+      toast.success('Welcome to the demo!');
+      navigate('/dashboard');
+    } catch {
+      toast.error('Demo login failed. Please try again.');
+    } finally {
+      setDemoLoading(false);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -70,10 +86,38 @@ export default function LoginPage() {
             </Button>
           </form>
 
+          <div className="relative my-6">
+            <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-gray-200" /></div>
+            <div className="relative flex justify-center text-sm"><span className="px-3 bg-white text-gray-400">or</span></div>
+          </div>
+
+          <button
+            onClick={handleDemoLogin}
+            disabled={demoLoading}
+            className="w-full py-3 rounded-xl text-sm font-semibold border-2 border-primary-200 text-primary-600 hover:bg-primary-50 transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98] disabled:opacity-60 flex items-center justify-center gap-2"
+          >
+            {demoLoading ? (
+              <>
+                <svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                </svg>
+                Loading...
+              </>
+            ) : (
+              'Try Demo — No Sign Up Required'
+            )}
+          </button>
+
           <p className="text-center text-sm text-gray-500 mt-6">
             Don't have an account?{' '}
             <Link to="/register" className="text-primary-600 hover:text-primary-700 font-medium transition-colors">
               Register
+            </Link>
+          </p>
+          <p className="text-center text-sm text-gray-400 mt-2">
+            <Link to="/" className="hover:text-gray-600 transition-colors">
+              &larr; Back to Home
             </Link>
           </p>
         </div>

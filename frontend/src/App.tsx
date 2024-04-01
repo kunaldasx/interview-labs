@@ -5,7 +5,8 @@ import AppLayout from './components/layout/AppLayout';
 import ProtectedRoute from './components/layout/ProtectedRoute';
 import Spinner from './components/ui/Spinner';
 
-// Auth pages (public)
+// Public pages
+const HomePage = lazy(() => import('./pages/home/HomePage'));
 const LoginPage = lazy(() => import('./pages/auth/LoginPage'));
 const RegisterPage = lazy(() => import('./pages/auth/RegisterPage'));
 
@@ -55,6 +56,7 @@ function App() {
       <Suspense fallback={<LoadingFallback />}>
         <Routes>
           {/* Public routes */}
+          <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/candidates/register" element={<CandidateRegistrationPage />} />
@@ -125,9 +127,8 @@ function App() {
             <Route path="/notifications" element={<NotificationsPage />} />
           </Route>
 
-          {/* Default redirect */}
-          <Route path="/" element={<Navigate to="/dashboard" replace />} />
-          <Route path="*" element={<Navigate to="/dashboard" replace />} />
+          {/* Catch-all */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Suspense>
     </AuthProvider>
