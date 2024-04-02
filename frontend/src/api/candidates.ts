@@ -9,7 +9,7 @@ export const candidatesAPI = {
     apiClient.get<Candidate>(`/candidates/${id}`).then(r => r.data),
 
   create: (data: CandidateCreateRequest) =>
-    apiClient.post<Candidate>('/candidates', data).then(r => r.data),
+    apiClient.post<Candidate>('/candidates/', data).then(r => r.data),
 
   update: (id: number, data: Partial<CandidateCreateRequest>) =>
     apiClient.put<Candidate>(`/candidates/${id}`, data).then(r => r.data),
