@@ -9,7 +9,7 @@ export const interviewsAPI = {
     apiClient.get<InterviewDetail>(`/interviews/${id}`).then(r => r.data),
 
   create: (data: InterviewCreateRequest) =>
-    apiClient.post<Interview>('/interviews', data).then(r => r.data),
+    apiClient.post<Interview>('/interviews/', data).then(r => r.data),
 
   start: (id: number) =>
     apiClient.post(`/interviews/${id}/start`).then(r => r.data),

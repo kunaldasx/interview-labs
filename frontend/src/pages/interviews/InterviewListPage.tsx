@@ -2,12 +2,15 @@ import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Link, useSearchParams } from 'react-router-dom';
 import { interviewsAPI } from '../../api/interviews';
+import { useAuth } from '../../context/AuthContext';
 import Button from '../../components/ui/Button';
 import Badge from '../../components/ui/Badge';
 import Spinner from '../../components/ui/Spinner';
 import { formatDateTime } from '../../lib/formatters';
 
 export default function InterviewListPage() {
+  const { user } = useAuth();
+  const canSchedule = user?.role === 'super_admin' || user?.role === 'hr_manager';
   const [searchParams] = useSearchParams();
   const [page, setPage] = useState(1);
   const candidateId = searchParams.get('candidate_id');
@@ -32,9 +35,11 @@ export default function InterviewListPage() {
           <h1 className="text-2xl font-bold text-gray-900">Interviews</h1>
           <p className="text-sm text-gray-500 mt-1">View and manage scheduled interviews</p>
         </div>
-        <Link to="/interviews/schedule">
-          <Button>Schedule Interview</Button>
-        </Link>
+        {canSchedule && (
+          <Link to="/interviews/schedule">
+            <Button>Schedule Interview</Button>
+          </Link>
+        )}
       </div>
 
       <div className="bg-white rounded-xl border border-gray-200/80 overflow-hidden shadow-card">
