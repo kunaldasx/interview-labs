@@ -14,8 +14,10 @@ apiClient.interceptors.request.use((config) => {
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
-  // Ensure trailing slash to avoid 307 redirects that lose auth headers
-  if (config.url && !config.url.endsWith('/') && !config.url.includes('?')) {
+  // Add trailing slash on POST/PUT/PATCH to avoid 307 redirects that lose auth headers
+  // (FastAPI collection endpoints like @router.post("/") require trailing slash)
+  const method = config.method?.toLowerCase();
+  if (config.url && !config.url.endsWith('/') && (method === 'post' || method === 'put' || method === 'patch')) {
     config.url += '/';
   }
   return config;
