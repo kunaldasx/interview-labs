@@ -3,13 +3,13 @@ import type { Candidate, CandidateListResponse, CandidateCreateRequest } from '.
 
 export const candidatesAPI = {
   list: (params?: Record<string, any>) =>
-    apiClient.get<CandidateListResponse>('/candidates', { params }).then(r => r.data),
+    apiClient.get<CandidateListResponse>('/candidates/', { params }).then(r => r.data),
 
   get: (id: number) =>
     apiClient.get<Candidate>(`/candidates/${id}`).then(r => r.data),
 
   create: (data: CandidateCreateRequest) =>
-    apiClient.post<Candidate>('/candidates', data).then(r => r.data),
+    apiClient.post<Candidate>('/candidates/', data).then(r => r.data),
 
   update: (id: number, data: Partial<CandidateCreateRequest>) =>
     apiClient.put<Candidate>(`/candidates/${id}`, data).then(r => r.data),

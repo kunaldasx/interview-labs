@@ -3,13 +3,13 @@ import type { Interview, InterviewListResponse, InterviewCreateRequest, Intervie
 
 export const interviewsAPI = {
   list: (params?: Record<string, any>) =>
-    apiClient.get<InterviewListResponse>('/interviews', { params }).then(r => r.data),
+    apiClient.get<InterviewListResponse>('/interviews/', { params }).then(r => r.data),
 
   get: (id: number) =>
     apiClient.get<InterviewDetail>(`/interviews/${id}`).then(r => r.data),
 
   create: (data: InterviewCreateRequest) =>
-    apiClient.post<Interview>('/interviews', data).then(r => r.data),
+    apiClient.post<Interview>('/interviews/', data).then(r => r.data),
 
   start: (id: number) =>
     apiClient.post(`/interviews/${id}/start`).then(r => r.data),

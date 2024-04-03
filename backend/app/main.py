@@ -19,6 +19,7 @@ app = FastAPI(
     version="1.0.0",
     description="HireEz for Non-IT Industries",
     lifespan=lifespan,
+    redirect_slashes=False,
 )
 
 app.add_middleware(

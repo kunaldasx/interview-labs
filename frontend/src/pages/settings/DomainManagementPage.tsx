@@ -11,7 +11,7 @@ export default function DomainManagementPage() {
 
   const { data: domains, isLoading: domainsLoading } = useQuery({
     queryKey: ['domains'],
-    queryFn: () => apiClient.get('/domains').then(r => r.data),
+    queryFn: () => apiClient.get('/domains/').then(r => r.data),
   });
 
   const { data: questionCount } = useQuery({

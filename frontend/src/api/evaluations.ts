@@ -3,7 +3,7 @@ import type { Evaluation, HRDecisionRequest } from '../types/evaluation';
 
 export const evaluationsAPI = {
   evaluate: (interviewId: number) =>
-    apiClient.post<Evaluation>('/evaluations', { interview_id: interviewId }).then(r => r.data),
+    apiClient.post<Evaluation>('/evaluations/', { interview_id: interviewId }).then(r => r.data),
 
   get: (id: number) =>
     apiClient.get<Evaluation>(`/evaluations/${id}`).then(r => r.data),
