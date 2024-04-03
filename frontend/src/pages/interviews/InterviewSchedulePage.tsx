@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import { interviewsAPI } from '../../api/interviews';
+import { jobsAPI } from '../../api/jobs';
+import { candidatesAPI } from '../../api/candidates';
 import Button from '../../components/ui/Button';
 import Input from '../../components/ui/Input';
 import Card from '../../components/ui/Card';
@@ -16,6 +18,16 @@ export default function InterviewSchedulePage() {
     duration_limit_min: 30,
     language: 'en',
     scheduled_at: '',
+  });
+
+  const { data: jobsData } = useQuery({
+    queryKey: ['jobs', 'all'],
+    queryFn: () => jobsAPI.list({ page_size: 100 }),
+  });
+
+  const { data: candidatesData } = useQuery({
+    queryKey: ['candidates', 'all'],
+    queryFn: () => candidatesAPI.list({ page_size: 100 }),
   });
 
   const mutation = useMutation({
@@ -47,8 +59,39 @@ export default function InterviewSchedulePage() {
 
       <Card>
         <form onSubmit={handleSubmit} className="space-y-4">
-          <Input id="candidate_id" label="Candidate ID" type="number" value={form.candidate_id} onChange={(e) => setForm({ ...form, candidate_id: e.target.value })} required />
-          <Input id="job_id" label="Job ID" type="number" value={form.job_id} onChange={(e) => setForm({ ...form, job_id: e.target.value })} required />
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Candidate</label>
+            <select
+              value={form.candidate_id}
+              onChange={(e) => setForm({ ...form, candidate_id: e.target.value })}
+              className="block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              required
+            >
+              <option value="">Select a candidate</option>
+              {candidatesData?.items?.map((c) => (
+                <option key={c.id} value={c.id}>
+                  {c.full_name} — {c.email}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Job</label>
+            <select
+              value={form.job_id}
+              onChange={(e) => setForm({ ...form, job_id: e.target.value })}
+              className="block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              required
+            >
+              <option value="">Select a job</option>
+              {jobsData?.items?.map((j) => (
+                <option key={j.id} value={j.id}>
+                  {j.title} (ID: {j.id})
+                </option>
+              ))}
+            </select>
+          </div>
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Interview Type</label>
