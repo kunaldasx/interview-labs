@@ -1,7 +1,7 @@
 """Interview REST API endpoints."""
 from typing import Optional
 
-from fastapi import APIRouter, Depends, Query
+from fastapi import APIRouter, Depends, HTTPException, Query, UploadFile, File
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import func
 from sqlmodel import select
@@ -15,6 +15,7 @@ from app.schemas.interview import (
     InterviewListResponse, InterviewDetailResponse, ChatMessage, ChatResponse,
 )
 from app.services.interview_conductor_service import InterviewConductorService
+from app.utils.file_handler import save_upload
 
 router = APIRouter()
 
@@ -81,6 +82,7 @@ async def create_interview(
         candidate_id=data.candidate_id,
         job_id=data.job_id,
         interview_type=data.interview_type.value,
+        scheduled_at=data.scheduled_at,
         duration_limit_min=data.duration_limit_min,
         language=data.language,
         created_by=current_user.id,
@@ -121,3 +123,24 @@ async def end_interview(
     service = InterviewConductorService(db)
     interview = await service.end_interview(interview_id)
     return {"message": "Interview ended", "interview_id": interview_id}
+
+
+@router.post("/{interview_id}/recording")
+async def upload_recording(
+    interview_id: int,
+    file: UploadFile = File(...),
+    db: AsyncSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    result = await db.execute(select(Interview).where(Interview.id == interview_id))
+    interview = result.scalar_one_or_none()
+    if not interview:
+        raise HTTPException(status_code=404, detail="Interview not found")
+
+    file_path = await save_upload(file, subdir="recordings", max_size_mb=200)
+    interview.recording_url = file_path
+    db.add(interview)
+    await db.commit()
+    await db.refresh(interview)
+
+    return {"recording_url": interview.recording_url, "interview_id": interview_id}
