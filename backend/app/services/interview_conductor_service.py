@@ -2,8 +2,11 @@
 Manages real-time AI interview conversations with Redis session state.
 """
 import json
+import logging
 from datetime import datetime
 from typing import Optional, List
+
+logger = logging.getLogger(__name__)
 
 import redis.asyncio as aioredis
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -24,6 +27,9 @@ from app.ai.chains.interview_chain import (
     get_interview_closing,
 )
 from app.services.question_generator_service import QuestionGeneratorService
+from app.services.notification_service import NotificationService
+from app.models.notification import NotificationType, NotificationChannel
+from app.tasks.email_tasks import send_interview_invite
 
 
 class InterviewConductorService:
@@ -90,6 +96,47 @@ class InterviewConductorService:
         interview.total_questions = len(questions)
         self.db.add(interview)
         await self.db.flush()
+
+        # Send interview invite email and in-app notification
+        try:
+            # Fetch job title for the email
+            j_result = await self.db.execute(
+                select(JobDescription).where(JobDescription.id == job_id)
+            )
+            job = j_result.scalar_one_or_none()
+            job_title = job.title if job else "the position"
+
+            interview_link = f"{settings.FRONTEND_URL}/interviews/{interview.id}/room"
+
+            if interview.scheduled_at:
+                interview_date = interview.scheduled_at.strftime("%B %d, %Y at %I:%M %p")
+            else:
+                interview_date = "To be confirmed"
+
+            if candidate and candidate.email:
+                send_interview_invite.delay(
+                    candidate_email=candidate.email,
+                    candidate_name=candidate.full_name,
+                    job_title=job_title,
+                    interview_date=interview_date,
+                    interview_link=interview_link,
+                )
+
+            # Create in-app notification if candidate has a user account
+            if candidate and candidate.user_id:
+                notification_service = NotificationService(self.db)
+                await notification_service.create_notification(
+                    recipient_id=candidate.user_id,
+                    notification_type=NotificationType.INTERVIEW_INVITE,
+                    channel=NotificationChannel.IN_APP,
+                    subject=f"Interview Invitation - {job_title}",
+                    body=f"You have been invited to an interview for {job_title}. Date: {interview_date}.",
+                )
+        except Exception:
+            logger.warning(
+                f"Failed to send interview notification for interview {interview.id}",
+                exc_info=True,
+            )
 
         return interview
 
