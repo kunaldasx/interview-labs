@@ -31,6 +31,7 @@ def build_question_generation_prompt(
     experience_years: int,
     num_questions: int = 10,
     existing_questions: list = None,
+    candidate_resume: str = None,
 ) -> str:
     existing = ""
     if existing_questions:
@@ -38,17 +39,30 @@ def build_question_generation_prompt(
         for q in existing_questions:
             existing += f"- {q}\n"
 
+    resume_section = ""
+    if candidate_resume:
+        truncated = candidate_resume[:2000]
+        resume_section = f"""
+
+## Candidate Resume
+{truncated}
+
+Generate questions that probe the candidate's claimed experience and skills from their resume.
+Focus on verifying key claims, exploring depth of experience, and connecting resume content to the job requirements."""
+
     return f"""## Context
 **Domain:** {domain}
 **Sector:** {sector}
 **Job Title:** {job_title}
 **Job Description:** {job_description}
 **Candidate Experience:** {experience_years} years
+{resume_section}
 
 ## Requirements
 Generate {num_questions} unique interview questions for this role.
 - Mix of question types: technical (40%), behavioral (20%), situational (20%), domain-specific (20%)
 - Difficulty appropriate for {experience_years} years of experience
 - Industry-specific to {sector} / {domain}
+- If a candidate resume is provided, at least 30% of questions should reference their specific background
 {existing}
 Respond with the questions in JSON format."""

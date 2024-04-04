@@ -34,6 +34,7 @@ async def get_interview_response(
     candidate_response: str,
     questions_remaining: int,
     time_remaining_min: int,
+    candidate_resume: str = None,
 ) -> str:
     messages = build_interview_message_prompt(
         conversation_history=conversation_history,
@@ -41,6 +42,7 @@ async def get_interview_response(
         candidate_response=candidate_response,
         questions_remaining=questions_remaining,
         time_remaining_min=time_remaining_min,
+        candidate_resume=candidate_resume,
     )
     return await ai_client.chat_completion(
         messages=messages,
@@ -55,6 +57,7 @@ async def stream_interview_response(
     candidate_response: str,
     questions_remaining: int,
     time_remaining_min: int,
+    candidate_resume: str = None,
 ) -> AsyncGenerator[str, None]:
     messages = build_interview_message_prompt(
         conversation_history=conversation_history,
@@ -62,6 +65,7 @@ async def stream_interview_response(
         candidate_response=candidate_response,
         questions_remaining=questions_remaining,
         time_remaining_min=time_remaining_min,
+        candidate_resume=candidate_resume,
     )
     async for chunk in ai_client.chat_completion_stream(
         messages=messages,

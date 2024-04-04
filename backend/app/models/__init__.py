@@ -2,7 +2,7 @@ from app.models.user import User, UserRole
 from app.models.department import Department
 from app.models.domain import Domain, QuestionBank, QuestionType, DifficultyLevel
 from app.models.job import JobDescription, JobStatus
-from app.models.candidate import Candidate, CandidateStatus
+from app.models.candidate import Candidate, CandidateStatus, WorkExperience
 from app.models.resume_screening import ResumeScreening, ScreeningRecommendation
 from app.models.interview import (
     Interview, InterviewQuestion, InterviewAnswer, InterviewTranscript,
@@ -20,7 +20,7 @@ __all__ = [
     "Department",
     "Domain", "QuestionBank", "QuestionType", "DifficultyLevel",
     "JobDescription", "JobStatus",
-    "Candidate", "CandidateStatus",
+    "Candidate", "CandidateStatus", "WorkExperience",
     "ResumeScreening", "ScreeningRecommendation",
     "Interview", "InterviewQuestion", "InterviewAnswer", "InterviewTranscript",
     "InterviewType", "InterviewStatus", "AnswerMode", "SpeakerType", "MessageType",

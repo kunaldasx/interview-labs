@@ -18,6 +18,8 @@ export default function CandidateDetailPage() {
   if (isLoading) return <Spinner size="lg" className="py-20" />;
   if (!candidate) return <div className="text-center py-20 text-gray-500">Candidate not found</div>;
 
+  const skills = candidate.skills?.skills as string[] | undefined;
+
   return (
     <div className="max-w-3xl mx-auto space-y-6">
       <div>
@@ -28,7 +30,7 @@ export default function CandidateDetailPage() {
         </div>
       </div>
 
-      <Card title="Profile Information">
+      <Card title="Personal Information">
         <div className="grid grid-cols-2 gap-4">
           <div>
             <p className="text-sm font-medium text-gray-500">Email</p>
@@ -38,14 +40,30 @@ export default function CandidateDetailPage() {
             <p className="text-sm font-medium text-gray-500">Phone</p>
             <p className="text-sm text-gray-900">{candidate.phone || 'Not provided'}</p>
           </div>
-          <div>
-            <p className="text-sm font-medium text-gray-500">Experience</p>
-            <p className="text-sm text-gray-900">{candidate.experience_years ? `${candidate.experience_years} years` : 'Not specified'}</p>
-          </div>
-          <div>
-            <p className="text-sm font-medium text-gray-500">Education</p>
-            <p className="text-sm text-gray-900">{candidate.education || 'Not specified'}</p>
-          </div>
+          {candidate.address && (
+            <div className="col-span-2">
+              <p className="text-sm font-medium text-gray-500">Address</p>
+              <p className="text-sm text-gray-900">{candidate.address}</p>
+            </div>
+          )}
+          {candidate.date_of_birth && (
+            <div>
+              <p className="text-sm font-medium text-gray-500">Date of Birth</p>
+              <p className="text-sm text-gray-900">{candidate.date_of_birth}</p>
+            </div>
+          )}
+          {candidate.linkedin_url && (
+            <div>
+              <p className="text-sm font-medium text-gray-500">LinkedIn</p>
+              <a href={candidate.linkedin_url} target="_blank" rel="noopener noreferrer" className="text-sm text-indigo-600 hover:text-indigo-800 break-all">{candidate.linkedin_url}</a>
+            </div>
+          )}
+          {candidate.portfolio_url && (
+            <div>
+              <p className="text-sm font-medium text-gray-500">Portfolio</p>
+              <a href={candidate.portfolio_url} target="_blank" rel="noopener noreferrer" className="text-sm text-indigo-600 hover:text-indigo-800 break-all">{candidate.portfolio_url}</a>
+            </div>
+          )}
           <div>
             <p className="text-sm font-medium text-gray-500">Resume</p>
             <p className="text-sm text-gray-900">{candidate.resume_path ? 'Uploaded' : 'Not uploaded'}</p>
@@ -56,6 +74,63 @@ export default function CandidateDetailPage() {
           </div>
         </div>
       </Card>
+
+      <Card title="Professional Details">
+        <div className="space-y-4">
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <p className="text-sm font-medium text-gray-500">Experience</p>
+              <p className="text-sm text-gray-900">{candidate.experience_years ? `${candidate.experience_years} years` : 'Not specified'}</p>
+            </div>
+            <div>
+              <p className="text-sm font-medium text-gray-500">Education</p>
+              <p className="text-sm text-gray-900">{candidate.education || 'Not specified'}</p>
+            </div>
+          </div>
+
+          {skills && skills.length > 0 && (
+            <div>
+              <p className="text-sm font-medium text-gray-500 mb-2">Skills</p>
+              <div className="flex flex-wrap gap-2">
+                {skills.map((skill, idx) => (
+                  <span key={idx} className="px-2.5 py-1 rounded-full text-xs font-medium bg-indigo-50 text-indigo-700">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </Card>
+
+      {candidate.work_experiences && candidate.work_experiences.length > 0 && (
+        <Card title="Work Experience">
+          <div className="space-y-4">
+            {candidate.work_experiences.map((exp) => (
+              <div key={exp.id || exp.company_name} className="border-l-2 border-indigo-200 pl-4">
+                <div className="flex items-start justify-between">
+                  <div>
+                    <h3 className="font-medium text-gray-900">{exp.job_title}</h3>
+                    <p className="text-sm text-indigo-600">{exp.company_name}</p>
+                  </div>
+                  {exp.is_current && (
+                    <span className="text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded-full font-medium">Current</span>
+                  )}
+                </div>
+                <div className="mt-1 flex items-center gap-3 text-xs text-gray-500">
+                  {(exp.start_date || exp.end_date) && (
+                    <span>{exp.start_date}{exp.start_date && exp.end_date ? ' — ' : ''}{exp.end_date}</span>
+                  )}
+                  {exp.location && <span>{exp.location}</span>}
+                </div>
+                {exp.description && (
+                  <p className="mt-2 text-sm text-gray-600">{exp.description}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        </Card>
+      )}
 
       {candidate.resume_text && (
         <Card title="Resume Text">

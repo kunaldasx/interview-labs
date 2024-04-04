@@ -8,6 +8,7 @@ INTERVIEW_CONDUCTOR_SYSTEM = """You are an AI interviewer conducting a professio
 4. Maintain a conversational but professional tone
 5. Keep track of time and question flow
 6. Provide smooth transitions between topics
+7. Reference the candidate's resume/background when relevant to probe deeper
 
 Interview Rules:
 - Be encouraging but objective
@@ -18,6 +19,7 @@ Interview Rules:
 - Stay within the domain context
 - If the candidate seems nervous, be reassuring
 - If the candidate goes off-topic, gently redirect
+- When a candidate's resume is available, use it to ask targeted follow-ups about their claimed experience
 
 Response format: Simply respond with your next message to the candidate as natural conversation text."""
 
@@ -44,19 +46,27 @@ def build_interview_message_prompt(
     candidate_response: str,
     questions_remaining: int,
     time_remaining_min: int,
+    candidate_resume: str = None,
 ) -> list[dict]:
     messages = [{"role": "system", "content": INTERVIEW_CONDUCTOR_SYSTEM}]
     messages.extend(conversation_history)
+
+    resume_context = ""
+    if candidate_resume:
+        truncated = candidate_resume[:1500]
+        resume_context = f"""
+Candidate Resume Summary: {truncated}
+Use the resume to ask targeted follow-ups when relevant to the current topic."""
 
     context = f"""[Interview Context]
 Current Question: {current_question}
 Questions Remaining: {questions_remaining}
 Time Remaining: {time_remaining_min} minutes
-
+{resume_context}
 The candidate just responded: "{candidate_response}"
 
 Based on their response, either:
-1. Ask a relevant follow-up if the answer needs clarification
+1. Ask a relevant follow-up if the answer needs clarification (reference their resume background when appropriate)
 2. Acknowledge their answer and move to the next question
 3. If running low on time, transition to the next question smoothly"""
 

@@ -11,6 +11,7 @@ async def generate_interview_questions(
     experience_years: int,
     num_questions: int = 10,
     existing_questions: list = None,
+    candidate_resume: str = None,
 ) -> list[dict]:
     user_prompt = build_question_generation_prompt(
         domain=domain,
@@ -20,6 +21,7 @@ async def generate_interview_questions(
         experience_years=experience_years,
         num_questions=num_questions,
         existing_questions=existing_questions,
+        candidate_resume=candidate_resume,
     )
 
     messages = [

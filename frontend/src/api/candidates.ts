@@ -1,5 +1,5 @@
 import apiClient from './client';
-import type { Candidate, CandidateListResponse, CandidateCreateRequest } from '../types/candidate';
+import type { Candidate, CandidateListResponse, CandidateCreateRequest, ResumeParseResponse } from '../types/candidate';
 
 export const candidatesAPI = {
   list: (params?: Record<string, any>) =>
@@ -18,6 +18,14 @@ export const candidatesAPI = {
     const formData = new FormData();
     formData.append('file', file);
     return apiClient.post<Candidate>(`/candidates/${id}/resume`, formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    }).then(r => r.data);
+  },
+
+  parseResume: (file: File) => {
+    const formData = new FormData();
+    formData.append('file', file);
+    return apiClient.post<ResumeParseResponse>('/resume/parse', formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
     }).then(r => r.data);
   },

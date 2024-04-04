@@ -75,9 +75,16 @@ class InterviewConductorService:
         await self.db.flush()
         await self.db.refresh(interview)
 
+        # Fetch candidate resume for question generation
+        c_result = await self.db.execute(select(Candidate).where(Candidate.id == candidate_id))
+        candidate = c_result.scalar_one_or_none()
+        resume_text = candidate.resume_text if candidate else None
+
         # Generate questions
         qg_service = QuestionGeneratorService(self.db)
-        questions_data = await qg_service.generate_for_job(job_id, num_questions=10)
+        questions_data = await qg_service.generate_for_job(
+            job_id, num_questions=10, candidate_resume=resume_text
+        )
         questions = await qg_service.save_generated_questions(interview.id, questions_data)
 
         interview.total_questions = len(questions)
@@ -140,6 +147,7 @@ class InterviewConductorService:
             ],
             "started_at": datetime.utcnow().isoformat(),
             "sequence_counter": 2,
+            "candidate_resume": (candidate.resume_text[:2000] if candidate and candidate.resume_text else None),
         }
         await self._save_session(interview_id, session)
 
@@ -229,12 +237,14 @@ class InterviewConductorService:
             }
 
         # Get AI response
+        candidate_resume = session.get("candidate_resume")
         ai_response = await get_interview_response(
             conversation_history=history,
             current_question=current_question,
             candidate_response=candidate_message,
             questions_remaining=questions_remaining,
             time_remaining_min=int(time_remaining),
+            candidate_resume=candidate_resume,
         )
 
         # Save AI response transcript

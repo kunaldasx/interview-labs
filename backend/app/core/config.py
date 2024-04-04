@@ -24,6 +24,7 @@ class Settings(BaseSettings):
 
     # OpenAI
     OPENAI_API_KEY: str = "sk-placeholder"
+    OPENAI_MODEL: str = "gpt-4o"
 
     # CORS
     CORS_ORIGINS: str = "http://localhost:3000,http://localhost:5173"

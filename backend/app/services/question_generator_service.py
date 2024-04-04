@@ -45,6 +45,7 @@ class QuestionGeneratorService:
         self,
         job_id: int,
         num_questions: int = 10,
+        candidate_resume: Optional[str] = None,
     ) -> List[dict]:
         result = await self.db.execute(select(JobDescription).where(JobDescription.id == job_id))
         job = result.scalar_one_or_none()
@@ -79,10 +80,13 @@ class QuestionGeneratorService:
                 experience_years=job.experience_min,
                 num_questions=num_questions,
                 existing_questions=existing,
+                candidate_resume=candidate_resume,
             )
             return questions
         except Exception as e:
             logger.warning("AI question generation failed, using question bank: %s", e)
+            if candidate_resume:
+                logger.info("Resume was provided but AI generation failed; falling back to question bank")
             return await self._fallback_from_question_bank(job.domain_id, num_questions)
 
     async def generate_for_domain(

@@ -49,8 +49,25 @@ def extract_text_from_docx(file_path: str) -> str:
     try:
         from docx import Document
         doc = Document(file_path)
-        text = "\n".join(para.text for para in doc.paragraphs)
-        return text.strip()
+        parts = []
+
+        # Extract paragraph text
+        for para in doc.paragraphs:
+            if para.text.strip():
+                parts.append(para.text.strip())
+
+        # Extract table text (many resumes use tables for layout)
+        for table in doc.tables:
+            for row in table.rows:
+                row_text = []
+                for cell in row.cells:
+                    cell_text = cell.text.strip()
+                    if cell_text:
+                        row_text.append(cell_text)
+                if row_text:
+                    parts.append(" | ".join(row_text))
+
+        return "\n".join(parts).strip()
     except Exception:
         return ""
 
