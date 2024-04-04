@@ -1,7 +1,10 @@
 """Question generation service."""
+import logging
+import random
 from typing import List, Optional
 
 from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy import func
 from sqlmodel import select
 
 from app.core.exceptions import NotFoundException
@@ -10,10 +13,33 @@ from app.models.job import JobDescription
 from app.models.interview import InterviewQuestion
 from app.ai.chains.question_chain import generate_interview_questions
 
+logger = logging.getLogger(__name__)
+
 
 class QuestionGeneratorService:
     def __init__(self, db: AsyncSession):
         self.db = db
+
+    async def _fallback_from_question_bank(
+        self, domain_id: Optional[int], num_questions: int
+    ) -> List[dict]:
+        """Pick random pre-seeded questions from the question bank."""
+        query = select(QuestionBank).where(QuestionBank.is_active == True)
+        if domain_id:
+            query = query.where(QuestionBank.domain_id == domain_id)
+        query = query.order_by(func.random()).limit(num_questions)
+        result = await self.db.execute(query)
+        rows = result.scalars().all()
+        return [
+            {
+                "question_text": q.question_text,
+                "question_type": q.question_type.value if q.question_type else "technical",
+                "difficulty": q.difficulty.value if q.difficulty else "medium",
+                "expected_answer": q.expected_answer,
+                "keywords": q.keywords.get("keywords", []) if q.keywords else [],
+            }
+            for q in rows
+        ]
 
     async def generate_for_job(
         self,
@@ -34,27 +60,30 @@ class QuestionGeneratorService:
                 domain_name = domain.name
                 sector_name = domain.sector
 
-        # Get existing questions from question bank to avoid duplicates
-        existing = []
-        if job.domain_id:
-            result = await self.db.execute(
-                select(QuestionBank.question_text)
-                .where(QuestionBank.domain_id == job.domain_id)
-                .limit(50)
+        # Try AI generation first, fall back to question bank
+        try:
+            existing = []
+            if job.domain_id:
+                result = await self.db.execute(
+                    select(QuestionBank.question_text)
+                    .where(QuestionBank.domain_id == job.domain_id)
+                    .limit(50)
+                )
+                existing = [row[0] for row in result.all()]
+
+            questions = await generate_interview_questions(
+                domain=domain_name,
+                sector=sector_name,
+                job_title=job.title,
+                job_description=job.description,
+                experience_years=job.experience_min,
+                num_questions=num_questions,
+                existing_questions=existing,
             )
-            existing = [row[0] for row in result.all()]
-
-        questions = await generate_interview_questions(
-            domain=domain_name,
-            sector=sector_name,
-            job_title=job.title,
-            job_description=job.description,
-            experience_years=job.experience_min,
-            num_questions=num_questions,
-            existing_questions=existing,
-        )
-
-        return questions
+            return questions
+        except Exception as e:
+            logger.warning("AI question generation failed, using question bank: %s", e)
+            return await self._fallback_from_question_bank(job.domain_id, num_questions)
 
     async def generate_for_domain(
         self,
