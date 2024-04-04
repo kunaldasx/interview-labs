@@ -17,7 +17,7 @@ export default function InterviewListPage() {
   const jobId = searchParams.get('job_id');
 
   const { data, isLoading } = useQuery({
-    queryKey: ['interviews', page, candidateId, jobId],
+    queryKey: ['interviews', page, candidateId, jobId, user?.id],
     queryFn: () => interviewsAPI.list({
       page,
       page_size: 20,
@@ -65,10 +65,10 @@ export default function InterviewListPage() {
                 <td className="px-6 py-4 text-sm text-gray-500">{interview.duration_limit_min} min</td>
                 <td className="px-6 py-4 text-sm text-gray-500">{interview.questions_asked}/{interview.total_questions}</td>
                 <td className="px-6 py-4 text-right space-x-2">
-                  {interview.status === 'scheduled' && (
+                  {user?.role === 'candidate' && interview.status === 'scheduled' && (
                     <Link to={`/interviews/${interview.id}/room`} className="text-sm text-green-600 hover:text-green-800 transition-colors">Start</Link>
                   )}
-                  {interview.status === 'in_progress' && (
+                  {user?.role === 'candidate' && interview.status === 'in_progress' && (
                     <Link to={`/interviews/${interview.id}/room`} className="text-sm text-blue-600 hover:text-blue-800 transition-colors">Continue</Link>
                   )}
                   <Link to={`/interviews/${interview.id}`} className="text-sm text-primary-600 hover:text-primary-800 transition-colors">View</Link>

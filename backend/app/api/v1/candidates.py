@@ -4,6 +4,8 @@ from typing import Optional
 from fastapi import APIRouter, Depends, Query, UploadFile, File
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from sqlmodel import select
+
 from app.core.dependencies import get_db, get_current_user, require_role
 from app.models.user import User
 from app.models.candidate import CandidateStatus
@@ -44,8 +46,12 @@ async def create_candidate(
     db: AsyncSession = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
+    # Link to the candidate's own user account if one exists, otherwise null
+    result = await db.execute(select(User).where(User.email == data.email))
+    candidate_user = result.scalar_one_or_none()
+    linked_user_id = candidate_user.id if candidate_user else None
     service = CandidateService(db)
-    return await service.create(data, user_id=current_user.id)
+    return await service.create(data, user_id=linked_user_id)
 
 
 @router.put("/{candidate_id}", response_model=CandidateResponse)

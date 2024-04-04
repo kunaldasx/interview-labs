@@ -8,6 +8,7 @@ from sqlmodel import select
 
 from app.core.dependencies import get_db, get_current_user, require_role
 from app.models.user import User
+from app.models.candidate import Candidate
 from app.models.interview import Interview, InterviewStatus
 from app.schemas.interview import (
     InterviewCreate, InterviewUpdate, InterviewResponse,
@@ -26,9 +27,25 @@ async def list_interviews(
     page: int = Query(1, ge=1),
     page_size: int = Query(20, ge=1, le=100),
     db: AsyncSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
 ):
     query = select(Interview)
     count_query = select(func.count(Interview.id))
+
+    # Candidates can only see their own interviews
+    if current_user.role == "candidate":
+        # Match by user_id first, fallback to email
+        result = await db.execute(
+            select(Candidate).where(
+                (Candidate.user_id == current_user.id) | (Candidate.email == current_user.email)
+            )
+        )
+        candidate_records = result.scalars().all()
+        if not candidate_records:
+            return {"items": [], "total": 0, "page": page, "page_size": page_size}
+        candidate_ids = [c.id for c in candidate_records]
+        query = query.where(Interview.candidate_id.in_(candidate_ids))
+        count_query = count_query.where(Interview.candidate_id.in_(candidate_ids))
 
     if status:
         query = query.where(Interview.status == status)

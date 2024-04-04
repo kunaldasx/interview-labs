@@ -34,6 +34,9 @@ const EvaluationDetailPage = lazy(() => import('./pages/evaluations/EvaluationDe
 // Reports
 const ReportsPage = lazy(() => import('./pages/reports/ReportsPage'));
 
+// Users
+const UserManagementPage = lazy(() => import('./pages/users/UserManagementPage'));
+
 // Settings
 const SettingsPage = lazy(() => import('./pages/settings/SettingsPage'));
 const DomainManagementPage = lazy(() => import('./pages/settings/DomainManagementPage'));
@@ -70,7 +73,11 @@ function App() {
             }
           >
             {/* Dashboard */}
-            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/dashboard" element={
+              <ProtectedRoute roles={['super_admin', 'hr_manager', 'interviewer']}>
+                <DashboardPage />
+              </ProtectedRoute>
+            } />
 
             {/* Jobs */}
             <Route path="/jobs" element={<JobListPage />} />
@@ -107,6 +114,13 @@ function App() {
               }
             />
             <Route path="/interviews/:id" element={<InterviewRoomPage />} />
+
+            {/* Users */}
+            <Route path="/users" element={
+              <ProtectedRoute roles={['super_admin', 'hr_manager']}>
+                <UserManagementPage />
+              </ProtectedRoute>
+            } />
 
             {/* Evaluations */}
             <Route path="/evaluations/:id" element={<EvaluationDetailPage />} />

@@ -21,7 +21,8 @@ export default function LoginPage() {
       login(data.access_token, data.user);
       localStorage.setItem('refresh_token', data.refresh_token);
       toast.success('Welcome to the demo!');
-      navigate('/dashboard');
+      const dest = data.user.role === 'candidate' ? '/interviews' : '/dashboard';
+      navigate(dest);
     } catch (err: any) {
       toast.error(err.response?.data?.detail || 'Demo login failed. Please try again.');
     } finally {
@@ -37,7 +38,8 @@ export default function LoginPage() {
       login(data.access_token, data.user);
       localStorage.setItem('refresh_token', data.refresh_token);
       toast.success('Welcome back!');
-      navigate('/dashboard');
+      const dest = data.user.role === 'candidate' ? '/interviews' : '/dashboard';
+      navigate(dest);
     } catch (err: any) {
       toast.error(err.response?.data?.detail || 'Login failed');
     } finally {
