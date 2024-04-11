@@ -23,12 +23,12 @@ export default function ConversationDisplay({
   }, [messages, interimTranscript, isCapturing, isLoading]);
 
   return (
-    <div className="flex flex-col h-full bg-white rounded-xl border border-gray-200">
-      <div className="px-4 py-3 border-b border-gray-200">
+    <div className="flex flex-col h-full bg-white/[0.05] rounded-xl border border-white/[0.08]">
+      <div className="px-4 py-3 border-b border-white/[0.06]">
         <div className="flex items-center justify-between">
-          <h3 className="font-semibold text-gray-900">Conversation</h3>
+          <h3 className="font-semibold text-white">Conversation</h3>
           <span className={`inline-flex items-center gap-1.5 text-xs ${isConnected ? 'text-green-600' : 'text-gray-400'}`}>
-            <span className={`w-2 h-2 rounded-full ${isConnected ? 'bg-green-500' : 'bg-gray-300'}`} />
+            <span className={`w-2 h-2 rounded-full ${isConnected ? 'bg-green-500' : 'bg-gray-600'}`} />
             {isConnected ? 'Connected' : 'Disconnected'}
           </span>
         </div>
@@ -43,9 +43,9 @@ export default function ConversationDisplay({
               <div
                 className={`max-w-[85%] rounded-lg px-4 py-2.5 text-sm ${
                   isAI
-                    ? 'bg-gray-100 text-gray-900'
+                    ? 'bg-white/[0.08] text-gray-200'
                     : isError
-                    ? 'bg-red-100 text-red-800'
+                    ? 'bg-red-500/15 text-red-400'
                     : 'bg-indigo-600 text-white'
                 }`}
               >
@@ -58,7 +58,7 @@ export default function ConversationDisplay({
         {/* Live preview while recording (browser speech API for visual feedback) */}
         {isCapturing && (
           <div className="flex justify-end">
-            <div className="max-w-[85%] rounded-lg px-4 py-2.5 text-sm bg-indigo-100 text-indigo-700">
+            <div className="max-w-[85%] rounded-lg px-4 py-2.5 text-sm bg-indigo-500/15 text-indigo-400">
               <div className="flex items-center gap-1.5">
                 <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
                 <span className="text-xs font-medium text-red-600">Recording...</span>
@@ -72,7 +72,7 @@ export default function ConversationDisplay({
 
         {isLoading && !isCapturing && (
           <div className="flex justify-start">
-            <div className="bg-gray-100 rounded-lg px-4 py-2.5">
+            <div className="bg-white/[0.08] rounded-lg px-4 py-2.5">
               <div className="flex space-x-1">
                 <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" />
                 <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }} />
@@ -85,7 +85,7 @@ export default function ConversationDisplay({
         <div ref={endRef} />
       </div>
 
-      <div className="px-4 py-3 border-t border-gray-200">
+      <div className="px-4 py-3 border-t border-white/[0.06]">
         <p className="text-xs text-gray-400 text-center">
           Click <strong>Start Speaking</strong> to record your answer, then <strong>Stop &amp; Send</strong> when done
         </p>

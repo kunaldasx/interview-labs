@@ -28,16 +28,16 @@ export default function ScoreRadarChart({ scores }: ScoreRadarChartProps) {
             <stop offset="100%" stopColor="#818CF8" stopOpacity={0.1} />
           </linearGradient>
         </defs>
-        <PolarGrid stroke="#E5E7EB" />
-        <PolarAngleAxis dataKey="subject" tick={{ fontSize: 12, fill: '#6B7280' }} />
-        <PolarRadiusAxis domain={[0, 10]} tick={{ fontSize: 10, fill: '#9CA3AF' }} />
+        <PolarGrid stroke="rgba(255,255,255,0.08)" />
+        <PolarAngleAxis dataKey="subject" tick={{ fontSize: 12, fill: '#888' }} />
+        <PolarRadiusAxis domain={[0, 10]} tick={{ fontSize: 10, fill: '#666' }} />
         <Radar
           name="Score"
           dataKey="score"
           stroke="#4F46E5"
           strokeWidth={2}
           fill="url(#radarGradient)"
-          dot={{ r: 4, fill: '#4F46E5', strokeWidth: 2, stroke: '#fff' }}
+          dot={{ r: 4, fill: '#4F46E5', strokeWidth: 2, stroke: '#0a0a0f' }}
         />
       </RadarChart>
     </ResponsiveContainer>

@@ -55,16 +55,16 @@ export default function InterviewSchedulePage() {
 
   return (
     <div className="max-w-2xl mx-auto space-y-6">
-      <h1 className="text-2xl font-bold text-gray-900">Schedule Interview</h1>
+      <h1 className="text-2xl font-bold text-white">Schedule Interview</h1>
 
       <Card>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Candidate</label>
+            <label className="block text-sm font-medium text-gray-400 mb-1">Candidate</label>
             <select
               value={form.candidate_id}
               onChange={(e) => setForm({ ...form, candidate_id: e.target.value })}
-              className="block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="block w-full rounded-lg border border-white/[0.1] bg-white/[0.05] text-gray-100 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
               required
             >
               <option value="">Select a candidate</option>
@@ -77,11 +77,11 @@ export default function InterviewSchedulePage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Job</label>
+            <label className="block text-sm font-medium text-gray-400 mb-1">Job</label>
             <select
               value={form.job_id}
               onChange={(e) => setForm({ ...form, job_id: e.target.value })}
-              className="block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="block w-full rounded-lg border border-white/[0.1] bg-white/[0.05] text-gray-100 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
               required
             >
               <option value="">Select a job</option>
@@ -94,11 +94,11 @@ export default function InterviewSchedulePage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Interview Type</label>
+            <label className="block text-sm font-medium text-gray-400 mb-1">Interview Type</label>
             <select
               value={form.interview_type}
               onChange={(e) => setForm({ ...form, interview_type: e.target.value })}
-              className="block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="block w-full rounded-lg border border-white/[0.1] bg-white/[0.05] text-gray-100 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
             >
               <option value="ai_chat">AI Chat</option>
               <option value="ai_voice">AI Voice</option>

@@ -166,7 +166,7 @@ export default function InterviewRoomPage() {
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-3">
-          <h1 className="text-xl font-bold text-gray-900">Interview Room #{interview.id}</h1>
+          <h1 className="text-xl font-bold text-white">Interview Room #{interview.id}</h1>
           <Badge status={isComplete ? 'completed' : isStarted ? 'in_progress' : interview.status} />
           {isRecording && (
             <span className="flex items-center gap-1.5 text-xs text-red-600">
@@ -203,9 +203,9 @@ export default function InterviewRoomPage() {
       <div className="flex-1 grid grid-cols-1 lg:grid-cols-5 gap-4 min-h-0">
         {/* Left: Video Panel */}
         <div className="lg:col-span-3 min-h-0">
-          <div className="h-full bg-white rounded-xl border border-gray-200 p-4 flex flex-col">
+          <div className="h-full bg-white/[0.05] rounded-xl border border-white/[0.08] p-4 flex flex-col">
             <div className="flex items-center justify-between mb-3">
-              <h3 className="font-semibold text-gray-900">Camera</h3>
+              <h3 className="font-semibold text-white">Camera</h3>
               <div className="flex items-center gap-3">
                 {isListening && (
                   <span className="flex items-center gap-1.5 text-xs text-green-600">
@@ -272,7 +272,7 @@ export default function InterviewRoomPage() {
                   <button
                     onClick={handleStartSpeaking}
                     disabled={isBusy || isSpeaking}
-                    className="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white rounded-full text-sm font-medium transition-colors shadow-lg"
+                    className="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 disabled:bg-gray-700 disabled:cursor-not-allowed text-white rounded-full text-sm font-medium transition-colors shadow-lg"
                   >
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z" />
@@ -317,24 +317,24 @@ export default function InterviewRoomPage() {
             />
           </div>
 
-          <div className="bg-white rounded-xl border border-gray-200 p-4 flex-shrink-0">
-            <h3 className="font-semibold text-gray-900 mb-3">Interview Info</h3>
+          <div className="bg-white/[0.05] rounded-xl border border-white/[0.08] p-4 flex-shrink-0">
+            <h3 className="font-semibold text-white mb-3">Interview Info</h3>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
-                <span className="text-gray-500">Type</span>
-                <span className="text-gray-900 capitalize">{interview.interview_type.replace('_', ' ')}</span>
+                <span className="text-gray-400">Type</span>
+                <span className="text-white capitalize">{interview.interview_type.replace('_', ' ')}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-500">Duration</span>
-                <span className="text-gray-900">{interview.duration_limit_min} min</span>
+                <span className="text-gray-400">Duration</span>
+                <span className="text-white">{interview.duration_limit_min} min</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-500">Questions</span>
-                <span className="text-gray-900">{interview.total_questions}</span>
+                <span className="text-gray-400">Questions</span>
+                <span className="text-white">{interview.total_questions}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-500">Language</span>
-                <span className="text-gray-900 uppercase">{interview.language}</span>
+                <span className="text-gray-400">Language</span>
+                <span className="text-white uppercase">{interview.language}</span>
               </div>
             </div>
           </div>

@@ -36,8 +36,8 @@ export default function NotificationsPage() {
         {data?.items?.map((notification: any) => (
           <div
             key={notification.id}
-            className={`bg-white rounded-lg border p-4 ${
-              notification.read_at ? 'border-gray-200' : 'border-indigo-200 bg-indigo-50'
+            className={`bg-white/[0.05] rounded-lg border p-4 ${
+              notification.read_at ? 'border-white/[0.06]' : 'border-indigo-500/30 bg-indigo-500/10'
             }`}
           >
             <div className="flex items-start justify-between">
@@ -47,9 +47,9 @@ export default function NotificationsPage() {
                   <Badge status={notification.status} />
                 </div>
                 {notification.subject && (
-                  <p className="text-sm font-medium text-gray-900">{notification.subject}</p>
+                  <p className="text-sm font-medium text-white">{notification.subject}</p>
                 )}
-                <p className="text-sm text-gray-600 mt-1">{notification.body}</p>
+                <p className="text-sm text-gray-400 mt-1">{notification.body}</p>
                 <p className="text-xs text-gray-400 mt-2">{formatDateTime(notification.created_at)}</p>
               </div>
               {!notification.read_at && (

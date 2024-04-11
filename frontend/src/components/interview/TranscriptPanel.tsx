@@ -7,9 +7,9 @@ interface TranscriptPanelProps {
 
 export default function TranscriptPanel({ transcripts }: TranscriptPanelProps) {
   return (
-    <div className="bg-white rounded-xl border border-gray-200">
-      <div className="px-4 py-3 border-b border-gray-200">
-        <h3 className="font-semibold text-gray-900">Transcript</h3>
+    <div className="bg-white/[0.05] rounded-xl border border-white/[0.08]">
+      <div className="px-4 py-3 border-b border-white/[0.06]">
+        <h3 className="font-semibold text-white">Transcript</h3>
       </div>
       <div className="p-4 max-h-96 overflow-y-auto space-y-3">
         {transcripts.length === 0 ? (
@@ -18,7 +18,7 @@ export default function TranscriptPanel({ transcripts }: TranscriptPanelProps) {
           transcripts.map((entry) => (
             <div key={entry.id} className="flex gap-3">
               <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
-                entry.speaker === 'ai' ? 'bg-indigo-100 text-indigo-600' : 'bg-green-100 text-green-600'
+                entry.speaker === 'ai' ? 'bg-indigo-500/20 text-indigo-400' : 'bg-green-500/20 text-green-400'
               }`}>
                 <span className="text-xs font-medium">
                   {entry.speaker === 'ai' ? 'AI' : 'C'}
@@ -29,7 +29,7 @@ export default function TranscriptPanel({ transcripts }: TranscriptPanelProps) {
                   <span className="text-xs font-medium text-gray-500 capitalize">{entry.speaker}</span>
                   <span className="text-xs text-gray-400">{formatDateTime(entry.timestamp)}</span>
                 </div>
-                <p className="text-sm text-gray-700 mt-0.5">{entry.content}</p>
+                <p className="text-sm text-gray-300 mt-0.5">{entry.content}</p>
               </div>
             </div>
           ))

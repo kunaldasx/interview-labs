@@ -27,7 +27,7 @@ export default function InterviewTimer({ durationMin, startedAt, isActive }: Int
 
   return (
     <div className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-mono font-medium ${
-      isLow ? 'bg-red-100 text-red-700' : 'bg-gray-100 text-gray-700'
+      isLow ? 'bg-red-500/15 text-red-400' : 'bg-white/[0.08] text-gray-300'
     }`}>
       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />

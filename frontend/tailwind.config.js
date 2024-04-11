@@ -20,6 +20,12 @@ export default {
           900: '#312e81',
           950: '#1e1b4b',
         },
+        surface: {
+          900: '#0a0a0f',
+          800: '#12121a',
+          700: '#1a1a2e',
+          600: '#252540',
+        },
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out',
@@ -59,8 +65,12 @@ export default {
       boxShadow: {
         'glow': '0 0 20px rgba(99, 102, 241, 0.3)',
         'glow-lg': '0 0 40px rgba(99, 102, 241, 0.2)',
-        'card': '0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06)',
-        'card-hover': '0 10px 25px rgba(0, 0, 0, 0.08), 0 4px 10px rgba(0, 0, 0, 0.04)',
+        'glow-blue': '0 0 20px rgba(59,130,246,0.15)',
+        'glow-emerald': '0 0 20px rgba(16,185,129,0.15)',
+        'glow-purple': '0 0 20px rgba(139,92,246,0.15)',
+        'glow-amber': '0 0 20px rgba(245,158,11,0.15)',
+        'card': '0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.16)',
+        'card-hover': '0 10px 25px rgba(0, 0, 0, 0.3), 0 4px 10px rgba(0, 0, 0, 0.2)',
       },
     },
   },

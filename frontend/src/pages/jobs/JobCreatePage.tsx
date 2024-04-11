@@ -38,30 +38,30 @@ export default function JobCreatePage() {
 
   return (
     <div className="max-w-2xl mx-auto space-y-6">
-      <h1 className="text-2xl font-bold text-gray-900">Create Job Description</h1>
+      <h1 className="text-2xl font-bold text-white">Create Job Description</h1>
 
       <Card>
         <form onSubmit={handleSubmit} className="space-y-4">
           <Input id="title" label="Job Title" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} required />
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
+            <label className="block text-sm font-medium text-gray-400 mb-1">Description</label>
             <textarea
               value={form.description}
               onChange={(e) => setForm({ ...form, description: e.target.value })}
               rows={4}
-              className="block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="block w-full rounded-lg border border-white/[0.1] bg-white/[0.05] text-gray-100 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
               required
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Requirements</label>
+            <label className="block text-sm font-medium text-gray-400 mb-1">Requirements</label>
             <textarea
               value={form.requirements}
               onChange={(e) => setForm({ ...form, requirements: e.target.value })}
               rows={3}
-              className="block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="block w-full rounded-lg border border-white/[0.1] bg-white/[0.05] text-gray-100 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
             />
           </div>
 

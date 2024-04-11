@@ -12,9 +12,9 @@ interface CardProps {
 
 export default function Card({ children, className, title, action, variant = 'default', hover = true }: CardProps) {
   const variants = {
-    default: 'bg-white border border-gray-200/80 shadow-card',
+    default: 'bg-white/[0.05] border border-white/[0.08] backdrop-blur-xl shadow-card',
     glass: 'glass shadow-card',
-    'gradient-border': 'bg-white border border-transparent bg-clip-padding shadow-card relative before:absolute before:inset-0 before:-z-10 before:rounded-xl before:p-[1px] before:bg-gradient-to-r before:from-primary-500 before:to-purple-500',
+    'gradient-border': 'bg-white/[0.05] border border-transparent bg-clip-padding shadow-card relative before:absolute before:inset-0 before:-z-10 before:rounded-xl before:p-[1px] before:bg-gradient-to-r before:from-primary-500 before:to-purple-500',
   };
 
   return (
@@ -27,8 +27,8 @@ export default function Card({ children, className, title, action, variant = 'de
       )}
     >
       {(title || action) && (
-        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
-          {title && <h3 className="text-lg font-semibold text-gray-900">{title}</h3>}
+        <div className="flex items-center justify-between px-6 py-4 border-b border-white/[0.06]">
+          {title && <h3 className="text-lg font-semibold text-white">{title}</h3>}
           {action}
         </div>
       )}

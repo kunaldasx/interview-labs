@@ -24,17 +24,17 @@ export default function DomainManagementPage() {
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="bg-white rounded-xl border border-gray-200 p-4">
-          <p className="text-sm text-gray-500">Total Sectors</p>
-          <p className="text-2xl font-bold text-indigo-600">{sectors?.length || 0}</p>
+        <div className="bg-white/[0.05] rounded-xl border border-white/[0.08] p-4">
+          <p className="text-sm text-gray-400">Total Sectors</p>
+          <p className="text-2xl font-bold text-indigo-400">{sectors?.length || 0}</p>
         </div>
-        <div className="bg-white rounded-xl border border-gray-200 p-4">
-          <p className="text-sm text-gray-500">Total Domains</p>
-          <p className="text-2xl font-bold text-indigo-600">{domains?.length || 0}</p>
+        <div className="bg-white/[0.05] rounded-xl border border-white/[0.08] p-4">
+          <p className="text-sm text-gray-400">Total Domains</p>
+          <p className="text-2xl font-bold text-indigo-400">{domains?.length || 0}</p>
         </div>
-        <div className="bg-white rounded-xl border border-gray-200 p-4">
-          <p className="text-sm text-gray-500">Total Questions</p>
-          <p className="text-2xl font-bold text-indigo-600">{questionCount?.count || 0}</p>
+        <div className="bg-white/[0.05] rounded-xl border border-white/[0.08] p-4">
+          <p className="text-sm text-gray-400">Total Questions</p>
+          <p className="text-2xl font-bold text-indigo-400">{questionCount?.count || 0}</p>
         </div>
       </div>
 
@@ -44,9 +44,9 @@ export default function DomainManagementPage() {
             {domains
               ?.filter((d: any) => d.sector_slug === sector.sector_slug)
               .map((domain: any) => (
-                <div key={domain.id} className="border border-gray-200 rounded-lg p-3">
-                  <p className="text-sm font-medium text-gray-900">{domain.name}</p>
-                  <p className="text-xs text-gray-500 mt-1">{domain.description || 'No description'}</p>
+                <div key={domain.id} className="border border-white/[0.08] rounded-lg p-3">
+                  <p className="text-sm font-medium text-white">{domain.name}</p>
+                  <p className="text-xs text-gray-400 mt-1">{domain.description || 'No description'}</p>
                 </div>
               ))}
           </div>

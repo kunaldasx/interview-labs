@@ -82,8 +82,8 @@ export default function UserManagementPage() {
     <div className="space-y-6 animate-fade-in">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">User Management</h1>
-          <p className="text-sm text-gray-500 mt-1">Manage team members and user accounts</p>
+          <h1 className="text-2xl font-bold text-white">User Management</h1>
+          <p className="text-sm text-gray-400 mt-1">Manage team members and user accounts</p>
         </div>
         <Button onClick={() => setShowModal(true)}>Add User</Button>
       </div>
@@ -94,12 +94,12 @@ export default function UserManagementPage() {
           placeholder="Search by name or email..."
           value={search}
           onChange={(e) => { setSearch(e.target.value); setPage(1); }}
-          className="w-64 rounded-lg border border-gray-300 px-3 py-2 text-sm transition-all duration-200 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
+          className="w-64 rounded-lg border border-white/[0.1] bg-white/[0.05] px-3 py-2 text-sm text-gray-100 placeholder-gray-500 transition-all duration-200 hover:border-white/[0.2] focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
         />
         <select
           value={roleFilter}
           onChange={(e) => { setRoleFilter(e.target.value); setPage(1); }}
-          className="rounded-lg border border-gray-300 px-3 py-2 text-sm transition-all duration-200 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
+          className="rounded-lg border border-white/[0.1] bg-white/[0.05] px-3 py-2 text-sm text-gray-100 transition-all duration-200 hover:border-white/[0.2] focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
         >
           <option value="">All Roles</option>
           {ROLES.map(r => (
@@ -108,43 +108,43 @@ export default function UserManagementPage() {
         </select>
       </div>
 
-      <div className="bg-white rounded-xl border border-gray-200/80 overflow-hidden shadow-card">
-        <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gradient-to-r from-gray-50 to-gray-100/50">
+      <div className="bg-white/[0.05] rounded-xl border border-white/[0.08] overflow-hidden shadow-card">
+        <table className="min-w-full divide-y divide-white/[0.06]">
+          <thead className="bg-white/[0.03]">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Name</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Email</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Role</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Phone</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Created</th>
-              <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase">Actions</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase">Name</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase">Email</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase">Role</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase">Phone</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase">Status</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase">Created</th>
+              <th className="px-6 py-3 text-right text-xs font-medium text-gray-400 uppercase">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-200">
+          <tbody className="divide-y divide-white/[0.06]">
             {data?.items?.map((user) => (
-              <tr key={user.id} className="hover:bg-primary-50/30 transition-colors">
-                <td className="px-6 py-4 text-sm font-medium text-gray-900">{user.full_name}</td>
-                <td className="px-6 py-4 text-sm text-gray-500">{user.email}</td>
+              <tr key={user.id} className="hover:bg-white/[0.03] transition-colors">
+                <td className="px-6 py-4 text-sm font-medium text-white">{user.full_name}</td>
+                <td className="px-6 py-4 text-sm text-gray-400">{user.email}</td>
                 <td className="px-6 py-4">
                   <Badge status={user.role} />
                 </td>
-                <td className="px-6 py-4 text-sm text-gray-500">{user.phone || '-'}</td>
+                <td className="px-6 py-4 text-sm text-gray-400">{user.phone || '-'}</td>
                 <td className="px-6 py-4">
                   <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                    user.is_active ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                    user.is_active ? 'bg-green-500/15 text-green-400' : 'bg-red-500/15 text-red-400'
                   }`}>
                     {user.is_active ? 'Active' : 'Inactive'}
                   </span>
                 </td>
-                <td className="px-6 py-4 text-sm text-gray-500">{formatDate(user.created_at)}</td>
+                <td className="px-6 py-4 text-sm text-gray-400">{formatDate(user.created_at)}</td>
                 <td className="px-6 py-4 text-right">
                   <button
                     onClick={() => statusMutation.mutate({ id: user.id, is_active: !user.is_active })}
                     className={`text-sm font-medium transition-colors ${
                       user.is_active
-                        ? 'text-red-600 hover:text-red-800'
-                        : 'text-green-600 hover:text-green-800'
+                        ? 'text-red-400 hover:text-red-300'
+                        : 'text-green-400 hover:text-green-300'
                     }`}
                   >
                     {user.is_active ? 'Deactivate' : 'Activate'}
@@ -163,7 +163,7 @@ export default function UserManagementPage() {
       {data && data.total > 20 && (
         <div className="flex justify-center gap-2">
           <Button variant="outline" size="sm" disabled={page === 1} onClick={() => setPage(p => p - 1)}>Previous</Button>
-          <span className="text-sm text-gray-500 py-2">Page {page}</span>
+          <span className="text-sm text-gray-400 py-2">Page {page}</span>
           <Button variant="outline" size="sm" disabled={page >= Math.ceil(data.total / 20)} onClick={() => setPage(p => p + 1)}>Next</Button>
         </div>
       )}
@@ -195,12 +195,12 @@ export default function UserManagementPage() {
             required
           />
           <div>
-            <label htmlFor="role" className="block text-sm font-medium text-gray-700 mb-1">Role</label>
+            <label htmlFor="role" className="block text-sm font-medium text-gray-400 mb-1">Role</label>
             <select
               id="role"
               value={form.role}
               onChange={(e) => setForm(f => ({ ...f, role: e.target.value }))}
-              className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm transition-all duration-200 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
+              className="w-full rounded-lg border border-white/[0.1] bg-white/[0.05] px-3 py-2 text-sm text-gray-100 transition-all duration-200 hover:border-white/[0.2] focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
             >
               {ROLES.map(r => (
                 <option key={r.value} value={r.value}>{r.label}</option>

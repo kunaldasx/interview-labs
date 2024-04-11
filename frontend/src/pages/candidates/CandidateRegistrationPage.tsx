@@ -103,18 +103,18 @@ export default function CandidateRegistrationPage() {
 
   return (
     <div className="max-w-2xl mx-auto space-y-6 pb-10">
-      <h1 className="text-2xl font-bold text-gray-900">Register Candidate</h1>
+      <h1 className="text-2xl font-bold text-white">Register Candidate</h1>
 
       {/* Resume Upload */}
       <Card>
         <div className="space-y-3">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-lg font-semibold text-gray-900">Upload Resume</h2>
-              <p className="text-sm text-gray-500">Upload a resume to auto-fill all candidate details</p>
+              <h2 className="text-lg font-semibold text-white">Upload Resume</h2>
+              <p className="text-sm text-gray-400">Upload a resume to auto-fill all candidate details</p>
             </div>
             {isParsed && (
-              <span className="inline-flex items-center gap-1.5 text-sm font-medium text-green-700 bg-green-50 px-3 py-1 rounded-full">
+              <span className="inline-flex items-center gap-1.5 text-sm font-medium text-green-400 bg-green-500/15 px-3 py-1 rounded-full">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
@@ -125,7 +125,7 @@ export default function CandidateRegistrationPage() {
 
           <div
             className={`relative border-2 border-dashed rounded-lg p-6 text-center transition-colors ${
-              isParsing ? 'border-indigo-300 bg-indigo-50' : resumeFile ? 'border-green-300 bg-green-50' : 'border-gray-300 hover:border-indigo-400 hover:bg-gray-50'
+              isParsing ? 'border-indigo-500/30 bg-indigo-500/10' : resumeFile ? 'border-green-500/30 bg-green-500/10' : 'border-white/[0.15] hover:border-indigo-400 hover:bg-white/[0.03]'
             }`}
           >
             {isParsing ? (
@@ -134,19 +134,19 @@ export default function CandidateRegistrationPage() {
                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                 </svg>
-                <p className="text-sm font-medium text-indigo-700">Parsing resume with AI...</p>
-                <p className="text-xs text-indigo-500">Extracting personal details, skills, and work history</p>
+                <p className="text-sm font-medium text-indigo-400">Parsing resume with AI...</p>
+                <p className="text-xs text-indigo-300">Extracting personal details, skills, and work history</p>
               </div>
             ) : resumeFile ? (
               <div className="flex flex-col items-center gap-2">
                 <svg className="w-8 h-8 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
-                <p className="text-sm font-medium text-gray-900">{resumeFile.name}</p>
+                <p className="text-sm font-medium text-white">{resumeFile.name}</p>
                 <button
                   type="button"
                   onClick={() => fileInputRef.current?.click()}
-                  className="text-xs text-indigo-600 hover:text-indigo-800 underline"
+                  className="text-xs text-indigo-400 hover:text-indigo-300 underline"
                 >
                   Change file
                 </button>
@@ -156,8 +156,8 @@ export default function CandidateRegistrationPage() {
                 <svg className="w-8 h-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                 </svg>
-                <p className="text-sm text-gray-600">
-                  <button type="button" onClick={() => fileInputRef.current?.click()} className="font-medium text-indigo-600 hover:text-indigo-800">
+                <p className="text-sm text-gray-400">
+                  <button type="button" onClick={() => fileInputRef.current?.click()} className="font-medium text-indigo-400 hover:text-indigo-300">
                     Choose a file
                   </button>{' '}
                   or drag and drop
@@ -181,7 +181,7 @@ export default function CandidateRegistrationPage() {
         <Card>
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <h2 className="text-lg font-semibold text-gray-900">Personal Details</h2>
+              <h2 className="text-lg font-semibold text-white">Personal Details</h2>
               {isParsed && (
                 <span className="text-xs text-gray-400">Auto-filled from resume</span>
               )}
@@ -206,7 +206,7 @@ export default function CandidateRegistrationPage() {
         {/* Professional Details */}
         <Card>
           <div className="space-y-4">
-            <h2 className="text-lg font-semibold text-gray-900">Professional Details</h2>
+            <h2 className="text-lg font-semibold text-white">Professional Details</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Input id="experience" label="Years of Experience" type="number" value={form.experience_years} onChange={(e) => setForm({ ...form, experience_years: parseInt(e.target.value) || 0 })} disabled={isParsing} />
@@ -216,18 +216,18 @@ export default function CandidateRegistrationPage() {
             {/* Skills */}
             {skills.length > 0 && (
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Skills</label>
+                <label className="block text-sm font-medium text-gray-400 mb-2">Skills</label>
                 <div className="flex flex-wrap gap-2">
                   {skills.map((skill, idx) => (
                     <span
                       key={idx}
-                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-indigo-50 text-indigo-700"
+                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-indigo-500/15 text-indigo-400"
                     >
                       {skill}
                       <button
                         type="button"
                         onClick={() => setSkills(skills.filter((_, i) => i !== idx))}
-                        className="text-indigo-400 hover:text-indigo-600"
+                        className="text-indigo-300 hover:text-indigo-200"
                       >
                         <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -245,15 +245,15 @@ export default function CandidateRegistrationPage() {
         {workExperiences.length > 0 && (
           <Card>
             <div className="space-y-4">
-              <h2 className="text-lg font-semibold text-gray-900">Work Experience</h2>
+              <h2 className="text-lg font-semibold text-white">Work Experience</h2>
 
               <div className="space-y-3">
                 {workExperiences.map((exp, idx) => (
-                  <div key={idx} className="relative border border-gray-200 rounded-lg p-4">
+                  <div key={idx} className="relative border border-white/[0.08] rounded-lg p-4">
                     <button
                       type="button"
                       onClick={() => setWorkExperiences(workExperiences.filter((_, i) => i !== idx))}
-                      className="absolute top-3 right-3 text-gray-400 hover:text-red-500"
+                      className="absolute top-3 right-3 text-gray-500 hover:text-red-400"
                     >
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -263,11 +263,11 @@ export default function CandidateRegistrationPage() {
                     <div className="pr-8">
                       <div className="flex items-start justify-between">
                         <div>
-                          <h3 className="font-medium text-gray-900">{exp.job_title}</h3>
-                          <p className="text-sm text-indigo-600">{exp.company_name}</p>
+                          <h3 className="font-medium text-white">{exp.job_title}</h3>
+                          <p className="text-sm text-indigo-400">{exp.company_name}</p>
                         </div>
                         {exp.is_current && (
-                          <span className="text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded-full font-medium">Current</span>
+                          <span className="text-xs bg-green-500/15 text-green-400 px-2 py-0.5 rounded-full font-medium">Current</span>
                         )}
                       </div>
 
@@ -287,7 +287,7 @@ export default function CandidateRegistrationPage() {
                       </div>
 
                       {exp.description && (
-                        <p className="mt-2 text-sm text-gray-600 leading-relaxed">{exp.description}</p>
+                        <p className="mt-2 text-sm text-gray-400 leading-relaxed">{exp.description}</p>
                       )}
                     </div>
                   </div>

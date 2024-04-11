@@ -43,9 +43,9 @@ export default function EvaluationDetailPage() {
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       <div>
-        <Link to="/interviews" className="text-sm text-indigo-600 hover:text-indigo-800">Back to Interviews</Link>
+        <Link to="/interviews" className="text-sm text-indigo-400 hover:text-indigo-300">Back to Interviews</Link>
         <div className="flex items-center justify-between mt-1">
-          <h1 className="text-2xl font-bold text-gray-900">Evaluation #{evaluation.id}</h1>
+          <h1 className="text-2xl font-bold text-white">Evaluation #{evaluation.id}</h1>
           <div className="flex gap-2">
             <Badge status={evaluation.ai_recommendation} label={getRecommendationLabel(evaluation.ai_recommendation)} />
             <Badge status={evaluation.hr_decision} />
@@ -62,17 +62,17 @@ export default function EvaluationDetailPage() {
           <div className="space-y-3">
             {Object.entries(scores).map(([key, value]) => (
               <div key={key} className="flex items-center justify-between">
-                <span className="text-sm text-gray-600 capitalize">{key.replace('_', ' ')}</span>
+                <span className="text-sm text-gray-400 capitalize">{key.replace('_', ' ')}</span>
                 <div className="flex items-center gap-2">
-                  <div className="w-32 h-2 bg-gray-200 rounded-full overflow-hidden">
+                  <div className="w-32 h-2 bg-white/[0.1] rounded-full overflow-hidden">
                     <div className="h-full bg-indigo-600 rounded-full" style={{ width: `${(value / 10) * 100}%` }} />
                   </div>
-                  <span className="text-sm font-medium text-gray-900 w-8 text-right">{formatScore(value)}</span>
+                  <span className="text-sm font-medium text-white w-8 text-right">{formatScore(value)}</span>
                 </div>
               </div>
             ))}
-            <div className="pt-2 border-t border-gray-200 flex items-center justify-between">
-              <span className="text-sm font-semibold text-gray-900">Overall</span>
+            <div className="pt-2 border-t border-white/[0.06] flex items-center justify-between">
+              <span className="text-sm font-semibold text-white">Overall</span>
               <span className="text-lg font-bold text-indigo-600">{formatScore(evaluation.overall_score)}</span>
             </div>
           </div>
@@ -83,7 +83,7 @@ export default function EvaluationDetailPage() {
         <Card title="Strengths">
           <ul className="space-y-1">
             {evaluation.strengths.items.map((s: string, i: number) => (
-              <li key={i} className="text-sm text-gray-700 flex items-start gap-2">
+              <li key={i} className="text-sm text-gray-300 flex items-start gap-2">
                 <span className="text-green-500 mt-0.5">+</span> {s}
               </li>
             ))}
@@ -95,7 +95,7 @@ export default function EvaluationDetailPage() {
         <Card title="Areas for Improvement">
           <ul className="space-y-1">
             {evaluation.weaknesses.items.map((w: string, i: number) => (
-              <li key={i} className="text-sm text-gray-700 flex items-start gap-2">
+              <li key={i} className="text-sm text-gray-300 flex items-start gap-2">
                 <span className="text-red-500 mt-0.5">-</span> {w}
               </li>
             ))}
@@ -105,7 +105,7 @@ export default function EvaluationDetailPage() {
 
       {evaluation.detailed_feedback && (
         <Card title="Detailed Feedback">
-          <p className="text-sm text-gray-700 whitespace-pre-wrap">{evaluation.detailed_feedback}</p>
+          <p className="text-sm text-gray-300 whitespace-pre-wrap">{evaluation.detailed_feedback}</p>
         </Card>
       )}
 
@@ -117,7 +117,7 @@ export default function EvaluationDetailPage() {
               onChange={(e) => setHrNotes(e.target.value)}
               placeholder="Add notes (optional)..."
               rows={3}
-              className="block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="block w-full rounded-lg border border-white/[0.1] bg-white/[0.05] text-gray-100 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
             />
             <div className="flex gap-3">
               <Button onClick={() => decisionMutation.mutate('approved')} isLoading={decisionMutation.isPending}>Approve</Button>

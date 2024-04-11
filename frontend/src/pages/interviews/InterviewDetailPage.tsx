@@ -28,7 +28,7 @@ export default function InterviewDetailPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <h1 className="text-2xl font-bold text-gray-900">Interview #{interview.id}</h1>
+          <h1 className="text-2xl font-bold text-white">Interview #{interview.id}</h1>
           <Badge status={interview.status} />
         </div>
         <div className="flex items-center gap-3">
@@ -42,7 +42,7 @@ export default function InterviewDetailPage() {
           )}
           <Link
             to="/interviews"
-            className="inline-flex items-center px-4 py-2 border border-gray-300 text-gray-700 text-sm font-medium rounded-lg hover:bg-gray-50 transition-colors"
+            className="inline-flex items-center px-4 py-2 border border-white/[0.15] text-gray-300 text-sm font-medium rounded-lg hover:bg-white/[0.05] transition-colors"
           >
             Back to List
           </Link>
@@ -51,28 +51,28 @@ export default function InterviewDetailPage() {
 
       {/* Summary Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="bg-white rounded-xl border border-gray-200 p-4">
-          <p className="text-xs text-gray-500 uppercase font-medium">Type</p>
-          <p className="text-lg font-semibold text-gray-900 capitalize mt-1">{interview.interview_type.replace('_', ' ')}</p>
+        <div className="bg-white/[0.05] rounded-xl border border-white/[0.08] p-4">
+          <p className="text-xs text-gray-400 uppercase font-medium">Type</p>
+          <p className="text-lg font-semibold text-white capitalize mt-1">{interview.interview_type.replace('_', ' ')}</p>
         </div>
-        <div className="bg-white rounded-xl border border-gray-200 p-4">
-          <p className="text-xs text-gray-500 uppercase font-medium">Duration</p>
-          <p className="text-lg font-semibold text-gray-900 mt-1">{interview.duration_limit_min} min</p>
+        <div className="bg-white/[0.05] rounded-xl border border-white/[0.08] p-4">
+          <p className="text-xs text-gray-400 uppercase font-medium">Duration</p>
+          <p className="text-lg font-semibold text-white mt-1">{interview.duration_limit_min} min</p>
         </div>
-        <div className="bg-white rounded-xl border border-gray-200 p-4">
-          <p className="text-xs text-gray-500 uppercase font-medium">Questions Answered</p>
-          <p className="text-lg font-semibold text-gray-900 mt-1">{interview.questions_asked} / {interview.total_questions}</p>
+        <div className="bg-white/[0.05] rounded-xl border border-white/[0.08] p-4">
+          <p className="text-xs text-gray-400 uppercase font-medium">Questions Answered</p>
+          <p className="text-lg font-semibold text-white mt-1">{interview.questions_asked} / {interview.total_questions}</p>
         </div>
-        <div className="bg-white rounded-xl border border-gray-200 p-4">
-          <p className="text-xs text-gray-500 uppercase font-medium">Language</p>
-          <p className="text-lg font-semibold text-gray-900 uppercase mt-1">{interview.language}</p>
+        <div className="bg-white/[0.05] rounded-xl border border-white/[0.08] p-4">
+          <p className="text-xs text-gray-400 uppercase font-medium">Language</p>
+          <p className="text-lg font-semibold text-white uppercase mt-1">{interview.language}</p>
         </div>
       </div>
 
       {/* Recording Playback */}
       {interview.recording_url && (
-        <div className="bg-white rounded-xl border border-gray-200 p-6">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">Recording</h2>
+        <div className="bg-white/[0.05] rounded-xl border border-white/[0.08] p-6">
+          <h2 className="text-lg font-semibold text-white mb-4">Recording</h2>
           <video
             src={interview.recording_url}
             controls
@@ -88,11 +88,11 @@ export default function InterviewDetailPage() {
 
       {/* Q&A List */}
       {interview.questions && interview.questions.length > 0 && (
-        <div className="bg-white rounded-xl border border-gray-200">
-          <div className="px-6 py-4 border-b border-gray-200">
-            <h2 className="text-lg font-semibold text-gray-900">Questions & Answers</h2>
+        <div className="bg-white/[0.05] rounded-xl border border-white/[0.08]">
+          <div className="px-6 py-4 border-b border-white/[0.06]">
+            <h2 className="text-lg font-semibold text-white">Questions & Answers</h2>
           </div>
-          <div className="divide-y divide-gray-100">
+          <div className="divide-y divide-white/[0.06]">
             {interview.questions
               .sort((a, b) => a.question_order - b.question_order)
               .map((question) => {
@@ -100,19 +100,19 @@ export default function InterviewDetailPage() {
                 return (
                   <div key={question.id} className="px-6 py-4">
                     <div className="flex items-start gap-3">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs font-semibold">
+                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-xs font-semibold">
                         Q{question.question_order}
                       </span>
                       <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium text-gray-900">{question.question_text}</p>
+                        <p className="text-sm font-medium text-white">{question.question_text}</p>
                         <div className="flex items-center gap-2 mt-1">
                           <span className="text-xs text-gray-400 capitalize">{question.question_type}</span>
                           <span className="text-xs text-gray-300">|</span>
                           <span className="text-xs text-gray-400 capitalize">{question.difficulty}</span>
                         </div>
                         {answer ? (
-                          <div className="mt-3 pl-4 border-l-2 border-green-200">
-                            <p className="text-sm text-gray-700">{answer.answer_text || '(Voice answer)'}</p>
+                          <div className="mt-3 pl-4 border-l-2 border-green-500/30">
+                            <p className="text-sm text-gray-300">{answer.answer_text || '(Voice answer)'}</p>
                             {answer.confidence_score != null && (
                               <span className="text-xs text-gray-400 mt-1 inline-block">
                                 Confidence: {Math.round(answer.confidence_score * 100)}%

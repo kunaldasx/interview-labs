@@ -28,11 +28,11 @@ export default function ReportsPage() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-bold text-gray-900">Reports & Export</h1>
+      <h1 className="text-2xl font-bold text-white">Reports & Export</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <Card title="Candidates Report">
-          <p className="text-sm text-gray-500 mb-4">Export all candidates data to Excel spreadsheet.</p>
+          <p className="text-sm text-gray-400 mb-4">Export all candidates data to Excel spreadsheet.</p>
           <Button
             onClick={() => downloadFile('/reports/candidates/excel', 'candidates_report.xlsx', 'candidates')}
             isLoading={isDownloading === 'candidates'}
@@ -43,7 +43,7 @@ export default function ReportsPage() {
         </Card>
 
         <Card title="Evaluations Report">
-          <p className="text-sm text-gray-500 mb-4">Export all evaluations data to Excel spreadsheet.</p>
+          <p className="text-sm text-gray-400 mb-4">Export all evaluations data to Excel spreadsheet.</p>
           <Button
             onClick={() => downloadFile('/reports/evaluations/excel', 'evaluations_report.xlsx', 'evaluations')}
             isLoading={isDownloading === 'evaluations'}
@@ -54,13 +54,13 @@ export default function ReportsPage() {
         </Card>
 
         <Card title="Evaluation PDF">
-          <p className="text-sm text-gray-500 mb-4">Generate a PDF report for a specific evaluation.</p>
+          <p className="text-sm text-gray-400 mb-4">Generate a PDF report for a specific evaluation.</p>
           <div className="flex gap-2">
             <input
               id="eval-id"
               type="number"
               placeholder="Evaluation ID"
-              className="w-32 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-32 rounded-lg border border-white/[0.1] bg-white/[0.05] text-gray-100 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
             />
             <Button
               onClick={() => {

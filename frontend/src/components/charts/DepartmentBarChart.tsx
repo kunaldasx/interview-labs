@@ -7,9 +7,9 @@ interface DepartmentBarChartProps {
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (!active || !payload?.length) return null;
   return (
-    <div className="bg-white rounded-xl shadow-lg border border-gray-100 px-4 py-3">
-      <p className="text-xs text-gray-500 mb-1">{label}</p>
-      <p className="text-sm font-semibold text-gray-900">{payload[0].value}</p>
+    <div className="bg-surface-700 rounded-xl shadow-lg border border-white/[0.1] px-4 py-3">
+      <p className="text-xs text-gray-400 mb-1">{label}</p>
+      <p className="text-sm font-semibold text-gray-200">{payload[0].value}</p>
     </div>
   );
 };
@@ -29,9 +29,9 @@ export default function DepartmentBarChart({ data }: DepartmentBarChartProps) {
             <stop offset="100%" stopColor="#818CF8" />
           </linearGradient>
         </defs>
-        <CartesianGrid strokeDasharray="3 3" stroke="#F3F4F6" />
-        <XAxis dataKey="label" tick={{ fontSize: 11, fill: '#9CA3AF' }} tickLine={false} axisLine={{ stroke: '#E5E7EB' }} />
-        <YAxis tick={{ fontSize: 12, fill: '#9CA3AF' }} tickLine={false} axisLine={{ stroke: '#E5E7EB' }} />
+        <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" />
+        <XAxis dataKey="label" tick={{ fontSize: 11, fill: '#888' }} tickLine={false} axisLine={{ stroke: 'rgba(255,255,255,0.06)' }} />
+        <YAxis tick={{ fontSize: 12, fill: '#888' }} tickLine={false} axisLine={{ stroke: 'rgba(255,255,255,0.06)' }} />
         <Tooltip content={<CustomTooltip />} />
         <Bar dataKey="count" fill="url(#barGradient)" radius={[6, 6, 0, 0]} />
       </BarChart>

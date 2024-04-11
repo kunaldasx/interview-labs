@@ -26,7 +26,7 @@ export default function CandidateDetailPage() {
   const queryClient = useQueryClient();
   const [statusChanging, setStatusChanging] = useState(false);
 
-  const { data: candidate, isLoading } = useQuery({
+  const { data: candidate, isLoading, isError, error } = useQuery({
     queryKey: ['candidate', id],
     queryFn: () => candidatesAPI.get(Number(id)),
     enabled: !!id,
@@ -51,6 +51,18 @@ export default function CandidateDetailPage() {
   });
 
   if (isLoading) return <Spinner size="lg" className="py-20" />;
+  if (isError) return (
+    <div className="max-w-md mx-auto mt-20">
+      <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-6 text-center">
+        <svg className="w-12 h-12 text-red-400 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+        </svg>
+        <h2 className="text-lg font-semibold text-white mb-1">Failed to load candidate</h2>
+        <p className="text-sm text-gray-400">{(error as any)?.response?.data?.detail || 'An unexpected error occurred. Please try again.'}</p>
+        <Link to="/candidates" className="inline-block mt-4 text-sm text-primary-400 hover:text-primary-300">Back to Candidates</Link>
+      </div>
+    </div>
+  );
   if (!candidate) return <div className="text-center py-20 text-gray-500">Candidate not found</div>;
 
   const skills = candidate.skills?.skills as string[] | undefined;
@@ -58,15 +70,15 @@ export default function CandidateDetailPage() {
   return (
     <div className="max-w-3xl mx-auto space-y-6">
       <div>
-        <Link to="/candidates" className="text-sm text-indigo-600 hover:text-indigo-800">Back to Candidates</Link>
+        <Link to="/candidates" className="text-sm text-indigo-400 hover:text-indigo-300">Back to Candidates</Link>
         <div className="flex items-center justify-between mt-1">
-          <h1 className="text-2xl font-bold text-gray-900">{candidate.full_name}</h1>
+          <h1 className="text-2xl font-bold text-white">{candidate.full_name}</h1>
           <div className="flex items-center gap-3">
             <Badge status={candidate.status} />
             {!statusChanging ? (
               <button
                 onClick={() => setStatusChanging(true)}
-                className="text-xs text-indigo-600 hover:text-indigo-800 underline"
+                className="text-xs text-indigo-400 hover:text-indigo-300 underline"
               >
                 Change
               </button>
@@ -75,7 +87,7 @@ export default function CandidateDetailPage() {
                 defaultValue={candidate.status}
                 onChange={(e) => statusMutation.mutate(e.target.value)}
                 disabled={statusMutation.isPending}
-                className="text-sm border border-gray-300 rounded-md px-2 py-1 focus:ring-indigo-500 focus:border-indigo-500"
+                className="text-sm border border-white/[0.1] bg-white/[0.05] text-gray-100 rounded-md px-2 py-1 focus:ring-primary-500 focus:border-primary-500"
               >
                 {STATUS_OPTIONS.map((opt) => (
                   <option key={opt.value} value={opt.value}>{opt.label}</option>
@@ -89,44 +101,44 @@ export default function CandidateDetailPage() {
       <Card title="Personal Information">
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <p className="text-sm font-medium text-gray-500">Email</p>
-            <p className="text-sm text-gray-900">{candidate.email}</p>
+            <p className="text-sm font-medium text-gray-400">Email</p>
+            <p className="text-sm text-gray-100">{candidate.email}</p>
           </div>
           <div>
-            <p className="text-sm font-medium text-gray-500">Phone</p>
-            <p className="text-sm text-gray-900">{candidate.phone || 'Not provided'}</p>
+            <p className="text-sm font-medium text-gray-400">Phone</p>
+            <p className="text-sm text-gray-100">{candidate.phone || 'Not provided'}</p>
           </div>
           {candidate.address && (
             <div className="col-span-2">
-              <p className="text-sm font-medium text-gray-500">Address</p>
-              <p className="text-sm text-gray-900">{candidate.address}</p>
+              <p className="text-sm font-medium text-gray-400">Address</p>
+              <p className="text-sm text-gray-100">{candidate.address}</p>
             </div>
           )}
           {candidate.date_of_birth && (
             <div>
-              <p className="text-sm font-medium text-gray-500">Date of Birth</p>
-              <p className="text-sm text-gray-900">{candidate.date_of_birth}</p>
+              <p className="text-sm font-medium text-gray-400">Date of Birth</p>
+              <p className="text-sm text-gray-100">{candidate.date_of_birth}</p>
             </div>
           )}
           {candidate.linkedin_url && (
             <div>
-              <p className="text-sm font-medium text-gray-500">LinkedIn</p>
-              <a href={candidate.linkedin_url} target="_blank" rel="noopener noreferrer" className="text-sm text-indigo-600 hover:text-indigo-800 break-all">{candidate.linkedin_url}</a>
+              <p className="text-sm font-medium text-gray-400">LinkedIn</p>
+              <a href={candidate.linkedin_url} target="_blank" rel="noopener noreferrer" className="text-sm text-indigo-400 hover:text-indigo-300 break-all">{candidate.linkedin_url}</a>
             </div>
           )}
           {candidate.portfolio_url && (
             <div>
-              <p className="text-sm font-medium text-gray-500">Portfolio</p>
-              <a href={candidate.portfolio_url} target="_blank" rel="noopener noreferrer" className="text-sm text-indigo-600 hover:text-indigo-800 break-all">{candidate.portfolio_url}</a>
+              <p className="text-sm font-medium text-gray-400">Portfolio</p>
+              <a href={candidate.portfolio_url} target="_blank" rel="noopener noreferrer" className="text-sm text-indigo-400 hover:text-indigo-300 break-all">{candidate.portfolio_url}</a>
             </div>
           )}
           <div>
-            <p className="text-sm font-medium text-gray-500">Resume</p>
-            <p className="text-sm text-gray-900">{candidate.resume_path ? 'Uploaded' : 'Not uploaded'}</p>
+            <p className="text-sm font-medium text-gray-400">Resume</p>
+            <p className="text-sm text-gray-100">{candidate.resume_path ? 'Uploaded' : 'Not uploaded'}</p>
           </div>
           <div>
-            <p className="text-sm font-medium text-gray-500">Registered</p>
-            <p className="text-sm text-gray-900">{formatDate(candidate.created_at)}</p>
+            <p className="text-sm font-medium text-gray-400">Registered</p>
+            <p className="text-sm text-gray-100">{formatDate(candidate.created_at)}</p>
           </div>
         </div>
       </Card>
@@ -135,21 +147,21 @@ export default function CandidateDetailPage() {
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <p className="text-sm font-medium text-gray-500">Experience</p>
-              <p className="text-sm text-gray-900">{candidate.experience_years ? `${candidate.experience_years} years` : 'Not specified'}</p>
+              <p className="text-sm font-medium text-gray-400">Experience</p>
+              <p className="text-sm text-gray-100">{candidate.experience_years ? `${candidate.experience_years} years` : 'Not specified'}</p>
             </div>
             <div>
-              <p className="text-sm font-medium text-gray-500">Education</p>
-              <p className="text-sm text-gray-900">{candidate.education || 'Not specified'}</p>
+              <p className="text-sm font-medium text-gray-400">Education</p>
+              <p className="text-sm text-gray-100">{candidate.education || 'Not specified'}</p>
             </div>
           </div>
 
           {skills && skills.length > 0 && (
             <div>
-              <p className="text-sm font-medium text-gray-500 mb-2">Skills</p>
+              <p className="text-sm font-medium text-gray-400 mb-2">Skills</p>
               <div className="flex flex-wrap gap-2">
                 {skills.map((skill, idx) => (
-                  <span key={idx} className="px-2.5 py-1 rounded-full text-xs font-medium bg-indigo-50 text-indigo-700">
+                  <span key={idx} className="px-2.5 py-1 rounded-full text-xs font-medium bg-indigo-500/15 text-indigo-400">
                     {skill}
                   </span>
                 ))}
@@ -163,24 +175,24 @@ export default function CandidateDetailPage() {
         <Card title="Work Experience">
           <div className="space-y-4">
             {candidate.work_experiences.map((exp) => (
-              <div key={exp.id || exp.company_name} className="border-l-2 border-indigo-200 pl-4">
+              <div key={exp.id || exp.company_name} className="border-l-2 border-indigo-500/30 pl-4">
                 <div className="flex items-start justify-between">
                   <div>
-                    <h3 className="font-medium text-gray-900">{exp.job_title}</h3>
-                    <p className="text-sm text-indigo-600">{exp.company_name}</p>
+                    <h3 className="font-medium text-white">{exp.job_title}</h3>
+                    <p className="text-sm text-indigo-400">{exp.company_name}</p>
                   </div>
                   {exp.is_current && (
-                    <span className="text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded-full font-medium">Current</span>
+                    <span className="text-xs bg-green-500/15 text-green-400 px-2 py-0.5 rounded-full font-medium">Current</span>
                   )}
                 </div>
-                <div className="mt-1 flex items-center gap-3 text-xs text-gray-500">
+                <div className="mt-1 flex items-center gap-3 text-xs text-gray-400">
                   {(exp.start_date || exp.end_date) && (
                     <span>{exp.start_date}{exp.start_date && exp.end_date ? ' — ' : ''}{exp.end_date}</span>
                   )}
                   {exp.location && <span>{exp.location}</span>}
                 </div>
                 {exp.description && (
-                  <p className="mt-2 text-sm text-gray-600">{exp.description}</p>
+                  <p className="mt-2 text-sm text-gray-400">{exp.description}</p>
                 )}
               </div>
             ))}
@@ -190,7 +202,7 @@ export default function CandidateDetailPage() {
 
       {candidate.resume_text && (
         <Card title="Resume Text">
-          <p className="text-sm text-gray-700 whitespace-pre-wrap max-h-64 overflow-y-auto">{candidate.resume_text}</p>
+          <p className="text-sm text-gray-300 whitespace-pre-wrap max-h-64 overflow-y-auto">{candidate.resume_text}</p>
         </Card>
       )}
 

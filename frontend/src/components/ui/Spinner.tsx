@@ -25,7 +25,7 @@ export default function Spinner({ size = 'md', label, className }: SpinnerProps)
         <circle className="opacity-20" cx="12" cy="12" r="10" stroke="#4f46e5" strokeWidth="4" />
         <path stroke="url(#spinner-gradient)" strokeWidth="4" strokeLinecap="round" d="M4 12a8 8 0 018-8" />
       </svg>
-      {label && <span className="text-sm text-gray-500 font-medium">{label}</span>}
+      {label && <span className="text-sm text-gray-400 font-medium">{label}</span>}
     </div>
   );
 }
