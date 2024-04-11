@@ -19,4 +19,22 @@ export const interviewsAPI = {
 
   end: (id: number) =>
     apiClient.post(`/interviews/${id}/end`).then(r => r.data),
+
+  uploadRecording: (id: number, blob: Blob) => {
+    const formData = new FormData();
+    formData.append('file', blob, `recording-${id}.webm`);
+    return apiClient.post(`/interviews/${id}/recording`, formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+      timeout: 300000,
+    }).then(r => r.data);
+  },
+
+  transcribe: (blob: Blob): Promise<{ text: string }> => {
+    const formData = new FormData();
+    formData.append('file', blob, 'answer.webm');
+    return apiClient.post('/audio/transcribe', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+      timeout: 60000,
+    }).then(r => r.data);
+  },
 };

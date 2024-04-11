@@ -1,6 +1,6 @@
 import { useRef, useState, useCallback, useEffect } from 'react';
 
-export function useWebcam() {
+export function useWebcam(withAudio = false) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const streamRef = useRef<MediaStream | null>(null);
   const [isActive, setIsActive] = useState(false);
@@ -11,7 +11,7 @@ export function useWebcam() {
       setError(null);
       const stream = await navigator.mediaDevices.getUserMedia({
         video: true,
-        audio: false,
+        audio: withAudio,
       });
       streamRef.current = stream;
       if (videoRef.current) {
@@ -23,7 +23,7 @@ export function useWebcam() {
       setError(message);
       setIsActive(false);
     }
-  }, []);
+  }, [withAudio]);
 
   const stopCamera = useCallback(() => {
     if (streamRef.current) {
@@ -36,6 +36,13 @@ export function useWebcam() {
     setIsActive(false);
   }, []);
 
+  // When isActive becomes true the <video> element renders — assign the stream
+  useEffect(() => {
+    if (isActive && videoRef.current && streamRef.current) {
+      videoRef.current.srcObject = streamRef.current;
+    }
+  }, [isActive]);
+
   useEffect(() => {
     return () => {
       if (streamRef.current) {
@@ -44,5 +51,5 @@ export function useWebcam() {
     };
   }, []);
 
-  return { videoRef, isActive, error, startCamera, stopCamera };
+  return { videoRef, streamRef, isActive, error, startCamera, stopCamera };
 }

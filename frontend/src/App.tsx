@@ -27,6 +27,7 @@ const CandidateDetailPage = lazy(() => import('./pages/candidates/CandidateDetai
 const InterviewListPage = lazy(() => import('./pages/interviews/InterviewListPage'));
 const InterviewRoomPage = lazy(() => import('./pages/interviews/InterviewRoomPage'));
 const InterviewSchedulePage = lazy(() => import('./pages/interviews/InterviewSchedulePage'));
+const InterviewDetailPage = lazy(() => import('./pages/interviews/InterviewDetailPage'));
 
 // Evaluations
 const EvaluationDetailPage = lazy(() => import('./pages/evaluations/EvaluationDetailPage'));
@@ -113,7 +114,8 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            <Route path="/interviews/:id" element={<InterviewRoomPage />} />
+            <Route path="/interviews/:id" element={<InterviewDetailPage />} />
+            <Route path="/interviews/:id/room" element={<InterviewRoomPage />} />
 
             {/* Users */}
             <Route path="/users" element={

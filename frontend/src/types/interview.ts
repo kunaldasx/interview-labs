@@ -11,6 +11,7 @@ export interface Interview {
   language: string;
   total_questions: number;
   questions_asked: number;
+  recording_url?: string;
   created_by?: number;
   created_at: string;
   updated_at: string;
@@ -47,7 +48,7 @@ export interface ChatMessage {
 }
 
 export interface ChatResponse {
-  type: 'greeting' | 'response' | 'complete' | 'ended' | 'error';
+  type: 'greeting' | 'response' | 'complete' | 'ended' | 'error' | 'candidate';
   content: string;
   is_complete?: boolean;
   question_number?: number;

@@ -16,16 +16,18 @@ def validate_file(file: UploadFile) -> bool:
     return ext in ALLOWED_EXTENSIONS
 
 
-async def save_upload(file: UploadFile, subdir: str = "resumes") -> str:
+async def save_upload(file: UploadFile, subdir: str = "resumes", max_size_mb: int | None = None) -> str:
     ext = Path(file.filename).suffix.lower()
     unique_name = f"{uuid.uuid4().hex}{ext}"
     upload_dir = os.path.join(settings.UPLOAD_DIR, subdir)
     os.makedirs(upload_dir, exist_ok=True)
     file_path = os.path.join(upload_dir, unique_name)
 
+    limit_mb = max_size_mb or settings.MAX_UPLOAD_SIZE_MB
+    max_bytes = limit_mb * 1024 * 1024
     content = await file.read()
-    if len(content) > MAX_FILE_SIZE:
-        raise ValueError(f"File size exceeds {settings.MAX_UPLOAD_SIZE_MB}MB limit")
+    if len(content) > max_bytes:
+        raise ValueError(f"File size exceeds {limit_mb}MB limit")
 
     with open(file_path, "wb") as f:
         f.write(content)

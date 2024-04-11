@@ -39,6 +39,13 @@ export function useWebSocket(interviewId: number | null) {
   const sendMessage = useCallback((message: ChatMessage) => {
     if (wsRef.current?.readyState === WebSocket.OPEN) {
       wsRef.current.send(JSON.stringify(message));
+      // Show candidate's message in the conversation
+      if (message.type === 'message' && message.content) {
+        setMessages(prev => [...prev, {
+          type: 'candidate',
+          content: message.content,
+        }]);
+      }
       setIsLoading(true);
     }
   }, []);

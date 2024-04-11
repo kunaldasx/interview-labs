@@ -71,7 +71,9 @@ export default function InterviewListPage() {
                   {user?.role === 'candidate' && interview.status === 'in_progress' && (
                     <Link to={`/interviews/${interview.id}/room`} className="text-sm text-blue-600 hover:text-blue-800 transition-colors">Continue</Link>
                   )}
-                  <Link to={`/interviews/${interview.id}`} className="text-sm text-primary-600 hover:text-primary-800 transition-colors">View</Link>
+                  {user?.role !== 'candidate' && (
+                    <Link to={`/interviews/${interview.id}`} className="text-sm text-primary-600 hover:text-primary-800 transition-colors">View</Link>
+                  )}
                 </td>
               </tr>
             ))}

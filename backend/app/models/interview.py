@@ -52,6 +52,7 @@ class Interview(SQLModel, table=True):
     language: str = Field(default="en", max_length=10)
     total_questions: int = Field(default=0)
     questions_asked: int = Field(default=0)
+    recording_url: Optional[str] = Field(default=None, max_length=500)
     created_by: Optional[int] = Field(default=None, foreign_key="users.id")
     created_at: datetime = Field(default_factory=datetime.utcnow)
     updated_at: datetime = Field(default_factory=datetime.utcnow)

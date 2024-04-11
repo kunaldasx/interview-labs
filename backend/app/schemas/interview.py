@@ -36,6 +36,7 @@ class InterviewResponse(BaseModel):
     language: str
     total_questions: int
     questions_asked: int
+    recording_url: Optional[str] = None
     created_by: Optional[int] = None
     created_at: datetime
     updated_at: datetime
