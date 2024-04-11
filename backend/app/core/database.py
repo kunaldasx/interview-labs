@@ -1,22 +1,8 @@
-import sys
-import asyncio
-
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import sessionmaker
 from sqlmodel import SQLModel
 
 from app.core.config import settings
-
-# Windows requires SelectorEventLoopPolicy for psycopg async
-if sys.platform == "win32":
-    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
-
-# Build connect_args for Supabase (pgbouncer/Supavisor) compatibility
-_connect_args: dict = {}
-if "supabase" in settings.DATABASE_URL:
-    _connect_args = {
-        "prepare_threshold": None,  # Disable prepared statements for Supavisor
-    }
 
 engine = create_async_engine(
     settings.DATABASE_URL,
@@ -24,7 +10,6 @@ engine = create_async_engine(
     pool_size=20,
     max_overflow=10,
     pool_pre_ping=True,
-    connect_args=_connect_args,
 )
 
 async_session = sessionmaker(
