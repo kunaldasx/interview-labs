@@ -39,6 +39,44 @@ def send_email(self, to_email: str, subject: str, body: str, html_body: str = No
         raise self.retry(exc=exc, countdown=60 * (self.request.retries + 1))
 
 
+@celery_app.task(name="tasks.send_credentials_email")
+def send_credentials_email(
+    to_email: str,
+    candidate_name: str,
+    temp_password: str,
+    login_url: str,
+):
+    subject = "Your HireEz Interview Portal Credentials"
+    body = f"""Dear {candidate_name},
+
+Your profile has been verified. You can now log in to the HireEz Interview Portal.
+
+Login URL: {login_url}
+Email: {to_email}
+Temporary Password: {temp_password}
+
+Please log in and change your password at your earliest convenience.
+
+Best regards,
+HireEz Team"""
+
+    html_body = f"""
+<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+    <h2 style="color: #4F46E5;">Welcome to HireEz</h2>
+    <p>Dear {candidate_name},</p>
+    <p>Your profile has been verified. You can now log in to the HireEz Interview Portal.</p>
+    <div style="background: #F3F4F6; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <p style="margin: 5px 0;"><strong>Login URL:</strong> <a href="{login_url}">{login_url}</a></p>
+        <p style="margin: 5px 0;"><strong>Email:</strong> {to_email}</p>
+        <p style="margin: 5px 0;"><strong>Temporary Password:</strong> <code style="background: #E5E7EB; padding: 2px 6px; border-radius: 4px;">{temp_password}</code></p>
+    </div>
+    <p>Please log in and change your password at your earliest convenience.</p>
+    <p>Best regards,<br>HireEz Team</p>
+</div>"""
+
+    return send_email.delay(to_email, subject, body, html_body)
+
+
 @celery_app.task(name="tasks.send_interview_invite")
 def send_interview_invite(
     candidate_email: str,

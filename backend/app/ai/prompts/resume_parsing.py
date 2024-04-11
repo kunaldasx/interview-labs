@@ -40,7 +40,7 @@ Rules:
 
 
 def build_resume_parse_prompt(resume_text: str) -> str:
-    truncated = resume_text[:5000]
+    truncated = resume_text[:8000]
     return f"""Extract structured candidate information from the following resume text.
 Include all personal details, skills, and complete work history.
 

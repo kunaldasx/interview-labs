@@ -1,18 +1,53 @@
+import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { candidatesAPI } from '../../api/candidates';
 import Card from '../../components/ui/Card';
 import Badge from '../../components/ui/Badge';
 import Spinner from '../../components/ui/Spinner';
 import Button from '../../components/ui/Button';
 import { formatDate } from '../../lib/formatters';
+import toast from 'react-hot-toast';
+
+const STATUS_OPTIONS = [
+  { value: 'registered', label: 'Registered' },
+  { value: 'screened', label: 'Screened' },
+  { value: 'shortlisted', label: 'Shortlisted' },
+  { value: 'interview_scheduled', label: 'Interview Scheduled' },
+  { value: 'interviewed', label: 'Interviewed' },
+  { value: 'evaluated', label: 'Evaluated' },
+  { value: 'offered', label: 'Offered' },
+  { value: 'hired', label: 'Hired' },
+  { value: 'rejected', label: 'Rejected' },
+];
 
 export default function CandidateDetailPage() {
   const { id } = useParams();
+  const queryClient = useQueryClient();
+  const [statusChanging, setStatusChanging] = useState(false);
+
   const { data: candidate, isLoading } = useQuery({
     queryKey: ['candidate', id],
     queryFn: () => candidatesAPI.get(Number(id)),
     enabled: !!id,
+  });
+
+  const statusMutation = useMutation({
+    mutationFn: (newStatus: string) => candidatesAPI.updateStatus(Number(id), newStatus),
+    onSuccess: (updated) => {
+      queryClient.invalidateQueries({ queryKey: ['candidate', id] });
+      const credentialStatuses = ['screened', 'shortlisted'];
+      if (credentialStatuses.includes(updated.status)) {
+        toast.success(`Credentials emailed to ${updated.email}`);
+      } else {
+        toast.success(`Status updated to ${updated.status}`);
+      }
+      setStatusChanging(false);
+    },
+    onError: (err: any) => {
+      toast.error(err.response?.data?.detail || 'Failed to update status');
+      setStatusChanging(false);
+    },
   });
 
   if (isLoading) return <Spinner size="lg" className="py-20" />;
@@ -26,7 +61,28 @@ export default function CandidateDetailPage() {
         <Link to="/candidates" className="text-sm text-indigo-600 hover:text-indigo-800">Back to Candidates</Link>
         <div className="flex items-center justify-between mt-1">
           <h1 className="text-2xl font-bold text-gray-900">{candidate.full_name}</h1>
-          <Badge status={candidate.status} />
+          <div className="flex items-center gap-3">
+            <Badge status={candidate.status} />
+            {!statusChanging ? (
+              <button
+                onClick={() => setStatusChanging(true)}
+                className="text-xs text-indigo-600 hover:text-indigo-800 underline"
+              >
+                Change
+              </button>
+            ) : (
+              <select
+                defaultValue={candidate.status}
+                onChange={(e) => statusMutation.mutate(e.target.value)}
+                disabled={statusMutation.isPending}
+                className="text-sm border border-gray-300 rounded-md px-2 py-1 focus:ring-indigo-500 focus:border-indigo-500"
+              >
+                {STATUS_OPTIONS.map((opt) => (
+                  <option key={opt.value} value={opt.value}>{opt.label}</option>
+                ))}
+              </select>
+            )}
+          </div>
         </div>
       </div>
 

@@ -37,11 +37,19 @@ async def save_upload(file: UploadFile, subdir: str = "resumes", max_size_mb: in
 
 def extract_text_from_pdf(file_path: str) -> str:
     try:
-        from PyPDF2 import PdfReader
-        reader = PdfReader(file_path)
+        import pdfplumber
         text = ""
-        for page in reader.pages:
-            text += page.extract_text() or ""
+        with pdfplumber.open(file_path) as pdf:
+            for page in pdf.pages:
+                page_text = page.extract_text() or ""
+                # Also extract text from tables
+                tables = page.extract_tables() or []
+                for table in tables:
+                    for row in table:
+                        cells = [cell.strip() for cell in row if cell and cell.strip()]
+                        if cells:
+                            page_text += "\n" + " | ".join(cells)
+                text += page_text + "\n"
         return text.strip()
     except Exception:
         return ""

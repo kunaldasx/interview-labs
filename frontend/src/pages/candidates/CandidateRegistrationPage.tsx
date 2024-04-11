@@ -80,6 +80,7 @@ export default function CandidateRegistrationPage() {
       } else {
         toast.success('Candidate registered successfully');
       }
+      toast('Login credentials will be emailed after verification.', { icon: '\u2139\uFE0F', duration: 5000 });
       navigate(`/candidates/${candidate.id}`);
     },
     onError: (err: any) => {
