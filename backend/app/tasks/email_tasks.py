@@ -84,19 +84,59 @@ def send_interview_invite(
     job_title: str,
     interview_date: str,
     interview_link: str,
+    login_url: str = None,
+    temp_password: str = None,
 ):
     subject = f"Interview Invitation - {job_title}"
+
+    credentials_text = ""
+    if temp_password:
+        credentials_text = f"""
+Your Login Credentials:
+- Login URL: {login_url}
+- Email: {candidate_email}
+- Temporary Password: {temp_password}
+
+Please log in and change your password at your earliest convenience.
+"""
+
     body = f"""Dear {candidate_name},
 
 You have been invited to an interview for the position of {job_title}.
 
 Interview Details:
 - Date: {interview_date}
-- Link: {interview_link}
-
-Please click the link above to join your AI-powered interview at the scheduled time.
+- Interview Link: {interview_link}
+{credentials_text}
+Please click the interview link above to join your AI-powered interview at the scheduled time.
 
 Best regards,
 HireEz Team"""
 
-    return send_email.delay(candidate_email, subject, body)
+    credentials_html = ""
+    if temp_password:
+        credentials_html = f"""
+    <div style="background: #F3F4F6; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="margin: 0 0 10px 0; color: #374151;">Your Login Credentials</h3>
+        <p style="margin: 5px 0;"><strong>Login URL:</strong> <a href="{login_url}">{login_url}</a></p>
+        <p style="margin: 5px 0;"><strong>Email:</strong> {candidate_email}</p>
+        <p style="margin: 5px 0;"><strong>Temporary Password:</strong> <code style="background: #E5E7EB; padding: 2px 6px; border-radius: 4px;">{temp_password}</code></p>
+    </div>
+    <p style="color: #6B7280; font-size: 13px;">Please log in and change your password at your earliest convenience.</p>"""
+
+    html_body = f"""
+<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+    <h2 style="color: #4F46E5;">Interview Invitation</h2>
+    <p>Dear {candidate_name},</p>
+    <p>You have been invited to an interview for the position of <strong>{job_title}</strong>.</p>
+    <div style="background: #EEF2FF; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="margin: 0 0 10px 0; color: #4F46E5;">Interview Details</h3>
+        <p style="margin: 5px 0;"><strong>Date:</strong> {interview_date}</p>
+        <p style="margin: 5px 0;"><strong>Interview Link:</strong> <a href="{interview_link}">{interview_link}</a></p>
+    </div>
+    {credentials_html}
+    <p>Please click the interview link to join your AI-powered interview at the scheduled time.</p>
+    <p>Best regards,<br>HireEz Team</p>
+</div>"""
+
+    return send_email.delay(candidate_email, subject, body, html_body)

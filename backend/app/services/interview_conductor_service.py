@@ -3,6 +3,7 @@ Manages real-time AI interview conversations with Redis session state.
 """
 import json
 import logging
+import secrets
 from datetime import datetime
 from typing import Optional, List
 
@@ -29,6 +30,8 @@ from app.ai.chains.interview_chain import (
 from app.services.question_generator_service import QuestionGeneratorService
 from app.services.notification_service import NotificationService
 from app.models.notification import NotificationType, NotificationChannel
+from app.core.security import get_password_hash
+from app.models.user import User
 from app.tasks.email_tasks import send_interview_invite
 
 
@@ -115,13 +118,29 @@ class InterviewConductorService:
             else:
                 interview_date = "To be confirmed"
 
+            # Generate new temp password for the candidate
+            temp_password = None
+            if candidate and candidate.user_id:
+                temp_password = secrets.token_urlsafe(6)
+                u_result = await self.db.execute(
+                    select(User).where(User.id == candidate.user_id)
+                )
+                user = u_result.scalar_one_or_none()
+                if user:
+                    user.hashed_password = get_password_hash(temp_password)
+                    self.db.add(user)
+                    await self.db.flush()
+
             if candidate and candidate.email:
+                login_url = f"{settings.FRONTEND_URL}/login"
                 send_interview_invite.delay(
                     candidate_email=candidate.email,
                     candidate_name=candidate.full_name,
                     job_title=job_title,
                     interview_date=interview_date,
                     interview_link=interview_link,
+                    login_url=login_url,
+                    temp_password=temp_password,
                 )
 
             # Create in-app notification if candidate has a user account
