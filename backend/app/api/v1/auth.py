@@ -1,10 +1,13 @@
 """Authentication API endpoints."""
 import logging
 
+import redis.asyncio as aioredis
 from fastapi import APIRouter, Depends, HTTPException
+from pydantic import BaseModel
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlmodel import select
 
+from app.core.config import settings
 from app.core.dependencies import get_db, get_current_user
 from app.core.security import get_password_hash, create_access_token, create_refresh_token
 from app.models.user import User, UserRole
@@ -67,6 +70,40 @@ async def demo_login(db: AsyncSession = Depends(get_db)):
     except Exception as e:
         logger.exception("Demo login failed")
         raise HTTPException(status_code=500, detail=f"Demo login failed: {str(e)}")
+
+
+class TokenLoginRequest(BaseModel):
+    token: str
+
+
+@router.post("/token-login", response_model=TokenResponse)
+async def token_login(data: TokenLoginRequest, db: AsyncSession = Depends(get_db)):
+    """Auto-login using a magic token sent via email."""
+    r = aioredis.from_url(settings.REDIS_URL, decode_responses=True)
+    try:
+        user_id = await r.get(f"magic_login:{data.token}")
+        if not user_id:
+            raise HTTPException(status_code=401, detail="Invalid or expired login link")
+
+        result = await db.execute(select(User).where(User.id == int(user_id)))
+        user = result.scalar_one_or_none()
+        if not user or not user.is_active:
+            raise HTTPException(status_code=401, detail="User not found or disabled")
+
+        # Delete the token after use (one-time use)
+        await r.delete(f"magic_login:{data.token}")
+
+        access_token = create_access_token({"sub": str(user.id)})
+        refresh_token = create_refresh_token({"sub": str(user.id)})
+
+        return {
+            "access_token": access_token,
+            "refresh_token": refresh_token,
+            "token_type": "bearer",
+            "user": user,
+        }
+    finally:
+        await r.aclose()
 
 
 @router.get("/me", response_model=UserResponse)

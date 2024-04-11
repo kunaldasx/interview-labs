@@ -118,8 +118,9 @@ class InterviewConductorService:
             else:
                 interview_date = "To be confirmed"
 
-            # Generate new temp password for the candidate
+            # Generate magic login token and temp password for the candidate
             temp_password = None
+            magic_token = None
             if candidate and candidate.user_id:
                 temp_password = secrets.token_urlsafe(6)
                 u_result = await self.db.execute(
@@ -131,8 +132,17 @@ class InterviewConductorService:
                     self.db.add(user)
                     await self.db.flush()
 
+                    # Store magic login token in Redis (7 day expiry)
+                    magic_token = secrets.token_urlsafe(32)
+                    r = await self._get_redis()
+                    await r.set(
+                        f"magic_login:{magic_token}",
+                        str(candidate.user_id),
+                        ex=7 * 24 * 3600,
+                    )
+
             if candidate and candidate.email:
-                login_url = f"{settings.FRONTEND_URL}/login"
+                login_url = f"{settings.FRONTEND_URL}/login?token={magic_token}" if magic_token else f"{settings.FRONTEND_URL}/login"
                 send_interview_invite.delay(
                     candidate_email=candidate.email,
                     candidate_name=candidate.full_name,
