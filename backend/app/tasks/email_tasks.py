@@ -117,26 +117,44 @@ HireEz Team"""
     if temp_password:
         credentials_html = f"""
     <div style="background: #F3F4F6; padding: 20px; border-radius: 8px; margin: 20px 0;">
-        <h3 style="margin: 0 0 10px 0; color: #374151;">Your Login Credentials</h3>
-        <p style="margin: 5px 0;"><strong>Login URL:</strong> <a href="{login_url}">{login_url}</a></p>
-        <p style="margin: 5px 0;"><strong>Email:</strong> {candidate_email}</p>
-        <p style="margin: 5px 0;"><strong>Temporary Password:</strong> <code style="background: #E5E7EB; padding: 2px 6px; border-radius: 4px;">{temp_password}</code></p>
+        <h3 style="margin: 0 0 12px 0; color: #374151; font-family: Arial, sans-serif; font-size: 16px;">Your Login Credentials</h3>
+        <table style="width: 100%; font-family: Arial, sans-serif; font-size: 14px;">
+            <tr>
+                <td style="padding: 6px 0; color: #6B7280; width: 140px;">Email:</td>
+                <td style="padding: 6px 0; color: #111827; font-weight: bold;">{candidate_email}</td>
+            </tr>
+            <tr>
+                <td style="padding: 6px 0; color: #6B7280;">Temporary Password:</td>
+                <td style="padding: 6px 0; color: #111827; font-weight: bold; font-family: 'Courier New', monospace; font-size: 15px; letter-spacing: 1px;">{temp_password}</td>
+            </tr>
+        </table>
     </div>
-    <p style="color: #6B7280; font-size: 13px;">Please log in and change your password at your earliest convenience.</p>"""
+    <div style="text-align: center; margin: 24px 0;">
+        <a href="{login_url}" style="display: inline-block; background: #4F46E5; color: #ffffff; text-decoration: none; padding: 12px 32px; border-radius: 8px; font-family: Arial, sans-serif; font-size: 15px; font-weight: bold;">Click Here to Login</a>
+    </div>
+    <p style="color: #6B7280; font-size: 13px; font-family: Arial, sans-serif; text-align: center;">Or copy this link: <a href="{login_url}" style="color: #4F46E5;">{login_url}</a></p>"""
 
     html_body = f"""
-<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-    <h2 style="color: #4F46E5;">Interview Invitation</h2>
-    <p>Dear {candidate_name},</p>
-    <p>You have been invited to an interview for the position of <strong>{job_title}</strong>.</p>
+<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+    <h2 style="color: #4F46E5; font-family: Arial, sans-serif;">Interview Invitation</h2>
+    <p style="font-family: Arial, sans-serif; font-size: 14px; color: #374151;">Dear {candidate_name},</p>
+    <p style="font-family: Arial, sans-serif; font-size: 14px; color: #374151;">You have been invited to an interview for the position of <strong>{job_title}</strong>.</p>
     <div style="background: #EEF2FF; padding: 20px; border-radius: 8px; margin: 20px 0;">
-        <h3 style="margin: 0 0 10px 0; color: #4F46E5;">Interview Details</h3>
-        <p style="margin: 5px 0;"><strong>Date:</strong> {interview_date}</p>
-        <p style="margin: 5px 0;"><strong>Interview Link:</strong> <a href="{interview_link}">{interview_link}</a></p>
+        <h3 style="margin: 0 0 12px 0; color: #4F46E5; font-family: Arial, sans-serif; font-size: 16px;">Interview Details</h3>
+        <table style="width: 100%; font-family: Arial, sans-serif; font-size: 14px;">
+            <tr>
+                <td style="padding: 6px 0; color: #6B7280; width: 140px;">Date:</td>
+                <td style="padding: 6px 0; color: #111827; font-weight: bold;">{interview_date}</td>
+            </tr>
+            <tr>
+                <td style="padding: 6px 0; color: #6B7280;">Interview Link:</td>
+                <td style="padding: 6px 0;"><a href="{interview_link}" style="color: #4F46E5; font-weight: bold;">{interview_link}</a></td>
+            </tr>
+        </table>
     </div>
     {credentials_html}
-    <p>Please click the interview link to join your AI-powered interview at the scheduled time.</p>
-    <p>Best regards,<br>HireEz Team</p>
+    <p style="font-family: Arial, sans-serif; font-size: 14px; color: #374151;">Please join your AI-powered interview at the scheduled time.</p>
+    <p style="font-family: Arial, sans-serif; font-size: 14px; color: #374151;">Best regards,<br>HireEz Team</p>
 </div>"""
 
     return send_email.delay(candidate_email, subject, body, html_body)
