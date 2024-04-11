@@ -19,7 +19,8 @@ celery_app.conf.update(
     worker_prefetch_multiplier=1,
 )
 
-# Auto-discover tasks
-celery_app.autodiscover_tasks([
-    "app.tasks",
-])
+# Explicitly include task modules
+celery_app.conf.include = [
+    "app.tasks.email_tasks",
+    "app.tasks.sms_tasks",
+]

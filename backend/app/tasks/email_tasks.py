@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 @celery_app.task(name="tasks.send_email", bind=True, max_retries=3)
 def send_email(self, to_email: str, subject: str, body: str, html_body: str = None):
     try:
-        if not settings.SENDGRID_API_KEY:
+        if not settings.SENDGRID_API_KEY or settings.SENDGRID_API_KEY.startswith("your-"):
             logger.warning(f"SendGrid not configured. Email to {to_email} not sent: {subject}")
             return {"status": "skipped", "reason": "SendGrid not configured"}
 
