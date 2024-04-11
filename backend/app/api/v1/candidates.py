@@ -24,7 +24,7 @@ async def list_candidates(
     job_id: Optional[int] = Query(None),
     search: Optional[str] = Query(None),
     page: int = Query(1, ge=1),
-    page_size: int = Query(20, ge=1, le=100),
+    page_size: int = Query(20, ge=1, le=500),
     db: AsyncSession = Depends(get_db),
 ):
     service = CandidateService(db)

@@ -22,6 +22,7 @@ const JobDetailPage = lazy(() => import('./pages/jobs/JobDetailPage'));
 const CandidateListPage = lazy(() => import('./pages/candidates/CandidateListPage'));
 const CandidateRegistrationPage = lazy(() => import('./pages/candidates/CandidateRegistrationPage'));
 const CandidateDetailPage = lazy(() => import('./pages/candidates/CandidateDetailPage'));
+const CandidatePipelinePage = lazy(() => import('./pages/candidates/CandidatePipelinePage'));
 
 // Interviews
 const InterviewListPage = lazy(() => import('./pages/interviews/InterviewListPage'));
@@ -102,6 +103,14 @@ function App() {
               }
             />
             <Route path="/candidates" element={<CandidateListPage />} />
+            <Route
+              path="/candidates/pipeline"
+              element={
+                <ProtectedRoute roles={['super_admin', 'hr_manager']}>
+                  <CandidatePipelinePage />
+                </ProtectedRoute>
+              }
+            />
             <Route path="/candidates/:id" element={<CandidateDetailPage />} />
 
             {/* Interviews */}
