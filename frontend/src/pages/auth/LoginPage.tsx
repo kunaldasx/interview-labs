@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate, Link, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { authAPI } from '../../api/auth';
@@ -12,14 +12,16 @@ export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [demoLoading, setDemoLoading] = useState(false);
   const [tokenLoading, setTokenLoading] = useState(false);
+  const tokenAttempted = useRef(false);
   const { login } = useAuth();
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   // Auto-login via magic token from email link
   useEffect(() => {
     const token = searchParams.get('token');
-    if (!token) return;
+    if (!token || tokenAttempted.current) return;
+    tokenAttempted.current = true;
 
     setTokenLoading(true);
     authAPI.tokenLogin(token)
@@ -33,8 +35,10 @@ export default function LoginPage() {
       .catch(() => {
         toast.error('Login link expired or invalid. Please sign in manually.');
         setTokenLoading(false);
+        // Remove token from URL to prevent retry
+        setSearchParams({});
       });
-  }, [searchParams]);
+  }, []);
 
   const handleDemoLogin = async () => {
     setDemoLoading(true);

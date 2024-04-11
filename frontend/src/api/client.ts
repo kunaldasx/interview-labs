@@ -20,6 +20,11 @@ apiClient.interceptors.request.use((config) => {
 apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
+    const url = error.config?.url || '';
+    // Don't redirect on token-login failures — let the login page handle it
+    if (url.includes('/auth/token-login')) {
+      return Promise.reject(error);
+    }
     if (error.response?.status === 401 ||
         (error.response?.status === 403 && error.response?.data?.detail === 'Not authenticated')) {
       localStorage.removeItem('access_token');

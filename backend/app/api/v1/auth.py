@@ -81,7 +81,10 @@ async def token_login(data: TokenLoginRequest, db: AsyncSession = Depends(get_db
     """Auto-login using a magic token sent via email."""
     r = aioredis.from_url(settings.REDIS_URL, decode_responses=True)
     try:
-        user_id = await r.get(f"magic_login:{data.token}")
+        key = f"magic_login:{data.token}"
+        user_id = await r.get(key)
+        logger.info(f"Token-login attempt: key={key}, user_id={user_id}")
+
         if not user_id:
             raise HTTPException(status_code=401, detail="Invalid or expired login link")
 
@@ -90,12 +93,10 @@ async def token_login(data: TokenLoginRequest, db: AsyncSession = Depends(get_db
         if not user or not user.is_active:
             raise HTTPException(status_code=401, detail="User not found or disabled")
 
-        # Delete the token after use (one-time use)
-        await r.delete(f"magic_login:{data.token}")
-
         access_token = create_access_token({"sub": str(user.id)})
         refresh_token = create_refresh_token({"sub": str(user.id)})
 
+        logger.info(f"Token-login success for user {user.email} (id={user.id})")
         return {
             "access_token": access_token,
             "refresh_token": refresh_token,
