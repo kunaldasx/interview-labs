@@ -33,9 +33,12 @@ class Settings(BaseSettings):
     CELERY_BROKER_URL: str = "redis://localhost:6380/1"
     CELERY_RESULT_BACKEND: str = "redis://localhost:6380/2"
 
-    # Email
-    SENDGRID_API_KEY: Optional[str] = None
-    FROM_EMAIL: str = "noreply@aiinterview.com"
+    # Email (Gmail SMTP)
+    SMTP_HOST: str = "smtp.gmail.com"
+    SMTP_PORT: int = 587
+    SMTP_USER: Optional[str] = None
+    SMTP_PASSWORD: Optional[str] = None
+    FROM_EMAIL: str = "digitalkookieh@gmail.com"
 
     # SMS
     TWILIO_ACCOUNT_SID: Optional[str] = None

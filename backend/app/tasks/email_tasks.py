@@ -1,5 +1,8 @@
-"""Email sending Celery tasks."""
+"""Email sending Celery tasks using Gmail SMTP."""
 import logging
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 from app.tasks.celery_app import celery_app
 from app.core.config import settings
@@ -10,29 +13,26 @@ logger = logging.getLogger(__name__)
 @celery_app.task(name="tasks.send_email", bind=True, max_retries=3)
 def send_email(self, to_email: str, subject: str, body: str, html_body: str = None):
     try:
-        if not settings.SENDGRID_API_KEY or settings.SENDGRID_API_KEY.startswith("your-"):
-            logger.warning(f"SendGrid not configured. Email to {to_email} not sent: {subject}")
-            return {"status": "skipped", "reason": "SendGrid not configured"}
+        if not settings.SMTP_USER or not settings.SMTP_PASSWORD:
+            logger.warning(f"SMTP not configured. Email to {to_email} not sent: {subject}")
+            return {"status": "skipped", "reason": "SMTP credentials not configured"}
 
-        from sendgrid import SendGridAPIClient
-        from sendgrid.helpers.mail import Mail, Content
+        msg = MIMEMultipart("alternative")
+        msg["From"] = settings.FROM_EMAIL
+        msg["To"] = to_email
+        msg["Subject"] = subject
 
-        sg = SendGridAPIClient(api_key=settings.SENDGRID_API_KEY)
+        msg.attach(MIMEText(body, "plain"))
+        if html_body:
+            msg.attach(MIMEText(html_body, "html"))
 
-        content_type = "text/html" if html_body else "text/plain"
-        content_body = html_body or body
+        with smtplib.SMTP(settings.SMTP_HOST, settings.SMTP_PORT) as server:
+            server.starttls()
+            server.login(settings.SMTP_USER, settings.SMTP_PASSWORD)
+            server.sendmail(settings.FROM_EMAIL, to_email, msg.as_string())
 
-        message = Mail(
-            from_email=settings.FROM_EMAIL,
-            to_emails=to_email,
-            subject=subject,
-            plain_text_content=body if not html_body else None,
-            html_content=html_body,
-        )
-
-        response = sg.send(message)
-        logger.info(f"Email sent to {to_email}: {response.status_code}")
-        return {"status": "sent", "status_code": response.status_code}
+        logger.info(f"Email sent to {to_email} via SMTP")
+        return {"status": "sent"}
 
     except Exception as exc:
         logger.error(f"Failed to send email to {to_email}: {exc}")
