@@ -1,7 +1,8 @@
 import { useRef, useState, useCallback, useEffect } from 'react';
 import type { ChatMessage, ChatResponse } from '../types/interview';
 
-const WS_URL = import.meta.env.VITE_WS_URL || `ws://${window.location.host}`;
+const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+const WS_URL = import.meta.env.VITE_WS_URL || `${protocol}//${window.location.host}`;
 
 export function useWebSocket(interviewId: number | null) {
   const wsRef = useRef<WebSocket | null>(null);
