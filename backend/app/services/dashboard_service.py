@@ -92,3 +92,82 @@ class DashboardService:
             ).group_by(Candidate.status)
         )
         return [{"status": row.status, "count": row.count} for row in result.all()]
+
+    async def get_time_to_hire(self) -> List[dict]:
+        result = await self.db.execute(
+            select(
+                JobDescription.id.label("job_id"),
+                JobDescription.title.label("job_title"),
+                func.avg(
+                    func.extract("epoch", Candidate.updated_at)
+                    - func.extract("epoch", Candidate.created_at)
+                ).label("avg_seconds"),
+                func.count(Candidate.id).label("hire_count"),
+            )
+            .join(JobDescription, Candidate.job_id == JobDescription.id)
+            .where(Candidate.status == CandidateStatus.HIRED)
+            .group_by(JobDescription.id, JobDescription.title)
+        )
+        return [
+            {
+                "job_title": row.job_title,
+                "avg_days": round(float(row.avg_seconds or 0) / 86400, 1),
+                "hire_count": row.hire_count,
+            }
+            for row in result.all()
+        ]
+
+    async def get_interview_completion_rate(self) -> dict:
+        total = (await self.db.execute(
+            select(func.count(Interview.id))
+        )).scalar_one()
+
+        completed = (await self.db.execute(
+            select(func.count(Interview.id)).where(Interview.status == InterviewStatus.COMPLETED)
+        )).scalar_one()
+
+        scheduled = (await self.db.execute(
+            select(func.count(Interview.id)).where(Interview.status == InterviewStatus.SCHEDULED)
+        )).scalar_one()
+
+        cancelled = (await self.db.execute(
+            select(func.count(Interview.id)).where(Interview.status == InterviewStatus.CANCELLED)
+        )).scalar_one()
+
+        return {
+            "total": total,
+            "completed": completed,
+            "scheduled": scheduled,
+            "cancelled": cancelled,
+            "completion_rate": round(completed / total * 100, 1) if total > 0 else 0,
+        }
+
+    async def get_score_distribution(self, job_id: int = None) -> List[dict]:
+        query = (
+            select(
+                Candidate.full_name.label("candidate_name"),
+                Evaluation.overall_score,
+                Evaluation.communication_score,
+                Evaluation.technical_score,
+                Evaluation.confidence_score,
+                Evaluation.domain_knowledge_score,
+                Evaluation.problem_solving_score,
+            )
+            .join(Interview, Evaluation.interview_id == Interview.id)
+            .join(Candidate, Evaluation.candidate_id == Candidate.id)
+        )
+        if job_id:
+            query = query.where(Interview.job_id == job_id)
+        result = await self.db.execute(query)
+        return [
+            {
+                "candidate_name": row.candidate_name,
+                "overall_score": float(row.overall_score or 0),
+                "communication_score": float(row.communication_score or 0),
+                "technical_score": float(row.technical_score or 0),
+                "confidence_score": float(row.confidence_score or 0),
+                "domain_knowledge_score": float(row.domain_knowledge_score or 0),
+                "problem_solving_score": float(row.problem_solving_score or 0),
+            }
+            for row in result.all()
+        ]

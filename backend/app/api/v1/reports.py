@@ -43,6 +43,21 @@ async def download_candidates_excel(
     )
 
 
+@router.get("/pipeline/excel")
+async def download_pipeline_excel(
+    job_id: Optional[int] = Query(None),
+    db: AsyncSession = Depends(get_db),
+    current_user: User = Depends(require_role("super_admin", "hr_manager")),
+):
+    service = ReportService(db)
+    excel_bytes = await service.generate_pipeline_report(job_id=job_id)
+    return StreamingResponse(
+        io.BytesIO(excel_bytes),
+        media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        headers={"Content-Disposition": "attachment; filename=pipeline_report.xlsx"},
+    )
+
+
 @router.get("/evaluations/excel")
 async def download_evaluations_excel(
     job_id: Optional[int] = Query(None),

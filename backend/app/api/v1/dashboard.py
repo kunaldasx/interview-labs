@@ -59,3 +59,31 @@ async def get_status_distribution(
 ):
     service = DashboardService(db)
     return await service.get_status_distribution()
+
+
+@router.get("/time-to-hire")
+async def get_time_to_hire(
+    db: AsyncSession = Depends(get_db),
+    current_user: User = Depends(require_role("super_admin", "hr_manager")),
+):
+    service = DashboardService(db)
+    return await service.get_time_to_hire()
+
+
+@router.get("/interview-completion")
+async def get_interview_completion(
+    db: AsyncSession = Depends(get_db),
+    current_user: User = Depends(require_role("super_admin", "hr_manager")),
+):
+    service = DashboardService(db)
+    return await service.get_interview_completion_rate()
+
+
+@router.get("/score-distribution")
+async def get_score_distribution(
+    job_id: int = Query(None),
+    db: AsyncSession = Depends(get_db),
+    current_user: User = Depends(require_role("super_admin", "hr_manager")),
+):
+    service = DashboardService(db)
+    return await service.get_score_distribution(job_id=job_id)

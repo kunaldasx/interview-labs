@@ -10,7 +10,7 @@ from app.models.evaluation import Evaluation
 from app.models.interview import Interview
 from app.models.job import JobDescription
 from app.utils.pdf_generator import generate_candidate_report
-from app.utils.excel_generator import generate_candidates_excel, generate_evaluation_excel
+from app.utils.excel_generator import generate_candidates_excel, generate_evaluation_excel, generate_pipeline_excel
 
 
 class ReportService:
@@ -77,6 +77,45 @@ class ReportService:
             })
 
         return generate_candidates_excel(data)
+
+    async def generate_pipeline_report(self, job_id: int = None) -> bytes:
+        from datetime import datetime as dt
+
+        query = (
+            select(Candidate, Evaluation, JobDescription)
+            .outerjoin(Evaluation, Candidate.id == Evaluation.candidate_id)
+            .outerjoin(JobDescription, Candidate.job_id == JobDescription.id)
+        )
+        if job_id:
+            query = query.where(Candidate.job_id == job_id)
+        query = query.order_by(Candidate.created_at.desc())
+        result = await self.db.execute(query)
+        rows = result.all()
+
+        data = []
+        now = dt.utcnow()
+        for candidate, evaluation, job in rows:
+            days_in_pipeline = (now - candidate.created_at).days
+            data.append({
+                "id": candidate.id,
+                "full_name": candidate.full_name,
+                "email": candidate.email,
+                "phone": candidate.phone or "",
+                "job_title": job.title if job else "",
+                "status": candidate.status.value,
+                "experience_years": candidate.experience_years or 0,
+                "communication_score": evaluation.communication_score if evaluation else "",
+                "technical_score": evaluation.technical_score if evaluation else "",
+                "confidence_score": evaluation.confidence_score if evaluation else "",
+                "domain_knowledge_score": evaluation.domain_knowledge_score if evaluation else "",
+                "problem_solving_score": evaluation.problem_solving_score if evaluation else "",
+                "overall_score": evaluation.overall_score if evaluation else "",
+                "ai_recommendation": evaluation.ai_recommendation.value if evaluation else "",
+                "created_at": candidate.created_at.strftime("%Y-%m-%d"),
+                "days_in_pipeline": days_in_pipeline,
+            })
+
+        return generate_pipeline_excel(data)
 
     async def generate_evaluations_report(self, job_id: int = None) -> bytes:
         query = select(Evaluation)

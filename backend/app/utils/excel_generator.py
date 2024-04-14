@@ -55,6 +55,50 @@ def generate_candidates_excel(candidates: list[dict]) -> bytes:
     return buffer.getvalue()
 
 
+def generate_pipeline_excel(data: list[dict]) -> bytes:
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Pipeline"
+
+    headers = [
+        "ID", "Name", "Email", "Phone", "Job", "Status", "Experience (yrs)",
+        "Communication", "Technical", "Confidence", "Domain Knowledge",
+        "Problem Solving", "Overall Score", "AI Recommendation",
+        "Registered", "Days in Pipeline",
+    ]
+    ws.append(headers)
+    _style_header(ws, max_col=len(headers))
+
+    for row in data:
+        ws.append([
+            row.get("id", ""),
+            row.get("full_name", ""),
+            row.get("email", ""),
+            row.get("phone", ""),
+            row.get("job_title", ""),
+            row.get("status", ""),
+            row.get("experience_years", ""),
+            row.get("communication_score", ""),
+            row.get("technical_score", ""),
+            row.get("confidence_score", ""),
+            row.get("domain_knowledge_score", ""),
+            row.get("problem_solving_score", ""),
+            row.get("overall_score", ""),
+            row.get("ai_recommendation", ""),
+            row.get("created_at", ""),
+            row.get("days_in_pipeline", ""),
+        ])
+
+    for col in ws.columns:
+        max_length = max(len(str(cell.value or "")) for cell in col)
+        ws.column_dimensions[col[0].column_letter].width = min(max_length + 4, 40)
+
+    buffer = io.BytesIO()
+    wb.save(buffer)
+    buffer.seek(0)
+    return buffer.getvalue()
+
+
 def generate_evaluation_excel(evaluations: list[dict]) -> bytes:
     wb = Workbook()
     ws = wb.active

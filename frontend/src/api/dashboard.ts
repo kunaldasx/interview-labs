@@ -15,4 +15,13 @@ export const dashboardAPI = {
 
   getStatusDistribution: () =>
     apiClient.get('/dashboard/status-distribution').then(r => r.data),
+
+  getTimeToHire: () =>
+    apiClient.get('/dashboard/time-to-hire').then(r => r.data),
+
+  getInterviewCompletion: () =>
+    apiClient.get('/dashboard/interview-completion').then(r => r.data),
+
+  getScoreDistribution: (jobId?: number) =>
+    apiClient.get('/dashboard/score-distribution', { params: jobId ? { job_id: jobId } : {} }).then(r => r.data),
 };

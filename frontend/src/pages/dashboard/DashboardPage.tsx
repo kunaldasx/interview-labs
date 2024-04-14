@@ -6,6 +6,8 @@ import Spinner from '../../components/ui/Spinner';
 import Badge from '../../components/ui/Badge';
 import HiringTrendChart from '../../components/charts/HiringTrendChart';
 import DepartmentBarChart from '../../components/charts/DepartmentBarChart';
+import InterviewCompletionChart from '../../components/charts/InterviewCompletionChart';
+import TimeToHireChart from '../../components/charts/TimeToHireChart';
 import { formatDateTime } from '../../lib/formatters';
 
 const kpiConfig = [
@@ -14,6 +16,7 @@ const kpiConfig = [
   { key: 'completed_interviews', label: 'Completed', icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z', bg: 'bg-purple-500/[0.08]', iconBg: 'bg-purple-500/20', color: 'text-purple-400', glow: 'shadow-glow-purple' },
   { key: 'pending_evaluations', label: 'Pending Reviews', icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z', bg: 'bg-amber-500/[0.08]', iconBg: 'bg-amber-500/20', color: 'text-amber-400', glow: 'shadow-glow-amber' },
   { key: 'average_score', label: 'Avg. Score', icon: 'M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z', bg: 'bg-indigo-500/[0.08]', iconBg: 'bg-indigo-500/20', color: 'text-indigo-400', glow: 'shadow-glow-purple' },
+  { key: 'completion_rate', label: 'Completion %', icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z', bg: 'bg-teal-500/[0.08]', iconBg: 'bg-teal-500/20', color: 'text-teal-400', glow: 'shadow-glow-emerald' },
 ];
 
 export default function DashboardPage() {
@@ -22,6 +25,8 @@ export default function DashboardPage() {
   const { data: upcoming } = useQuery({ queryKey: ['dashboard-upcoming'], queryFn: () => dashboardAPI.getUpcomingInterviews() });
   const { data: trends } = useQuery({ queryKey: ['dashboard-trends'], queryFn: () => dashboardAPI.getHiringTrends() });
   const { data: distribution } = useQuery({ queryKey: ['dashboard-distribution'], queryFn: dashboardAPI.getStatusDistribution });
+  const { data: completion } = useQuery({ queryKey: ['dashboard-completion'], queryFn: dashboardAPI.getInterviewCompletion });
+  const { data: timeToHire } = useQuery({ queryKey: ['dashboard-time-to-hire'], queryFn: dashboardAPI.getTimeToHire });
 
   if (kpisLoading) return <Spinner size="lg" label="Loading dashboard..." className="py-20" />;
 
@@ -36,7 +41,7 @@ export default function DashboardPage() {
         <p className="text-sm text-gray-400 mt-1">{today}</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
         {kpiConfig.map((kpi, index) => (
           <div
             key={kpi.key}
@@ -52,7 +57,9 @@ export default function DashboardPage() {
               <div>
                 <p className="text-xs text-gray-400 font-medium">{kpi.label}</p>
                 <p className={`text-xl font-bold mt-0.5 ${kpi.color}`}>
-                  {(kpis as any)?.[kpi.key] || 0}
+                  {kpi.key === 'completion_rate'
+                    ? `${(completion as any)?.completion_rate ?? 0}%`
+                    : (kpis as any)?.[kpi.key] || 0}
                 </p>
               </div>
             </div>
@@ -72,6 +79,24 @@ export default function DashboardPage() {
         <Card title="Candidate Status Distribution">
           {distribution && distribution.length > 0 ? (
             <DepartmentBarChart data={distribution} />
+          ) : (
+            <p className="text-sm text-gray-500 text-center py-8">No data available</p>
+          )}
+        </Card>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <Card title="Interview Completion">
+          {completion && completion.total > 0 ? (
+            <InterviewCompletionChart data={completion} />
+          ) : (
+            <p className="text-sm text-gray-500 text-center py-8">No data available</p>
+          )}
+        </Card>
+
+        <Card title="Time to Hire by Job">
+          {timeToHire && timeToHire.length > 0 ? (
+            <TimeToHireChart data={timeToHire} />
           ) : (
             <p className="text-sm text-gray-500 text-center py-8">No data available</p>
           )}
