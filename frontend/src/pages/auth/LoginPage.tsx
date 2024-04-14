@@ -103,7 +103,7 @@ export default function LoginPage() {
           <p className="text-gray-500 mt-1">Sign in to your account</p>
         </div>
 
-        <div className="glass rounded-2xl shadow-xl p-8">
+        <div className="bg-white/80 backdrop-blur-xl border border-gray-200 rounded-2xl shadow-xl p-8">
           <form onSubmit={handleSubmit} className="space-y-4">
             <Input
               id="email"
@@ -113,6 +113,7 @@ export default function LoginPage() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@example.com"
               required
+              className="!bg-white !border-gray-300 !text-gray-900 placeholder-gray-400 focus:!border-primary-500"
             />
             <Input
               id="password"
@@ -122,6 +123,7 @@ export default function LoginPage() {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter your password"
               required
+              className="!bg-white !border-gray-300 !text-gray-900 placeholder-gray-400 focus:!border-primary-500"
             />
             <Button type="submit" isLoading={isLoading} className="w-full" size="lg">
               Sign In

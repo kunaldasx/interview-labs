@@ -68,7 +68,7 @@ export default function RegisterPage() {
           </div>
         )}
 
-        <div className="glass rounded-2xl shadow-xl p-8">
+        <div className="bg-white/80 backdrop-blur-xl border border-gray-200 rounded-2xl shadow-xl p-8">
           <form onSubmit={handleSubmit} className="space-y-4">
             <Input
               id="full_name"
@@ -77,6 +77,7 @@ export default function RegisterPage() {
               onChange={(e) => setForm({ ...form, full_name: e.target.value })}
               placeholder="Full Name"
               required
+              className="!bg-white !border-gray-300 !text-gray-900 placeholder-gray-400 focus:!border-primary-500"
             />
             <Input
               id="email"
@@ -86,6 +87,7 @@ export default function RegisterPage() {
               onChange={(e) => setForm({ ...form, email: e.target.value })}
               placeholder="you@example.com"
               required
+              className="!bg-white !border-gray-300 !text-gray-900 placeholder-gray-400 focus:!border-primary-500"
             />
             <Input
               id="password"
@@ -96,6 +98,7 @@ export default function RegisterPage() {
               placeholder="Minimum 8 characters"
               required
               minLength={8}
+              className="!bg-white !border-gray-300 !text-gray-900 placeholder-gray-400 focus:!border-primary-500"
             />
             <Input
               id="confirmPassword"
@@ -105,6 +108,7 @@ export default function RegisterPage() {
               onChange={(e) => setForm({ ...form, confirmPassword: e.target.value })}
               placeholder="Re-enter password"
               required
+              className="!bg-white !border-gray-300 !text-gray-900 placeholder-gray-400 focus:!border-primary-500"
             />
             <Button type="submit" isLoading={isLoading} className="w-full" size="lg">
               Create Account
