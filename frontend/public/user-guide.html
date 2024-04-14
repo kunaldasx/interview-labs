@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HireEz - User Guide</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a0f; color: #d1d5db; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.7; }
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
+  .header-bar { background: rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 16px 24px; position: sticky; top: 0; backdrop-filter: blur(16px); z-index: 10; display: flex; align-items: center; justify-content: space-between; }
+  .header-bar .logo { display: flex; align-items: center; gap: 10px; }
+  .header-bar .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, #6366f1, #4f46e5); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 12px; }
+  .header-bar .logo-text { color: #fff; font-weight: 600; font-size: 16px; }
+  .header-bar a { color: #818cf8; text-decoration: none; font-size: 14px; }
+  .header-bar a:hover { color: #a5b4fc; }
+  h1 { color: #fff; font-size: 32px; font-weight: 700; margin-bottom: 8px; background: linear-gradient(135deg, #818cf8, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .subtitle { color: #6b7280; font-size: 16px; margin-bottom: 40px; }
+  h2 { color: #fff; font-size: 22px; font-weight: 600; margin: 48px 0 16px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  h3 { color: #e5e7eb; font-size: 17px; font-weight: 600; margin: 28px 0 12px; }
+  h4 { color: #c4b5fd; font-size: 15px; font-weight: 600; margin: 20px 0 8px; }
+  p { margin-bottom: 12px; font-size: 15px; }
+  ul, ol { margin: 8px 0 16px 24px; }
+  li { margin-bottom: 6px; font-size: 15px; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 14px; }
+  th { background: rgba(79,70,229,0.15); color: #a5b4fc; text-align: left; padding: 10px 14px; border: 1px solid rgba(255,255,255,0.08); font-weight: 600; }
+  td { padding: 8px 14px; border: 1px solid rgba(255,255,255,0.06); }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+  code { background: rgba(255,255,255,0.06); color: #a5b4fc; padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+  strong { color: #e5e7eb; }
+  .note { background: rgba(79,70,229,0.08); border: 1px solid rgba(99,102,241,0.2); border-radius: 10px; padding: 14px 18px; margin: 16px 0; font-size: 14px; }
+  .note strong { color: #818cf8; }
+  .tip { background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2); border-radius: 10px; padding: 14px 18px; margin: 16px 0; font-size: 14px; }
+  .tip strong { color: #34d399; }
+  .toc { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 24px 28px; margin: 24px 0 40px; }
+  .toc h3 { margin-top: 0; color: #fff; }
+  .toc ol { margin: 12px 0 0 20px; }
+  .toc a { color: #818cf8; text-decoration: none; }
+  .toc a:hover { color: #a5b4fc; text-decoration: underline; }
+  .step { display: flex; gap: 14px; margin: 16px 0; }
+  .step-num { width: 28px; height: 28px; background: linear-gradient(135deg, #6366f1, #4f46e5); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 13px; flex-shrink: 0; margin-top: 2px; }
+  .step-content { flex: 1; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+  .badge-blue { background: rgba(59,130,246,0.15); color: #60a5fa; }
+  .badge-green { background: rgba(16,185,129,0.15); color: #34d399; }
+  .badge-amber { background: rgba(245,158,11,0.15); color: #fbbf24; }
+  .badge-red { background: rgba(239,68,68,0.15); color: #f87171; }
+  .badge-purple { background: rgba(139,92,246,0.15); color: #a78bfa; }
+  .footer { text-align: center; margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); color: #4b5563; font-size: 14px; }
+  @media(max-width:640px) { .container { padding: 20px 16px 60px; } h1 { font-size: 24px; } h2 { font-size: 18px; } table { font-size: 12px; } th, td { padding: 6px 8px; } }
+</style>
+</head>
+<body>
+
+<div class="header-bar">
+  <div class="logo">
+    <div class="logo-icon">AI</div>
+    <span class="logo-text">HireEz User Guide</span>
+  </div>
+  <a href="/dashboard">Back to App</a>
+</div>
+
+<div class="container">
+
+<h1>HireEz - AI Interview Agent</h1>
+<p class="subtitle">Complete User Guide</p>
+
+<div class="toc">
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#getting-started">Getting Started</a></li>
+    <li><a href="#user-roles">User Roles</a></li>
+    <li><a href="#dashboard">Dashboard</a></li>
+    <li><a href="#job-management">Job Management</a></li>
+    <li><a href="#candidate-management">Candidate Management</a></li>
+    <li><a href="#pipeline-board">Pipeline Board</a></li>
+    <li><a href="#interviews">Interviews</a></li>
+    <li><a href="#evaluations">Evaluations</a></li>
+    <li><a href="#reports-analytics">Reports &amp; Analytics</a></li>
+    <li><a href="#user-management">User Management</a></li>
+    <li><a href="#notifications">Notifications</a></li>
+    <li><a href="#settings">Settings</a></li>
+    <li><a href="#complete-workflow">Complete Hiring Workflow</a></li>
+    <li><a href="#troubleshooting">Troubleshooting</a></li>
+  </ol>
+</div>
+
+<!-- 1. Getting Started -->
+<h2 id="getting-started">1. Getting Started</h2>
+
+<h3>Accessing the Platform</h3>
+<p>Open your browser and navigate to <strong>https://hireez.online</strong></p>
+
+<h3>Logging In</h3>
+<ol>
+  <li>Click <strong>Login</strong> on the homepage</li>
+  <li>Enter your <strong>Email</strong> and <strong>Password</strong></li>
+  <li>Click <strong>Sign In</strong></li>
+</ol>
+<p>You will be redirected to the <strong>Dashboard</strong> after successful login.</p>
+
+<h3>Registering a New Account</h3>
+<ol>
+  <li>Click <strong>Register</strong> on the homepage</li>
+  <li>Fill in your <strong>Full Name</strong>, <strong>Email</strong>, and <strong>Password</strong></li>
+  <li>Click <strong>Create Account</strong></li>
+</ol>
+<div class="note"><strong>Note:</strong> Self-registered users are assigned the <strong>Candidate</strong> role. Admin and HR Manager accounts are created by the Super Admin through User Management.</div>
+
+<!-- 2. User Roles -->
+<h2 id="user-roles">2. User Roles</h2>
+<p>HireEz has four user roles with different access levels:</p>
+
+<table>
+  <thead>
+    <tr><th>Feature</th><th>Super Admin</th><th>HR Manager</th><th>Interviewer</th><th>Candidate</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Dashboard</td><td>Yes</td><td>Yes</td><td>Yes</td><td>-</td></tr>
+    <tr><td>Jobs (Create/Edit)</td><td>Yes</td><td>Yes</td><td>-</td><td>-</td></tr>
+    <tr><td>Candidates (Register)</td><td>Yes</td><td>Yes</td><td>-</td><td>-</td></tr>
+    <tr><td>Pipeline Board</td><td>Yes</td><td>Yes</td><td>-</td><td>-</td></tr>
+    <tr><td>Schedule Interviews</td><td>Yes</td><td>Yes</td><td>Yes</td><td>-</td></tr>
+    <tr><td>Conduct Interviews</td><td>-</td><td>-</td><td>-</td><td>Yes</td></tr>
+    <tr><td>View Evaluations</td><td>Yes</td><td>Yes</td><td>-</td><td>-</td></tr>
+    <tr><td>Reports &amp; Export</td><td>Yes</td><td>Yes</td><td>-</td><td>-</td></tr>
+    <tr><td>Analytics</td><td>Yes</td><td>Yes</td><td>-</td><td>-</td></tr>
+    <tr><td>User Management</td><td>Yes</td><td>Yes</td><td>-</td><td>-</td></tr>
+    <tr><td>Domain Management</td><td>Yes</td><td>-</td><td>-</td><td>-</td></tr>
+    <tr><td>Settings</td><td>Yes</td><td>Yes</td><td>-</td><td>-</td></tr>
+  </tbody>
+</table>
+
+<!-- 3. Dashboard -->
+<h2 id="dashboard">3. Dashboard</h2>
+<p>The Dashboard is the landing page after login. It provides a quick overview of your hiring activity.</p>
+
+<h3>KPI Cards (Top Row)</h3>
+<table>
+  <thead><tr><th>KPI</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Total Candidates</strong></td><td>Number of candidates registered in the system</td></tr>
+    <tr><td><strong>Active Jobs</strong></td><td>Jobs currently open for hiring</td></tr>
+    <tr><td><strong>Completed</strong></td><td>Total interviews that have been completed</td></tr>
+    <tr><td><strong>Pending Reviews</strong></td><td>Evaluations awaiting HR decision</td></tr>
+    <tr><td><strong>Avg. Score</strong></td><td>Average overall interview score across all evaluations</td></tr>
+    <tr><td><strong>Completion %</strong></td><td>Percentage of scheduled interviews that were completed</td></tr>
+  </tbody>
+</table>
+
+<h3>Charts</h3>
+<ul>
+  <li><strong>Hiring Trends (30 days)</strong> &mdash; Line chart showing daily interview activity over the last 30 days</li>
+  <li><strong>Candidate Status Distribution</strong> &mdash; Bar chart showing how many candidates are in each pipeline stage</li>
+  <li><strong>Interview Completion</strong> &mdash; Donut chart showing completed vs scheduled vs cancelled interviews</li>
+  <li><strong>Time to Hire by Job</strong> &mdash; Horizontal bar chart showing average days from registration to hire per job</li>
+</ul>
+
+<h3>Upcoming Interviews</h3>
+<p>Lists the next scheduled interviews with date/time and status badge.</p>
+
+<!-- 4. Job Management -->
+<h2 id="job-management">4. Job Management</h2>
+<p>Navigate to <strong>Jobs</strong> in the sidebar.</p>
+
+<h3>Viewing Jobs</h3>
+<ul>
+  <li>See all job descriptions in a list view</li>
+  <li><strong>Search</strong> by job title using the search bar</li>
+  <li><strong>Filter</strong> by status (Open, Draft, Closed, On Hold), domain, or department</li>
+</ul>
+
+<h3>Creating a Job</h3>
+<ol>
+  <li>Click <strong>Create Job</strong> (top-right button)</li>
+  <li>Fill in the form fields below</li>
+  <li>Click <strong>Create Job</strong></li>
+</ol>
+
+<table>
+  <thead><tr><th>Field</th><th>Required</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td>Title</td><td>Yes</td><td>Job title (e.g., "Senior Nurse")</td></tr>
+    <tr><td>Description</td><td>Yes</td><td>Detailed job description</td></tr>
+    <tr><td>Requirements</td><td>No</td><td>Skills and qualifications needed</td></tr>
+    <tr><td>Required Skills</td><td>No</td><td>Must-have skills</td></tr>
+    <tr><td>Preferred Skills</td><td>No</td><td>Nice-to-have skills</td></tr>
+    <tr><td>Min / Max Experience</td><td>No</td><td>Years of experience range</td></tr>
+    <tr><td>Salary Range</td><td>No</td><td>Min &ndash; Max salary</td></tr>
+    <tr><td>Location</td><td>No</td><td>Work location</td></tr>
+    <tr><td>Employment Type</td><td>No</td><td>Full-time, Part-time, Contract, etc.</td></tr>
+    <tr><td>Domain</td><td>No</td><td>Industry domain (Healthcare, Finance, etc.)</td></tr>
+    <tr><td>Department</td><td>No</td><td>Organizational department</td></tr>
+    <tr><td>Number of Openings</td><td>No</td><td>How many positions to fill</td></tr>
+  </tbody>
+</table>
+
+<h3>Job Statuses</h3>
+<table>
+  <thead><tr><th>Status</th><th>Meaning</th></tr></thead>
+  <tbody>
+    <tr><td><span class="badge badge-green">Draft</span></td><td>Job not yet published</td></tr>
+    <tr><td><span class="badge badge-blue">Open</span></td><td>Actively accepting candidates</td></tr>
+    <tr><td><span class="badge badge-amber">On Hold</span></td><td>Temporarily paused</td></tr>
+    <tr><td><span class="badge badge-red">Closed</span></td><td>No longer accepting candidates</td></tr>
+  </tbody>
+</table>
+
+<!-- 5. Candidate Management -->
+<h2 id="candidate-management">5. Candidate Management</h2>
+<p>Navigate to <strong>Candidates</strong> in the sidebar.</p>
+
+<h3>Viewing Candidates</h3>
+<ul>
+  <li>Browse all candidates in a paginated list</li>
+  <li><strong>Search</strong> by name or email</li>
+  <li><strong>Filter</strong> by status or job</li>
+</ul>
+
+<h3>Registering a Candidate</h3>
+<ol>
+  <li>Click <strong>Register Candidate</strong></li>
+  <li><strong>Upload Resume</strong> (PDF or DOCX) &mdash; AI will automatically extract:
+    <ul>
+      <li>Full Name, Email, Phone, Address, Date of Birth</li>
+      <li>LinkedIn and Portfolio URLs</li>
+      <li>Experience years, Education, Skills</li>
+      <li>Work experience history</li>
+    </ul>
+  </li>
+  <li>Review and edit the auto-filled fields</li>
+  <li>Select the <strong>Job</strong> the candidate is applying for</li>
+  <li>Click <strong>Register</strong></li>
+</ol>
+<div class="tip"><strong>Tip:</strong> If AI parsing doesn't extract all fields correctly, you can manually edit them before submitting.</div>
+
+<h3>Candidate Statuses</h3>
+<p>Each candidate progresses through these pipeline stages:</p>
+<table>
+  <thead><tr><th>Status</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><span class="badge badge-blue">Registered</span></td><td>Newly added to the system</td></tr>
+    <tr><td><span class="badge badge-purple">Screened</span></td><td>Resume has been screened by AI</td></tr>
+    <tr><td><span class="badge badge-green">Shortlisted</span></td><td>Passed screening, approved by HR</td></tr>
+    <tr><td><span class="badge badge-blue">Interview Scheduled</span></td><td>Interview date/time has been set</td></tr>
+    <tr><td><span class="badge badge-amber">Interviewed</span></td><td>Interview completed</td></tr>
+    <tr><td><span class="badge badge-purple">Evaluated</span></td><td>AI evaluation scores generated</td></tr>
+    <tr><td><span class="badge badge-green">Offered</span></td><td>Job offer extended</td></tr>
+    <tr><td><span class="badge badge-green">Hired</span></td><td>Candidate accepted and hired</td></tr>
+    <tr><td><span class="badge badge-red">Rejected</span></td><td>Application declined</td></tr>
+  </tbody>
+</table>
+
+<h3>Candidate Detail Page</h3>
+<p>Click any candidate to view their full profile including personal information, resume data, skills, work experience, screening results, interview history, and evaluation results.</p>
+
+<!-- 6. Pipeline Board -->
+<h2 id="pipeline-board">6. Pipeline Board</h2>
+<p>Navigate to <strong>Pipeline</strong> in the sidebar.</p>
+<p>The Pipeline provides a <strong>Kanban-style board</strong> for visual candidate tracking.</p>
+
+<h3>How to Use</h3>
+<ul>
+  <li>Each <strong>column</strong> represents a candidate status (Registered, Screened, Shortlisted, etc.)</li>
+  <li>Each <strong>card</strong> shows a candidate's name, email, and job</li>
+  <li><strong>Drag and drop</strong> a candidate card between columns to change their status</li>
+  <li>Use the <strong>Job filter</strong> dropdown to view candidates for a specific job</li>
+  <li>Use the <strong>Search bar</strong> to find specific candidates</li>
+</ul>
+
+<div class="note"><strong>Note:</strong> Moving a candidate to <strong>Screened</strong> or <strong>Shortlisted</strong> automatically sends login credentials to the candidate via email.</div>
+
+<!-- 7. Interviews -->
+<h2 id="interviews">7. Interviews</h2>
+<p>Navigate to <strong>Interviews</strong> in the sidebar.</p>
+
+<h3>Viewing Interviews</h3>
+<ul>
+  <li>See all interviews in a list view</li>
+  <li>Filter by <strong>status</strong> (Scheduled, In Progress, Completed, Cancelled, Expired)</li>
+  <li>Filter by <strong>type</strong> (AI Chat, AI Voice, Both)</li>
+</ul>
+
+<h3>Scheduling an Interview</h3>
+<ol>
+  <li>Click <strong>Schedule Interview</strong></li>
+  <li>Select the <strong>Candidate</strong>, <strong>Job</strong>, <strong>Interview Type</strong>, <strong>Duration</strong>, and <strong>Language</strong></li>
+  <li>Click <strong>Schedule</strong></li>
+</ol>
+
+<h3>Interview Types</h3>
+<table>
+  <thead><tr><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><strong>AI Chat</strong></td><td>Text-based interview. AI asks questions via text, candidate types answers</td></tr>
+    <tr><td><strong>AI Voice</strong></td><td>Voice-based interview. AI speaks questions, candidate responds via microphone</td></tr>
+    <tr><td><strong>AI Both</strong></td><td>Combined chat and voice. Candidate can choose to type or speak</td></tr>
+  </tbody>
+</table>
+
+<h3>Conducting an Interview (Candidate View)</h3>
+<ol>
+  <li>Log in to HireEz</li>
+  <li>Go to <strong>Interviews</strong> to see your scheduled interviews</li>
+  <li>Click on an interview, then click <strong>Start Interview</strong></li>
+  <li>The AI interviewer will greet you, explain the process, and ask domain-specific questions one at a time</li>
+  <li>Answer questions by typing (Chat mode) or speaking (Voice mode)</li>
+  <li>The interview ends automatically when time runs out, or you can end it manually</li>
+  <li>A full transcript is saved for review</li>
+</ol>
+
+<h3>Interview Room Features</h3>
+<ul>
+  <li><strong>Timer</strong> showing remaining time</li>
+  <li><strong>Conversation history</strong> displaying the full chat</li>
+  <li><strong>Webcam toggle</strong> (optional)</li>
+  <li><strong>Microphone input</strong> for voice interviews</li>
+  <li><strong>Text input</strong> for chat interviews</li>
+  <li><strong>End Interview</strong> button to finish early</li>
+</ul>
+
+<!-- 8. Evaluations -->
+<h2 id="evaluations">8. Evaluations</h2>
+<p>After an interview is completed, AI automatically generates an evaluation.</p>
+
+<h3>Score Breakdown</h3>
+<p>Each evaluation includes <strong>5 dimension scores</strong> on a 0&ndash;10 scale:</p>
+<table>
+  <thead><tr><th>Score</th><th>What It Measures</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Communication</strong></td><td>Clarity, articulation, listening skills</td></tr>
+    <tr><td><strong>Technical</strong></td><td>Domain expertise and technical depth</td></tr>
+    <tr><td><strong>Confidence</strong></td><td>Self-assurance and conviction in answers</td></tr>
+    <tr><td><strong>Domain Knowledge</strong></td><td>Subject matter expertise for the specific role</td></tr>
+    <tr><td><strong>Problem Solving</strong></td><td>Analytical ability and solution approach</td></tr>
+    <tr><td><strong>Overall Score</strong></td><td>Weighted average of all dimensions</td></tr>
+  </tbody>
+</table>
+
+<h3>AI Recommendation</h3>
+<table>
+  <thead><tr><th>Recommendation</th><th>Meaning</th></tr></thead>
+  <tbody>
+    <tr><td><span class="badge badge-green">Strongly Hire</span></td><td>Excellent candidate, highly recommended</td></tr>
+    <tr><td><span class="badge badge-blue">Hire</span></td><td>Good candidate, recommended</td></tr>
+    <tr><td><span class="badge badge-amber">Maybe</span></td><td>Average performance, needs further review</td></tr>
+    <tr><td><span class="badge badge-red">No Hire</span></td><td>Below expectations, not recommended</td></tr>
+  </tbody>
+</table>
+
+<h3>HR Decision</h3>
+<p>After reviewing the AI evaluation, HR makes the final decision:</p>
+<table>
+  <thead><tr><th>Decision</th><th>Action</th></tr></thead>
+  <tbody>
+    <tr><td><span class="badge badge-green">Approve</span></td><td>Proceed with job offer</td></tr>
+    <tr><td><span class="badge badge-red">Reject</span></td><td>Decline the candidate</td></tr>
+    <tr><td><span class="badge badge-amber">On Hold</span></td><td>Defer decision for later</td></tr>
+  </tbody>
+</table>
+<p>HR can also add <strong>notes</strong> to explain their decision for future reference.</p>
+
+<h3>Evaluation Visualizations</h3>
+<ul>
+  <li><strong>Radar chart</strong> showing all 5 score dimensions</li>
+  <li><strong>Progress bars</strong> for each individual score</li>
+  <li><strong>Strengths</strong> identified by AI (bulleted list)</li>
+  <li><strong>Areas for Improvement</strong> identified by AI (bulleted list)</li>
+  <li><strong>Detailed Feedback</strong> &mdash; narrative summary from AI</li>
+</ul>
+
+<!-- 9. Reports & Analytics -->
+<h2 id="reports-analytics">9. Reports &amp; Analytics</h2>
+
+<h3>Reports Page</h3>
+<p>Navigate to <strong>Reports</strong> in the sidebar. Download data as Excel spreadsheets or PDF.</p>
+<table>
+  <thead><tr><th>Report</th><th>Format</th><th>Contents</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Candidates Report</strong></td><td>Excel (.xlsx)</td><td>All candidates with name, email, phone, job, experience, status, date</td></tr>
+    <tr><td><strong>Evaluations Report</strong></td><td>Excel (.xlsx)</td><td>All evaluations with scores, AI recommendation, HR decision</td></tr>
+    <tr><td><strong>Evaluation PDF</strong></td><td>PDF</td><td>Individual evaluation report (enter Evaluation ID)</td></tr>
+  </tbody>
+</table>
+
+<h3>Analytics Page</h3>
+<p>Navigate to <strong>Analytics</strong> in the sidebar.</p>
+
+<h4>Charts</h4>
+<ol>
+  <li><strong>Time to Hire by Job</strong> (full-width bar chart) &mdash; Average days from candidate registration to hire, grouped by job title. Hover to see hire count.</li>
+  <li><strong>Interview Completion</strong> (donut chart) &mdash; Breakdown of Completed (green), Scheduled (blue), Cancelled (red). Center shows completion rate percentage.</li>
+  <li><strong>Score Distribution</strong> (histogram) &mdash; How many candidates scored in each range (0-2, 2-4, 4-6, 6-8, 8-10). Use the <strong>Job filter dropdown</strong> to view scores for a specific job.</li>
+</ol>
+
+<h4>Export Pipeline</h4>
+<p>Click the <strong>Export Pipeline</strong> button (top-right) to download a comprehensive Excel report containing:</p>
+<table>
+  <thead><tr><th>Column</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td>ID</td><td>Candidate ID</td></tr>
+    <tr><td>Name</td><td>Full name</td></tr>
+    <tr><td>Email</td><td>Email address</td></tr>
+    <tr><td>Phone</td><td>Phone number</td></tr>
+    <tr><td>Job</td><td>Job title applied for</td></tr>
+    <tr><td>Status</td><td>Current pipeline status</td></tr>
+    <tr><td>Experience</td><td>Years of experience</td></tr>
+    <tr><td>Communication</td><td>Communication score</td></tr>
+    <tr><td>Technical</td><td>Technical score</td></tr>
+    <tr><td>Confidence</td><td>Confidence score</td></tr>
+    <tr><td>Domain Knowledge</td><td>Domain knowledge score</td></tr>
+    <tr><td>Problem Solving</td><td>Problem solving score</td></tr>
+    <tr><td>Overall Score</td><td>Overall evaluation score</td></tr>
+    <tr><td>AI Recommendation</td><td>AI hiring recommendation</td></tr>
+    <tr><td>Registered</td><td>Registration date</td></tr>
+    <tr><td>Days in Pipeline</td><td>Days since registration</td></tr>
+  </tbody>
+</table>
+
+<!-- 10. User Management -->
+<h2 id="user-management">10. User Management</h2>
+<p>Navigate to <strong>Users</strong> in the sidebar (Super Admin / HR Manager only).</p>
+
+<h3>Viewing Users</h3>
+<ul>
+  <li>Browse all users with pagination</li>
+  <li><strong>Search</strong> by name or email</li>
+  <li><strong>Filter</strong> by role (Super Admin, HR Manager, Interviewer, Candidate)</li>
+  <li><strong>Filter</strong> by status (Active / Inactive)</li>
+</ul>
+
+<h3>Creating a User</h3>
+<ol>
+  <li>Click <strong>Create User</strong></li>
+  <li>Fill in: Full Name, Email, Password, Role, Phone (optional), Department (optional)</li>
+  <li>Click <strong>Create</strong></li>
+</ol>
+
+<h3>Editing a User</h3>
+<ol>
+  <li>Click on a user in the list</li>
+  <li>Update any fields (name, email, phone, role, department)</li>
+  <li>Click <strong>Save</strong></li>
+</ol>
+
+<h3>Activating / Deactivating Users</h3>
+<p>Toggle user active status to enable or disable their access. Deactivated users cannot log in.</p>
+
+<!-- 11. Notifications -->
+<h2 id="notifications">11. Notifications</h2>
+<p>Click the <strong>bell icon</strong> in the top header bar to view notifications.</p>
+
+<h3>Notification Types</h3>
+<table>
+  <thead><tr><th>Type</th><th>When It's Sent</th></tr></thead>
+  <tbody>
+    <tr><td>Interview Invite</td><td>When an interview is scheduled for a candidate</td></tr>
+    <tr><td>Interview Reminder</td><td>Before a scheduled interview</td></tr>
+    <tr><td>Evaluation Result</td><td>When an evaluation is completed</td></tr>
+    <tr><td>Status Update</td><td>When a candidate's status changes</td></tr>
+    <tr><td>Offer Letter</td><td>When an offer is extended</td></tr>
+  </tbody>
+</table>
+
+<h3>Managing Notifications</h3>
+<ul>
+  <li>Unread notifications appear with a <strong>highlighted background</strong></li>
+  <li>Click <strong>Mark Read</strong> to dismiss individual notifications</li>
+  <li>The unread count is displayed at the top of the page</li>
+</ul>
+
+<!-- 12. Settings -->
+<h2 id="settings">12. Settings</h2>
+<p>Navigate to <strong>Settings</strong> in the sidebar.</p>
+
+<h3>Domains</h3>
+<p>View the <strong>32 non-IT industry domains</strong> organized by sector:</p>
+<ul>
+  <li><strong>Healthcare</strong> &mdash; Nursing, Medical, Pharmacy, etc.</li>
+  <li><strong>Finance</strong> &mdash; Banking, Insurance, Accounting, etc.</li>
+  <li><strong>Manufacturing</strong> &mdash; Production, Quality, Supply Chain, etc.</li>
+  <li><strong>Logistics</strong> &mdash; Warehousing, Transportation, etc.</li>
+  <li><strong>Engineering</strong> &mdash; Civil, Mechanical, Electrical, etc.</li>
+  <li>And more...</li>
+</ul>
+<p>Each domain comes with <strong>25+ pre-seeded interview questions</strong> covering different difficulty levels and question types. <strong>Total: 800+ industry-specific interview questions.</strong></p>
+
+<!-- 13. Complete Workflow -->
+<h2 id="complete-workflow">13. Complete Hiring Workflow</h2>
+<p>Here's the end-to-end flow for hiring a candidate:</p>
+
+<div class="step">
+  <div class="step-num">1</div>
+  <div class="step-content">
+    <strong>Create a Job</strong>
+    <p>Go to <strong>Jobs &rarr; Create Job</strong>. Fill in job details, domain, and requirements. Set status to <strong>Open</strong>.</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">2</div>
+  <div class="step-content">
+    <strong>Register a Candidate</strong>
+    <p>Go to <strong>Candidates &rarr; Register Candidate</strong>. Upload the candidate's resume. AI extracts candidate data automatically. Assign to the open job and submit.</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">3</div>
+  <div class="step-content">
+    <strong>Screen the Resume</strong>
+    <p>View the candidate's profile and trigger <strong>AI Resume Screening</strong>. AI analyzes the resume against job requirements and generates match scores. Move candidate to <strong>Screened</strong> (system auto-emails login credentials).</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">4</div>
+  <div class="step-content">
+    <strong>Shortlist</strong>
+    <p>Go to the <strong>Pipeline</strong> board. Review screened candidates and drag promising ones to <strong>Shortlisted</strong>.</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">5</div>
+  <div class="step-content">
+    <strong>Schedule Interview</strong>
+    <p>Go to <strong>Interviews &rarr; Schedule Interview</strong>. Select the shortlisted candidate and job. Choose interview type, duration, and language. Candidate receives notification.</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">6</div>
+  <div class="step-content">
+    <strong>Candidate Takes Interview</strong>
+    <p>Candidate logs in, views their scheduled interview, and clicks <strong>Start Interview</strong>. AI conducts the interview with domain-specific questions. Interview auto-completes after time limit.</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">7</div>
+  <div class="step-content">
+    <strong>Review Evaluation</strong>
+    <p>After interview completion, AI generates evaluation. Review the score radar chart, AI recommendation, strengths, weaknesses, and detailed feedback. Make HR decision: <strong>Approve</strong>, <strong>Reject</strong>, or <strong>On Hold</strong>.</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">8</div>
+  <div class="step-content">
+    <strong>Make Offer &amp; Hire</strong>
+    <p>If approved, move candidate to <strong>Offered</strong> in the Pipeline. Once the offer is accepted, move to <strong>Hired</strong>. The candidate journey is complete!</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">9</div>
+  <div class="step-content">
+    <strong>Export Reports</strong>
+    <p>Go to <strong>Reports</strong> for Excel/PDF exports. Go to <strong>Analytics</strong> for charts and pipeline data. Share with stakeholders as needed.</p>
+  </div>
+</div>
+
+<!-- Troubleshooting -->
+<h2 id="troubleshooting">14. Troubleshooting</h2>
+<table>
+  <thead><tr><th>Issue</th><th>Solution</th></tr></thead>
+  <tbody>
+    <tr><td>Can't log in</td><td>Check email/password. Contact your admin if account is deactivated.</td></tr>
+    <tr><td>Page shows "Loading..." indefinitely</td><td>Refresh the browser. Check your internet connection.</td></tr>
+    <tr><td>Interview room not connecting</td><td>Ensure microphone/camera permissions are granted in your browser settings.</td></tr>
+    <tr><td>Voice not recognized</td><td>Speak clearly, check microphone is not muted, try using Chrome browser.</td></tr>
+    <tr><td>Export not downloading</td><td>Check browser popup blocker. Try a different browser.</td></tr>
+    <tr><td>Candidate didn't receive credentials</td><td>Verify email address. Check spam folder. Re-trigger from Pipeline board.</td></tr>
+  </tbody>
+</table>
+
+<h2>Tips &amp; Best Practices</h2>
+<ul>
+  <li><strong>Use the Pipeline board</strong> for a visual overview of all candidates across stages</li>
+  <li><strong>Filter by job</strong> in Analytics and Pipeline to focus on specific openings</li>
+  <li><strong>Export Pipeline reports</strong> before stakeholder meetings for data-driven discussions</li>
+  <li><strong>Review AI recommendations carefully</strong> &mdash; they are suggestions, not final decisions</li>
+  <li><strong>Add HR notes</strong> to evaluations to document your reasoning for future reference</li>
+  <li><strong>Keep jobs updated</strong> &mdash; close filled positions and archive old listings</li>
+  <li><strong>Check the Dashboard daily</strong> for pending reviews and upcoming interviews</li>
+</ul>
+
+<div class="footer">
+  <p>HireEz &mdash; AI-Powered Interview Platform</p>
+  <p>https://hireez.online</p>
+</div>
+
+</div>
+</body>
+</html>
