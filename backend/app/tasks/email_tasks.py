@@ -1,4 +1,4 @@
-"""Email sending Celery tasks using Gmail SMTP."""
+"""Email sending Celery tasks using SMTP."""
 import logging
 import smtplib
 from email.mime.text import MIMEText
@@ -26,10 +26,15 @@ def send_email(self, to_email: str, subject: str, body: str, html_body: str = No
         if html_body:
             msg.attach(MIMEText(html_body, "html"))
 
-        with smtplib.SMTP(settings.SMTP_HOST, settings.SMTP_PORT) as server:
-            server.starttls()
-            server.login(settings.SMTP_USER, settings.SMTP_PASSWORD)
-            server.sendmail(settings.FROM_EMAIL, to_email, msg.as_string())
+        if settings.SMTP_PORT == 465:
+            with smtplib.SMTP_SSL(settings.SMTP_HOST, settings.SMTP_PORT) as server:
+                server.login(settings.SMTP_USER, settings.SMTP_PASSWORD)
+                server.sendmail(settings.FROM_EMAIL, to_email, msg.as_string())
+        else:
+            with smtplib.SMTP(settings.SMTP_HOST, settings.SMTP_PORT) as server:
+                server.starttls()
+                server.login(settings.SMTP_USER, settings.SMTP_PASSWORD)
+                server.sendmail(settings.FROM_EMAIL, to_email, msg.as_string())
 
         logger.info(f"Email sent to {to_email} via SMTP")
         return {"status": "sent"}
