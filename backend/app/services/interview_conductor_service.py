@@ -91,11 +91,24 @@ class InterviewConductorService:
         candidate = c_result.scalar_one_or_none()
         resume_text = candidate.resume_text if candidate else None
 
-        # Generate questions
+        # Fetch the job to check if it has a domain
+        j_result = await self.db.execute(select(JobDescription).where(JobDescription.id == job_id))
+        job = j_result.scalar_one_or_none()
+
+        # Generate questions — use candidate's domain if job doesn't have one
         qg_service = QuestionGeneratorService(self.db)
-        questions_data = await qg_service.generate_for_job(
-            job_id, num_questions=10, candidate_resume=resume_text
-        )
+        if job and not job.domain_id and candidate and candidate.domain_id:
+            questions_data = await qg_service.generate_for_domain(
+                domain_id=candidate.domain_id,
+                job_title=job.title,
+                job_description=job.description or "",
+                experience_years=job.experience_min or 3,
+                num_questions=10,
+            )
+        else:
+            questions_data = await qg_service.generate_for_job(
+                job_id, num_questions=10, candidate_resume=resume_text
+            )
         questions = await qg_service.save_generated_questions(interview.id, questions_data)
 
         interview.total_questions = len(questions)

@@ -53,7 +53,7 @@ class CandidateService:
         total = (await self.db.execute(count_query)).scalar_one()
         query = query.order_by(Candidate.created_at.desc())
         query = query.offset((page - 1) * page_size).limit(page_size)
-        query = query.options(selectinload(Candidate.work_experiences))
+        query = query.options(selectinload(Candidate.work_experiences), selectinload(Candidate.domain))
         result = await self.db.execute(query)
 
         return {
@@ -67,7 +67,7 @@ class CandidateService:
         result = await self.db.execute(
             select(Candidate)
             .where(Candidate.id == candidate_id)
-            .options(selectinload(Candidate.work_experiences))
+            .options(selectinload(Candidate.work_experiences), selectinload(Candidate.domain))
         )
         candidate = result.scalar_one_or_none()
         if not candidate:
@@ -93,7 +93,7 @@ class CandidateService:
         result = await self.db.execute(
             select(Candidate)
             .where(Candidate.id == candidate.id)
-            .options(selectinload(Candidate.work_experiences))
+            .options(selectinload(Candidate.work_experiences), selectinload(Candidate.domain))
         )
         return result.scalar_one()
 
@@ -126,7 +126,7 @@ class CandidateService:
         result = await self.db.execute(
             select(Candidate)
             .where(Candidate.id == candidate_id)
-            .options(selectinload(Candidate.work_experiences))
+            .options(selectinload(Candidate.work_experiences), selectinload(Candidate.domain))
         )
         return result.scalar_one()
 

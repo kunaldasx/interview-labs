@@ -10,31 +10,43 @@ export function useWebSocket(interviewId: number | null) {
   const [messages, setMessages] = useState<ChatResponse[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const connect = useCallback(() => {
-    if (!interviewId || wsRef.current) return;
+  const connect = useCallback((): Promise<void> => {
+    return new Promise((resolve, reject) => {
+      if (!interviewId) { reject(new Error('No interview ID')); return; }
+      if (wsRef.current) { resolve(); return; }
 
-    const ws = new WebSocket(`${WS_URL}/api/v1/ws/interview/${interviewId}`);
+      const ws = new WebSocket(`${WS_URL}/api/v1/ws/interview/${interviewId}`);
+      const timeout = setTimeout(() => {
+        ws.close();
+        reject(new Error('WebSocket connection timeout'));
+      }, 10000);
 
-    ws.onopen = () => {
-      setIsConnected(true);
-    };
+      ws.onopen = () => {
+        clearTimeout(timeout);
+        setIsConnected(true);
+        resolve();
+      };
 
-    ws.onmessage = (event) => {
-      const data: ChatResponse = JSON.parse(event.data);
-      setMessages(prev => [...prev, data]);
-      setIsLoading(false);
-    };
+      ws.onmessage = (event) => {
+        const data: ChatResponse = JSON.parse(event.data);
+        setMessages(prev => [...prev, data]);
+        setIsLoading(false);
+      };
 
-    ws.onclose = () => {
-      setIsConnected(false);
-      wsRef.current = null;
-    };
+      ws.onclose = () => {
+        clearTimeout(timeout);
+        setIsConnected(false);
+        wsRef.current = null;
+      };
 
-    ws.onerror = () => {
-      setIsConnected(false);
-    };
+      ws.onerror = () => {
+        clearTimeout(timeout);
+        setIsConnected(false);
+        reject(new Error('WebSocket connection failed'));
+      };
 
-    wsRef.current = ws;
+      wsRef.current = ws;
+    });
   }, [interviewId]);
 
   const sendMessage = useCallback((message: ChatMessage) => {

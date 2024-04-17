@@ -41,6 +41,7 @@ class CandidateCreate(BaseModel):
     linkedin_url: Optional[str] = None
     portfolio_url: Optional[str] = None
     job_id: Optional[int] = None
+    domain_id: Optional[int] = None
     experience_years: Optional[int] = None
     education: Optional[str] = None
     skills: Optional[dict] = None
@@ -55,6 +56,7 @@ class CandidateUpdate(BaseModel):
     linkedin_url: Optional[str] = None
     portfolio_url: Optional[str] = None
     job_id: Optional[int] = None
+    domain_id: Optional[int] = None
     experience_years: Optional[int] = None
     education: Optional[str] = None
     skills: Optional[dict] = None
@@ -74,6 +76,8 @@ class CandidateResponse(BaseModel):
     resume_path: Optional[str] = None
     resume_text: Optional[str] = None
     job_id: Optional[int] = None
+    domain_id: Optional[int] = None
+    domain_name: Optional[str] = None
     experience_years: Optional[int] = None
     education: Optional[str] = None
     skills: Optional[dict] = None

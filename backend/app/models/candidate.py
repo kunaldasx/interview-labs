@@ -36,6 +36,7 @@ class Candidate(SQLModel, table=True):
     linkedin_url: Optional[str] = Field(default=None, max_length=500)
     portfolio_url: Optional[str] = Field(default=None, max_length=500)
     job_id: Optional[int] = Field(default=None, foreign_key="job_descriptions.id")
+    domain_id: Optional[int] = Field(default=None, foreign_key="domains.id")
     status: CandidateStatus = Field(default=CandidateStatus.REGISTERED)
     notes: Optional[str] = Field(default=None)
     created_at: datetime = Field(default_factory=datetime.utcnow)
@@ -43,7 +44,12 @@ class Candidate(SQLModel, table=True):
 
     user: Optional["User"] = Relationship()
     job: Optional["JobDescription"] = Relationship()
+    domain: Optional["Domain"] = Relationship()
     work_experiences: List["WorkExperience"] = Relationship(back_populates="candidate")
+
+    @property
+    def domain_name(self) -> Optional[str]:
+        return self.domain.name if self.domain else None
 
 
 class WorkExperience(SQLModel, table=True):

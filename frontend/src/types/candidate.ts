@@ -24,6 +24,8 @@ export interface Candidate {
   resume_path?: string;
   resume_text?: string;
   job_id?: number;
+  domain_id?: number;
+  domain_name?: string;
   experience_years?: number;
   education?: string;
   skills?: Record<string, any>;
@@ -49,6 +51,7 @@ export interface CandidateCreateRequest {
   linkedin_url?: string;
   portfolio_url?: string;
   job_id?: number;
+  domain_id?: number;
   experience_years?: number;
   education?: string;
   skills?: Record<string, any>;

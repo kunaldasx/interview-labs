@@ -1,12 +1,19 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
 import { candidatesAPI } from '../../api/candidates';
+import apiClient from '../../api/client';
 import type { WorkExperience } from '../../types/candidate';
 import Button from '../../components/ui/Button';
 import Input from '../../components/ui/Input';
 import Card from '../../components/ui/Card';
 import toast from 'react-hot-toast';
+
+interface DomainOption {
+  id: number;
+  name: string;
+  sector: string;
+}
 
 export default function CandidateRegistrationPage() {
   const navigate = useNavigate();
@@ -23,11 +30,25 @@ export default function CandidateRegistrationPage() {
     experience_years: 0,
     education: '',
   });
+  const [domainId, setDomainId] = useState<number | undefined>();
+  const [domains, setDomains] = useState<DomainOption[]>([]);
   const [skills, setSkills] = useState<string[]>([]);
   const [workExperiences, setWorkExperiences] = useState<WorkExperience[]>([]);
   const [resumeFile, setResumeFile] = useState<File | null>(null);
   const [isParsing, setIsParsing] = useState(false);
   const [isParsed, setIsParsed] = useState(false);
+
+  // Fetch domains on mount
+  useEffect(() => {
+    apiClient.get<DomainOption[]>('/domains/').then(r => setDomains(r.data)).catch(() => {});
+  }, []);
+
+  // Group domains by sector
+  const domainsBySector = domains.reduce<Record<string, DomainOption[]>>((acc, d) => {
+    if (!acc[d.sector]) acc[d.sector] = [];
+    acc[d.sector].push(d);
+    return acc;
+  }, {});
 
   const handleResumeUpload = async (file: File) => {
     setResumeFile(file);
@@ -92,6 +113,7 @@ export default function CandidateRegistrationPage() {
     e.preventDefault();
     createMutation.mutate({
       ...form,
+      domain_id: domainId,
       date_of_birth: form.date_of_birth || undefined,
       linkedin_url: form.linkedin_url || undefined,
       portfolio_url: form.portfolio_url || undefined,
@@ -211,6 +233,31 @@ export default function CandidateRegistrationPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Input id="experience" label="Years of Experience" type="number" value={form.experience_years} onChange={(e) => setForm({ ...form, experience_years: parseInt(e.target.value) || 0 })} disabled={isParsing} />
               <Input id="education" label="Education" value={form.education} onChange={(e) => setForm({ ...form, education: e.target.value })} disabled={isParsing} />
+            </div>
+
+            {/* Department (Domain) */}
+            <div>
+              <label htmlFor="department" className="block text-sm font-medium text-gray-400 mb-1">Department</label>
+              <select
+                id="department"
+                value={domainId ?? ''}
+                onChange={(e) => setDomainId(e.target.value ? Number(e.target.value) : undefined)}
+                disabled={isParsing}
+                className="w-full rounded-lg border border-white/[0.15] bg-white/[0.05] px-3 py-2 text-sm text-white focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 disabled:opacity-50"
+              >
+                <option value="">Select a department...</option>
+                {Object.entries(domainsBySector)
+                  .sort(([a], [b]) => a.localeCompare(b))
+                  .map(([sector, sectorDomains]) => (
+                    <optgroup key={sector} label={sector}>
+                      {sectorDomains
+                        .sort((a, b) => a.name.localeCompare(b.name))
+                        .map((d) => (
+                          <option key={d.id} value={d.id}>{d.name}</option>
+                        ))}
+                    </optgroup>
+                  ))}
+              </select>
             </div>
 
             {/* Skills */}

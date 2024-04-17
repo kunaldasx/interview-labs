@@ -106,18 +106,28 @@ export default function InterviewRoomPage() {
     }
   }, [messages, speak]);
 
+  // Show toast for WebSocket error messages
+  useEffect(() => {
+    const last = messages[messages.length - 1];
+    if (last?.type === 'error') {
+      toast.error(last.content || 'An error occurred during the interview');
+    }
+  }, [messages]);
+
   // Start interview flow
   const handleStart = async () => {
     await startCamera();
-    connect();
-    setTimeout(() => {
+    try {
+      await connect();
       sendMessage({ type: 'start', content: '' });
       setIsStarted(true);
       setStartedAt(new Date().toISOString());
       if (streamRef.current) {
         startRecording(streamRef.current);
       }
-    }, 500);
+    } catch (err) {
+      toast.error('Failed to connect to interview server. Please try again.');
+    }
   };
 
   // End interview flow
