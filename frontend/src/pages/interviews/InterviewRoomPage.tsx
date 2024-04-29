@@ -38,7 +38,8 @@ export default function InterviewRoomPage() {
   const { isRecording, recordingBlob, startRecording, stopRecording } = useMediaRecorder();
   const { startCapture, stopCapture } = useAudioCapture();
 
-  const isComplete = messages.some(m => m.type === 'complete' || m.type === 'ended');
+  const isAlreadyCompleted = interview?.status === 'completed';
+  const isComplete = isAlreadyCompleted || messages.some(m => m.type === 'complete' || m.type === 'ended');
 
   // Browser speech recognition — used only for live interim preview while speaking
   const {
@@ -252,7 +253,7 @@ export default function InterviewRoomPage() {
                       d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
                     />
                   </svg>
-                  <span className="text-sm">Camera will start when you begin the interview</span>
+                  <span className="text-sm">{isAlreadyCompleted ? 'This interview has been completed' : 'Camera will start when you begin the interview'}</span>
                 </div>
               )}
 

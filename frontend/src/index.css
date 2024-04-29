@@ -33,6 +33,13 @@ body {
   }
 }
 
+/* Native select dropdown options — ensure readable on browser default white background */
+select option,
+select optgroup {
+  color: #111;
+  background-color: #fff;
+}
+
 /* Kanban board scrollbar */
 .kanban-scroll::-webkit-scrollbar {
   width: 6px;
