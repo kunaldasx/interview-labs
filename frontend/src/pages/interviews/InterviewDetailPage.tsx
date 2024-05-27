@@ -1,20 +1,47 @@
 import { useParams, Link } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { useState } from 'react';
+import toast from 'react-hot-toast';
 import { interviewsAPI } from '../../api/interviews';
+import { evaluationsAPI } from '../../api/evaluations';
 import { useAuth } from '../../context/AuthContext';
 import TranscriptPanel from '../../components/interview/TranscriptPanel';
+import ScoreRadarChart from '../../components/charts/ScoreRadarChart';
 import Badge from '../../components/ui/Badge';
+import Button from '../../components/ui/Button';
+import Card from '../../components/ui/Card';
 import Spinner from '../../components/ui/Spinner';
+import { formatScore, getRecommendationLabel } from '../../lib/formatters';
 
 export default function InterviewDetailPage() {
   const { id } = useParams();
   const { user } = useAuth();
+  const queryClient = useQueryClient();
   const interviewId = Number(id);
+  const [hrNotes, setHrNotes] = useState('');
 
   const { data: interview, isLoading } = useQuery({
     queryKey: ['interview', id],
     queryFn: () => interviewsAPI.get(interviewId),
     enabled: !!id,
+  });
+
+  const isCompleted = interview?.status === 'completed';
+
+  const { data: evaluation, isLoading: evalLoading } = useQuery({
+    queryKey: ['evaluation-by-interview', interviewId],
+    queryFn: () => evaluationsAPI.getByInterview(interviewId).catch(() => null),
+    enabled: !!id && isCompleted,
+    refetchInterval: (query) => (!query.state.data && isCompleted ? 5000 : false),
+  });
+
+  const decisionMutation = useMutation({
+    mutationFn: (decision: string) =>
+      evaluationsAPI.updateDecision(evaluation!.id, { hr_decision: decision, hr_notes: hrNotes }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['evaluation-by-interview', interviewId] });
+      toast.success('Decision updated');
+    },
   });
 
   if (isLoading) return <Spinner size="lg" label="Loading interview..." className="py-20" />;
@@ -129,6 +156,135 @@ export default function InterviewDetailPage() {
               })}
           </div>
         </div>
+      )}
+
+      {/* Evaluation Section — only for completed interviews */}
+      {isCompleted && (
+        <>
+          {!evaluation && (evalLoading || isCompleted) && (
+            <div className="bg-white/[0.05] rounded-xl border border-white/[0.08] p-6 flex items-center gap-3">
+              <svg className="animate-spin h-5 w-5 text-indigo-400" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+              </svg>
+              <span className="text-sm text-gray-400">AI evaluation in progress...</span>
+            </div>
+          )}
+
+          {evaluation && (() => {
+            const scores = {
+              communication: evaluation.communication_score,
+              technical: evaluation.technical_score,
+              confidence: evaluation.confidence_score,
+              domain_knowledge: evaluation.domain_knowledge_score,
+              problem_solving: evaluation.problem_solving_score,
+            };
+
+            return (
+              <div className="space-y-6">
+                {/* Evaluation Header */}
+                <div className="flex items-center justify-between">
+                  <h2 className="text-xl font-bold text-white">AI Evaluation</h2>
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl font-bold text-indigo-400">{formatScore(evaluation.overall_score)}/10</span>
+                    <Badge status={evaluation.ai_recommendation} label={getRecommendationLabel(evaluation.ai_recommendation)} />
+                  </div>
+                </div>
+
+                {/* Scores Grid: Radar + Bars */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  <Card title="Score Breakdown" hover={false}>
+                    <ScoreRadarChart scores={scores} />
+                  </Card>
+
+                  <Card title="Scores" hover={false}>
+                    <div className="space-y-3">
+                      {Object.entries(scores).map(([key, value]) => (
+                        <div key={key} className="flex items-center justify-between">
+                          <span className="text-sm text-gray-400 capitalize">{key.replace('_', ' ')}</span>
+                          <div className="flex items-center gap-2">
+                            <div className="w-32 h-2 bg-white/[0.1] rounded-full overflow-hidden">
+                              <div className="h-full bg-indigo-600 rounded-full" style={{ width: `${(value / 10) * 100}%` }} />
+                            </div>
+                            <span className="text-sm font-medium text-white w-8 text-right">{formatScore(value)}</span>
+                          </div>
+                        </div>
+                      ))}
+                      <div className="pt-2 border-t border-white/[0.06] flex items-center justify-between">
+                        <span className="text-sm font-semibold text-white">Overall</span>
+                        <span className="text-lg font-bold text-indigo-400">{formatScore(evaluation.overall_score)}</span>
+                      </div>
+                    </div>
+                  </Card>
+                </div>
+
+                {/* Strengths */}
+                {evaluation.strengths?.items && (
+                  <Card title="Strengths" hover={false}>
+                    <ul className="space-y-1">
+                      {evaluation.strengths.items.map((s: string, i: number) => (
+                        <li key={i} className="text-sm text-gray-300 flex items-start gap-2">
+                          <span className="text-green-500 mt-0.5">+</span> {s}
+                        </li>
+                      ))}
+                    </ul>
+                  </Card>
+                )}
+
+                {/* Areas for Improvement */}
+                {evaluation.weaknesses?.items && (
+                  <Card title="Areas for Improvement" hover={false}>
+                    <ul className="space-y-1">
+                      {evaluation.weaknesses.items.map((w: string, i: number) => (
+                        <li key={i} className="text-sm text-gray-300 flex items-start gap-2">
+                          <span className="text-red-500 mt-0.5">-</span> {w}
+                        </li>
+                      ))}
+                    </ul>
+                  </Card>
+                )}
+
+                {/* Detailed Feedback */}
+                {evaluation.detailed_feedback && (
+                  <Card title="Detailed Feedback" hover={false}>
+                    <p className="text-sm text-gray-300 whitespace-pre-wrap">{evaluation.detailed_feedback}</p>
+                  </Card>
+                )}
+
+                {/* HR Decision — hidden for candidates */}
+                {!isCandidate && evaluation.hr_decision === 'pending' && (
+                  <Card title="HR Decision" hover={false}>
+                    <div className="space-y-4">
+                      <textarea
+                        value={hrNotes}
+                        onChange={(e) => setHrNotes(e.target.value)}
+                        placeholder="Add notes (optional)..."
+                        rows={3}
+                        className="block w-full rounded-lg border border-white/[0.1] bg-white/[0.05] text-gray-100 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
+                      />
+                      <div className="flex gap-3">
+                        <Button onClick={() => decisionMutation.mutate('approved')} isLoading={decisionMutation.isPending}>Approve</Button>
+                        <Button variant="outline" onClick={() => decisionMutation.mutate('on_hold')} isLoading={decisionMutation.isPending}>On Hold</Button>
+                        <Button variant="danger" onClick={() => decisionMutation.mutate('rejected')} isLoading={decisionMutation.isPending}>Reject</Button>
+                      </div>
+                    </div>
+                  </Card>
+                )}
+
+                {/* Show decision badge if already decided */}
+                {!isCandidate && evaluation.hr_decision !== 'pending' && (
+                  <div className="bg-white/[0.05] rounded-xl border border-white/[0.08] p-6 flex items-center gap-3">
+                    <span className="text-sm text-gray-400">HR Decision:</span>
+                    <Badge status={evaluation.hr_decision} />
+                    {evaluation.hr_notes && (
+                      <span className="text-sm text-gray-300 ml-2">— {evaluation.hr_notes}</span>
+                    )}
+                  </div>
+                )}
+              </div>
+            );
+          })()}
+        </>
       )}
     </div>
   );
