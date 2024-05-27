@@ -25,7 +25,7 @@ class EvaluationService:
         )
         existing = result.scalar_one_or_none()
         if existing:
-            raise BadRequestException("Interview already evaluated")
+            return existing  # Idempotent — return existing evaluation
 
         # Get interview with related data
         result = await self.db.execute(

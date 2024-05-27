@@ -379,6 +379,14 @@ class InterviewConductorService:
         r = await self._get_redis()
         await r.delete(self._session_key(interview_id))
 
+        # Trigger AI evaluation in background
+        from app.tasks.evaluation_tasks import evaluate_interview_task
+        try:
+            evaluate_interview_task.delay(interview_id)
+            logger.info(f"Dispatched auto-evaluation task for interview {interview_id}")
+        except Exception:
+            logger.warning(f"Failed to dispatch evaluation task for interview {interview_id}", exc_info=True)
+
     async def end_interview(self, interview_id: int) -> Interview:
         await self._end_interview(interview_id)
         result = await self.db.execute(select(Interview).where(Interview.id == interview_id))

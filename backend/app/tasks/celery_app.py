@@ -23,4 +23,5 @@ celery_app.conf.update(
 celery_app.conf.include = [
     "app.tasks.email_tasks",
     "app.tasks.sms_tasks",
+    "app.tasks.evaluation_tasks",
 ]
