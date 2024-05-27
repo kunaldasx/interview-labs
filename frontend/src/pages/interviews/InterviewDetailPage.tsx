@@ -19,6 +19,7 @@ export default function InterviewDetailPage() {
   const queryClient = useQueryClient();
   const interviewId = Number(id);
   const [hrNotes, setHrNotes] = useState('');
+  const [showEvaluation, setShowEvaluation] = useState(false);
 
   const { data: interview, isLoading } = useQuery({
     queryKey: ['interview', id],
@@ -67,6 +68,21 @@ export default function InterviewDetailPage() {
               {interview.status === 'in_progress' ? 'Continue Interview' : 'Start Interview'}
             </Link>
           )}
+          {isCompleted && evaluation && (
+            <button
+              onClick={() => setShowEvaluation(!showEvaluation)}
+              className={`inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
+                showEvaluation
+                  ? 'bg-indigo-600 text-white hover:bg-indigo-700'
+                  : 'border border-indigo-500/50 text-indigo-400 hover:bg-indigo-500/10'
+              }`}
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+              Evaluation
+            </button>
+          )}
           <Link
             to="/interviews"
             className="inline-flex items-center px-4 py-2 border border-white/[0.15] text-gray-300 text-sm font-medium rounded-lg hover:bg-white/[0.05] transition-colors"
@@ -96,70 +112,8 @@ export default function InterviewDetailPage() {
         </div>
       </div>
 
-      {/* Recording Playback */}
-      {interview.recording_url && (
-        <div className="bg-white/[0.05] rounded-xl border border-white/[0.08] p-6">
-          <h2 className="text-lg font-semibold text-white mb-4">Recording</h2>
-          <video
-            src={interview.recording_url}
-            controls
-            className="w-full max-h-[480px] rounded-lg bg-black"
-          />
-        </div>
-      )}
-
-      {/* Transcript */}
-      {interview.transcripts && interview.transcripts.length > 0 && (
-        <TranscriptPanel transcripts={interview.transcripts} />
-      )}
-
-      {/* Q&A List */}
-      {interview.questions && interview.questions.length > 0 && (
-        <div className="bg-white/[0.05] rounded-xl border border-white/[0.08]">
-          <div className="px-6 py-4 border-b border-white/[0.06]">
-            <h2 className="text-lg font-semibold text-white">Questions & Answers</h2>
-          </div>
-          <div className="divide-y divide-white/[0.06]">
-            {interview.questions
-              .sort((a, b) => a.question_order - b.question_order)
-              .map((question) => {
-                const answer = interview.answers?.find(a => a.question_id === question.id);
-                return (
-                  <div key={question.id} className="px-6 py-4">
-                    <div className="flex items-start gap-3">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-xs font-semibold">
-                        Q{question.question_order}
-                      </span>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium text-white">{question.question_text}</p>
-                        <div className="flex items-center gap-2 mt-1">
-                          <span className="text-xs text-gray-400 capitalize">{question.question_type}</span>
-                          <span className="text-xs text-gray-300">|</span>
-                          <span className="text-xs text-gray-400 capitalize">{question.difficulty}</span>
-                        </div>
-                        {answer ? (
-                          <div className="mt-3 pl-4 border-l-2 border-green-500/30">
-                            <p className="text-sm text-gray-300">{answer.answer_text || '(Voice answer)'}</p>
-                            {answer.confidence_score != null && (
-                              <span className="text-xs text-gray-400 mt-1 inline-block">
-                                Confidence: {Math.round(answer.confidence_score * 100)}%
-                              </span>
-                            )}
-                          </div>
-                        ) : (
-                          <p className="mt-3 text-sm text-gray-400 italic">Not answered</p>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-          </div>
-        </div>
-      )}
-
-      {/* Evaluation Section — only for completed interviews */}
-      {isCompleted && (
+      {/* Evaluation Section — toggled by Evaluation button */}
+      {isCompleted && showEvaluation && (
         <>
           {!evaluation && (evalLoading || isCompleted) && (
             <div className="bg-white/[0.05] rounded-xl border border-white/[0.08] p-6 flex items-center gap-3">
@@ -286,6 +240,69 @@ export default function InterviewDetailPage() {
           })()}
         </>
       )}
+
+      {/* Recording Playback */}
+      {interview.recording_url && (
+        <div className="bg-white/[0.05] rounded-xl border border-white/[0.08] p-6">
+          <h2 className="text-lg font-semibold text-white mb-4">Recording</h2>
+          <video
+            src={interview.recording_url}
+            controls
+            className="w-full max-h-[480px] rounded-lg bg-black"
+          />
+        </div>
+      )}
+
+      {/* Transcript */}
+      {interview.transcripts && interview.transcripts.length > 0 && (
+        <TranscriptPanel transcripts={interview.transcripts} />
+      )}
+
+      {/* Q&A List */}
+      {interview.questions && interview.questions.length > 0 && (
+        <div className="bg-white/[0.05] rounded-xl border border-white/[0.08]">
+          <div className="px-6 py-4 border-b border-white/[0.06]">
+            <h2 className="text-lg font-semibold text-white">Questions & Answers</h2>
+          </div>
+          <div className="divide-y divide-white/[0.06]">
+            {interview.questions
+              .sort((a, b) => a.question_order - b.question_order)
+              .map((question) => {
+                const answer = interview.answers?.find(a => a.question_id === question.id);
+                return (
+                  <div key={question.id} className="px-6 py-4">
+                    <div className="flex items-start gap-3">
+                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-xs font-semibold">
+                        Q{question.question_order}
+                      </span>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-medium text-white">{question.question_text}</p>
+                        <div className="flex items-center gap-2 mt-1">
+                          <span className="text-xs text-gray-400 capitalize">{question.question_type}</span>
+                          <span className="text-xs text-gray-300">|</span>
+                          <span className="text-xs text-gray-400 capitalize">{question.difficulty}</span>
+                        </div>
+                        {answer ? (
+                          <div className="mt-3 pl-4 border-l-2 border-green-500/30">
+                            <p className="text-sm text-gray-300">{answer.answer_text || '(Voice answer)'}</p>
+                            {answer.confidence_score != null && (
+                              <span className="text-xs text-gray-400 mt-1 inline-block">
+                                Confidence: {Math.round(answer.confidence_score * 100)}%
+                              </span>
+                            )}
+                          </div>
+                        ) : (
+                          <p className="mt-3 text-sm text-gray-400 italic">Not answered</p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }
