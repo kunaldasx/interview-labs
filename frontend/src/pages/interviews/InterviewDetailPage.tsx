@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
+import apiClient from '../../api/client';
 import { interviewsAPI } from '../../api/interviews';
 import { evaluationsAPI } from '../../api/evaluations';
 import { useAuth } from '../../context/AuthContext';
@@ -20,6 +21,26 @@ export default function InterviewDetailPage() {
   const interviewId = Number(id);
   const [hrNotes, setHrNotes] = useState('');
   const [showEvaluation, setShowEvaluation] = useState(false);
+  const [pdfLoading, setPdfLoading] = useState(false);
+
+  const downloadPdf = async (evaluationId: number) => {
+    setPdfLoading(true);
+    try {
+      const response = await apiClient.get(`/reports/evaluation/${evaluationId}/pdf`, { responseType: 'blob' });
+      const blob = new Blob([response.data]);
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `evaluation_${evaluationId}.pdf`;
+      a.click();
+      URL.revokeObjectURL(url);
+      toast.success('PDF downloaded');
+    } catch {
+      toast.error('PDF download failed');
+    } finally {
+      setPdfLoading(false);
+    }
+  };
 
   const { data: interview, isLoading } = useQuery({
     queryKey: ['interview', id],
@@ -142,6 +163,14 @@ export default function InterviewDetailPage() {
                   <div className="flex items-center gap-3">
                     <span className="text-2xl font-bold text-indigo-400">{formatScore(evaluation.overall_score)}/10</span>
                     <Badge status={evaluation.ai_recommendation} label={getRecommendationLabel(evaluation.ai_recommendation)} />
+                    {!isCandidate && (
+                      <Button variant="outline" size="sm" isLoading={pdfLoading} onClick={() => downloadPdf(evaluation.id)}>
+                        <svg className="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        PDF
+                      </Button>
+                    )}
                   </div>
                 </div>
 

@@ -1,7 +1,7 @@
 """Report API endpoints."""
 from typing import Optional
 
-from fastapi import APIRouter, Depends, Query
+from fastapi import APIRouter, Depends, HTTPException, Query
 from fastapi.responses import StreamingResponse
 from sqlalchemy.ext.asyncio import AsyncSession
 import io
@@ -20,7 +20,10 @@ async def download_evaluation_pdf(
     current_user: User = Depends(require_role("super_admin", "hr_manager")),
 ):
     service = ReportService(db)
-    pdf_bytes = await service.generate_evaluation_pdf(evaluation_id)
+    try:
+        pdf_bytes = await service.generate_evaluation_pdf(evaluation_id)
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
     return StreamingResponse(
         io.BytesIO(pdf_bytes),
         media_type="application/pdf",
