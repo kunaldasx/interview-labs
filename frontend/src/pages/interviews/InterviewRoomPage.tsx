@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { interviewsAPI } from '../../api/interviews';
 import { useWebSocket } from '../../hooks/useWebSocket';
@@ -117,8 +117,8 @@ export default function InterviewRoomPage() {
 
   // Start interview flow
   const handleStart = async () => {
-    await startCamera();
     try {
+      await startCamera();
       await connect();
       sendMessage({ type: 'start', content: '' });
       setIsStarted(true);
@@ -126,8 +126,8 @@ export default function InterviewRoomPage() {
       if (streamRef.current) {
         startRecording(streamRef.current);
       }
-    } catch (err) {
-      toast.error('Failed to connect to interview server. Please try again.');
+    } catch (err: any) {
+      toast.error(err?.message || 'Failed to start interview. Please check camera permissions and try again.');
     }
   };
 
@@ -177,6 +177,15 @@ export default function InterviewRoomPage() {
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-3">
+          <Link
+            to={`/interviews/${interview.id}`}
+            className="text-gray-400 hover:text-white transition-colors"
+            title="Back to interview details"
+          >
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+          </Link>
           <h1 className="text-xl font-bold text-white">Interview Room #{interview.id}</h1>
           <Badge status={isComplete ? 'completed' : isStarted ? 'in_progress' : interview.status} />
           {isRecording && (

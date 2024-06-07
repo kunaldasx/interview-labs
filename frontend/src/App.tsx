@@ -35,7 +35,6 @@ const EvaluationDetailPage = lazy(() => import('./pages/evaluations/EvaluationDe
 
 // Reports
 const ReportsPage = lazy(() => import('./pages/reports/ReportsPage'));
-const AnalyticsPage = lazy(() => import('./pages/reports/AnalyticsPage'));
 
 // Users
 const UserManagementPage = lazy(() => import('./pages/users/UserManagementPage'));
@@ -146,14 +145,7 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            <Route
-              path="/analytics"
-              element={
-                <ProtectedRoute roles={['super_admin', 'hr_manager']}>
-                  <AnalyticsPage />
-                </ProtectedRoute>
-              }
-            />
+            <Route path="/analytics" element={<Navigate to="/dashboard" replace />} />
 
             {/* Settings */}
             <Route path="/settings" element={<SettingsPage />} />

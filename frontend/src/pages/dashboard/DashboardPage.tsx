@@ -1,14 +1,20 @@
+import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { dashboardAPI } from '../../api/dashboard';
+import { jobsAPI } from '../../api/jobs';
+import apiClient from '../../api/client';
 import { useAuth } from '../../context/AuthContext';
 import Card from '../../components/ui/Card';
+import Button from '../../components/ui/Button';
 import Spinner from '../../components/ui/Spinner';
 import Badge from '../../components/ui/Badge';
 import HiringTrendChart from '../../components/charts/HiringTrendChart';
 import DepartmentBarChart from '../../components/charts/DepartmentBarChart';
 import InterviewCompletionChart from '../../components/charts/InterviewCompletionChart';
 import TimeToHireChart from '../../components/charts/TimeToHireChart';
+import ScoreDistributionChart from '../../components/charts/ScoreDistributionChart';
 import { formatDateTime } from '../../lib/formatters';
+import toast from 'react-hot-toast';
 
 const kpiConfig = [
   { key: 'total_candidates', label: 'Total Candidates', icon: 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z', bg: 'bg-blue-500/[0.08]', iconBg: 'bg-blue-500/20', color: 'text-blue-400', glow: 'shadow-glow-blue' },
@@ -21,12 +27,39 @@ const kpiConfig = [
 
 export default function DashboardPage() {
   const { user } = useAuth();
+  const [selectedJobId, setSelectedJobId] = useState<number | undefined>();
+  const [isDownloading, setIsDownloading] = useState(false);
+
   const { data: kpis, isLoading: kpisLoading } = useQuery({ queryKey: ['dashboard-kpis'], queryFn: dashboardAPI.getKPIs });
   const { data: upcoming } = useQuery({ queryKey: ['dashboard-upcoming'], queryFn: () => dashboardAPI.getUpcomingInterviews() });
   const { data: trends } = useQuery({ queryKey: ['dashboard-trends'], queryFn: () => dashboardAPI.getHiringTrends() });
   const { data: distribution } = useQuery({ queryKey: ['dashboard-distribution'], queryFn: dashboardAPI.getStatusDistribution });
   const { data: completion } = useQuery({ queryKey: ['dashboard-completion'], queryFn: dashboardAPI.getInterviewCompletion });
   const { data: timeToHire } = useQuery({ queryKey: ['dashboard-time-to-hire'], queryFn: dashboardAPI.getTimeToHire });
+  const { data: scores } = useQuery({ queryKey: ['dashboard-scores', selectedJobId], queryFn: () => dashboardAPI.getScoreDistribution(selectedJobId) });
+  const { data: jobsData } = useQuery({ queryKey: ['jobs-list-dashboard'], queryFn: () => jobsAPI.list() });
+
+  const jobs = (jobsData as any)?.items || jobsData || [];
+
+  const downloadPipelineExcel = async () => {
+    setIsDownloading(true);
+    try {
+      const url = selectedJobId ? `/reports/pipeline/excel?job_id=${selectedJobId}` : '/reports/pipeline/excel';
+      const response = await apiClient.get(url, { responseType: 'blob' });
+      const blob = new Blob([response.data]);
+      const downloadUrl = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = downloadUrl;
+      a.download = 'pipeline_report.xlsx';
+      a.click();
+      URL.revokeObjectURL(downloadUrl);
+      toast.success('Downloaded pipeline_report.xlsx');
+    } catch {
+      toast.error('Download failed');
+    } finally {
+      setIsDownloading(false);
+    }
+  };
 
   if (kpisLoading) return <Spinner size="lg" label="Loading dashboard..." className="py-20" />;
 
@@ -34,11 +67,16 @@ export default function DashboardPage() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold text-white">
-          Welcome back, <span className="text-gradient">{user?.full_name?.split(' ')[0] || 'User'}</span>
-        </h1>
-        <p className="text-sm text-gray-400 mt-1">{today}</p>
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-2xl font-bold text-white">
+            Welcome back, <span className="text-gradient">{user?.full_name?.split(' ')[0] || 'User'}</span>
+          </h1>
+          <p className="text-sm text-gray-400 mt-1">{today}</p>
+        </div>
+        <Button onClick={downloadPipelineExcel} isLoading={isDownloading} variant="primary">
+          Export Pipeline
+        </Button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -102,6 +140,28 @@ export default function DashboardPage() {
           )}
         </Card>
       </div>
+
+      <Card
+        title="Score Distribution"
+        action={
+          <select
+            value={selectedJobId ?? ''}
+            onChange={e => setSelectedJobId(e.target.value ? Number(e.target.value) : undefined)}
+            className="rounded-lg border border-white/[0.1] bg-white/[0.05] text-gray-100 px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
+          >
+            <option value="">All Jobs</option>
+            {Array.isArray(jobs) && jobs.map((job: any) => (
+              <option key={job.id} value={job.id}>{job.title}</option>
+            ))}
+          </select>
+        }
+      >
+        {scores && scores.length > 0 ? (
+          <ScoreDistributionChart data={scores} />
+        ) : (
+          <p className="text-sm text-gray-500 text-center py-8">No evaluation data available</p>
+        )}
+      </Card>
 
       <Card title="Upcoming Interviews">
         {upcoming?.items?.length > 0 ? (
