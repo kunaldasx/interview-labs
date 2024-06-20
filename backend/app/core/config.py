@@ -45,6 +45,11 @@ class Settings(BaseSettings):
     TWILIO_AUTH_TOKEN: Optional[str] = None
     TWILIO_PHONE_NUMBER: Optional[str] = None
 
+    # WebSocket
+    WS_HEARTBEAT_INTERVAL_SEC: int = 30
+    WS_HEARTBEAT_TIMEOUT_SEC: int = 60
+    WS_MAX_RECONNECT_ATTEMPTS: int = 5
+
     # Upload
     UPLOAD_DIR: str = "uploads"
     MAX_UPLOAD_SIZE_MB: int = 10

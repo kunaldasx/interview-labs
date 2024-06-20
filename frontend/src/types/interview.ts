@@ -43,18 +43,27 @@ export interface TranscriptEntry {
 }
 
 export interface ChatMessage {
-  type: 'start' | 'message' | 'end';
+  type: 'start' | 'message' | 'end' | 'ping' | 'reconnect';
   content: string;
 }
 
 export interface ChatResponse {
-  type: 'greeting' | 'response' | 'complete' | 'ended' | 'error' | 'candidate';
+  type:
+    | 'greeting' | 'response' | 'complete' | 'ended' | 'error' | 'candidate'
+    | 'stream_start' | 'stream_chunk' | 'stream_end'
+    | 'thinking' | 'pong' | 'reconnected';
   content: string;
+  code?: string;
   is_complete?: boolean;
   question_number?: number;
   total_questions?: number;
   time_remaining_min?: number;
+  conversation_history?: { role: string; content: string }[];
+  current_question_index?: number;
+  isStreaming?: boolean;
 }
+
+export type ConnectionState = 'connecting' | 'connected' | 'reconnecting' | 'disconnected';
 
 export interface InterviewDetail extends Interview {
   questions: InterviewQuestion[];

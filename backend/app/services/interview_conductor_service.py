@@ -26,6 +26,7 @@ from app.ai.chains.interview_chain import (
     get_interview_greeting,
     get_interview_response,
     get_interview_closing,
+    stream_interview_response,
 )
 from app.services.question_generator_service import QuestionGeneratorService
 from app.services.notification_service import NotificationService
@@ -360,6 +361,134 @@ class InterviewConductorService:
 
         return {
             "message": ai_response,
+            "is_complete": False,
+            "question_number": current_idx + 2,
+            "total_questions": len(questions),
+            "time_remaining_min": int(time_remaining),
+        }
+
+    async def stream_process_message(
+        self,
+        interview_id: int,
+        candidate_message: str,
+        answer_mode: str = "text",
+    ):
+        """Process a candidate message and stream the AI response chunk by chunk.
+
+        Yields dicts with type: stream_chunk (during streaming) and stream_end (final).
+        Also handles interview completion the same as process_message().
+        """
+        session = await self._get_session(interview_id)
+        if not session:
+            raise BadRequestException("Interview session not found. Start the interview first.")
+
+        result = await self.db.execute(select(Interview).where(Interview.id == interview_id))
+        interview = result.scalar_one_or_none()
+        if not interview or interview.status != InterviewStatus.IN_PROGRESS:
+            raise BadRequestException("Interview is not in progress.")
+
+        questions = session.get("questions", [])
+        current_idx = session.get("current_question_index", 0)
+        history = session.get("conversation_history", [])
+        seq = session.get("sequence_counter", 2)
+
+        current_question = questions[current_idx]["text"] if current_idx < len(questions) else "General discussion"
+        questions_remaining = len(questions) - current_idx - 1
+
+        # Calculate time remaining
+        started = datetime.fromisoformat(session["started_at"])
+        elapsed = (datetime.utcnow() - started).total_seconds() / 60
+        time_remaining = max(0, interview.duration_limit_min - elapsed)
+
+        # Save candidate message as transcript
+        candidate_transcript = InterviewTranscript(
+            interview_id=interview_id,
+            speaker=SpeakerType.CANDIDATE,
+            message_type=MessageType.TEXT,
+            content=candidate_message,
+            sequence_order=seq,
+        )
+        self.db.add(candidate_transcript)
+        seq += 1
+
+        # Save answer
+        if current_idx < len(questions):
+            answer = InterviewAnswer(
+                interview_id=interview_id,
+                question_id=questions[current_idx]["id"],
+                answer_text=candidate_message,
+                answer_mode=AnswerMode.TEXT if answer_mode == "text" else AnswerMode.VOICE,
+            )
+            self.db.add(answer)
+            interview.questions_asked = current_idx + 1
+            self.db.add(interview)
+
+        # Update conversation history with candidate message
+        history.append({"role": "user", "content": candidate_message})
+
+        # Check if interview should end (time or questions exhausted)
+        if time_remaining <= 0 or current_idx >= len(questions) - 1:
+            c_result = await self.db.execute(select(Candidate).where(Candidate.id == interview.candidate_id))
+            candidate = c_result.scalar_one_or_none()
+            closing = await get_interview_closing(candidate.full_name if candidate else "Candidate")
+
+            ai_transcript = InterviewTranscript(
+                interview_id=interview_id,
+                speaker=SpeakerType.AI,
+                message_type=MessageType.TEXT,
+                content=closing,
+                sequence_order=seq,
+            )
+            self.db.add(ai_transcript)
+            await self.db.flush()
+
+            await self._end_interview(interview_id)
+
+            yield {
+                "type": "stream_end",
+                "content": closing,
+                "is_complete": True,
+                "questions_asked": interview.questions_asked,
+            }
+            return
+
+        # Stream AI response
+        candidate_resume = session.get("candidate_resume")
+        full_response = ""
+        async for chunk in stream_interview_response(
+            conversation_history=history,
+            current_question=current_question,
+            candidate_response=candidate_message,
+            questions_remaining=questions_remaining,
+            time_remaining_min=int(time_remaining),
+            candidate_resume=candidate_resume,
+        ):
+            full_response += chunk
+            yield {"type": "stream_chunk", "content": chunk}
+
+        # Save full AI response as transcript
+        ai_transcript = InterviewTranscript(
+            interview_id=interview_id,
+            speaker=SpeakerType.AI,
+            message_type=MessageType.TEXT,
+            content=full_response,
+            sequence_order=seq,
+        )
+        self.db.add(ai_transcript)
+        seq += 1
+
+        # Update session state
+        history.append({"role": "assistant", "content": full_response})
+        session["current_question_index"] = current_idx + 1
+        session["conversation_history"] = history
+        session["sequence_counter"] = seq
+        await self._save_session(interview_id, session)
+
+        await self.db.flush()
+
+        yield {
+            "type": "stream_end",
+            "content": full_response,
             "is_complete": False,
             "question_number": current_idx + 2,
             "total_questions": len(questions),

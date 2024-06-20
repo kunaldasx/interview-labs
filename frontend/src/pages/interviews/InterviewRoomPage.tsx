@@ -8,6 +8,7 @@ import { useSpeechRecognition } from '../../hooks/useSpeechRecognition';
 import { useSpeechSynthesis } from '../../hooks/useSpeechSynthesis';
 import { useMediaRecorder } from '../../hooks/useMediaRecorder';
 import { useAudioCapture } from '../../hooks/useAudioCapture';
+import { useAuth } from '../../context/AuthContext';
 import ConversationDisplay from '../../components/interview/ConversationDisplay';
 import InterviewTimer from '../../components/interview/InterviewTimer';
 import Button from '../../components/ui/Button';
@@ -18,6 +19,7 @@ import toast from 'react-hot-toast';
 export default function InterviewRoomPage() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { token } = useAuth();
   const interviewId = Number(id);
   const [isStarted, setIsStarted] = useState(false);
   const [startedAt, setStartedAt] = useState<string | undefined>();
@@ -32,7 +34,18 @@ export default function InterviewRoomPage() {
     enabled: !!id,
   });
 
-  const { isConnected, messages, isLoading: wsLoading, connect, sendMessage, disconnect } = useWebSocket(interviewId);
+  const {
+    isConnected,
+    connectionState,
+    messages,
+    isLoading: wsLoading,
+    isStreaming,
+    isThinking,
+    reconnectAttempt,
+    connect,
+    sendMessage,
+    disconnect,
+  } = useWebSocket(interviewId, token);
   const { videoRef, streamRef, isActive: cameraActive, error: cameraError, startCamera, stopCamera } = useWebcam(true);
   const { isSpeaking, speak, stop: stopSpeaking } = useSpeechSynthesis();
   const { isRecording, recordingBlob, startRecording, stopRecording } = useMediaRecorder();
@@ -93,14 +106,14 @@ export default function InterviewRoomPage() {
     }
   };
 
-  // Auto-speak AI responses
+  // Auto-speak AI responses (only finalized messages, not streaming chunks)
   const lastMessageRef = useRef<number>(0);
   useEffect(() => {
     if (messages.length > lastMessageRef.current) {
       const newMessages = messages.slice(lastMessageRef.current);
       lastMessageRef.current = messages.length;
       for (const msg of newMessages) {
-        if (msg.type === 'response' || msg.type === 'greeting') {
+        if ((msg.type === 'response' || msg.type === 'greeting') && !msg.isStreaming) {
           speak(msg.content);
         }
       }
@@ -170,7 +183,7 @@ export default function InterviewRoomPage() {
   if (isLoading) return <Spinner size="lg" className="py-20" />;
   if (!interview) return <div className="text-center py-20 text-gray-500">Interview not found</div>;
 
-  const isBusy = wsLoading || isTranscribing;
+  const isBusy = wsLoading || isTranscribing || isStreaming;
 
   return (
     <div className="h-[calc(100vh-8rem)] flex flex-col">
@@ -334,6 +347,9 @@ export default function InterviewRoomPage() {
               isCapturing={isCapturing}
               isLoading={isBusy}
               isConnected={isConnected}
+              isThinking={isThinking}
+              connectionState={connectionState}
+              reconnectAttempt={reconnectAttempt}
             />
           </div>
 
