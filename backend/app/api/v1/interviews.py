@@ -71,12 +71,27 @@ async def get_interview(interview_id: int, db: AsyncSession = Depends(get_db)):
     return await service.get_interview(interview_id)
 
 
+DEMO_EMAIL = "demo@hireez.com"
+DEMO_MAX_INTERVIEWS = 5
+
+
 @router.post("/", response_model=InterviewResponse)
 async def create_interview(
     data: InterviewCreate,
     db: AsyncSession = Depends(get_db),
     current_user: User = Depends(require_role("super_admin", "hr_manager")),
 ):
+    # Limit demo user to 5 interviews
+    if current_user.email == DEMO_EMAIL:
+        count = (await db.execute(
+            select(func.count(Interview.id)).where(Interview.created_by == current_user.id)
+        )).scalar_one()
+        if count >= DEMO_MAX_INTERVIEWS:
+            raise HTTPException(
+                status_code=403,
+                detail=f"Demo account is limited to {DEMO_MAX_INTERVIEWS} interviews. Please register for a full account.",
+            )
+
     service = InterviewConductorService(db)
     return await service.create_interview(
         candidate_id=data.candidate_id,
