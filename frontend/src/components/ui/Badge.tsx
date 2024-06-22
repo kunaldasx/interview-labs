@@ -18,6 +18,10 @@ const dotColors: Record<string, string> = {
   rejected: 'bg-red-500',
   hired: 'bg-emerald-500',
   shortlisted: 'bg-teal-500',
+  approved: 'bg-green-500',
+  pending_approval: 'bg-amber-500',
+  sent: 'bg-cyan-500',
+  draft: 'bg-gray-500',
 };
 
 export default function Badge({ status, label, size = 'sm', className }: BadgeProps) {

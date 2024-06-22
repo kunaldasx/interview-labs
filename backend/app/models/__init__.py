@@ -13,6 +13,7 @@ from app.models.notification import (
     Notification, NotificationTemplate,
     NotificationType, NotificationChannel, NotificationStatus,
 )
+from app.models.offer_letter import OfferLetter, OfferLetterStatus
 from app.models.audit_log import AuditLog
 
 __all__ = [
@@ -27,5 +28,6 @@ __all__ = [
     "Evaluation", "AIRecommendation", "HRDecision",
     "Notification", "NotificationTemplate",
     "NotificationType", "NotificationChannel", "NotificationStatus",
+    "OfferLetter", "OfferLetterStatus",
     "AuditLog",
 ]

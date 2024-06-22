@@ -42,6 +42,8 @@ export function getStatusColor(status: string): string {
     pending: 'bg-yellow-500/15 text-yellow-400',
     approved: 'bg-green-500/15 text-green-400',
     on_hold: 'bg-orange-500/15 text-orange-400',
+    pending_approval: 'bg-amber-500/15 text-amber-400',
+    sent: 'bg-cyan-500/15 text-cyan-400',
     strongly_hire: 'bg-emerald-500/15 text-emerald-400',
     hire: 'bg-green-500/15 text-green-400',
     maybe: 'bg-yellow-500/15 text-yellow-400',

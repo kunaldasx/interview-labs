@@ -163,3 +163,95 @@ HireEz Team"""
 </div>"""
 
     return send_email.delay(candidate_email, subject, body, html_body)
+
+
+@celery_app.task(name="tasks.send_offer_letter_email")
+def send_offer_letter_email(
+    candidate_email: str,
+    candidate_name: str,
+    job_title: str,
+    salary: str,
+    currency: str,
+    start_date: str,
+    benefits: str,
+    reporting_manager: str,
+    department: str,
+    location: str,
+    additional_terms: str = "",
+):
+    subject = f"Offer Letter - {job_title}"
+
+    additional_section = ""
+    if additional_terms:
+        additional_section = f"\nAdditional Terms:\n{additional_terms}\n"
+
+    body = f"""Dear {candidate_name},
+
+We are pleased to extend an offer of employment for the position of {job_title}.
+
+Offer Details:
+- Salary: {currency} {salary}
+- Start Date: {start_date}
+- Department: {department}
+- Location: {location}
+- Reporting Manager: {reporting_manager}
+
+Benefits:
+{benefits}
+{additional_section}
+Please review this offer and respond at your earliest convenience.
+
+Best regards,
+HireEz Team"""
+
+    additional_html = ""
+    if additional_terms:
+        terms_html = additional_terms.replace("\n", "<br>")
+        additional_html = f"""
+    <div style="margin: 20px 0;">
+        <h3 style="margin: 0 0 8px 0; color: #374151; font-family: Arial, sans-serif; font-size: 16px;">Additional Terms</h3>
+        <p style="font-family: Arial, sans-serif; font-size: 14px; color: #374151;">{terms_html}</p>
+    </div>"""
+
+    benefits_html = benefits.replace("\n", "<br>")
+
+    html_body = f"""
+<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+    <h2 style="color: #4F46E5; font-family: Arial, sans-serif;">Offer of Employment</h2>
+    <p style="font-family: Arial, sans-serif; font-size: 14px; color: #374151;">Dear {candidate_name},</p>
+    <p style="font-family: Arial, sans-serif; font-size: 14px; color: #374151;">We are pleased to extend an offer of employment for the position of <strong>{job_title}</strong>.</p>
+    <div style="background: #EEF2FF; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="margin: 0 0 12px 0; color: #4F46E5; font-family: Arial, sans-serif; font-size: 16px;">Offer Details</h3>
+        <table style="width: 100%; font-family: Arial, sans-serif; font-size: 14px;">
+            <tr>
+                <td style="padding: 6px 0; color: #6B7280; width: 160px;">Salary:</td>
+                <td style="padding: 6px 0; color: #111827; font-weight: bold;">{currency} {salary}</td>
+            </tr>
+            <tr>
+                <td style="padding: 6px 0; color: #6B7280;">Start Date:</td>
+                <td style="padding: 6px 0; color: #111827; font-weight: bold;">{start_date}</td>
+            </tr>
+            <tr>
+                <td style="padding: 6px 0; color: #6B7280;">Department:</td>
+                <td style="padding: 6px 0; color: #111827; font-weight: bold;">{department}</td>
+            </tr>
+            <tr>
+                <td style="padding: 6px 0; color: #6B7280;">Location:</td>
+                <td style="padding: 6px 0; color: #111827; font-weight: bold;">{location}</td>
+            </tr>
+            <tr>
+                <td style="padding: 6px 0; color: #6B7280;">Reporting Manager:</td>
+                <td style="padding: 6px 0; color: #111827; font-weight: bold;">{reporting_manager}</td>
+            </tr>
+        </table>
+    </div>
+    <div style="background: #F0FDF4; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="margin: 0 0 8px 0; color: #166534; font-family: Arial, sans-serif; font-size: 16px;">Benefits</h3>
+        <p style="font-family: Arial, sans-serif; font-size: 14px; color: #374151;">{benefits_html}</p>
+    </div>
+    {additional_html}
+    <p style="font-family: Arial, sans-serif; font-size: 14px; color: #374151;">Please review this offer and respond at your earliest convenience.</p>
+    <p style="font-family: Arial, sans-serif; font-size: 14px; color: #374151;">Best regards,<br>HireEz Team</p>
+</div>"""
+
+    return send_email.delay(candidate_email, subject, body, html_body)

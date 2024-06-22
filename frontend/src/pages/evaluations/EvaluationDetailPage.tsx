@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { evaluationsAPI } from '../../api/evaluations';
 import Card from '../../components/ui/Card';
@@ -12,6 +12,7 @@ import { useState } from 'react';
 
 export default function EvaluationDetailPage() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const queryClient = useQueryClient();
   const [hrNotes, setHrNotes] = useState('');
 
@@ -106,6 +107,18 @@ export default function EvaluationDetailPage() {
       {evaluation.detailed_feedback && (
         <Card title="Detailed Feedback">
           <p className="text-sm text-gray-300 whitespace-pre-wrap">{evaluation.detailed_feedback}</p>
+        </Card>
+      )}
+
+      {evaluation.hr_decision === 'approved' &&
+        (evaluation.ai_recommendation === 'hire' || evaluation.ai_recommendation === 'strongly_hire') && (
+        <Card title="Offer Letter">
+          <p className="text-sm text-gray-400 mb-3">
+            This candidate has been approved with a {evaluation.ai_recommendation.replace('_', ' ')} recommendation. You can now prepare an offer letter.
+          </p>
+          <Button onClick={() => navigate(`/offer-letters/new?interview_id=${evaluation.interview_id}`)}>
+            Prepare Offer Letter
+          </Button>
         </Card>
       )}
 

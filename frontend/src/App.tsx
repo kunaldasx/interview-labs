@@ -33,6 +33,11 @@ const InterviewDetailPage = lazy(() => import('./pages/interviews/InterviewDetai
 // Evaluations
 const EvaluationDetailPage = lazy(() => import('./pages/evaluations/EvaluationDetailPage'));
 
+// Offer Letters
+const OfferLettersPage = lazy(() => import('./pages/offer-letters/OfferLettersPage'));
+const OfferLetterFormPage = lazy(() => import('./pages/offer-letters/OfferLetterFormPage'));
+const OfferLetterDetailPage = lazy(() => import('./pages/offer-letters/OfferLetterDetailPage'));
+
 // Reports
 const ReportsPage = lazy(() => import('./pages/reports/ReportsPage'));
 
@@ -135,6 +140,28 @@ function App() {
 
             {/* Evaluations */}
             <Route path="/evaluations/:id" element={<EvaluationDetailPage />} />
+
+            {/* Offer Letters */}
+            <Route path="/offer-letters" element={
+              <ProtectedRoute roles={['super_admin', 'hr_manager']}>
+                <OfferLettersPage />
+              </ProtectedRoute>
+            } />
+            <Route path="/offer-letters/new" element={
+              <ProtectedRoute roles={['super_admin', 'hr_manager']}>
+                <OfferLetterFormPage />
+              </ProtectedRoute>
+            } />
+            <Route path="/offer-letters/:id" element={
+              <ProtectedRoute roles={['super_admin', 'hr_manager']}>
+                <OfferLetterDetailPage />
+              </ProtectedRoute>
+            } />
+            <Route path="/offer-letters/:id/edit" element={
+              <ProtectedRoute roles={['super_admin', 'hr_manager']}>
+                <OfferLetterFormPage />
+              </ProtectedRoute>
+            } />
 
             {/* Reports */}
             <Route
