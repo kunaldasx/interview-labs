@@ -125,6 +125,11 @@ export default function LoginPage() {
               required
               className="!bg-white !border-gray-300 !text-gray-900 placeholder-gray-400 focus:!border-primary-500"
             />
+            <div className="flex justify-end">
+              <Link to="/forgot-password" className="text-sm text-primary-600 hover:text-primary-700 font-medium transition-colors">
+                Forgot password?
+              </Link>
+            </div>
             <Button type="submit" isLoading={isLoading} className="w-full" size="lg">
               Sign In
             </Button>

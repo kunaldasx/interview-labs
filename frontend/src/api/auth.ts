@@ -22,4 +22,10 @@ export const authAPI = {
 
   tokenLogin: (token: string) =>
     apiClient.post<TokenResponse>('/auth/token-login', { token }).then(r => r.data),
+
+  forgotPassword: (email: string) =>
+    apiClient.post<{ message: string }>('/auth/forgot-password', { email }).then(r => r.data),
+
+  resetPassword: (token: string, new_password: string) =>
+    apiClient.post<{ message: string }>('/auth/reset-password', { token, new_password }).then(r => r.data),
 };

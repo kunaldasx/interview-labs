@@ -11,7 +11,7 @@ from app.core.config import settings
 from app.core.dependencies import get_db, get_current_user
 from app.core.security import get_password_hash, create_access_token, create_refresh_token
 from app.models.user import User, UserRole
-from app.schemas.user import UserCreate, UserLogin, UserUpdate, UserResponse, TokenResponse, TokenRefresh
+from app.schemas.user import UserCreate, UserLogin, UserUpdate, UserResponse, TokenResponse, TokenRefresh, ForgotPasswordRequest, ResetPasswordRequest
 from app.services.auth_service import AuthService
 
 logger = logging.getLogger(__name__)
@@ -105,6 +105,22 @@ async def token_login(data: TokenLoginRequest, db: AsyncSession = Depends(get_db
         }
     finally:
         await r.aclose()
+
+
+@router.post("/forgot-password")
+async def forgot_password(data: ForgotPasswordRequest, db: AsyncSession = Depends(get_db)):
+    """Send a password reset email if the account exists."""
+    service = AuthService(db)
+    await service.forgot_password(data.email)
+    return {"message": "If an account exists, a reset email has been sent"}
+
+
+@router.post("/reset-password")
+async def reset_password(data: ResetPasswordRequest, db: AsyncSession = Depends(get_db)):
+    """Reset password using a valid token."""
+    service = AuthService(db)
+    await service.reset_password(data.token, data.new_password)
+    return {"message": "Password reset successfully"}
 
 
 @router.get("/me", response_model=UserResponse)
