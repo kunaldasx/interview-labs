@@ -13,9 +13,17 @@ export default function LoginPage() {
   const [demoLoading, setDemoLoading] = useState(false);
   const [tokenLoading, setTokenLoading] = useState(false);
   const tokenAttempted = useRef(false);
-  const { login } = useAuth();
+  const { login, isAuthenticated, user } = useAuth();
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
+
+  // Redirect once auth state is committed (handles all login flows)
+  useEffect(() => {
+    if (isAuthenticated && user) {
+      const dest = user.role === 'candidate' ? '/interviews' : '/dashboard';
+      navigate(dest, { replace: true });
+    }
+  }, [isAuthenticated, user, navigate]);
 
   // Auto-login via magic token from email link
   useEffect(() => {
@@ -29,8 +37,6 @@ export default function LoginPage() {
         login(data.access_token, data.user);
         localStorage.setItem('refresh_token', data.refresh_token);
         toast.success(`Welcome, ${data.user.full_name}!`);
-        const dest = data.user.role === 'candidate' ? '/interviews' : '/dashboard';
-        navigate(dest);
       })
       .catch(() => {
         toast.error('Login link expired or invalid. Please sign in manually.');
@@ -47,8 +53,6 @@ export default function LoginPage() {
       login(data.access_token, data.user);
       localStorage.setItem('refresh_token', data.refresh_token);
       toast.success('Welcome to the demo!');
-      const dest = data.user.role === 'candidate' ? '/interviews' : '/dashboard';
-      navigate(dest);
     } catch (err: any) {
       toast.error(err.response?.data?.detail || 'Demo login failed. Please try again.');
     } finally {
@@ -64,8 +68,6 @@ export default function LoginPage() {
       login(data.access_token, data.user);
       localStorage.setItem('refresh_token', data.refresh_token);
       toast.success('Welcome back!');
-      const dest = data.user.role === 'candidate' ? '/interviews' : '/dashboard';
-      navigate(dest);
     } catch (err: any) {
       toast.error(err.response?.data?.detail || 'Login failed');
     } finally {
