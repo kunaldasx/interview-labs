@@ -258,11 +258,26 @@ class OfferLetterService:
         offer = await self._get_offer(offer_id)
         return self._to_response(offer)
 
+    async def get_by_interview(self, interview_id: int) -> Optional[OfferLetterResponse]:
+        result = await self.db.execute(
+            select(OfferLetter)
+            .where(OfferLetter.interview_id == interview_id)
+            .options(
+                selectinload(OfferLetter.candidate),
+                selectinload(OfferLetter.job),
+            )
+        )
+        offer = result.scalar_one_or_none()
+        if not offer:
+            return None
+        return self._to_response(offer)
+
     async def list_offers(
         self,
         status: Optional[OfferLetterStatus] = None,
         candidate_id: Optional[int] = None,
         job_id: Optional[int] = None,
+        interview_id: Optional[int] = None,
         page: int = 1,
         page_size: int = 20,
     ) -> dict:
@@ -281,6 +296,9 @@ class OfferLetterService:
         if job_id:
             query = query.where(OfferLetter.job_id == job_id)
             count_query = count_query.where(OfferLetter.job_id == job_id)
+        if interview_id:
+            query = query.where(OfferLetter.interview_id == interview_id)
+            count_query = count_query.where(OfferLetter.interview_id == interview_id)
 
         total = (await self.db.execute(count_query)).scalar_one()
         offset = (page - 1) * page_size

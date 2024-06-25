@@ -5,6 +5,7 @@ from fastapi import APIRouter, Depends, Query
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.dependencies import get_db, require_role
+from app.core.exceptions import NotFoundException
 from app.models.offer_letter import OfferLetterStatus
 from app.models.user import User
 from app.schemas.offer_letter import (
@@ -24,6 +25,7 @@ async def list_offer_letters(
     status: Optional[OfferLetterStatus] = Query(default=None),
     candidate_id: Optional[int] = Query(default=None),
     job_id: Optional[int] = Query(default=None),
+    interview_id: Optional[int] = Query(default=None),
     page: int = Query(default=1, ge=1),
     page_size: int = Query(default=20, ge=1, le=100),
     db: AsyncSession = Depends(get_db),
@@ -34,9 +36,23 @@ async def list_offer_letters(
         status=status,
         candidate_id=candidate_id,
         job_id=job_id,
+        interview_id=interview_id,
         page=page,
         page_size=page_size,
     )
+
+
+@router.get("/interview/{interview_id}", response_model=OfferLetterResponse)
+async def get_offer_by_interview(
+    interview_id: int,
+    db: AsyncSession = Depends(get_db),
+    current_user: User = Depends(require_role("super_admin", "hr_manager")),
+):
+    service = OfferLetterService(db)
+    offer = await service.get_by_interview(interview_id)
+    if not offer:
+        raise NotFoundException(f"No offer letter found for interview {interview_id}")
+    return offer
 
 
 @router.get("/{offer_id}", response_model=OfferLetterResponse)

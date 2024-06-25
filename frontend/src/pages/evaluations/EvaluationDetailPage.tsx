@@ -1,6 +1,7 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { evaluationsAPI } from '../../api/evaluations';
+import { offerLettersAPI } from '../../api/offerLetters';
 import Card from '../../components/ui/Card';
 import Badge from '../../components/ui/Badge';
 import Button from '../../components/ui/Button';
@@ -22,10 +23,30 @@ export default function EvaluationDetailPage() {
     enabled: !!id,
   });
 
+  const isHireRecommendation =
+    evaluation?.ai_recommendation === 'hire' || evaluation?.ai_recommendation === 'strongly_hire';
+  const isHrApproved = evaluation?.hr_decision === 'approved';
+  const canCreateOffer = isHireRecommendation && isHrApproved;
+
+  const { data: existingOffer } = useQuery({
+    queryKey: ['offer-letter-by-interview', evaluation?.interview_id],
+    queryFn: () => offerLettersAPI.getByInterview(evaluation!.interview_id).catch(() => null),
+    enabled: !!evaluation && canCreateOffer,
+  });
+
+  const handleOfferLetterClick = () => {
+    if (existingOffer) {
+      navigate(`/offer-letters/${existingOffer.id}`);
+    } else {
+      navigate(`/offer-letters/new?interview_id=${evaluation!.interview_id}`);
+    }
+  };
+
   const decisionMutation = useMutation({
     mutationFn: (decision: string) => evaluationsAPI.updateDecision(Number(id), { hr_decision: decision, hr_notes: hrNotes }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['evaluation', id] });
+      queryClient.invalidateQueries({ queryKey: ['offer-letter-by-interview', evaluation?.interview_id] });
       toast.success('Decision updated');
     },
   });
@@ -110,15 +131,37 @@ export default function EvaluationDetailPage() {
         </Card>
       )}
 
-      {evaluation.hr_decision === 'approved' &&
-        (evaluation.ai_recommendation === 'hire' || evaluation.ai_recommendation === 'strongly_hire') && (
+      {isHireRecommendation && (
         <Card title="Offer Letter">
-          <p className="text-sm text-gray-400 mb-3">
-            This candidate has been approved with a {evaluation.ai_recommendation.replace('_', ' ')} recommendation. You can now prepare an offer letter.
-          </p>
-          <Button onClick={() => navigate(`/offer-letters/new?interview_id=${evaluation.interview_id}`)}>
-            Prepare Offer Letter
-          </Button>
+          {canCreateOffer ? (
+            <>
+              <p className="text-sm text-gray-400 mb-3">
+                This candidate has been approved with a <span className="text-green-400 font-medium">{evaluation.ai_recommendation.replace('_', ' ')}</span> recommendation.
+                {existingOffer
+                  ? ' An offer letter has been created.'
+                  : ' You can now prepare an offer letter.'}
+              </p>
+              <Button onClick={handleOfferLetterClick}>
+                <svg className="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                {existingOffer ? 'View Offer Letter' : 'Prepare Offer Letter'}
+              </Button>
+            </>
+          ) : (
+            <>
+              <p className="text-sm text-gray-400 mb-3">
+                AI recommends <span className="text-green-400 font-medium">{evaluation.ai_recommendation.replace('_', ' ')}</span>.
+                HR approval is required before creating an offer letter.
+              </p>
+              <Button disabled>
+                <svg className="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Offer Letter (Pending HR Approval)
+              </Button>
+            </>
+          )}
         </Card>
       )}
 

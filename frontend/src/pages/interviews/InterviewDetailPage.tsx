@@ -1,10 +1,11 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 import apiClient from '../../api/client';
 import { interviewsAPI } from '../../api/interviews';
 import { evaluationsAPI } from '../../api/evaluations';
+import { offerLettersAPI } from '../../api/offerLetters';
 import { useAuth } from '../../context/AuthContext';
 import TranscriptPanel from '../../components/interview/TranscriptPanel';
 import ScoreRadarChart from '../../components/charts/ScoreRadarChart';
@@ -17,6 +18,7 @@ import { formatScore, getRecommendationLabel } from '../../lib/formatters';
 export default function InterviewDetailPage() {
   const { id } = useParams();
   const { user } = useAuth();
+  const navigate = useNavigate();
   const queryClient = useQueryClient();
   const interviewId = Number(id);
   const [hrNotes, setHrNotes] = useState('');
@@ -57,11 +59,33 @@ export default function InterviewDetailPage() {
     refetchInterval: (query) => (!query.state.data && isCompleted ? 5000 : false),
   });
 
+  // Check if evaluation qualifies for offer letter
+  const isHireRecommendation =
+    evaluation?.ai_recommendation === 'hire' || evaluation?.ai_recommendation === 'strongly_hire';
+  const isHrApproved = evaluation?.hr_decision === 'approved';
+  const canCreateOffer = isHireRecommendation && isHrApproved;
+
+  // Fetch existing offer letter for this interview
+  const { data: existingOffer } = useQuery({
+    queryKey: ['offer-letter-by-interview', interviewId],
+    queryFn: () => offerLettersAPI.getByInterview(interviewId).catch(() => null),
+    enabled: !!evaluation && canCreateOffer,
+  });
+
+  const handleOfferLetterClick = () => {
+    if (existingOffer) {
+      navigate(`/offer-letters/${existingOffer.id}`);
+    } else {
+      navigate(`/offer-letters/new?interview_id=${interviewId}`);
+    }
+  };
+
   const decisionMutation = useMutation({
     mutationFn: (decision: string) =>
       evaluationsAPI.updateDecision(evaluation!.id, { hr_decision: decision, hr_notes: hrNotes }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['evaluation-by-interview', interviewId] });
+      queryClient.invalidateQueries({ queryKey: ['offer-letter-by-interview', interviewId] });
       toast.success('Decision updated');
     },
   });
@@ -263,6 +287,41 @@ export default function InterviewDetailPage() {
                       <span className="text-sm text-gray-300 ml-2">— {evaluation.hr_notes}</span>
                     )}
                   </div>
+                )}
+
+                {/* Offer Letter Button */}
+                {!isCandidate && isHireRecommendation && (
+                  <Card title="Offer Letter" hover={false}>
+                    {canCreateOffer ? (
+                      <>
+                        <p className="text-sm text-gray-400 mb-3">
+                          This candidate has been approved with a <span className="text-green-400 font-medium">{evaluation.ai_recommendation.replace('_', ' ')}</span> recommendation.
+                          {existingOffer
+                            ? ' An offer letter has been created.'
+                            : ' You can now prepare an offer letter.'}
+                        </p>
+                        <Button onClick={handleOfferLetterClick}>
+                          <svg className="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                          </svg>
+                          {existingOffer ? 'View Offer Letter' : 'Prepare Offer Letter'}
+                        </Button>
+                      </>
+                    ) : (
+                      <>
+                        <p className="text-sm text-gray-400 mb-3">
+                          AI recommends <span className="text-green-400 font-medium">{evaluation.ai_recommendation.replace('_', ' ')}</span>.
+                          HR approval is required before creating an offer letter.
+                        </p>
+                        <Button disabled>
+                          <svg className="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                          </svg>
+                          Offer Letter (Pending HR Approval)
+                        </Button>
+                      </>
+                    )}
+                  </Card>
                 )}
               </div>
             );
