@@ -10,11 +10,11 @@ type Currency = 'INR' | 'USD' | 'EUR' | 'GBP';
 
 const currencySymbols: Record<Currency, string> = { INR: '₹', USD: '$', EUR: '€', GBP: '£' };
 
-const prices: Record<Currency, { starter: number; professional: number; enterprise: number; perInterview: number }> = {
-  INR: { starter: 4999, professional: 14999, enterprise: 49999, perInterview: 200 },
-  USD: { starter: 60, professional: 180, enterprise: 600, perInterview: 2.5 },
-  EUR: { starter: 55, professional: 165, enterprise: 550, perInterview: 2.3 },
-  GBP: { starter: 48, professional: 144, enterprise: 480, perInterview: 2 },
+const prices: Record<Currency, { starter: number; professional: number; enterprise: number; perInterview: number; student: number }> = {
+  INR: { starter: 4999, professional: 14999, enterprise: 49999, perInterview: 200, student: 200 },
+  USD: { starter: 60, professional: 180, enterprise: 600, perInterview: 2.5, student: 2.5 },
+  EUR: { starter: 55, professional: 165, enterprise: 550, perInterview: 2.3, student: 2.3 },
+  GBP: { starter: 48, professional: 144, enterprise: 480, perInterview: 2, student: 2 },
 };
 
 const tiers = [
@@ -153,6 +153,7 @@ const sectors = [
 export default function HomePage() {
   const [currency, setCurrency] = useState<Currency>('INR');
   const [annual, setAnnual] = useState(false);
+  const [isStudent, setIsStudent] = useState(false);
   const [demoLoading, setDemoLoading] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -339,17 +340,33 @@ export default function HomePage() {
 
             {/* Toggles */}
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
-              {/* Billing toggle */}
+              {/* Billing toggle — hidden for student */}
+              {!isStudent && (
+                <div className="flex items-center gap-3">
+                  <span className={`text-sm font-medium ${!annual ? 'text-white' : 'text-gray-500'}`}>Monthly</span>
+                  <button
+                    onClick={() => setAnnual(!annual)}
+                    className={`relative w-12 h-6 rounded-full transition-colors ${annual ? 'bg-primary-600' : 'bg-gray-700'}`}
+                  >
+                    <span className={`absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform ${annual ? 'translate-x-6' : ''}`} />
+                  </button>
+                  <span className={`text-sm font-medium ${annual ? 'text-white' : 'text-gray-500'}`}>
+                    Annual <span className="text-emerald-400 font-semibold">(Save 20%)</span>
+                  </span>
+                </div>
+              )}
+
+              {/* Student toggle */}
               <div className="flex items-center gap-3">
-                <span className={`text-sm font-medium ${!annual ? 'text-white' : 'text-gray-500'}`}>Monthly</span>
+                <span className={`text-sm font-medium ${!isStudent ? 'text-white' : 'text-gray-500'}`}>Business</span>
                 <button
-                  onClick={() => setAnnual(!annual)}
-                  className={`relative w-12 h-6 rounded-full transition-colors ${annual ? 'bg-primary-600' : 'bg-gray-700'}`}
+                  onClick={() => setIsStudent(!isStudent)}
+                  className={`relative w-12 h-6 rounded-full transition-colors ${isStudent ? 'bg-emerald-500' : 'bg-gray-700'}`}
                 >
-                  <span className={`absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform ${annual ? 'translate-x-6' : ''}`} />
+                  <span className={`absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform ${isStudent ? 'translate-x-6' : ''}`} />
                 </button>
-                <span className={`text-sm font-medium ${annual ? 'text-white' : 'text-gray-500'}`}>
-                  Annual <span className="text-emerald-400 font-semibold">(Save 20%)</span>
+                <span className={`text-sm font-medium ${isStudent ? 'text-white' : 'text-gray-500'}`}>
+                  Student
                 </span>
               </div>
 
@@ -373,104 +390,171 @@ export default function HomePage() {
           </div>
 
           {/* Pricing cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-            {tiers.map((tier) => (
-              <div
-                key={tier.name}
-                className={`relative rounded-2xl p-8 ${
-                  tier.highlight
-                    ? 'bg-gradient-to-br from-primary-600 to-primary-800 text-white shadow-2xl shadow-primary-500/25 md:scale-105 z-10'
-                    : 'bg-gray-800/50 border border-gray-700/50 hover:border-gray-600/50 transition-colors'
-                }`}
-              >
-                {tier.badge && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="bg-gradient-to-r from-amber-400 to-orange-400 text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg">
-                      {tier.badge}
-                    </span>
-                  </div>
-                )}
+          {isStudent ? (
+            /* Student pricing */
+            <div className="max-w-lg mx-auto">
+              <div className="relative rounded-2xl p-8 bg-gradient-to-br from-emerald-600 to-teal-700 text-white shadow-2xl shadow-emerald-500/25">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <span className="bg-gradient-to-r from-amber-400 to-orange-400 text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg">
+                    COLLEGE STUDENT
+                  </span>
+                </div>
 
-                <div className="mb-6">
-                  <h3 className={`text-xl font-bold ${tier.highlight ? 'text-white' : 'text-white'}`}>
-                    {tier.name}
-                  </h3>
-                  <p className={`mt-2 text-sm ${tier.highlight ? 'text-primary-100' : 'text-gray-400'}`}>
-                    {tier.description}
+                <div className="text-center mb-6">
+                  <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">Student Plan</h3>
+                  <p className="mt-2 text-sm text-emerald-100">
+                    Affordable AI interview practice for college students preparing for placements.
                   </p>
                 </div>
 
-                <div className="mb-6">
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-4xl font-bold text-white">
-                      {formatPrice(Math.round(currentPrices[tier.key] * discount), currency)}
+                <div className="text-center mb-6">
+                  <div className="flex items-baseline justify-center gap-1">
+                    <span className="text-5xl font-bold text-white">
+                      {formatPrice(currentPrices.student, currency)}
                     </span>
-                    <span className={`text-sm ${tier.highlight ? 'text-primary-200' : 'text-gray-500'}`}>
-                      /mo
-                    </span>
+                    <span className="text-sm text-emerald-200">/ student</span>
                   </div>
-                  {annual && (
-                    <p className={`text-xs mt-1 ${tier.highlight ? 'text-primary-200' : 'text-gray-500'}`}>
-                      Billed annually ({formatPrice(Math.round(currentPrices[tier.key] * discount * 12), currency)}/yr)
-                    </p>
-                  )}
+                  <p className="text-xs mt-2 text-emerald-200">One-time per interview session</p>
                 </div>
 
                 <Link
-                  to={tier.key === 'enterprise' ? '/register?plan=enterprise' : `/register?plan=${tier.key}`}
-                  className={`block w-full py-3 rounded-xl text-sm font-semibold text-center transition-all duration-200 ${
-                    tier.highlight
-                      ? 'bg-white text-primary-700 hover:bg-gray-50 shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-[0.98]'
-                      : 'bg-gradient-to-r from-primary-600 to-primary-500 text-white hover:from-primary-700 hover:to-primary-600 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98]'
-                  }`}
+                  to="/register?plan=student"
+                  className="block w-full py-3 rounded-xl text-sm font-semibold text-center bg-white text-emerald-700 hover:bg-gray-50 shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200"
                 >
-                  {tier.cta}
+                  Get Started
                 </Link>
 
                 <ul className="mt-8 space-y-3">
-                  {tier.features.map((feature) => (
+                  {[
+                    'AI-powered mock interviews',
+                    'All 32 industry domains',
+                    'Instant AI feedback & scoring',
+                    'Strengths & improvement areas',
+                    'Resume screening practice',
+                    'Chat + Voice interview modes',
+                    'Detailed performance report',
+                    'Valid college email required',
+                  ].map((feature) => (
                     <li key={feature} className="flex items-start gap-3">
-                      <svg
-                        className={`w-5 h-5 flex-shrink-0 mt-0.5 ${tier.highlight ? 'text-primary-200' : 'text-primary-400'}`}
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                      >
+                      <svg className="w-5 h-5 flex-shrink-0 mt-0.5 text-emerald-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className={`text-sm ${tier.highlight ? 'text-primary-50' : 'text-gray-300'}`}>
-                        {feature}
-                      </span>
+                      <span className="text-sm text-emerald-50">{feature}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-            ))}
-          </div>
+            </div>
+          ) : (
+            /* Business pricing */
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+                {tiers.map((tier) => (
+                  <div
+                    key={tier.name}
+                    className={`relative rounded-2xl p-8 ${
+                      tier.highlight
+                        ? 'bg-gradient-to-br from-primary-600 to-primary-800 text-white shadow-2xl shadow-primary-500/25 md:scale-105 z-10'
+                        : 'bg-gray-800/50 border border-gray-700/50 hover:border-gray-600/50 transition-colors'
+                    }`}
+                  >
+                    {tier.badge && (
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                        <span className="bg-gradient-to-r from-amber-400 to-orange-400 text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg">
+                          {tier.badge}
+                        </span>
+                      </div>
+                    )}
 
-          {/* Per-interview pricing */}
-          <div className="max-w-3xl mx-auto mt-16">
-            <div className="bg-gray-900/50 border border-gray-800/50 rounded-2xl p-8 text-center">
-              <h3 className="text-lg font-bold text-white">Need more interviews?</h3>
-              <p className="text-gray-400 mt-2 text-sm">
-                Additional interviews beyond your plan limit are billed per interview.
-              </p>
-              <div className="mt-4 flex items-center justify-center gap-2">
-                <span className="text-3xl font-bold bg-gradient-to-r from-primary-400 to-purple-400 bg-clip-text text-transparent">
-                  {formatPrice(currentPrices.perInterview, currency)}
-                </span>
-                <span className="text-gray-500 text-sm">/ interview</span>
-              </div>
-              <div className="mt-3 flex flex-wrap items-center justify-center gap-3 text-xs text-gray-500">
-                {(Object.keys(prices) as Currency[]).map((cur) => (
-                  <span key={cur}>
-                    {currencySymbols[cur]}{prices[cur].perInterview} {cur}
-                  </span>
+                    <div className="mb-6">
+                      <h3 className={`text-xl font-bold ${tier.highlight ? 'text-white' : 'text-white'}`}>
+                        {tier.name}
+                      </h3>
+                      <p className={`mt-2 text-sm ${tier.highlight ? 'text-primary-100' : 'text-gray-400'}`}>
+                        {tier.description}
+                      </p>
+                    </div>
+
+                    <div className="mb-6">
+                      <div className="flex items-baseline gap-1">
+                        <span className="text-4xl font-bold text-white">
+                          {formatPrice(Math.round(currentPrices[tier.key] * discount), currency)}
+                        </span>
+                        <span className={`text-sm ${tier.highlight ? 'text-primary-200' : 'text-gray-500'}`}>
+                          /mo
+                        </span>
+                      </div>
+                      {annual && (
+                        <p className={`text-xs mt-1 ${tier.highlight ? 'text-primary-200' : 'text-gray-500'}`}>
+                          Billed annually ({formatPrice(Math.round(currentPrices[tier.key] * discount * 12), currency)}/yr)
+                        </p>
+                      )}
+                    </div>
+
+                    <Link
+                      to={tier.key === 'enterprise' ? '/register?plan=enterprise' : `/register?plan=${tier.key}`}
+                      className={`block w-full py-3 rounded-xl text-sm font-semibold text-center transition-all duration-200 ${
+                        tier.highlight
+                          ? 'bg-white text-primary-700 hover:bg-gray-50 shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-[0.98]'
+                          : 'bg-gradient-to-r from-primary-600 to-primary-500 text-white hover:from-primary-700 hover:to-primary-600 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98]'
+                      }`}
+                    >
+                      {tier.cta}
+                    </Link>
+
+                    <ul className="mt-8 space-y-3">
+                      {tier.features.map((feature) => (
+                        <li key={feature} className="flex items-start gap-3">
+                          <svg
+                            className={`w-5 h-5 flex-shrink-0 mt-0.5 ${tier.highlight ? 'text-primary-200' : 'text-primary-400'}`}
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
+                          <span className={`text-sm ${tier.highlight ? 'text-primary-50' : 'text-gray-300'}`}>
+                            {feature}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 ))}
               </div>
-            </div>
-          </div>
+
+              {/* Per-interview pricing */}
+              <div className="max-w-3xl mx-auto mt-16">
+                <div className="bg-gray-900/50 border border-gray-800/50 rounded-2xl p-8 text-center">
+                  <h3 className="text-lg font-bold text-white">Need more interviews?</h3>
+                  <p className="text-gray-400 mt-2 text-sm">
+                    Additional interviews beyond your plan limit are billed per interview.
+                  </p>
+                  <div className="mt-4 flex items-center justify-center gap-2">
+                    <span className="text-3xl font-bold bg-gradient-to-r from-primary-400 to-purple-400 bg-clip-text text-transparent">
+                      {formatPrice(currentPrices.perInterview, currency)}
+                    </span>
+                    <span className="text-gray-500 text-sm">/ interview</span>
+                  </div>
+                  <div className="mt-3 flex flex-wrap items-center justify-center gap-3 text-xs text-gray-500">
+                    {(Object.keys(prices) as Currency[]).map((cur) => (
+                      <span key={cur}>
+                        {currencySymbols[cur]}{prices[cur].perInterview} {cur}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
         </div>
       </section>
 
