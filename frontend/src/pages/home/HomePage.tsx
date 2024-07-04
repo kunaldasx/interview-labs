@@ -450,6 +450,18 @@ export default function HomePage() {
                     </li>
                   ))}
                 </ul>
+
+                {/* Placement cell note */}
+                <div className="mt-6 pt-5 border-t border-emerald-500/30">
+                  <div className="flex items-start gap-2">
+                    <svg className="w-5 h-5 flex-shrink-0 mt-0.5 text-amber-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <p className="text-xs text-emerald-100 leading-relaxed">
+                      College placement cells can use HireEz to conduct AI-powered mock interviews for students, helping them practice and prepare for real placements with instant AI feedback, scoring, and detailed performance reports.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           ) : (
