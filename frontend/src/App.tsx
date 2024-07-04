@@ -53,6 +53,7 @@ const NotificationsPage = lazy(() => import('./pages/settings/NotificationsPage'
 
 // Pricing (public)
 const PricingPage = lazy(() => import('./pages/pricing/PricingPage'));
+const CheckoutSuccessPage = lazy(() => import('./pages/checkout/CheckoutSuccessPage'));
 
 function LoadingFallback() {
   return (
@@ -74,6 +75,7 @@ function App() {
           <Route path="/forgot-password" element={<ForgotPasswordPage />} />
           <Route path="/reset-password" element={<ResetPasswordPage />} />
           <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/checkout/success" element={<CheckoutSuccessPage />} />
 
           {/* Protected routes with AppLayout */}
           <Route

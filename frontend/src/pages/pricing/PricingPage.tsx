@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useDodoCheckout } from '../../hooks/useDodoCheckout';
 
 type Currency = 'INR' | 'USD' | 'EUR' | 'GBP';
 
 const currencySymbols: Record<Currency, string> = { INR: '\u20B9', USD: '$', EUR: '\u20AC', GBP: '\u00A3' };
 
 const prices: Record<Currency, { starter: number; professional: number; enterprise: number; perInterview: number; student: number }> = {
-  INR: { starter: 4999, professional: 14999, enterprise: 49999, perInterview: 200, student: 200 },
-  USD: { starter: 60, professional: 180, enterprise: 600, perInterview: 2.5, student: 2.5 },
-  EUR: { starter: 55, professional: 165, enterprise: 550, perInterview: 2.3, student: 2.3 },
-  GBP: { starter: 48, professional: 144, enterprise: 480, perInterview: 2, student: 2 },
+  INR: { starter: 4999, professional: 14999, enterprise: 49999, perInterview: 200, student: 500 },
+  USD: { starter: 60, professional: 180, enterprise: 600, perInterview: 2.5, student: 6 },
+  EUR: { starter: 55, professional: 165, enterprise: 550, perInterview: 2.3, student: 5.5 },
+  GBP: { starter: 48, professional: 144, enterprise: 480, perInterview: 2, student: 5 },
 };
 
 const tiers = [
@@ -78,6 +79,7 @@ export default function PricingPage() {
   const [currency, setCurrency] = useState<Currency>('INR');
   const [annual, setAnnual] = useState(false);
   const [isStudent, setIsStudent] = useState(false);
+  const { openCheckout, isProcessing: isCheckoutProcessing } = useDodoCheckout();
 
   const currentPrices = prices[currency];
   const discount = annual ? 0.8 : 1;
@@ -207,8 +209,12 @@ export default function PricingPage() {
                 <p className="text-xs mt-2 text-emerald-200">One-time per interview session</p>
               </div>
 
-              <button className="w-full py-3 rounded-xl text-sm font-semibold bg-white text-emerald-700 hover:bg-gray-50 shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200">
-                Get Started
+              <button
+                onClick={() => openCheckout({ plan: 'student' })}
+                disabled={isCheckoutProcessing}
+                className="w-full py-3 rounded-xl text-sm font-semibold bg-white text-emerald-700 hover:bg-gray-50 shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200 disabled:opacity-60"
+              >
+                {isCheckoutProcessing ? 'Processing...' : 'Get Started'}
               </button>
 
               <ul className="mt-8 space-y-3">
@@ -291,13 +297,15 @@ export default function PricingPage() {
                 </div>
 
                 <button
-                  className={`w-full py-3 rounded-xl text-sm font-semibold transition-all duration-200 ${
+                  onClick={() => openCheckout({ plan: tier.key })}
+                  disabled={isCheckoutProcessing}
+                  className={`w-full py-3 rounded-xl text-sm font-semibold transition-all duration-200 disabled:opacity-60 ${
                     tier.highlight
                       ? 'bg-white text-primary-700 hover:bg-gray-50 shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-[0.98]'
                       : 'bg-gradient-to-r from-primary-600 to-primary-500 text-white hover:from-primary-700 hover:to-primary-600 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98]'
                   }`}
                 >
-                  {tier.cta}
+                  {isCheckoutProcessing ? 'Processing...' : tier.cta}
                 </button>
 
                 <ul className="mt-8 space-y-3">
