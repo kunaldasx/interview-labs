@@ -3,6 +3,11 @@ import { DodoPayments } from 'dodopayments-checkout';
 
 const DODO_MODE = (import.meta.env.VITE_DODO_MODE as 'test' | 'live') || 'test';
 
+const CHECKOUT_DOMAINS: Record<string, string> = {
+  test: 'https://test.checkout.dodopayments.com',
+  live: 'https://checkout.dodopayments.com',
+};
+
 const PRODUCT_IDS: Record<string, string> = {
   student: import.meta.env.VITE_DODO_STUDENT_PRODUCT_ID || '',
   starter: import.meta.env.VITE_DODO_STARTER_PRODUCT_ID || '',
@@ -64,7 +69,7 @@ export function useDodoCheckout() {
     if (options.email) params.set('email', options.email);
     if (options.name) params.set('firstName', options.name);
 
-    const checkoutUrl = `https://checkout.dodopayments.com/buy/${productId}?${params.toString()}`;
+    const checkoutUrl = `${CHECKOUT_DOMAINS[DODO_MODE]}/buy/${productId}?${params.toString()}`;
 
     try {
       await DodoPayments.Checkout.open({ checkoutUrl });
