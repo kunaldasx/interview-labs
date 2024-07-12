@@ -1,5 +1,4 @@
-import { useEffect, useRef, useCallback, useState } from 'react';
-import { DodoPayments } from 'dodopayments-checkout';
+import { useCallback, useState } from 'react';
 
 const DODO_MODE = (import.meta.env.VITE_DODO_MODE as 'test' | 'live') || 'test';
 
@@ -23,37 +22,9 @@ interface CheckoutOptions {
 }
 
 export function useDodoCheckout() {
-  const initialized = useRef(false);
   const [isProcessing, setIsProcessing] = useState(false);
 
-  useEffect(() => {
-    if (initialized.current) return;
-    initialized.current = true;
-
-    DodoPayments.Initialize({
-      mode: DODO_MODE,
-      displayType: 'overlay',
-      onEvent: (event: any) => {
-        if (event.event_type === 'checkout.opened') {
-          setIsProcessing(false);
-        }
-        if (event.event_type === 'checkout.status') {
-          const status = event.data?.message?.status;
-          if (status === 'succeeded') {
-            setIsProcessing(false);
-          }
-        }
-        if (event.event_type === 'checkout.closed') {
-          setIsProcessing(false);
-        }
-        if (event.event_type === 'checkout.error') {
-          setIsProcessing(false);
-        }
-      },
-    });
-  }, []);
-
-  const openCheckout = useCallback(async (options: CheckoutOptions) => {
+  const openCheckout = useCallback((options: CheckoutOptions) => {
     const productId = PRODUCT_IDS[options.plan];
 
     if (!productId) {
@@ -71,11 +42,8 @@ export function useDodoCheckout() {
 
     const checkoutUrl = `${CHECKOUT_DOMAINS[DODO_MODE]}/buy/${productId}?${params.toString()}`;
 
-    try {
-      await DodoPayments.Checkout.open({ checkoutUrl });
-    } catch {
-      setIsProcessing(false);
-    }
+    // Redirect to Dodo Payments checkout page
+    window.location.href = checkoutUrl;
   }, []);
 
   return { openCheckout, isProcessing };
