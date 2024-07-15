@@ -17,7 +17,7 @@ router = APIRouter()
 async def screen_candidate(
     data: ScreeningRequest,
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(require_role("super_admin", "hr_manager")),
+    current_user: User = Depends(require_role("super_admin", "hr_manager", "placement_officer")),
 ):
     service = ScreeningService(db)
     return await service.screen_candidate(data.candidate_id, data.job_id)
@@ -26,7 +26,7 @@ async def screen_candidate(
 @router.post("/async")
 async def screen_candidate_async(
     data: ScreeningRequest,
-    current_user: User = Depends(require_role("super_admin", "hr_manager")),
+    current_user: User = Depends(require_role("super_admin", "hr_manager", "placement_officer")),
 ):
     task = screen_candidate_resume.delay(data.candidate_id, data.job_id)
     return {"task_id": task.id, "status": "queued"}

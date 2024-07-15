@@ -17,7 +17,7 @@ router = APIRouter()
 async def download_evaluation_pdf(
     evaluation_id: int,
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(require_role("super_admin", "hr_manager")),
+    current_user: User = Depends(require_role("super_admin", "hr_manager", "placement_officer")),
 ):
     service = ReportService(db)
     try:
@@ -35,7 +35,7 @@ async def download_evaluation_pdf(
 async def download_candidates_excel(
     job_id: Optional[int] = Query(None),
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(require_role("super_admin", "hr_manager")),
+    current_user: User = Depends(require_role("super_admin", "hr_manager", "placement_officer")),
 ):
     service = ReportService(db)
     excel_bytes = await service.generate_candidates_report(job_id=job_id)
@@ -50,7 +50,7 @@ async def download_candidates_excel(
 async def download_pipeline_excel(
     job_id: Optional[int] = Query(None),
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(require_role("super_admin", "hr_manager")),
+    current_user: User = Depends(require_role("super_admin", "hr_manager", "placement_officer")),
 ):
     service = ReportService(db)
     excel_bytes = await service.generate_pipeline_report(job_id=job_id)
@@ -65,7 +65,7 @@ async def download_pipeline_excel(
 async def download_evaluations_excel(
     job_id: Optional[int] = Query(None),
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(require_role("super_admin", "hr_manager")),
+    current_user: User = Depends(require_role("super_admin", "hr_manager", "placement_officer")),
 ):
     service = ReportService(db)
     excel_bytes = await service.generate_evaluations_report(job_id=job_id)

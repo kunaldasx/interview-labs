@@ -10,6 +10,7 @@ class UserRole(str, Enum):
     HR_MANAGER = "hr_manager"
     INTERVIEWER = "interviewer"
     CANDIDATE = "candidate"
+    PLACEMENT_OFFICER = "placement_officer"
 
 
 class User(SQLModel, table=True):

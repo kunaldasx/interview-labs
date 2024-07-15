@@ -79,7 +79,7 @@ DEMO_MAX_INTERVIEWS = 5
 async def create_interview(
     data: InterviewCreate,
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(require_role("super_admin", "hr_manager")),
+    current_user: User = Depends(require_role("super_admin", "hr_manager", "placement_officer")),
 ):
     # Limit demo user to 5 interviews
     if current_user.email == DEMO_EMAIL:

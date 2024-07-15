@@ -29,7 +29,7 @@ class GenerateForDomainRequest(BaseModel):
 async def generate_for_job(
     data: GenerateForJobRequest,
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(require_role("super_admin", "hr_manager", "interviewer")),
+    current_user: User = Depends(require_role("super_admin", "hr_manager", "interviewer", "placement_officer")),
 ):
     service = QuestionGeneratorService(db)
     questions = await service.generate_for_job(data.job_id, data.num_questions)
@@ -40,7 +40,7 @@ async def generate_for_job(
 async def generate_for_domain(
     data: GenerateForDomainRequest,
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(require_role("super_admin", "hr_manager", "interviewer")),
+    current_user: User = Depends(require_role("super_admin", "hr_manager", "interviewer", "placement_officer")),
 ):
     service = QuestionGeneratorService(db)
     questions = await service.generate_for_domain(

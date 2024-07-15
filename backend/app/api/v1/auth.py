@@ -19,8 +19,16 @@ logger = logging.getLogger(__name__)
 router = APIRouter()
 
 
+SELF_REGISTER_ROLES = {UserRole.CANDIDATE, UserRole.PLACEMENT_OFFICER}
+
+
 @router.post("/register", response_model=TokenResponse)
 async def register(data: UserCreate, db: AsyncSession = Depends(get_db)):
+    if data.role not in SELF_REGISTER_ROLES:
+        raise HTTPException(
+            status_code=403,
+            detail="Self-registration is only allowed for candidate and placement_officer roles",
+        )
     service = AuthService(db)
     user = await service.register(data)
     result = await service.login(UserLogin(email=data.email, password=data.password))

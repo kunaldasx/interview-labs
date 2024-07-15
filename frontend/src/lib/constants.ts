@@ -3,6 +3,7 @@ export const ROLES = {
   HR_MANAGER: 'hr_manager',
   INTERVIEWER: 'interviewer',
   CANDIDATE: 'candidate',
+  PLACEMENT_OFFICER: 'placement_officer',
 } as const;
 
 export const INTERVIEW_TYPES = {

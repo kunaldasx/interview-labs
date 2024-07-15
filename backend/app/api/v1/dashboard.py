@@ -14,7 +14,7 @@ router = APIRouter()
 @router.get("/kpis")
 async def get_kpis(
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(require_role("super_admin", "hr_manager")),
+    current_user: User = Depends(require_role("super_admin", "hr_manager", "placement_officer")),
 ):
     service = DashboardService(db)
     return await service.get_kpis()
@@ -24,7 +24,7 @@ async def get_kpis(
 async def get_upcoming_interviews(
     limit: int = Query(10, ge=1, le=50),
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(require_role("super_admin", "hr_manager")),
+    current_user: User = Depends(require_role("super_admin", "hr_manager", "placement_officer")),
 ):
     service = DashboardService(db)
     interviews = await service.get_upcoming_interviews(limit=limit)
@@ -35,7 +35,7 @@ async def get_upcoming_interviews(
 async def get_pending_reviews(
     limit: int = Query(10, ge=1, le=50),
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(require_role("super_admin", "hr_manager")),
+    current_user: User = Depends(require_role("super_admin", "hr_manager", "placement_officer")),
 ):
     service = DashboardService(db)
     reviews = await service.get_pending_reviews(limit=limit)
@@ -46,7 +46,7 @@ async def get_pending_reviews(
 async def get_hiring_trends(
     days: int = Query(30, ge=7, le=365),
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(require_role("super_admin", "hr_manager")),
+    current_user: User = Depends(require_role("super_admin", "hr_manager", "placement_officer")),
 ):
     service = DashboardService(db)
     return await service.get_hiring_trends(days=days)
@@ -55,7 +55,7 @@ async def get_hiring_trends(
 @router.get("/status-distribution")
 async def get_status_distribution(
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(require_role("super_admin", "hr_manager")),
+    current_user: User = Depends(require_role("super_admin", "hr_manager", "placement_officer")),
 ):
     service = DashboardService(db)
     return await service.get_status_distribution()
@@ -64,7 +64,7 @@ async def get_status_distribution(
 @router.get("/time-to-hire")
 async def get_time_to_hire(
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(require_role("super_admin", "hr_manager")),
+    current_user: User = Depends(require_role("super_admin", "hr_manager", "placement_officer")),
 ):
     service = DashboardService(db)
     return await service.get_time_to_hire()
@@ -73,7 +73,7 @@ async def get_time_to_hire(
 @router.get("/interview-completion")
 async def get_interview_completion(
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(require_role("super_admin", "hr_manager")),
+    current_user: User = Depends(require_role("super_admin", "hr_manager", "placement_officer")),
 ):
     service = DashboardService(db)
     return await service.get_interview_completion_rate()
@@ -83,7 +83,7 @@ async def get_interview_completion(
 async def get_score_distribution(
     job_id: int = Query(None),
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(require_role("super_admin", "hr_manager")),
+    current_user: User = Depends(require_role("super_admin", "hr_manager", "placement_officer")),
 ):
     service = DashboardService(db)
     return await service.get_score_distribution(job_id=job_id)

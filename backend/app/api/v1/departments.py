@@ -28,7 +28,7 @@ async def get_department(department_id: int, db: AsyncSession = Depends(get_db))
 async def create_department(
     data: DepartmentCreate,
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(require_role("super_admin", "hr_manager")),
+    current_user: User = Depends(require_role("super_admin", "hr_manager", "placement_officer")),
 ):
     service = DepartmentService(db)
     return await service.create(data)
@@ -39,7 +39,7 @@ async def update_department(
     department_id: int,
     data: DepartmentUpdate,
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(require_role("super_admin", "hr_manager")),
+    current_user: User = Depends(require_role("super_admin", "hr_manager", "placement_officer")),
 ):
     service = DepartmentService(db)
     return await service.update(department_id, data)

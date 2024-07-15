@@ -16,7 +16,7 @@ router = APIRouter()
 async def evaluate_interview(
     data: EvaluationTrigger,
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(require_role("super_admin", "hr_manager")),
+    current_user: User = Depends(require_role("super_admin", "hr_manager", "placement_officer")),
 ):
     service = EvaluationService(db)
     return await service.evaluate_interview(data.interview_id)
@@ -49,7 +49,7 @@ async def update_hr_decision(
     evaluation_id: int,
     data: HRDecisionUpdate,
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(require_role("super_admin", "hr_manager")),
+    current_user: User = Depends(require_role("super_admin", "hr_manager", "placement_officer")),
 ):
     service = EvaluationService(db)
     return await service.update_hr_decision(

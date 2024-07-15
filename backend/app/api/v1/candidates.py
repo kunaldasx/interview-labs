@@ -95,7 +95,7 @@ async def update_status(
     candidate_id: int,
     status: CandidateStatus,
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(require_role("super_admin", "hr_manager")),
+    current_user: User = Depends(require_role("super_admin", "hr_manager", "placement_officer")),
 ):
     service = CandidateService(db)
     candidate = await service.update_status(candidate_id, status)

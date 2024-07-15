@@ -44,7 +44,7 @@ async def get_job(job_id: int, db: AsyncSession = Depends(get_db)):
 async def create_job(
     data: JobCreate,
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(require_role("super_admin", "hr_manager")),
+    current_user: User = Depends(require_role("super_admin", "hr_manager", "placement_officer")),
 ):
     service = JobService(db)
     return await service.create(data, created_by=current_user.id)
@@ -55,7 +55,7 @@ async def update_job(
     job_id: int,
     data: JobUpdate,
     db: AsyncSession = Depends(get_db),
-    current_user: User = Depends(require_role("super_admin", "hr_manager")),
+    current_user: User = Depends(require_role("super_admin", "hr_manager", "placement_officer")),
 ):
     service = JobService(db)
     return await service.update(job_id, data)

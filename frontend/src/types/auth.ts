@@ -2,7 +2,7 @@ export interface User {
   id: number;
   email: string;
   full_name: string;
-  role: 'super_admin' | 'hr_manager' | 'interviewer' | 'candidate';
+  role: 'super_admin' | 'hr_manager' | 'interviewer' | 'candidate' | 'placement_officer';
   department_id?: number;
   phone?: string;
   is_active: boolean;

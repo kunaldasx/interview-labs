@@ -10,6 +10,7 @@ const planNames: Record<string, string> = {
   starter: 'Starter',
   professional: 'Professional',
   enterprise: 'Enterprise',
+  student: 'Placement',
 };
 
 export default function RegisterPage() {
@@ -32,6 +33,7 @@ export default function RegisterPage() {
         full_name: form.full_name,
         email: form.email,
         password: form.password,
+        ...(selectedPlan === 'student' && { role: 'placement_officer' }),
       });
       login(data.access_token, data.user);
       localStorage.setItem('refresh_token', data.refresh_token);

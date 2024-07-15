@@ -87,7 +87,7 @@ function App() {
           >
             {/* Dashboard */}
             <Route path="/dashboard" element={
-              <ProtectedRoute roles={['super_admin', 'hr_manager', 'interviewer']}>
+              <ProtectedRoute roles={['super_admin', 'hr_manager', 'interviewer', 'placement_officer']}>
                 <DashboardPage />
               </ProtectedRoute>
             } />
@@ -97,7 +97,7 @@ function App() {
             <Route
               path="/jobs/create"
               element={
-                <ProtectedRoute roles={['super_admin', 'hr_manager']}>
+                <ProtectedRoute roles={['super_admin', 'hr_manager', 'placement_officer']}>
                   <JobCreatePage />
                 </ProtectedRoute>
               }
@@ -108,7 +108,7 @@ function App() {
             <Route
               path="/candidates/register"
               element={
-                <ProtectedRoute roles={['super_admin', 'hr_manager']}>
+                <ProtectedRoute roles={['super_admin', 'hr_manager', 'placement_officer']}>
                   <CandidateRegistrationPage />
                 </ProtectedRoute>
               }
@@ -117,7 +117,7 @@ function App() {
             <Route
               path="/candidates/pipeline"
               element={
-                <ProtectedRoute roles={['super_admin', 'hr_manager']}>
+                <ProtectedRoute roles={['super_admin', 'hr_manager', 'placement_officer']}>
                   <CandidatePipelinePage />
                 </ProtectedRoute>
               }
@@ -129,7 +129,7 @@ function App() {
             <Route
               path="/interviews/schedule"
               element={
-                <ProtectedRoute roles={['super_admin', 'hr_manager', 'interviewer']}>
+                <ProtectedRoute roles={['super_admin', 'hr_manager', 'interviewer', 'placement_officer']}>
                   <InterviewSchedulePage />
                 </ProtectedRoute>
               }
@@ -139,7 +139,7 @@ function App() {
 
             {/* Users */}
             <Route path="/users" element={
-              <ProtectedRoute roles={['super_admin', 'hr_manager']}>
+              <ProtectedRoute roles={['super_admin', 'hr_manager', 'placement_officer']}>
                 <UserManagementPage />
               </ProtectedRoute>
             } />
@@ -173,7 +173,7 @@ function App() {
             <Route
               path="/reports"
               element={
-                <ProtectedRoute roles={['super_admin', 'hr_manager']}>
+                <ProtectedRoute roles={['super_admin', 'hr_manager', 'placement_officer']}>
                   <ReportsPage />
                 </ProtectedRoute>
               }
