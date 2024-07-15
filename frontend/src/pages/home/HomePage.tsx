@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { authAPI } from '../../api/auth';
 import { useDodoCheckout } from '../../hooks/useDodoCheckout';
+import StudentCheckoutModal from '../../components/checkout/StudentCheckoutModal';
 import toast from 'react-hot-toast';
 
 // ── Pricing data (shared with PricingPage) ──────────────────────────────────
@@ -156,6 +157,7 @@ export default function HomePage() {
   const [annual, setAnnual] = useState(false);
   const [isStudent, setIsStudent] = useState(false);
   const [demoLoading, setDemoLoading] = useState(false);
+  const [showStudentModal, setShowStudentModal] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
   const { openCheckout, isProcessing: isCheckoutProcessing } = useDodoCheckout();
@@ -427,11 +429,10 @@ export default function HomePage() {
                 </div>
 
                 <button
-                  onClick={() => openCheckout({ plan: 'student' })}
-                  disabled={isCheckoutProcessing}
-                  className="block w-full py-3 rounded-xl text-sm font-semibold text-center bg-white text-emerald-700 hover:bg-gray-50 shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200 disabled:opacity-60"
+                  onClick={() => setShowStudentModal(true)}
+                  className="block w-full py-3 rounded-xl text-sm font-semibold text-center bg-white text-emerald-700 hover:bg-gray-50 shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200"
                 >
-                  {isCheckoutProcessing ? 'Processing...' : 'Get Started'}
+                  Get Started
                 </button>
 
                 <ul className="mt-8 space-y-3">
@@ -590,6 +591,19 @@ export default function HomePage() {
           </div>
         </div>
       </footer>
+
+      <StudentCheckoutModal
+        isOpen={showStudentModal}
+        onClose={() => setShowStudentModal(false)}
+        onProceed={(qty) => {
+          setShowStudentModal(false);
+          openCheckout({ plan: 'student', quantity: qty });
+        }}
+        pricePerStudent={currentPrices.student}
+        currencySymbol={currencySymbols[currency]}
+        currency={currency}
+        formatPrice={(amount) => formatPrice(amount, currency)}
+      />
     </div>
   );
 }

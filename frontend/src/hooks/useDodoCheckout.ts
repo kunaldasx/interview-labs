@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 const DODO_MODE = (import.meta.env.VITE_DODO_MODE as 'test' | 'live') || 'test';
 
@@ -7,7 +7,7 @@ const CHECKOUT_DOMAINS: Record<string, string> = {
   live: 'https://checkout.dodopayments.com',
 };
 
-const PRODUCT_IDS: Record<string, string> = {
+export const PRODUCT_IDS: Record<string, string> = {
   student: import.meta.env.VITE_DODO_STUDENT_PRODUCT_ID || '',
   starter: import.meta.env.VITE_DODO_STARTER_PRODUCT_ID || '',
   professional: import.meta.env.VITE_DODO_PROFESSIONAL_PRODUCT_ID || '',
@@ -23,6 +23,15 @@ interface CheckoutOptions {
 
 export function useDodoCheckout() {
   const [isProcessing, setIsProcessing] = useState(false);
+
+  // Reset processing state when user navigates back (bfcache)
+  useEffect(() => {
+    const handlePageShow = (e: PageTransitionEvent) => {
+      if (e.persisted) setIsProcessing(false);
+    };
+    window.addEventListener('pageshow', handlePageShow);
+    return () => window.removeEventListener('pageshow', handlePageShow);
+  }, []);
 
   const openCheckout = useCallback((options: CheckoutOptions) => {
     const productId = PRODUCT_IDS[options.plan];
@@ -42,7 +51,6 @@ export function useDodoCheckout() {
 
     const checkoutUrl = `${CHECKOUT_DOMAINS[DODO_MODE]}/buy/${productId}?${params.toString()}`;
 
-    // Redirect to Dodo Payments checkout page
     window.location.href = checkoutUrl;
   }, []);
 

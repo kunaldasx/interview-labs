@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDodoCheckout } from '../../hooks/useDodoCheckout';
+import StudentCheckoutModal from '../../components/checkout/StudentCheckoutModal';
 
 type Currency = 'INR' | 'USD' | 'EUR' | 'GBP';
 
@@ -79,6 +80,7 @@ export default function PricingPage() {
   const [currency, setCurrency] = useState<Currency>('INR');
   const [annual, setAnnual] = useState(false);
   const [isStudent, setIsStudent] = useState(false);
+  const [showStudentModal, setShowStudentModal] = useState(false);
   const { openCheckout, isProcessing: isCheckoutProcessing } = useDodoCheckout();
 
   const currentPrices = prices[currency];
@@ -210,11 +212,10 @@ export default function PricingPage() {
               </div>
 
               <button
-                onClick={() => openCheckout({ plan: 'student' })}
-                disabled={isCheckoutProcessing}
-                className="w-full py-3 rounded-xl text-sm font-semibold bg-white text-emerald-700 hover:bg-gray-50 shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200 disabled:opacity-60"
+                onClick={() => setShowStudentModal(true)}
+                className="w-full py-3 rounded-xl text-sm font-semibold bg-white text-emerald-700 hover:bg-gray-50 shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200"
               >
-                {isCheckoutProcessing ? 'Processing...' : 'Get Started'}
+                Get Started
               </button>
 
               <ul className="mt-8 space-y-3">
@@ -370,6 +371,19 @@ export default function PricingPage() {
           </div>
         </div>
       </footer>
+
+      <StudentCheckoutModal
+        isOpen={showStudentModal}
+        onClose={() => setShowStudentModal(false)}
+        onProceed={(qty) => {
+          setShowStudentModal(false);
+          openCheckout({ plan: 'student', quantity: qty });
+        }}
+        pricePerStudent={currentPrices.student}
+        currencySymbol={currencySymbols[currency]}
+        currency={currency}
+        formatPrice={(amount) => formatPrice(amount, currency)}
+      />
     </div>
   );
 }
