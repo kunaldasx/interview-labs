@@ -97,7 +97,7 @@ export default function PricingPage() {
             <div className="w-9 h-9 bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl flex items-center justify-center shadow-glow">
               <span className="text-white font-bold text-sm">AI</span>
             </div>
-            <span className="font-semibold text-lg text-gray-900">HireEz</span>
+            <span className="font-semibold text-lg text-gray-900">HireEZ.AI</span>
           </Link>
           <div className="flex items-center gap-4">
             <Link to="/login" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
@@ -140,7 +140,7 @@ export default function PricingPage() {
             </div>
           )}
 
-          {/* Student toggle */}
+          {/* Placement toggle */}
           <div className="flex items-center gap-3">
             <span className={`text-sm font-medium ${!isStudent ? 'text-gray-900' : 'text-gray-400'}`}>Business</span>
             <button
@@ -150,7 +150,7 @@ export default function PricingPage() {
               <span className={`absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform ${isStudent ? 'translate-x-6' : ''}`} />
             </button>
             <span className={`text-sm font-medium ${isStudent ? 'text-gray-900' : 'text-gray-400'}`}>
-              Student
+              Placement
             </span>
           </div>
 
@@ -244,7 +244,7 @@ export default function PricingPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <p className="text-xs text-emerald-100 leading-relaxed">
-                    College placement cells can use HireEz to conduct AI-powered mock interviews for students, helping them practice and prepare for real placements with instant AI feedback, scoring, and detailed performance reports.
+                    College placement cells can use HireEZ.AI to conduct AI-powered mock interviews for students, helping them practice and prepare for real placements with instant AI feedback, scoring, and detailed performance reports.
                   </p>
                 </div>
               </div>
@@ -362,7 +362,7 @@ export default function PricingPage() {
             <div className="w-6 h-6 bg-gradient-to-br from-primary-500 to-primary-700 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-[10px]">AI</span>
             </div>
-            <span className="text-sm text-gray-500">HireEz &copy; {new Date().getFullYear()}</span>
+            <span className="text-sm text-gray-500">HireEZ.AI &copy; {new Date().getFullYear()}</span>
           </div>
           <div className="flex items-center gap-6 text-sm text-gray-400">
             <Link to="/login" className="hover:text-gray-600 transition-colors">Sign In</Link>
