@@ -33,12 +33,12 @@ class Settings(BaseSettings):
     CELERY_BROKER_URL: str = "redis://localhost:6380/1"
     CELERY_RESULT_BACKEND: str = "redis://localhost:6380/2"
 
-    # Email (Gmail SMTP)
-    SMTP_HOST: str = "smtp.gmail.com"
-    SMTP_PORT: int = 587
+    # Email (Hostinger SMTP)
+    SMTP_HOST: str = "smtp.hostinger.com"
+    SMTP_PORT: int = 465
     SMTP_USER: Optional[str] = None
     SMTP_PASSWORD: Optional[str] = None
-    FROM_EMAIL: str = "digitalkookieh@gmail.com"
+    FROM_EMAIL: str = "support@hireez.online"
 
     # SMS
     TWILIO_ACCOUNT_SID: Optional[str] = None
