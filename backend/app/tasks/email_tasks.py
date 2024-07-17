@@ -289,3 +289,75 @@ HireEz Team"""
 </div>"""
 
     return send_email.delay(candidate_email, subject, body, html_body)
+
+
+@celery_app.task(name="tasks.send_demo_request_notification")
+def send_demo_request_notification(
+    requester_name: str,
+    requester_email: str,
+    company: str = "",
+    phone: str = "",
+    message: str = "",
+):
+    """Notify admin about a new demo request."""
+    subject = f"New Demo Request from {requester_name}"
+
+    company_line = f"\n- Company: {company}" if company else ""
+    phone_line = f"\n- Phone: {phone}" if phone else ""
+    message_line = f"\n\nMessage:\n{message}" if message else ""
+
+    body = f"""New demo request received:
+
+- Name: {requester_name}
+- Email: {requester_email}{company_line}{phone_line}{message_line}
+
+Log in to the admin panel to follow up."""
+
+    company_html = f'<tr><td style="padding: 6px 0; color: #6B7280; width: 120px;">Company:</td><td style="padding: 6px 0; color: #111827; font-weight: bold;">{company}</td></tr>' if company else ""
+    phone_html = f'<tr><td style="padding: 6px 0; color: #6B7280;">Phone:</td><td style="padding: 6px 0; color: #111827; font-weight: bold;">{phone}</td></tr>' if phone else ""
+    message_html = f'<div style="margin: 20px 0; padding: 16px; background: #F9FAFB; border-radius: 8px; border-left: 4px solid #4F46E5;"><p style="margin: 0 0 4px 0; color: #6B7280; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Message</p><p style="margin: 0; color: #374151; font-size: 14px;">{message}</p></div>' if message else ""
+
+    html_body = f"""
+<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+    <h2 style="color: #4F46E5;">New Demo Request</h2>
+    <p style="font-size: 14px; color: #374151;">A new demo request has been submitted:</p>
+    <div style="background: #EEF2FF; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <table style="width: 100%; font-size: 14px;">
+            <tr><td style="padding: 6px 0; color: #6B7280; width: 120px;">Name:</td><td style="padding: 6px 0; color: #111827; font-weight: bold;">{requester_name}</td></tr>
+            <tr><td style="padding: 6px 0; color: #6B7280;">Email:</td><td style="padding: 6px 0; color: #111827; font-weight: bold;">{requester_email}</td></tr>
+            {company_html}
+            {phone_html}
+        </table>
+    </div>
+    {message_html}
+    <p style="font-size: 14px; color: #374151;">Log in to the admin panel to follow up.</p>
+</div>"""
+
+    admin_email = "support@hireez.online"
+    return send_email.delay(admin_email, subject, body, html_body)
+
+
+@celery_app.task(name="tasks.send_demo_request_confirmation")
+def send_demo_request_confirmation(
+    to_email: str,
+    requester_name: str,
+):
+    """Send confirmation to the person who requested a demo."""
+    subject = "We received your demo request — HireEZ.AI"
+
+    body = f"""Dear {requester_name},
+
+Thank you for your interest in HireEZ.AI! We have received your demo request and our team will get back to you shortly.
+
+Best regards,
+HireEZ Team"""
+
+    html_body = f"""
+<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+    <h2 style="color: #4F46E5;">Thank You for Your Interest!</h2>
+    <p style="font-size: 14px; color: #374151;">Dear {requester_name},</p>
+    <p style="font-size: 14px; color: #374151;">Thank you for your interest in HireEZ.AI! We have received your demo request and our team will get back to you shortly.</p>
+    <p style="font-size: 14px; color: #374151;">Best regards,<br>HireEZ Team</p>
+</div>"""
+
+    return send_email.delay(to_email, subject, body, html_body)

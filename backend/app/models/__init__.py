@@ -15,6 +15,7 @@ from app.models.notification import (
 )
 from app.models.offer_letter import OfferLetter, OfferLetterStatus
 from app.models.audit_log import AuditLog
+from app.models.demo_request import DemoRequest, DemoRequestStatus
 
 __all__ = [
     "User", "UserRole",
@@ -30,4 +31,5 @@ __all__ = [
     "NotificationType", "NotificationChannel", "NotificationStatus",
     "OfferLetter", "OfferLetterStatus",
     "AuditLog",
+    "DemoRequest", "DemoRequestStatus",
 ]

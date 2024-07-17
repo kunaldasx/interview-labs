@@ -1,10 +1,7 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';
-import { authAPI } from '../../api/auth';
+import { Link } from 'react-router-dom';
 import { useDodoCheckout } from '../../hooks/useDodoCheckout';
 import StudentCheckoutModal from '../../components/checkout/StudentCheckoutModal';
-import toast from 'react-hot-toast';
 
 // ── Pricing data (shared with PricingPage) ──────────────────────────────────
 
@@ -156,29 +153,11 @@ export default function HomePage() {
   const [currency, setCurrency] = useState<Currency>('INR');
   const [annual, setAnnual] = useState(false);
   const [isStudent, setIsStudent] = useState(false);
-  const [demoLoading, setDemoLoading] = useState(false);
   const [showStudentModal, setShowStudentModal] = useState(false);
-  const { login } = useAuth();
-  const navigate = useNavigate();
   const { openCheckout, isProcessing: isCheckoutProcessing } = useDodoCheckout();
 
   const currentPrices = prices[currency];
   const discount = annual ? 0.8 : 1;
-
-  const handleDemoLogin = async () => {
-    setDemoLoading(true);
-    try {
-      const data = await authAPI.demoLogin();
-      login(data.access_token, data.user);
-      localStorage.setItem('refresh_token', data.refresh_token);
-      toast.success('Welcome to the demo!');
-      navigate('/dashboard');
-    } catch (err: any) {
-      toast.error(err.response?.data?.detail || 'Demo login failed. Please try again.');
-    } finally {
-      setDemoLoading(false);
-    }
-  };
 
   return (
     <div className="min-h-screen bg-gray-950 text-white">
@@ -196,19 +175,19 @@ export default function HomePage() {
             <a href="#features" className="text-sm text-gray-400 hover:text-white transition-colors">Features</a>
             <a href="#domains" className="text-sm text-gray-400 hover:text-white transition-colors">Domains</a>
             <a href="#pricing" className="text-sm text-gray-400 hover:text-white transition-colors">Pricing</a>
+            <Link to="/contact" className="text-sm text-gray-400 hover:text-white transition-colors">Contact</Link>
           </div>
 
           <div className="flex items-center gap-4">
             <Link to="/login" className="text-sm text-gray-400 hover:text-white transition-colors">
               Login
             </Link>
-            <button
-              onClick={handleDemoLogin}
-              disabled={demoLoading}
-              className="text-sm bg-gradient-to-r from-primary-600 to-primary-500 text-white px-5 py-2 rounded-lg font-medium hover:from-primary-700 hover:to-primary-600 transition-all hover:shadow-lg hover:shadow-primary-500/25 hover:-translate-y-0.5 active:scale-[0.98] disabled:opacity-60"
+            <Link
+              to="/contact"
+              className="text-sm bg-gradient-to-r from-primary-600 to-primary-500 text-white px-5 py-2 rounded-lg font-medium hover:from-primary-700 hover:to-primary-600 transition-all hover:shadow-lg hover:shadow-primary-500/25 hover:-translate-y-0.5 active:scale-[0.98]"
             >
-              {demoLoading ? 'Loading...' : 'Try Demo'}
-            </button>
+              Request Demo
+            </Link>
           </div>
         </div>
       </nav>
@@ -240,28 +219,15 @@ export default function HomePage() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
               </svg>
             </a>
-            <button
-              onClick={handleDemoLogin}
-              disabled={demoLoading}
-              className="inline-flex items-center gap-2 border border-gray-700 text-gray-300 px-8 py-3.5 rounded-xl font-semibold text-sm hover:bg-white/5 hover:border-gray-600 hover:text-white transition-all hover:-translate-y-0.5 active:scale-[0.98] disabled:opacity-60"
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 border border-gray-700 text-gray-300 px-8 py-3.5 rounded-xl font-semibold text-sm hover:bg-white/5 hover:border-gray-600 hover:text-white transition-all hover:-translate-y-0.5 active:scale-[0.98]"
             >
-              {demoLoading ? (
-                <>
-                  <svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                  </svg>
-                  Loading...
-                </>
-              ) : (
-                <>
-                  Try Demo
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </>
-              )}
-            </button>
+              Request a Demo
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </Link>
           </div>
         </div>
       </section>
@@ -588,6 +554,7 @@ export default function HomePage() {
             <Link to="/login" className="hover:text-gray-300 transition-colors">Login</Link>
             <Link to="/register" className="hover:text-gray-300 transition-colors">Register</Link>
             <a href="#pricing" className="hover:text-gray-300 transition-colors">Pricing</a>
+            <Link to="/contact" className="hover:text-gray-300 transition-colors">Contact</Link>
           </div>
         </div>
       </footer>

@@ -17,6 +17,7 @@ from app.api.v1.reports import router as reports_router
 from app.api.v1.notifications import router as notifications_router
 from app.api.v1.users import router as users_router
 from app.api.v1.offer_letters import router as offer_letters_router
+from app.api.v1.contact import router as contact_router
 
 router = APIRouter()
 
@@ -37,3 +38,4 @@ router.include_router(reports_router, prefix="/reports", tags=["Reports"])
 router.include_router(notifications_router, prefix="/notifications", tags=["Notifications"])
 router.include_router(users_router, prefix="/users", tags=["Users"])
 router.include_router(offer_letters_router, prefix="/offer-letters", tags=["Offer Letters"])
+router.include_router(contact_router, prefix="/contact", tags=["Contact"])
