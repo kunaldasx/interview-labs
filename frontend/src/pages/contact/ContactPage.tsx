@@ -60,7 +60,7 @@ export default function ContactPage() {
 
       <div className="w-full max-w-4xl relative z-10 animate-fade-in-up">
         <div className="text-center mb-8">
-          <img src="/logo.png" alt="HireEZ.AI" className="w-14 h-14 rounded-2xl object-contain mx-auto mb-4" />
+          <img src="/logo.png" alt="HireEZ.AI" className="h-14 object-contain mx-auto mb-4" />
           <h1 className="text-2xl font-bold text-white">Request a Demo</h1>
           <p className="text-gray-400 mt-2 text-sm">
             See how HireEZ.AI can transform your hiring process. Fill out the form and our team will reach out.
