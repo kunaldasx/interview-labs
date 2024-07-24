@@ -19,8 +19,13 @@ depends_on: Union[str, Sequence[str], None] = None
 
 
 def upgrade() -> None:
-    demorequeststatus = sa.Enum("pending", "contacted", "closed", name="demorequeststatus", create_type=False)
-    demorequeststatus.create(op.get_bind(), checkfirst=True)
+    # Create enum type if it doesn't exist (may already exist from SQLModel metadata)
+    op.execute(
+        "DO $$ BEGIN "
+        "CREATE TYPE demorequeststatus AS ENUM ('pending', 'contacted', 'closed'); "
+        "EXCEPTION WHEN duplicate_object THEN NULL; "
+        "END $$"
+    )
 
     op.create_table(
         "demo_requests",
@@ -32,7 +37,7 @@ def upgrade() -> None:
         sa.Column("message", sa.Text(), nullable=True),
         sa.Column(
             "status",
-            demorequeststatus,
+            sa.Enum("pending", "contacted", "closed", name="demorequeststatus", create_type=False),
             nullable=False,
             server_default="pending",
         ),
