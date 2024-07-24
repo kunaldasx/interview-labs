@@ -165,7 +165,7 @@ export default function HomePage() {
       <nav className="sticky top-0 z-50 bg-gray-950/90 backdrop-blur-md border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src="/logo.png" alt="HireEZ.AI" className="h-9 object-contain" />
+            <img src="/logo.png" alt="HireEZ.AI" className="h-10 object-contain brightness-0 invert" />
           </div>
 
           <div className="hidden md:flex items-center gap-8">
@@ -542,7 +542,7 @@ export default function HomePage() {
       <footer className="border-t border-white/5 bg-gray-950">
         <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <img src="/logo.png" alt="HireEZ.AI" className="h-6 object-contain" />
+            <img src="/logo.png" alt="HireEZ.AI" className="h-8 object-contain brightness-0 invert" />
             <span className="text-sm text-gray-500">&copy; {new Date().getFullYear()}</span>
           </div>
           <div className="flex items-center gap-6 text-sm text-gray-500">
