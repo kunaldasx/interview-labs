@@ -25,7 +25,7 @@ export default function Sidebar() {
     <div className="flex flex-col w-64 bg-gradient-to-b from-gray-900 to-primary-950 min-h-screen">
       <div className="flex items-center px-6 py-5 border-b border-white/10">
         <div className="flex items-center gap-3">
-          <span className="text-xl font-bold text-white">Hire<span className="text-primary-400">Glint</span></span>
+          <span className="text-xl font-bold text-white">Hire<span className="text-primary-400">Glint</span><span className="text-primary-300 text-sm">.ai</span></span>
         </div>
       </div>
 
