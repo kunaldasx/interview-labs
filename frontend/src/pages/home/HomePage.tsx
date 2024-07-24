@@ -165,7 +165,7 @@ export default function HomePage() {
       <nav className="sticky top-0 z-50 bg-gray-950/90 backdrop-blur-md border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <span className="text-xl font-bold text-white">Hire<span className="text-primary-400">Ez</span><span className="text-primary-300 text-sm">.ai</span></span>
+            <span className="text-xl font-bold text-white">Hire<span className="text-primary-400">Glint</span></span>
           </div>
 
           <div className="hidden md:flex items-center gap-8">
@@ -425,7 +425,7 @@ export default function HomePage() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     <p className="text-xs text-emerald-100 leading-relaxed">
-                      College placement cells can use HireEZ.AI to conduct AI-powered mock interviews for students, helping them practice and prepare for real placements with instant AI feedback, scoring, and detailed performance reports.
+                      College placement cells can use HireGlint to conduct AI-powered mock interviews for students, helping them practice and prepare for real placements with instant AI feedback, scoring, and detailed performance reports.
                     </p>
                   </div>
                 </div>
@@ -542,7 +542,7 @@ export default function HomePage() {
       <footer className="border-t border-white/5 bg-gray-950">
         <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <span className="text-sm font-bold text-gray-400">Hire<span className="text-gray-300">Ez</span><span className="text-gray-500 text-xs">.ai</span></span>
+            <span className="text-sm font-bold text-gray-400">Hire<span className="text-gray-300">Glint</span></span>
             <span className="text-sm text-gray-500">&copy; {new Date().getFullYear()}</span>
           </div>
           <div className="flex items-center gap-6 text-sm text-gray-500">

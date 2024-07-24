@@ -37,7 +37,7 @@ export default function ContactPage() {
           </div>
           <h2 className="text-2xl font-bold text-white mb-3">Request Received!</h2>
           <p className="text-gray-400 mb-8">
-            Thank you for your interest in HireEZ.AI. Our team will get back to you shortly.
+            Thank you for your interest in HireGlint. Our team will get back to you shortly.
           </p>
           <Link
             to="/"
@@ -60,10 +60,10 @@ export default function ContactPage() {
 
       <div className="w-full max-w-4xl relative z-10 animate-fade-in-up">
         <div className="text-center mb-8">
-          <div className="mb-4"><span className="text-3xl font-bold text-white">Hire<span className="text-primary-400">Ez</span><span className="text-primary-300 text-xl">.ai</span></span></div>
+          <div className="mb-4"><span className="text-3xl font-bold text-white">Hire<span className="text-primary-400">Glint</span></span></div>
           <h1 className="text-2xl font-bold text-white">Request a Demo</h1>
           <p className="text-gray-400 mt-2 text-sm">
-            See how HireEZ.AI can transform your hiring process. Fill out the form and our team will reach out.
+            See how HireGlint can transform your hiring process. Fill out the form and our team will reach out.
           </p>
         </div>
 
@@ -203,8 +203,8 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 mb-0.5">Website</p>
-                  <a href="https://www.hireez.online" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-primary-400 hover:text-primary-300 transition-colors">
-                    www.hireez.online
+                  <a href="https://www.hireglint.net" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-primary-400 hover:text-primary-300 transition-colors">
+                    www.hireglint.net
                   </a>
                 </div>
               </div>
@@ -216,8 +216,8 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 mb-0.5">Email</p>
-                  <a href="mailto:support@hireez.online" className="text-sm font-medium text-primary-400 hover:text-primary-300 transition-colors">
-                    support@hireez.online
+                  <a href="mailto:support@hireglint.net" className="text-sm font-medium text-primary-400 hover:text-primary-300 transition-colors">
+                    support@hireglint.net
                   </a>
                 </div>
               </div>

@@ -96,7 +96,7 @@ export default function PricingPage() {
       <nav className="relative z-10 border-b border-gray-200/60 bg-white/70 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
-            <span className="text-xl font-bold text-gray-900">Hire<span className="text-primary-600">Ez</span><span className="text-primary-500 text-sm">.ai</span></span>
+            <span className="text-xl font-bold text-gray-900">Hire<span className="text-primary-600">Glint</span></span>
           </Link>
           <div className="flex items-center gap-4">
             <Link to="/login" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
@@ -242,7 +242,7 @@ export default function PricingPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <p className="text-xs text-emerald-100 leading-relaxed">
-                    College placement cells can use HireEZ.AI to conduct AI-powered mock interviews for students, helping them practice and prepare for real placements with instant AI feedback, scoring, and detailed performance reports.
+                    College placement cells can use HireGlint to conduct AI-powered mock interviews for students, helping them practice and prepare for real placements with instant AI feedback, scoring, and detailed performance reports.
                   </p>
                 </div>
               </div>
@@ -357,7 +357,7 @@ export default function PricingPage() {
       <footer className="relative z-10 border-t border-gray-200/60 bg-white/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <span className="text-sm font-bold text-gray-400">Hire<span className="text-gray-300">Ez</span><span className="text-gray-500 text-xs">.ai</span></span>
+            <span className="text-sm font-bold text-gray-400">Hire<span className="text-gray-300">Glint</span></span>
             <span className="text-sm text-gray-500">&copy; {new Date().getFullYear()}</span>
           </div>
           <div className="flex items-center gap-6 text-sm text-gray-400">

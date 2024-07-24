@@ -17,7 +17,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     title=settings.APP_NAME,
     version="1.0.0",
-    description="HireEz for Non-IT Industries",
+    description="HireGlint for Non-IT Industries",
     lifespan=lifespan,
     redirect_slashes=False,
 )
@@ -38,7 +38,7 @@ app.mount("/uploads", StaticFiles(directory=settings.UPLOAD_DIR), name="uploads"
 
 @app.get("/health")
 async def health_check():
-    return {"status": "healthy", "service": "HireEz"}
+    return {"status": "healthy", "service": "HireGlint"}
 
 
 # Import and include routers

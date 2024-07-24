@@ -51,10 +51,10 @@ def send_credentials_email(
     temp_password: str,
     login_url: str,
 ):
-    subject = "Your HireEz Interview Portal Credentials"
+    subject = "Your HireGlint Interview Portal Credentials"
     body = f"""Dear {candidate_name},
 
-Your profile has been verified. You can now log in to the HireEz Interview Portal.
+Your profile has been verified. You can now log in to the HireGlint Interview Portal.
 
 Login URL: {login_url}
 Email: {to_email}
@@ -63,20 +63,20 @@ Temporary Password: {temp_password}
 Please log in and change your password at your earliest convenience.
 
 Best regards,
-HireEz Team"""
+HireGlint Team"""
 
     html_body = f"""
 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-    <h2 style="color: #4F46E5;">Welcome to HireEz</h2>
+    <h2 style="color: #4F46E5;">Welcome to HireGlint</h2>
     <p>Dear {candidate_name},</p>
-    <p>Your profile has been verified. You can now log in to the HireEz Interview Portal.</p>
+    <p>Your profile has been verified. You can now log in to the HireGlint Interview Portal.</p>
     <div style="background: #F3F4F6; padding: 20px; border-radius: 8px; margin: 20px 0;">
         <p style="margin: 5px 0;"><strong>Login URL:</strong> <a href="{login_url}">{login_url}</a></p>
         <p style="margin: 5px 0;"><strong>Email:</strong> {to_email}</p>
         <p style="margin: 5px 0;"><strong>Temporary Password:</strong> <code style="background: #E5E7EB; padding: 2px 6px; border-radius: 4px;">{temp_password}</code></p>
     </div>
     <p>Please log in and change your password at your earliest convenience.</p>
-    <p>Best regards,<br>HireEz Team</p>
+    <p>Best regards,<br>HireGlint Team</p>
 </div>"""
 
     return send_email.delay(to_email, subject, body, html_body)
@@ -116,7 +116,7 @@ Interview Details:
 Please click the interview link above to join your AI-powered interview at the scheduled time.
 
 Best regards,
-HireEz Team"""
+HireGlint Team"""
 
     credentials_html = ""
     if temp_password:
@@ -159,7 +159,7 @@ HireEz Team"""
     </div>
     {credentials_html}
     <p style="font-family: Arial, sans-serif; font-size: 14px; color: #374151;">Please join your AI-powered interview at the scheduled time.</p>
-    <p style="font-family: Arial, sans-serif; font-size: 14px; color: #374151;">Best regards,<br>HireEz Team</p>
+    <p style="font-family: Arial, sans-serif; font-size: 14px; color: #374151;">Best regards,<br>HireGlint Team</p>
 </div>"""
 
     return send_email.delay(candidate_email, subject, body, html_body)
@@ -171,7 +171,7 @@ def send_password_reset_email(
     full_name: str,
     reset_url: str,
 ):
-    subject = "Reset Your HireEz Password"
+    subject = "Reset Your HireGlint Password"
     body = f"""Dear {full_name},
 
 We received a request to reset your password. Click the link below to set a new password:
@@ -181,7 +181,7 @@ We received a request to reset your password. Click the link below to set a new 
 This link will expire in 1 hour. If you did not request a password reset, you can safely ignore this email.
 
 Best regards,
-HireEz Team"""
+HireGlint Team"""
 
     html_body = f"""
 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
@@ -193,7 +193,7 @@ HireEz Team"""
     </div>
     <p style="color: #6B7280; font-size: 13px; font-family: Arial, sans-serif; text-align: center;">Or copy this link: <a href="{reset_url}" style="color: #4F46E5;">{reset_url}</a></p>
     <p style="font-family: Arial, sans-serif; font-size: 14px; color: #374151;">This link will expire in 1 hour. If you did not request a password reset, you can safely ignore this email.</p>
-    <p style="font-family: Arial, sans-serif; font-size: 14px; color: #374151;">Best regards,<br>HireEz Team</p>
+    <p style="font-family: Arial, sans-serif; font-size: 14px; color: #374151;">Best regards,<br>HireGlint Team</p>
 </div>"""
 
     return send_email.delay(to_email, subject, body, html_body)
@@ -236,7 +236,7 @@ Benefits:
 Please review this offer and respond at your earliest convenience.
 
 Best regards,
-HireEz Team"""
+HireGlint Team"""
 
     additional_html = ""
     if additional_terms:
@@ -285,7 +285,7 @@ HireEz Team"""
     </div>
     {additional_html}
     <p style="font-family: Arial, sans-serif; font-size: 14px; color: #374151;">Please review this offer and respond at your earliest convenience.</p>
-    <p style="font-family: Arial, sans-serif; font-size: 14px; color: #374151;">Best regards,<br>HireEz Team</p>
+    <p style="font-family: Arial, sans-serif; font-size: 14px; color: #374151;">Best regards,<br>HireGlint Team</p>
 </div>"""
 
     return send_email.delay(candidate_email, subject, body, html_body)
@@ -333,7 +333,7 @@ Log in to the admin panel to follow up."""
     <p style="font-size: 14px; color: #374151;">Log in to the admin panel to follow up.</p>
 </div>"""
 
-    admin_email = "support@hireez.online"
+    admin_email = "support@hireglint.net"
     return send_email.delay(admin_email, subject, body, html_body)
 
 
@@ -343,21 +343,21 @@ def send_demo_request_confirmation(
     requester_name: str,
 ):
     """Send confirmation to the person who requested a demo."""
-    subject = "We received your demo request — HireEZ.AI"
+    subject = "We received your demo request — HireGlint"
 
     body = f"""Dear {requester_name},
 
-Thank you for your interest in HireEZ.AI! We have received your demo request and our team will get back to you shortly.
+Thank you for your interest in HireGlint! We have received your demo request and our team will get back to you shortly.
 
 Best regards,
-HireEZ Team"""
+HireGlint Team"""
 
     html_body = f"""
 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
     <h2 style="color: #4F46E5;">Thank You for Your Interest!</h2>
     <p style="font-size: 14px; color: #374151;">Dear {requester_name},</p>
-    <p style="font-size: 14px; color: #374151;">Thank you for your interest in HireEZ.AI! We have received your demo request and our team will get back to you shortly.</p>
-    <p style="font-size: 14px; color: #374151;">Best regards,<br>HireEZ Team</p>
+    <p style="font-size: 14px; color: #374151;">Thank you for your interest in HireGlint! We have received your demo request and our team will get back to you shortly.</p>
+    <p style="font-size: 14px; color: #374151;">Best regards,<br>HireGlint Team</p>
 </div>"""
 
     return send_email.delay(to_email, subject, body, html_body)

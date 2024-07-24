@@ -4,7 +4,7 @@ from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     # App
-    APP_NAME: str = "HireEz"
+    APP_NAME: str = "HireGlint"
     APP_ENV: str = "development"
     APP_DEBUG: bool = True
 
@@ -38,7 +38,7 @@ class Settings(BaseSettings):
     SMTP_PORT: int = 465
     SMTP_USER: Optional[str] = None
     SMTP_PASSWORD: Optional[str] = None
-    FROM_EMAIL: str = "support@hireez.online"
+    FROM_EMAIL: str = "support@hireglint.net"
 
     # SMS
     TWILIO_ACCOUNT_SID: Optional[str] = None

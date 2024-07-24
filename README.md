@@ -1,6 +1,6 @@
-# HireEz - AI Interview Platform for Non-IT Industries
+# HireGlint - AI Interview Platform for Non-IT Industries
 
-HireEz is an AI-powered interview platform purpose-built for **32 non-IT industry domains** across Healthcare, Finance, Manufacturing, Logistics, and Engineering. It automates the full hiring pipeline — from resume screening and question generation to conducting voice + chat interviews and evaluating candidates.
+HireGlint is an AI-powered interview platform purpose-built for **32 non-IT industry domains** across Healthcare, Finance, Manufacturing, Logistics, and Engineering. It automates the full hiring pipeline — from resume screening and question generation to conducting voice + chat interviews and evaluating candidates.
 
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.109-009688?logo=fastapi&logoColor=white)

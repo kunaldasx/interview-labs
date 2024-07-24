@@ -110,7 +110,7 @@ async def update_status(
             db.add(user)
             await db.flush()
 
-            login_url = "https://hireez.online/login"
+            login_url = "https://hireglint.net/login"
             send_credentials_email.delay(
                 candidate.email, candidate.full_name, temp_password, login_url
             )

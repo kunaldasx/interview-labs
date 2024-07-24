@@ -55,7 +55,7 @@ export default function RegisterPage() {
 
       <div className="w-full max-w-md relative z-10 animate-fade-in-up">
         <div className="text-center mb-8">
-          <div className="mb-4"><span className="text-3xl font-bold text-gradient-vibrant">Hire<span className="text-primary-600">Ez</span><span className="text-primary-500 text-xl">.ai</span></span></div>
+          <div className="mb-4"><span className="text-3xl font-bold text-gradient-vibrant">Hire<span className="text-primary-600">Glint</span></span></div>
           <h1 className="text-2xl font-bold text-gradient-vibrant">Create Account</h1>
           <p className="text-gray-500 mt-1">Register to get started</p>
         </div>

@@ -1,4 +1,4 @@
-# HireEz - AI Interview Agent
+# HireGlint - AI Interview Agent
 ## User Guide
 
 ---
@@ -25,7 +25,7 @@
 
 ### Accessing the Platform
 
-Open your browser and go to **https://hireez.online**
+Open your browser and go to **https://hireglint.net**
 
 ### Logging In
 
@@ -48,7 +48,7 @@ You will be redirected to the **Dashboard** after successful login.
 
 ## 2. User Roles
 
-HireEz has four user roles with different access levels:
+HireGlint has four user roles with different access levels:
 
 | Feature | Super Admin | HR Manager | Interviewer | Candidate |
 |---|:---:|:---:|:---:|:---:|
@@ -256,7 +256,7 @@ Navigate to **Interviews** in the sidebar.
 
 ### Conducting an Interview (Candidate View)
 
-1. Log in to HireEz
+1. Log in to HireGlint
 2. Go to **Interviews** to see your scheduled interviews
 3. Click on an interview, then click **Start Interview**
 4. The AI interviewer will:
@@ -521,7 +521,7 @@ Here's the end-to-end flow for hiring a candidate:
 
 ### Step 6: Candidate Takes Interview
 
-1. Candidate logs in to HireEz
+1. Candidate logs in to HireGlint
 2. Views their scheduled interview
 3. Clicks **Start Interview**
 4. AI conducts the interview with domain-specific questions
@@ -579,5 +579,5 @@ Here's the end-to-end flow for hiring a candidate:
 
 ---
 
-*HireEz - AI-Powered Interview Platform*
-*https://hireez.online*
+*HireGlint - AI-Powered Interview Platform*
+*https://hireglint.net*
