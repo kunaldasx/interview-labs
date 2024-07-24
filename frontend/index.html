@@ -10,21 +10,27 @@
     <div id="root"></div>
     <script>
       // Auto-reload on stale chunk errors after deploy
+      function handleStaleChunk(msg) {
+        if (msg && (
+          msg.includes('Failed to fetch dynamically imported module') ||
+          msg.includes('Failed to load module script') ||
+          msg.includes('MIME type') ||
+          msg.includes('Importing a module script failed') ||
+          msg.includes('error loading dynamically imported module')
+        )) {
+          var key = 'chunk_reload';
+          var count = parseInt(sessionStorage.getItem(key) || '0', 10);
+          if (count < 2) {
+            sessionStorage.setItem(key, String(count + 1));
+            window.location.reload(true);
+          }
+        }
+      }
       window.addEventListener('error', function(e) {
-        if (e.message && e.message.includes('Failed to fetch dynamically imported module')) {
-          if (!sessionStorage.getItem('chunk_reload')) {
-            sessionStorage.setItem('chunk_reload', '1');
-            window.location.reload();
-          }
-        }
-      });
+        handleStaleChunk(e.message || (e.target && e.target.src) || '');
+      }, true);
       window.addEventListener('unhandledrejection', function(e) {
-        if (e.reason && e.reason.message && e.reason.message.includes('Failed to fetch dynamically imported module')) {
-          if (!sessionStorage.getItem('chunk_reload')) {
-            sessionStorage.setItem('chunk_reload', '1');
-            window.location.reload();
-          }
-        }
+        handleStaleChunk(e.reason && (e.reason.message || String(e.reason)) || '');
       });
       // Clear flag on successful load
       window.addEventListener('load', function() { sessionStorage.removeItem('chunk_reload'); });
