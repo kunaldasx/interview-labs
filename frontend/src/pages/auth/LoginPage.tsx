@@ -83,7 +83,7 @@ export default function LoginPage() {
 
       <div className="w-full max-w-md relative z-10 animate-fade-in-up">
         <div className="text-center mb-8">
-          <img src="/logo.png" alt="HireEZ.AI" className="h-16 object-contain mx-auto mb-4" />
+          <div className="mb-4"><span className="text-3xl font-bold text-gradient-vibrant">Hire<span className="text-primary-600">Ez</span><span className="text-primary-500 text-xl">.ai</span></span></div>
           <p className="text-gray-500 mt-1">Sign in to your account</p>
         </div>
 
