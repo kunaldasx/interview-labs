@@ -19,6 +19,9 @@ depends_on: Union[str, Sequence[str], None] = None
 
 
 def upgrade() -> None:
+    demorequeststatus = sa.Enum("pending", "contacted", "closed", name="demorequeststatus", create_type=False)
+    demorequeststatus.create(op.get_bind(), checkfirst=True)
+
     op.create_table(
         "demo_requests",
         sa.Column("id", sa.Integer(), primary_key=True, autoincrement=True),
@@ -29,7 +32,7 @@ def upgrade() -> None:
         sa.Column("message", sa.Text(), nullable=True),
         sa.Column(
             "status",
-            sa.Enum("pending", "contacted", "closed", name="demorequeststatus"),
+            demorequeststatus,
             nullable=False,
             server_default="pending",
         ),
