@@ -22,4 +22,10 @@ export interface DemoRequestResponse {
 export const contactAPI = {
   submitDemoRequest: (data: DemoRequestData) =>
     apiClient.post<DemoRequestResponse>('/contact/', data).then(r => r.data),
+
+  listDemoRequests: (params: { status?: string; page?: number; page_size?: number }) =>
+    apiClient.get<DemoRequestResponse[]>('/contact/', { params }).then(r => r.data),
+
+  updateDemoRequestStatus: (id: number, status: string) =>
+    apiClient.patch<DemoRequestResponse>(`/contact/${id}/status`, { status }).then(r => r.data),
 };

@@ -47,6 +47,9 @@ const ReportsPage = lazy(() => import('./pages/reports/ReportsPage'));
 // Users
 const UserManagementPage = lazy(() => import('./pages/users/UserManagementPage'));
 
+// Demo Requests
+const DemoRequestsPage = lazy(() => import('./pages/demo-requests/DemoRequestsPage'));
+
 // Settings
 const SettingsPage = lazy(() => import('./pages/settings/SettingsPage'));
 const DomainManagementPage = lazy(() => import('./pages/settings/DomainManagementPage'));
@@ -143,6 +146,13 @@ function App() {
             <Route path="/users" element={
               <ProtectedRoute roles={['super_admin', 'hr_manager', 'placement_officer']}>
                 <UserManagementPage />
+              </ProtectedRoute>
+            } />
+
+            {/* Demo Requests */}
+            <Route path="/demo-requests" element={
+              <ProtectedRoute roles={['super_admin']}>
+                <DemoRequestsPage />
               </ProtectedRoute>
             } />
 
