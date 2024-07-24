@@ -25,10 +25,8 @@ export default function Sidebar() {
     <div className="flex flex-col w-64 bg-gradient-to-b from-gray-900 to-primary-950 min-h-screen">
       <div className="flex items-center px-6 py-5 border-b border-white/10">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl flex items-center justify-center shadow-glow">
-            <span className="text-white font-bold text-sm">AI</span>
-          </div>
-          <span className="text-white font-semibold text-lg">Interview Agent</span>
+          <img src="/logo.png" alt="HireEZ.AI" className="w-9 h-9 rounded-xl object-contain" />
+          <span className="text-white font-semibold text-lg">HireEZ.AI</span>
         </div>
       </div>
 

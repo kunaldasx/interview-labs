@@ -96,9 +96,7 @@ export default function PricingPage() {
       <nav className="relative z-10 border-b border-gray-200/60 bg-white/70 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
-            <div className="w-9 h-9 bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl flex items-center justify-center shadow-glow">
-              <span className="text-white font-bold text-sm">AI</span>
-            </div>
+            <img src="/logo.png" alt="HireEZ.AI" className="w-9 h-9 rounded-xl object-contain" />
             <span className="font-semibold text-lg text-gray-900">HireEZ.AI</span>
           </Link>
           <div className="flex items-center gap-4">
@@ -360,9 +358,7 @@ export default function PricingPage() {
       <footer className="relative z-10 border-t border-gray-200/60 bg-white/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 bg-gradient-to-br from-primary-500 to-primary-700 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-[10px]">AI</span>
-            </div>
+            <img src="/logo.png" alt="HireEZ.AI" className="w-6 h-6 rounded-lg object-contain" />
             <span className="text-sm text-gray-500">HireEZ.AI &copy; {new Date().getFullYear()}</span>
           </div>
           <div className="flex items-center gap-6 text-sm text-gray-400">
