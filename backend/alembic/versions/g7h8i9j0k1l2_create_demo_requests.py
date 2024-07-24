@@ -7,7 +7,6 @@ Create Date: 2026-02-26 12:00:00.000000
 """
 from typing import Sequence, Union
 
-import sqlalchemy as sa
 from alembic import op
 
 
@@ -19,32 +18,27 @@ depends_on: Union[str, Sequence[str], None] = None
 
 
 def upgrade() -> None:
-    # Create enum type if it doesn't exist (may already exist from SQLModel metadata)
     op.execute(
         "DO $$ BEGIN "
         "CREATE TYPE demorequeststatus AS ENUM ('pending', 'contacted', 'closed'); "
         "EXCEPTION WHEN duplicate_object THEN NULL; "
         "END $$"
     )
-
-    op.create_table(
-        "demo_requests",
-        sa.Column("id", sa.Integer(), primary_key=True, autoincrement=True),
-        sa.Column("name", sa.String(255), nullable=False),
-        sa.Column("email", sa.String(255), nullable=False, index=True),
-        sa.Column("company", sa.String(255), nullable=True),
-        sa.Column("phone", sa.String(50), nullable=True),
-        sa.Column("message", sa.Text(), nullable=True),
-        sa.Column(
-            "status",
-            sa.Enum("pending", "contacted", "closed", name="demorequeststatus", create_type=False),
-            nullable=False,
-            server_default="pending",
-        ),
-        sa.Column("created_at", sa.DateTime(), nullable=False, server_default=sa.func.now()),
-    )
+    op.execute("""
+        CREATE TABLE demo_requests (
+            id SERIAL PRIMARY KEY,
+            name VARCHAR(255) NOT NULL,
+            email VARCHAR(255) NOT NULL,
+            company VARCHAR(255),
+            phone VARCHAR(50),
+            message TEXT,
+            status demorequeststatus NOT NULL DEFAULT 'pending',
+            created_at TIMESTAMP NOT NULL DEFAULT now()
+        )
+    """)
+    op.execute("CREATE INDEX ix_demo_requests_email ON demo_requests (email)")
 
 
 def downgrade() -> None:
-    op.drop_table("demo_requests")
+    op.execute("DROP TABLE IF EXISTS demo_requests")
     op.execute("DROP TYPE IF EXISTS demorequeststatus")
