@@ -9,31 +9,33 @@
   <body>
     <div id="root"></div>
     <script>
-      // Auto-reload on stale chunk errors after deploy
-      function handleStaleChunk(msg) {
-        if (msg && (
-          msg.includes('Failed to fetch dynamically imported module') ||
-          msg.includes('Failed to load module script') ||
-          msg.includes('MIME type') ||
-          msg.includes('Importing a module script failed') ||
-          msg.includes('error loading dynamically imported module')
-        )) {
-          var key = 'chunk_reload';
-          var count = parseInt(sessionStorage.getItem(key) || '0', 10);
-          if (count < 2) {
-            sessionStorage.setItem(key, String(count + 1));
-            window.location.reload(true);
-          }
+      // Auto-reload on stale chunks after deploy
+      var RELOAD_KEY = 'chunk_reload';
+      function forceReload() {
+        var count = parseInt(sessionStorage.getItem(RELOAD_KEY) || '0', 10);
+        if (count < 2) {
+          sessionStorage.setItem(RELOAD_KEY, String(count + 1));
+          window.location.reload(true);
         }
       }
+      // Catch JS/module load errors
       window.addEventListener('error', function(e) {
-        handleStaleChunk(e.message || (e.target && e.target.src) || '');
+        var msg = e.message || '';
+        var tag = e.target && e.target.tagName;
+        if (tag === 'SCRIPT' || tag === 'LINK') { forceReload(); return; }
+        if (msg.includes('Failed to fetch') || msg.includes('MIME type') || msg.includes('module script')) { forceReload(); }
       }, true);
       window.addEventListener('unhandledrejection', function(e) {
-        handleStaleChunk(e.reason && (e.reason.message || String(e.reason)) || '');
+        var msg = e.reason && (e.reason.message || String(e.reason)) || '';
+        if (msg.includes('Failed to fetch') || msg.includes('module')) { forceReload(); }
       });
-      // Clear flag on successful load
-      window.addEventListener('load', function() { sessionStorage.removeItem('chunk_reload'); });
+      // Fallback: if root is empty after 5s, reload
+      setTimeout(function() {
+        var root = document.getElementById('root');
+        if (root && root.children.length === 0) { forceReload(); }
+      }, 5000);
+      // Clear flag on successful render
+      window.addEventListener('load', function() { sessionStorage.removeItem(RELOAD_KEY); });
     </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
