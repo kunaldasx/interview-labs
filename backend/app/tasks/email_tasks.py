@@ -333,7 +333,7 @@ Log in to the admin panel to follow up."""
     <p style="font-size: 14px; color: #374151;">Log in to the admin panel to follow up.</p>
 </div>"""
 
-    admin_email = "support@hireglint.net"
+    admin_email = "admin@hireglint.net"
     return send_email.delay(admin_email, subject, body, html_body)
 
 
