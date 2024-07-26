@@ -38,7 +38,7 @@ class Settings(BaseSettings):
     SMTP_PORT: int = 465
     SMTP_USER: Optional[str] = None
     SMTP_PASSWORD: Optional[str] = None
-    FROM_EMAIL: str = "support@hireglint.net"
+    FROM_EMAIL: str = "admin@hireglint.net"
 
     # SMS
     TWILIO_ACCOUNT_SID: Optional[str] = None
