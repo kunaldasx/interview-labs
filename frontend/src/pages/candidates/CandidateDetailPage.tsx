@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { candidatesAPI } from '../../api/candidates';
 import { screeningAPI } from '../../api/screening';
+import { jobsAPI } from '../../api/jobs';
 import Card from '../../components/ui/Card';
 import Badge from '../../components/ui/Badge';
 import Spinner from '../../components/ui/Spinner';
@@ -52,19 +53,31 @@ export default function CandidateDetailPage() {
     },
   });
 
-  // Fetch existing screening result for this candidate's job (if any)
+  const [selectedJobId, setSelectedJobId] = useState<number | null>(null);
+
+  // The job to screen against: candidate's assigned job, or user-selected job
+  const screenJobId = candidate?.job_id ?? selectedJobId;
+
+  // Fetch jobs list (for job selector when candidate has no job_id)
+  const { data: jobsList } = useQuery({
+    queryKey: ['jobs'],
+    queryFn: () => jobsAPI.list({ page_size: 200 }),
+    enabled: !!candidate?.resume_text && !candidate?.job_id,
+  });
+
+  // Fetch existing screening result for the selected job
   const { data: screenings } = useQuery({
-    queryKey: ['screenings', 'job', candidate?.job_id],
-    queryFn: () => screeningAPI.getByJob(candidate!.job_id!),
-    enabled: !!candidate?.job_id,
+    queryKey: ['screenings', 'job', screenJobId],
+    queryFn: () => screeningAPI.getByJob(screenJobId!),
+    enabled: !!screenJobId,
   });
 
   const existingScreening = screenings?.find(s => s.candidate_id === Number(id)) ?? null;
 
   const screenMutation = useMutation({
-    mutationFn: () => screeningAPI.screen({ candidate_id: Number(id), job_id: candidate!.job_id! }),
+    mutationFn: () => screeningAPI.screen({ candidate_id: Number(id), job_id: screenJobId! }),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['screenings', 'job', candidate?.job_id] });
+      queryClient.invalidateQueries({ queryKey: ['screenings', 'job', screenJobId] });
       toast.success('Resume screened successfully');
     },
     onError: (err: any) => {
@@ -72,7 +85,7 @@ export default function CandidateDetailPage() {
     },
   });
 
-  const canScreen = !!candidate?.resume_text && !!candidate?.job_id;
+  const canScreen = !!candidate?.resume_text && !!screenJobId;
 
   if (isLoading) return <Spinner size="lg" className="py-20" />;
   if (isError) return (
@@ -230,10 +243,22 @@ export default function CandidateDetailPage() {
         </Card>
       )}
 
-      <div className="flex gap-3">
+      <div className="flex flex-wrap items-center gap-3">
         <Link to={`/interviews?candidate_id=${candidate.id}`}>
           <Button variant="outline">View Interviews</Button>
         </Link>
+        {candidate.resume_text && !candidate.job_id && (
+          <select
+            value={selectedJobId ?? ''}
+            onChange={(e) => setSelectedJobId(e.target.value ? Number(e.target.value) : null)}
+            className="text-sm border border-white/[0.1] bg-white/[0.05] text-gray-100 rounded-lg px-3 py-2 focus:ring-primary-500 focus:border-primary-500"
+          >
+            <option value="">Select job to screen against...</option>
+            {jobsList?.items?.map((job) => (
+              <option key={job.id} value={job.id}>{job.title}</option>
+            ))}
+          </select>
+        )}
         {canScreen && (
           <Button
             onClick={() => screenMutation.mutate()}
