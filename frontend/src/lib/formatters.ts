@@ -48,6 +48,9 @@ export function getStatusColor(status: string): string {
     hire: 'bg-green-500/15 text-green-400',
     maybe: 'bg-yellow-500/15 text-yellow-400',
     no_hire: 'bg-red-500/15 text-red-400',
+    strongly_recommend: 'bg-emerald-500/15 text-emerald-400',
+    recommend: 'bg-green-500/15 text-green-400',
+    not_recommend: 'bg-red-500/15 text-red-400',
   };
   return colors[status] || 'bg-gray-500/15 text-gray-400';
 }
@@ -58,6 +61,16 @@ export function getRecommendationLabel(rec: string): string {
     hire: 'Hire',
     maybe: 'Maybe',
     no_hire: 'No Hire',
+  };
+  return labels[rec] || rec;
+}
+
+export function getScreeningRecommendationLabel(rec: string): string {
+  const labels: Record<string, string> = {
+    strongly_recommend: 'Strongly Recommend',
+    recommend: 'Recommend',
+    maybe: 'Maybe',
+    not_recommend: 'Not Recommend',
   };
   return labels[rec] || rec;
 }

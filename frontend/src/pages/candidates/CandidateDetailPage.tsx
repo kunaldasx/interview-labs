@@ -2,10 +2,12 @@ import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { candidatesAPI } from '../../api/candidates';
+import { screeningAPI } from '../../api/screening';
 import Card from '../../components/ui/Card';
 import Badge from '../../components/ui/Badge';
 import Spinner from '../../components/ui/Spinner';
 import Button from '../../components/ui/Button';
+import ScreeningResultCard from '../../components/screening/ScreeningResultCard';
 import { formatDate } from '../../lib/formatters';
 import toast from 'react-hot-toast';
 
@@ -49,6 +51,28 @@ export default function CandidateDetailPage() {
       setStatusChanging(false);
     },
   });
+
+  // Fetch existing screening result for this candidate's job (if any)
+  const { data: screenings } = useQuery({
+    queryKey: ['screenings', 'job', candidate?.job_id],
+    queryFn: () => screeningAPI.getByJob(candidate!.job_id!),
+    enabled: !!candidate?.job_id,
+  });
+
+  const existingScreening = screenings?.find(s => s.candidate_id === Number(id)) ?? null;
+
+  const screenMutation = useMutation({
+    mutationFn: () => screeningAPI.screen({ candidate_id: Number(id), job_id: candidate!.job_id! }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['screenings', 'job', candidate?.job_id] });
+      toast.success('Resume screened successfully');
+    },
+    onError: (err: any) => {
+      toast.error(err.response?.data?.detail || 'Failed to screen resume');
+    },
+  });
+
+  const canScreen = !!candidate?.resume_text && !!candidate?.job_id;
 
   if (isLoading) return <Spinner size="lg" className="py-20" />;
   if (isError) return (
@@ -210,7 +234,23 @@ export default function CandidateDetailPage() {
         <Link to={`/interviews?candidate_id=${candidate.id}`}>
           <Button variant="outline">View Interviews</Button>
         </Link>
+        {canScreen && (
+          <Button
+            onClick={() => screenMutation.mutate()}
+            isLoading={screenMutation.isPending}
+            variant={existingScreening ? 'outline' : 'primary'}
+          >
+            <svg className="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+            </svg>
+            {existingScreening ? 'Re-Screen Resume' : 'Screen Resume'}
+          </Button>
+        )}
       </div>
+
+      {existingScreening && (
+        <ScreeningResultCard screening={existingScreening} />
+      )}
     </div>
   );
 }

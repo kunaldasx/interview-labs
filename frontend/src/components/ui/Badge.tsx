@@ -22,6 +22,9 @@ const dotColors: Record<string, string> = {
   pending_approval: 'bg-amber-500',
   sent: 'bg-cyan-500',
   draft: 'bg-gray-500',
+  strongly_recommend: 'bg-emerald-500',
+  recommend: 'bg-green-500',
+  not_recommend: 'bg-red-500',
 };
 
 export default function Badge({ status, label, size = 'sm', className }: BadgeProps) {

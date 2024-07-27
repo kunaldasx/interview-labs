@@ -36,6 +36,9 @@ const InterviewDetailPage = lazy(() => import('./pages/interviews/InterviewDetai
 // Evaluations
 const EvaluationDetailPage = lazy(() => import('./pages/evaluations/EvaluationDetailPage'));
 
+// Screening
+const ScreeningResultsPage = lazy(() => import('./pages/screening/ScreeningResultsPage'));
+
 // Offer Letters
 const OfferLettersPage = lazy(() => import('./pages/offer-letters/OfferLettersPage'));
 const OfferLetterFormPage = lazy(() => import('./pages/offer-letters/OfferLetterFormPage'));
@@ -153,6 +156,13 @@ function App() {
             <Route path="/demo-requests" element={
               <ProtectedRoute roles={['super_admin']}>
                 <DemoRequestsPage />
+              </ProtectedRoute>
+            } />
+
+            {/* Screening */}
+            <Route path="/jobs/:jobId/screening" element={
+              <ProtectedRoute roles={['super_admin', 'hr_manager', 'placement_officer']}>
+                <ScreeningResultsPage />
               </ProtectedRoute>
             } />
 
