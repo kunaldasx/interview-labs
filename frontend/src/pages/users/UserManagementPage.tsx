@@ -9,12 +9,15 @@ import Input from '../../components/ui/Input';
 import { formatDate } from '../../lib/formatters';
 import toast from 'react-hot-toast';
 
-const ROLES = [
+const ALL_ROLES = [
   { value: 'super_admin', label: 'Super Admin' },
   { value: 'hr_manager', label: 'HR Manager' },
   { value: 'interviewer', label: 'Interviewer' },
   { value: 'candidate', label: 'Candidate' },
+  { value: 'placement_officer', label: 'Placement Officer' },
 ];
+
+const ASSIGNABLE_ROLES = ALL_ROLES.filter(r => r.value !== 'super_admin');
 
 export default function UserManagementPage() {
   const queryClient = useQueryClient();
@@ -102,7 +105,7 @@ export default function UserManagementPage() {
           className="rounded-lg border border-white/[0.1] bg-white/[0.05] px-3 py-2 text-sm text-gray-100 transition-all duration-200 hover:border-white/[0.2] focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
         >
           <option value="">All Roles</option>
-          {ROLES.map(r => (
+          {ALL_ROLES.map(r => (
             <option key={r.value} value={r.value}>{r.label}</option>
           ))}
         </select>
@@ -202,7 +205,7 @@ export default function UserManagementPage() {
               onChange={(e) => setForm(f => ({ ...f, role: e.target.value }))}
               className="w-full rounded-lg border border-white/[0.1] bg-white/[0.05] px-3 py-2 text-sm text-gray-100 transition-all duration-200 hover:border-white/[0.2] focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
             >
-              {ROLES.map(r => (
+              {ASSIGNABLE_ROLES.map(r => (
                 <option key={r.value} value={r.value}>{r.label}</option>
               ))}
             </select>

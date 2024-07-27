@@ -1,7 +1,7 @@
 """User management REST API endpoints."""
 from typing import Optional
 
-from fastapi import APIRouter, Depends, Query
+from fastapi import APIRouter, Depends, HTTPException, Query
 from pydantic import BaseModel
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -49,6 +49,8 @@ async def create_user(
     db: AsyncSession = Depends(get_db),
     current_user: User = Depends(require_role("super_admin", "hr_manager", "placement_officer")),
 ):
+    if data.role == UserRole.SUPER_ADMIN:
+        raise HTTPException(status_code=403, detail="Cannot assign Super Admin role")
     service = UserService(db)
     return await service.create(data)
 
@@ -60,6 +62,8 @@ async def update_user(
     db: AsyncSession = Depends(get_db),
     current_user: User = Depends(require_role("super_admin", "hr_manager", "placement_officer")),
 ):
+    if data.role == UserRole.SUPER_ADMIN:
+        raise HTTPException(status_code=403, detail="Cannot assign Super Admin role")
     service = UserService(db)
     return await service.update(user_id, data)
 
