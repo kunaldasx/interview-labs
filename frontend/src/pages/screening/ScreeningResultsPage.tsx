@@ -38,7 +38,7 @@ export default function ScreeningResultsPage() {
 
   const { data: candidates } = useQuery({
     queryKey: ['candidates', 'job', jobId],
-    queryFn: () => candidatesAPI.list({ job_id: Number(jobId), page_size: 200 }),
+    queryFn: () => candidatesAPI.list({ job_id: Number(jobId), page_size: 100 }),
     enabled: !!jobId,
   });
 

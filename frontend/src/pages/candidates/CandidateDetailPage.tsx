@@ -61,7 +61,7 @@ export default function CandidateDetailPage() {
   // Fetch jobs list (for job selector when candidate has no job_id)
   const { data: jobsList } = useQuery({
     queryKey: ['jobs'],
-    queryFn: () => jobsAPI.list({ page_size: 200 }),
+    queryFn: () => jobsAPI.list({ page_size: 100 }),
     enabled: !!candidate?.resume_text && !candidate?.job_id,
   });
 
