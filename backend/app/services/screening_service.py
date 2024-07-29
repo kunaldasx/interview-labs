@@ -39,7 +39,7 @@ class ScreeningService:
             required_skills=skills_list,
             experience_min=job.experience_min,
             experience_max=job.experience_max,
-            education_level=job.education_level or "",
+            education_level=getattr(job, 'education_level', '') or "",
         )
 
         # Map recommendation
