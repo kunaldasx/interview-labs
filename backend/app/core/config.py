@@ -4,12 +4,12 @@ from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     # App
-    APP_NAME: str = "HireGlint"
+    APP_NAME: str = "InterviewLabs"
     APP_ENV: str = "development"
     APP_DEBUG: bool = True
 
     # Database
-    DATABASE_URL: str = "postgresql+asyncpg://interview_admin:changeme_in_production@localhost:5433/AI_HIRE_EZ"
+    DATABASE_URL: str = "postgresql+asyncpg://interview_admin:changeme_in_production@localhost:5433/Interview_Labs"
 
     # Redis
     REDIS_URL: str = "redis://localhost:6380/0"
@@ -38,7 +38,7 @@ class Settings(BaseSettings):
     SMTP_PORT: int = 465
     SMTP_USER: Optional[str] = None
     SMTP_PASSWORD: Optional[str] = None
-    FROM_EMAIL: str = "admin@hireglint.net"
+    FROM_EMAIL: str = "admin@interviewLabs.net"
 
     # SMS
     TWILIO_ACCOUNT_SID: Optional[str] = None

@@ -1,6 +1,6 @@
-# HireGlint - AI Interview Platform for Non-IT Industries
+# InterviewLabs - AI Interview Platform for Non-IT Industries
 
-HireGlint is an AI-powered interview platform purpose-built for **32 non-IT industry domains** across Healthcare, Finance, Manufacturing, Logistics, and Engineering. It automates the full hiring pipeline — from resume screening and question generation to conducting voice + chat interviews and evaluating candidates.
+InterviewLabs is an AI-powered interview platform purpose-built for **32 non-IT industry domains** across Healthcare, Finance, Manufacturing, Logistics, and Engineering. It automates the full hiring pipeline — from resume screening and question generation to conducting voice + chat interviews and evaluating candidates.
 
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.109-009688?logo=fastapi&logoColor=white)
@@ -14,6 +14,7 @@ HireGlint is an AI-powered interview platform purpose-built for **32 non-IT indu
 ## Features
 
 ### Core Modules
+
 - **Registration & Auth** — JWT-based authentication with 4 roles: Super Admin, HR Manager, Interviewer, Candidate
 - **Resume Screening** — AI-powered resume parsing and scoring against job requirements
 - **JD Management** — Create and manage job descriptions with domain-specific requirements
@@ -25,22 +26,24 @@ HireGlint is an AI-powered interview platform purpose-built for **32 non-IT indu
 - **Notifications** — Email (SendGrid) and SMS (Twilio) notifications for interview scheduling
 
 ### Industry Domains (32)
-| Healthcare | Finance | Manufacturing | Logistics | Engineering |
-|---|---|---|---|---|
-| Nursing | Banking | Quality Control | Warehouse Mgmt | Civil |
-| Pharmacy | Insurance | Production Mgmt | Transportation | Mechanical |
-| Medical Tech | Accounting | Supply Chain | Freight Forwarding | Electrical |
-| Healthcare Admin | Financial Planning | Industrial Safety | Inventory Mgmt | Chemical |
-| Physical Therapy | Auditing | Lean Manufacturing | Last Mile Delivery | Environmental |
-| Dental Hygiene | | Process Engineering | | Structural |
-| | | | | Project Mgmt |
-| | | | | Construction Mgmt |
-| | | | | Industrial |
-| | | | | Biomedical |
+
+| Healthcare       | Finance            | Manufacturing       | Logistics          | Engineering       |
+| ---------------- | ------------------ | ------------------- | ------------------ | ----------------- |
+| Nursing          | Banking            | Quality Control     | Warehouse Mgmt     | Civil             |
+| Pharmacy         | Insurance          | Production Mgmt     | Transportation     | Mechanical        |
+| Medical Tech     | Accounting         | Supply Chain        | Freight Forwarding | Electrical        |
+| Healthcare Admin | Financial Planning | Industrial Safety   | Inventory Mgmt     | Chemical          |
+| Physical Therapy | Auditing           | Lean Manufacturing  | Last Mile Delivery | Environmental     |
+| Dental Hygiene   |                    | Process Engineering |                    | Structural        |
+|                  |                    |                     |                    | Project Mgmt      |
+|                  |                    |                     |                    | Construction Mgmt |
+|                  |                    |                     |                    | Industrial        |
+|                  |                    |                     |                    | Biomedical        |
 
 Each domain ships with **25+ pre-seeded interview questions** covering technical, behavioral, and situational categories.
 
 ### Modern UI
+
 - Glassmorphism effects, gradient backgrounds, and floating decorative elements
 - Micro-interactions: hover-lift cards, button press effects, staggered entrance animations
 - Gradient sidebar with glow logo and active state indicators
@@ -49,6 +52,7 @@ Each domain ships with **25+ pre-seeded interview questions** covering technical
 - Responsive design with TailwindCSS
 
 ### Pricing Page
+
 - 3 subscription tiers: Starter, Professional, Enterprise
 - Currency toggle: INR, USD, EUR, GBP
 - Monthly / Annual billing with 20% annual discount
@@ -58,22 +62,22 @@ Each domain ships with **25+ pre-seeded interview questions** covering technical
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| **Frontend** | React 18, TypeScript, Vite, TailwindCSS, React Router, TanStack Query, Recharts, Zustand |
-| **Backend** | FastAPI, SQLModel, SQLAlchemy (async), Pydantic, Alembic |
-| **Database** | PostgreSQL 16 (asyncpg), Redis 7 |
-| **AI** | OpenAI GPT-4 (question generation, evaluation, screening), Whisper STT, TTS |
-| **Task Queue** | Celery + Redis |
-| **Auth** | JWT (access + refresh tokens), bcrypt password hashing, role-based access control |
-| **Deploy** | Docker Compose, Nginx reverse proxy |
+| Layer          | Technology                                                                               |
+| -------------- | ---------------------------------------------------------------------------------------- |
+| **Frontend**   | React 18, TypeScript, Vite, TailwindCSS, React Router, TanStack Query, Recharts, Zustand |
+| **Backend**    | FastAPI, SQLModel, SQLAlchemy (async), Pydantic, Alembic                                 |
+| **Database**   | PostgreSQL 16 (asyncpg), Redis 7                                                         |
+| **AI**         | OpenAI GPT-4 (question generation, evaluation, screening), Whisper STT, TTS              |
+| **Task Queue** | Celery + Redis                                                                           |
+| **Auth**       | JWT (access + refresh tokens), bcrypt password hashing, role-based access control        |
+| **Deploy**     | Docker Compose, Nginx reverse proxy                                                      |
 
 ---
 
 ## Project Structure
 
 ```
-HireEz_repo/
+interview-labs/
 ├── backend/
 │   ├── app/
 │   │   ├── api/v1/          # REST API endpoints
@@ -111,6 +115,7 @@ HireEz_repo/
 ## Getting Started
 
 ### Prerequisites
+
 - Docker & Docker Compose
 - Node.js 18+ (for local frontend dev)
 - Python 3.11+ (for local backend dev)
@@ -120,8 +125,8 @@ HireEz_repo/
 
 ```bash
 # Clone the repo
-git clone https://github.com/digitalkookiehub/HireEz_repo.git
-cd HireEz_repo
+git clone https://github.com/kunaldasx/interview-labs.git
+cd interview-labs
 
 # Create environment file
 cp .env.example .env
@@ -132,6 +137,7 @@ docker-compose -f docker-compose.dev.yml up --build
 ```
 
 The app will be available at:
+
 - **Frontend**: http://localhost:3000
 - **Backend API**: http://localhost:8000
 - **API Docs**: http://localhost:8000/docs
@@ -170,16 +176,16 @@ python -m app.seeds.seed_runner
 
 All endpoints are versioned under `/api/v1/`.
 
-| Module | Endpoints | Auth |
-|---|---|---|
-| Auth | `POST /auth/register`, `POST /auth/login`, `POST /auth/refresh` | Public |
-| Jobs | `GET /jobs`, `POST /jobs`, `GET /jobs/:id` | Protected |
-| Candidates | `GET /candidates`, `POST /candidates`, `GET /candidates/:id` | Protected |
-| Interviews | `GET /interviews`, `POST /interviews/schedule`, `WS /interviews/:id/ws` | Protected |
-| Evaluations | `GET /evaluations/:id`, `POST /evaluations` | Protected |
-| Dashboard | `GET /dashboard/kpis`, `GET /dashboard/trends` | Protected |
-| Reports | `GET /reports/export/pdf`, `GET /reports/export/excel` | Admin |
-| Domains | `GET /domains`, `GET /domains/:id/questions` | Protected |
+| Module      | Endpoints                                                               | Auth      |
+| ----------- | ----------------------------------------------------------------------- | --------- |
+| Auth        | `POST /auth/register`, `POST /auth/login`, `POST /auth/refresh`         | Public    |
+| Jobs        | `GET /jobs`, `POST /jobs`, `GET /jobs/:id`                              | Protected |
+| Candidates  | `GET /candidates`, `POST /candidates`, `GET /candidates/:id`            | Protected |
+| Interviews  | `GET /interviews`, `POST /interviews/schedule`, `WS /interviews/:id/ws` | Protected |
+| Evaluations | `GET /evaluations/:id`, `POST /evaluations`                             | Protected |
+| Dashboard   | `GET /dashboard/kpis`, `GET /dashboard/trends`                          | Protected |
+| Reports     | `GET /reports/export/pdf`, `GET /reports/export/excel`                  | Admin     |
+| Domains     | `GET /domains`, `GET /domains/:id/questions`                            | Protected |
 
 Full interactive docs available at `/docs` (Swagger UI) when the backend is running.
 
@@ -187,12 +193,12 @@ Full interactive docs available at `/docs` (Swagger UI) when the backend is runn
 
 ## User Roles
 
-| Role | Permissions |
-|---|---|
+| Role            | Permissions                                                  |
+| --------------- | ------------------------------------------------------------ |
 | **Super Admin** | Full access: all modules, domain management, user management |
-| **HR Manager** | Jobs, candidates, interviews, reports, settings |
-| **Interviewer** | Conduct interviews, view assigned candidates |
-| **Candidate** | Take interviews, view own results |
+| **HR Manager**  | Jobs, candidates, interviews, reports, settings              |
+| **Interviewer** | Conduct interviews, view assigned candidates                 |
+| **Candidate**   | Take interviews, view own results                            |
 
 ---
 
@@ -200,14 +206,14 @@ Full interactive docs available at `/docs` (Swagger UI) when the backend is runn
 
 Copy `.env.example` to `.env` and configure:
 
-| Variable | Description |
-|---|---|
-| `DATABASE_URL` | PostgreSQL connection string (asyncpg) |
-| `REDIS_URL` | Redis connection string |
-| `JWT_SECRET_KEY` | Secret for JWT token signing |
-| `OPENAI_API_KEY` | OpenAI API key for GPT-4 and Whisper |
-| `SENDGRID_API_KEY` | SendGrid key for email notifications |
-| `TWILIO_*` | Twilio credentials for SMS notifications |
+| Variable           | Description                              |
+| ------------------ | ---------------------------------------- |
+| `DATABASE_URL`     | PostgreSQL connection string (asyncpg)   |
+| `REDIS_URL`        | Redis connection string                  |
+| `JWT_SECRET_KEY`   | Secret for JWT token signing             |
+| `OPENAI_API_KEY`   | OpenAI API key for GPT-4 and Whisper     |
+| `SENDGRID_API_KEY` | SendGrid key for email notifications     |
+| `TWILIO_*`         | Twilio credentials for SMS notifications |
 
 ---
 

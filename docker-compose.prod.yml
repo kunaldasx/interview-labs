@@ -4,14 +4,14 @@ services:
     restart: unless-stopped
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: HireEz2026
-      POSTGRES_DB: hireez
+      POSTGRES_PASSWORD: interviewLabs2026
+      POSTGRES_DB: interviewLabs
     volumes:
       - postgres_data:/var/lib/postgresql/data
     expose:
       - "5432"
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d hireez"]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d interviewLabs"]
       interval: 10s
       timeout: 5s
       retries: 5
